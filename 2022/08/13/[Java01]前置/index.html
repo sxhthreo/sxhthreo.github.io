@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="4.数学知识, ShiQuLiZhi&#39;s Zone">
+    <meta name="keywords" content="1.JavaWeb前置知识, ShiQuLiZhi&#39;s Zone">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>4.数学知识 | ShiQuLiZhi&#39;s Zone</title>
+    <title>1.JavaWeb前置知识 | ShiQuLiZhi&#39;s Zone</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -259,7 +259,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">4.数学知识</h1>
+                    <h1 class="description center-align post-title">1.JavaWeb前置知识</h1>
                 </div>
             </div>
         </div>
@@ -375,9 +375,9 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Algorithm/">
+                                <a href="/tags/Java/">
                                     <span class="chip bg-color">
-                                        Algorithm
+                                        Java
                                     </span>
                                 </a>
                                 
@@ -410,7 +410,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            436
+                                            430
                                     </div>
                                     
 
@@ -418,7 +418,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    2
+                                                    1
                                                         分
                                             </div>
                                             
@@ -451,67 +451,91 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="一、质数"><a href="#一、质数" class="headerlink" title="一、质数"></a>一、质数</h1><p>在大于1的整数中，如果只包含1和本身这两个约数，就被称为质数/素数。</p>
-<h2 id="1-1-质数的判定"><a href="#1-1-质数的判定" class="headerlink" title="1.1 质数的判定"></a>1.1 质数的判定</h2><p><strong>试除法判定质数</strong>：若<code>d|n</code>，则<code>n/d|n</code>。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">is_prime</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="1-2-分解质因数"><a href="#1-2-分解质因数" class="headerlink" title="1.2 分解质因数"></a>1.2 分解质因数</h2><p><strong>试除法分解质因数</strong>：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">divide</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>		<span class="token comment">//若此条件成立,i一定是质数</span>
-        <span class="token punctuation">&#123;</span>
-            <span class="token keyword">int</span> s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> x <span class="token operator">/=</span> i<span class="token punctuation">,</span> s <span class="token operator">++</span> <span class="token punctuation">;</span>
-            cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>	<span class="token comment">//单独处理,唯一一个大于sqrt(n)的质因子</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p><strong>注</strong>：</p>
+                                <h1 id="1-利用断言来进行测试"><a href="#1-利用断言来进行测试" class="headerlink" title="1 利用断言来进行测试"></a>1 利用断言来进行测试</h1><ol>
+<li>定义一个测试类(测试用例)</li>
+</ol>
 <ul>
-<li>若<code>x % i = 0</code>成立，则已经将在<code>i = 2~ (n - 1)</code>中的所有质因子除尽，<code>i</code>不包含其中的所有质因子，故<code>i</code>一定是质数；</li>
-<li><code>n</code>中最多只包含一个大于<code>sqrt(n)</code>的质因子；</li>
-<li>当<code>n = 2^k</code>时，时间复杂度为<code>O(log n)</code>，而最坏时间复杂度为<code>O(sqrt(n))</code>，平均情况是介于两者之间。</li>
+<li>建议：<ul>
+<li>测试类名：被测试的类名Test        CalculatorTest</li>
+<li>包名：xxx.xxx.xx.test        cn.itcast.test</li>
 </ul>
-</blockquote>
-<h2 id="1-3-求素数"><a href="#1-3-求素数" class="headerlink" title="1.3 求素数"></a>1.3 求素数</h2><p><strong>朴素筛法求素数</strong>：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> primes<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> cnt<span class="token punctuation">;</span>     <span class="token comment">// primes[]存储所有素数</span>
-<span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>         <span class="token comment">// st[x]存储x是否被筛掉</span>
+</li>
+</ul>
+<ol>
+<li>定义测试方法：可以独立运行</li>
+</ol>
+<ul>
+<li><p>建议：</p>
+<ul>
+<li><p>方法名：test测试的方法名        testAdd()  </p>
+</li>
+<li><p>返回值：void</p>
+</li>
+<li><p>参数列表：空参</p>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>给方法加@Test</li>
+<li>导入<strong>junit</strong>依赖环境</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">No1</span><span class="token punctuation">;</span>
 
-<span class="token keyword">void</span> <span class="token function">get_primes</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>st<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>	<span class="token comment">//被筛过</span>
-        primes<span class="token punctuation">[</span>cnt <span class="token operator">++</span> <span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> j <span class="token operator">+=</span> i<span class="token punctuation">)</span>
-            st<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>线性筛法求素数</strong>：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> primes<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> cnt<span class="token punctuation">;</span>     <span class="token comment">// primes[]存储所有素数</span>
-<span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>         <span class="token comment">// st[x]存储x是否被筛掉</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Assert</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span></span><span class="token class-name">Test</span></span><span class="token punctuation">;</span>
 
-<span class="token keyword">void</span> <span class="token function">get_primes</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Calculator</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> primes<span class="token punctuation">[</span>cnt <span class="token operator">++</span> <span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> n <span class="token operator">/</span> i<span class="token punctuation">;</span> j <span class="token operator">++</span> <span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            st<span class="token punctuation">[</span>primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">*</span> i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token class-name">TestAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token comment">//1.创建计算器对象</span>
+        <span class="token class-name">Calculator</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Calculator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//2.调用add方法</span>
+        <span class="token keyword">int</span> result <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//3.断言</span>
+        <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>@Before：修饰的方法会在测试方法之前被自动执行</li>
+<li>@After：修饰的方法会在测试方法执行之后自动被执行</li>
+</ul>
+<h1 id="2-反射"><a href="#2-反射" class="headerlink" title="2 反射"></a>2 反射</h1><ul>
+<li>框架：半成品软件。可以在框架的基础上进行软件开发，简化编码</li>
+<li><p>反射：将类的各个组成部分封装为其他对象，这就是反射机制</p>
+<ul>
+<li>好处：<ol>
+<li>可以在程序运行过程中，操作这些对象。</li>
+<li>可以解耦，提高程序的可扩展性。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>获取Class对象的方式：</p>
+<ol>
+<li><strong>Class.forName(“全类名”)</strong>：将字节码文件加载进内存，返回Class对象<ul>
+<li>多用于配置文件，将类名定义在配置文件中。读取文件，加载类</li>
+</ul>
+</li>
+<li><strong>类名.class</strong>：通过类名的属性class获取<ul>
+<li>多用于参数的传递</li>
+</ul>
+</li>
+<li><strong>对象.getClass()</strong>：getClass()方法在Object类中定义着。<ul>
+<li>多用于对象的获取字节码的方式</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>结论：<br>  同一个字节码文件(*.class)在一次程序运行过程中，只会被加载一次，不论通过哪一种方式获取的Class对象都是同一个。</li>
+</ul>
+</li>
+</ul>
 
                                     
                             </div>
@@ -538,7 +562,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/08/13/4.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">https://sxhthreo.github.io/2022/08/13/4.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</a>
+                    <a href="https://sxhthreo.github.io/2022/08/13/%5BJava01%5D%E5%89%8D%E7%BD%AE/">https://sxhthreo.github.io/2022/08/13/%5BJava01%5D%E5%89%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -576,9 +600,9 @@
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/Algorithm/">
+                                                    <a href="/tags/Java/">
                                                         <span class="chip bg-color">
-                                                            Algorithm
+                                                            Java
                                                         </span>
                                                     </a>
                                                     
@@ -624,18 +648,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/13/4.%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">
+                <a href="/2022/08/13/%5B%E7%AE%97%E6%B3%9502%5D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="4.数学知识">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="2.数据结构">
                         
-                        <span class="card-title">4.数学知识</span>
+                        <span class="card-title">2.数据结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -645,9 +668,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -656,7 +679,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -675,13 +697,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/13/3.%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/">
+                <a href="/2022/08/13/%5BJava02%5DJavaScript/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="3.搜索与图论">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="2.JavaScri">
                         
-                        <span class="card-title">3.搜索与图论</span>
+                        <span class="card-title">2.JavaScri</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -705,8 +727,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -919,7 +941,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.5k</span>&nbsp;字
+                class="white-color">38.9k</span>&nbsp;字
             
             
             
