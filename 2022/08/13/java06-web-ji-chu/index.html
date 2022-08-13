@@ -2028,7 +2028,7 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
 
             // we need a <pre> tag workaround.
             // otherwise the text inside "pre" loses all the line breaks!
-            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
                 newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
             }
 

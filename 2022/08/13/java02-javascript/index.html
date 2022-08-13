@@ -1722,7 +1722,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 
             // we need a <pre> tag workaround.
             // otherwise the text inside "pre" loses all the line breaks!
-            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
                 newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
             }
 
