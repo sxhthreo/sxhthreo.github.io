@@ -4,15 +4,37 @@
   <meta charset="utf-8">
   
   
-  <title>ShiQuLiZhi的blog</title>
+  <title>算法基础 | ShiQuLiZhi的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ShiQuLiZhi的blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="算法笔记  【1.基础算法】一、排序算法1.1 快速排序 确定分界点x：q[1]、q[(1+r)&#x2F;2]、q[r]、随机 调整区间：保证所有小于等于x的数在x的左区间，大于等于x的数在x的右区间 递归处理左右两段  调整区间可实现的方法： 方法1  开额外的数组a[]、b[] 扫描q[1-r] 当$q[i]\leq x$时，将x插入到a[] 当$q[i]\geq x$时，将x插入到b[]   分别将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法基础">
+<meta property="og:url" content="http://example.com/2022/08/13/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="ShiQuLiZhi的blog">
+<meta property="og:description" content="算法笔记  【1.基础算法】一、排序算法1.1 快速排序 确定分界点x：q[1]、q[(1+r)&#x2F;2]、q[r]、随机 调整区间：保证所有小于等于x的数在x的左区间，大于等于x的数在x的右区间 递归处理左右两段  调整区间可实现的方法： 方法1  开额外的数组a[]、b[] 扫描q[1-r] 当$q[i]\leq x$时，将x插入到a[] 当$q[i]\geq x$时，将x插入到b[]   分别将">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220720214820406.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d5c3f1c28583919e9686dce526d94866.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722160459614.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722162509157.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722171706570.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722222255815.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722222346120.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220723212053110.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220723223002534.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220724161401751.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220724232309449.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220727164858902.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220727211718696.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220727211246336.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220802160521020.png">
+<meta property="og:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220802160530398.png">
+<meta property="article:published_time" content="2022-08-13T04:14:45.000Z">
+<meta property="article:modified_time" content="2022-08-13T04:15:58.906Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220720214820406.png">
   
     <link rel="alternate" href="/atom.xml" title="ShiQuLiZhi的blog" type="application/atom+xml">
   
@@ -69,9 +91,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-算法基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-算法基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/08/13/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" class="article-date">
   <time class="dt-published" datetime="2022-08-13T04:14:45.000Z" itemprop="datePublished">2022-08-13</time>
@@ -84,8 +104,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/13/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      算法基础
     </h1>
   
 
@@ -613,62 +633,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/13/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2022-08-13T03:51:22.802Z" itemprop="datePublished">2022-08-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/13/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2022/08/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/13/hello-world/" data-id="cl6rd4p5500006gvbca40e0s0" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
