@@ -1324,11 +1324,21 @@ thead {
     color: #34495e;
 }
 
+.chip-container .chip:hover {
+    color: #2ea451;
+    opacity: .8;
+}
+
 .chip-container .chip-active {
+    color: #2ea451 !important;
+    box-shadow: 2px 5px 10px #aaa !important;
+}
+
+/* .chip-container .chip-active {
     color: #FFF !important;
     background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%) !important;
     box-shadow: 2px 5px 10px #aaa !important;
-}
+} */
 
 .chip-container .chip {
     margin: 10px 10px;
@@ -1343,10 +1353,10 @@ thead {
     z-index: 0;
 }
 
-.chip-container .chip:hover {
-    color: #fff;
+/* .chip-container .chip:hover {
+    color: rgb(191, 73, 73);
     background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%) !important;
-}
+} */
 
 .chip .tag-length {
     margin-left: 5px;
