@@ -295,6 +295,19 @@
 </header>
 
                         
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -1046,8 +1059,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Computer-Network/" class="post-category">
-                                    Computer Network
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/" class="post-category">
+                                    计算机学科理论
                                 </a>
                             
                             
@@ -1061,8 +1074,8 @@
                         <span class="chip bg-color">计算机网络</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/">
-                        <span class="chip bg-color">计算机学科理论</span>
+                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">理论知识</span>
                     </a>
                     
                 </div>
@@ -1365,7 +1378,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.1k</span>&nbsp;字
+                class="white-color">172.2k</span>&nbsp;字
             
             
             

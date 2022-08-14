@@ -295,6 +295,19 @@
 </header>
 
                         
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -425,9 +438,9 @@
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/">
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
                                     <span class="chip bg-color">
-                                        计算机学科理论
+                                        理论知识
                                     </span>
                                 </a>
                                 
@@ -439,8 +452,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/Computer-Network/" class="post-category">
-                                    Computer Network
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/" class="post-category">
+                                    计算机学科理论
                                 </a>
                                 
                         </div>
@@ -2645,9 +2658,9 @@ port <span class="token keyword">default</span> vlan <span class="token number">
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/">
+                                                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
                                                         <span class="chip bg-color">
-                                                            计算机学科理论
+                                                            理论知识
                                                         </span>
                                                     </a>
                                                     
@@ -3023,18 +3036,17 @@ port <span class="token keyword">default</span> vlan <span class="token number">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/13/ji-suan-ji-wang-luo-li-lun/">
+                <a href="/2022/08/14/cao-zuo-xi-tong-li-lun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="计算机网络理论">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="操作系统理论">
                         
-                        <span class="card-title">计算机网络理论</span>
+                        <span class="card-title">操作系统理论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -3044,31 +3056,26 @@ port <span class="token keyword">default</span> vlan <span class="token number">
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Computer-Network/" class="post-category">
-                                    Computer Network
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/" class="post-category">
+                                    计算机学科理论
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/">
-                        <span class="chip bg-color">计算机学科理论</span>
+                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">理论知识</span>
                     </a>
                     
                 </div>
@@ -3371,7 +3378,7 @@ port <span class="token keyword">default</span> vlan <span class="token number">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.1k</span>&nbsp;字
+                class="white-color">172.2k</span>&nbsp;字
             
             
             
