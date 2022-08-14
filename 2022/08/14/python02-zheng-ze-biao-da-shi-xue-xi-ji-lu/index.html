@@ -528,7 +528,7 @@
 <p><strong>正则表达式验证网站</strong>：<a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></p>
 <p><strong>Python学习网站</strong>：<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/py/extra/regex/">https://www.byhy.net/tut/py/extra/regex/</a></p>
 <h1 id="二、正则表达式基础语法"><a href="#二、正则表达式基础语法" class="headerlink" title="二、正则表达式基础语法"></a>二、正则表达式基础语法</h1><h2 id="2-1-点-匹配所有字符"><a href="#2-1-点-匹配所有字符" class="headerlink" title="2.1 点-匹配所有字符"></a>2.1 点-匹配所有字符</h2><p><code>.</code> 表示要匹配除了 <code>换行符</code> 之外的任何 <code>单个</code> 字符。</p>
-<p><img src="https://cdn2.byhy.net/imgs/gh/36462795_52954564-81288100-33c5-11e9-84a7-27b990bea671.png" alt="image"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000649238.png" alt="image-20220815000649238"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''苹果是绿色的
 橙子是橙色的
 香蕉是黄色的
@@ -549,7 +549,7 @@ p <span class="token operator">=</span> re<span class="token punctuation">.</spa
 
 <p>就可以这样写正则表达式 <code>，.*</code> 。</p>
 <p>在这里，紧跟在<code>.</code>后面，表示任意字符可以出现任意次， 所以整个表达式的意思就是在逗号后面的所有字符，包括逗号</p>
-<p><img src="https://cdn2.byhy.net/imgs/gh/36462795_52955690-4411be00-33c8-11e9-9ac2-d88b3b84f8aa.png" alt="image"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000704758.png" alt="image-20220815000704758"></p>
 <h2 id="2-3-加号-重复匹配多次"><a href="#2-3-加号-重复匹配多次" class="headerlink" title="2.3 加号-重复匹配多次"></a>2.3 加号-重复匹配多次</h2><p><code>+</code> 表示匹配前面的子表达式一次或多次，不包括0次。</p>
 <p>比如，下面的文本中，最后一行逗号后面 没有内容，就不要选择了。</p>
 <pre class="line-numbers language-none"><code class="language-none">苹果，是绿色的
@@ -559,7 +559,7 @@ p <span class="token operator">=</span> re<span class="token punctuation">.</spa
 猴子，<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>就可以这样写正则表达式 <code>，.+</code> 。</p>
-<p><img src="https://cdn2.byhy.net/imgs/gh/36462795_52956085-504a4b00-33c9-11e9-86af-66b4d4f9a1f1.png" alt="image"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000719290.png" alt="image-20220815000719290"></p>
 <h2 id="2-4-问号-匹配0-1次"><a href="#2-4-问号-匹配0-1次" class="headerlink" title="2.4 问号-匹配0-1次"></a>2.4 问号-匹配0-1次</h2><p><code>?</code> 表示匹配前面的子表达式0次或1次。</p>
 <p>比如，还是上面的例子，你要从文本中，选择每行逗号后面的1个字符，也包括逗号本身。</p>
 <pre class="line-numbers language-none"><code class="language-none">苹果，绿色的
@@ -569,7 +569,7 @@ p <span class="token operator">=</span> re<span class="token punctuation">.</spa
 猴子，<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>就可以这样写正则表达式 <code>，.?</code> 。</p>
-<p><img src="https://cdn2.byhy.net/imgs/gh/36462795_52956624-b1bee980-33ca-11e9-99eb-fbf45bb41ac3.png" alt="image"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000734825.png" alt="image-20220815000734825"></p>
 <h2 id="2-5-花括号-匹配指定次数"><a href="#2-5-花括号-匹配指定次数" class="headerlink" title="2.5 花括号-匹配指定次数"></a>2.5 花括号-匹配指定次数</h2><p>花括号表示前面的字符匹配<code>指定的次数</code> 。</p>
 <p>比如 ，下面的文本</p>
 <pre class="line-numbers language-none"><code class="language-none">红彤彤，绿油油，黑乎乎，绿油油油油<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -577,7 +577,7 @@ p <span class="token operator">=</span> re<span class="token punctuation">.</spa
 <p>表达式 <code>油&#123;3&#125;</code> 就表示匹配 连续的 油 字 3次</p>
 <p>表达式 <code>油&#123;3,4&#125;</code> 就表示匹配 连续的 油 字 至少3次，至多 4 次</p>
 <p>就只能匹配 后面的，如下所示：</p>
-<p><img src="https://cdn2.byhy.net/imgs/gh/36462795_53021674-b8b22e80-3494-11e9-8cea-75de569a924e.png" alt="image"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000752884.png" alt="image-20220815000752884"></p>
 <h2 id="2-6-贪婪模式和非贪婪模式"><a href="#2-6-贪婪模式和非贪婪模式" class="headerlink" title="2.6 贪婪模式和非贪婪模式"></a>2.6 贪婪模式和非贪婪模式</h2><p>我们要把下面的字符串中的所有html标签都提取出来，</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">source <span class="token operator">=</span> <span class="token string">'&lt;html>&lt;head>&lt;title>Title&lt;/title>'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -736,7 +736,7 @@ p <span class="token operator">=</span> re<span class="token punctuation">.</spa
 <p>因为单行模式下，<code>$</code>只会匹配整个文本的结束位置。</p>
 <h2 id="2-10-竖线-匹配其中之一"><a href="#2-10-竖线-匹配其中之一" class="headerlink" title="2.10 竖线-匹配其中之一"></a>2.10 竖线-匹配其中之一</h2><p>竖线表示匹配其中之一 。</p>
 <p>比如 ，</p>
-<p><img src="https://cdn2.byhy.net/imgs/gh/36462795_53060289-ec24a580-34f4-11e9-83e6-1f5ce2e0454d.png" alt="image"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000806296.png" alt="image-20220815000806296"></p>
 <p>特别要注意的是， 竖线在正则表达式的优先级是最低的， 这就意味着，竖线隔开的部分是一个整体</p>
 <p>比如 <code>绿色|橙</code> 表示 要匹配是 <code>绿色</code> 或者 <code>橙</code> ，</p>
 <p>而不是 <code>绿色</code> 或者 <code>绿橙</code>。</p>
@@ -756,8 +756,8 @@ p <span class="token operator">=</span> re<span class="token punctuation">.</spa
 <p>但是把逗号放在正则表达式中，又会包含逗号。</p>
 <p>解决问题的方法就是使用 组选择符 ： 括号。</p>
 <p>我们这样写 <code>^(.*)，</code> ，结果如下</p>
-<p><img src="https://cdn2.byhy.net/imgs/gh/36462795_53064975-ba1b3f80-3504-11e9-936a-d86f5808aa95.png" alt="image"></p>
-<p>大家可以发现，我们把要从整个表达式中提取的部分放在括号中，这样 水果 的名字 就被单独的放在组<code>group</code>中了。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000820723.png" alt="image-20220815000820723"></p>
+<p>可以发现，我们把要从整个表达式中提取的部分放在括号中，这样 水果 的名字 就被单独的放在组<code>group</code>中了。</p>
 <p>对应的Python代码如下</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''苹果，苹果是绿色的
 橙子，橙子是橙色的
