@@ -85,6 +85,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/goodpapers" class="waves-effect waves-light">
       
       <i class="fas fa-coffee" style="zoom: 0.6;"></i>
@@ -160,6 +171,17 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
 		</a>
           
         </li>
@@ -397,9 +419,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Algorithm/">
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">
-                                        Algorithm
+                                        算法
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">
+                                        数据结构
                                     </span>
                                 </a>
                                 
@@ -408,6 +436,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                                
+                        </div>
+                        
                 </div>
             </div>
 
@@ -424,7 +461,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-08-13
+                                    2022-08-14
                             </div>
                             
 
@@ -432,7 +469,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            437
+                                            436
                                     </div>
                                     
 
@@ -473,7 +510,7 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="一、质数"><a href="#一、质数" class="headerlink" title="一、质数"></a>一、质数</h1><p>在大于1的整数中，如果只包含1和本身这两个约数，就被称为质数&#x2F;素数。</p>
+                                <h1 id="一、质数"><a href="#一、质数" class="headerlink" title="一、质数"></a>一、质数</h1><p>在大于1的整数中，如果只包含1和本身这两个约数，就被称为质数/素数。</p>
 <h2 id="1-1-质数的判定"><a href="#1-1-质数的判定" class="headerlink" title="1.1 质数的判定"></a>1.1 质数的判定</h2><p><strong>试除法判定质数</strong>：若<code>d|n</code>，则<code>n/d|n</code>。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">is_prime</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -483,7 +520,6 @@
             <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="1-2-分解质因数"><a href="#1-2-分解质因数" class="headerlink" title="1.2 分解质因数"></a>1.2 分解质因数</h2><p><strong>试除法分解质因数</strong>：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">divide</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -497,7 +533,6 @@
     <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>	<span class="token comment">//单独处理,唯一一个大于sqrt(n)的质因子</span>
     cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p><strong>注</strong>：</p>
 <ul>
@@ -520,7 +555,6 @@
             st<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>线性筛法求素数</strong>：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> primes<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> cnt<span class="token punctuation">;</span>     <span class="token comment">// primes[]存储所有素数</span>
 <span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>         <span class="token comment">// st[x]存储x是否被筛掉</span>
@@ -537,7 +571,6 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                                     
                             </div>
@@ -602,9 +635,15 @@
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/Algorithm/">
+                                                    <a href="/tags/%E7%AE%97%E6%B3%95/">
                                                         <span class="chip bg-color">
-                                                            Algorithm
+                                                            算法
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                                        <span class="chip bg-color">
+                                                            数据结构
                                                         </span>
                                                     </a>
                                                     
@@ -1005,8 +1044,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ShiQuLiZhi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Computer-Network/" class="post-category">
+                                    Computer Network
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1014,8 +1057,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Computer-Network/">
-                        <span class="chip bg-color">Computer Network</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/">
+                        <span class="chip bg-color">计算机学科理论</span>
                     </a>
                     
                 </div>
@@ -1050,8 +1097,12 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ShiQuLiZhi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1059,8 +1110,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1310,7 +1365,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.5k</span>&nbsp;字
+                class="white-color">76.1k</span>&nbsp;字
             
             
             
@@ -1607,25 +1662,10 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>

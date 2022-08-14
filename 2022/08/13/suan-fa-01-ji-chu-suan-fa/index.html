@@ -85,6 +85,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/goodpapers" class="waves-effect waves-light">
       
       <i class="fas fa-coffee" style="zoom: 0.6;"></i>
@@ -160,6 +171,17 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
 		</a>
           
         </li>
@@ -397,9 +419,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Algorithm/">
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">
-                                        Algorithm
+                                        算法
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">
+                                        数据结构
                                     </span>
                                 </a>
                                 
@@ -408,6 +436,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                                
+                        </div>
+                        
                 </div>
             </div>
 
@@ -503,7 +540,6 @@
     <span class="token punctuation">&#125;</span>
     <span class="token function">quick_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> l<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="1-2-归并排序"><a href="#1-2-归并排序" class="headerlink" title="1.2 归并排序"></a>1.2 归并排序</h2><p>采用<strong>分治</strong>的思想。</p>
 <ul>
 <li><strong>确定分界点</strong>：<code>mid=(l+r)/2</code></li>
@@ -528,11 +564,10 @@
 
     <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> r<span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">,</span> j <span class="token operator">++</span> <span class="token punctuation">)</span> q<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h1 id="二、二分算法"><a href="#二、二分算法" class="headerlink" title="二、二分算法"></a>二、二分算法</h1><h2 id="2-1-整数二分算法"><a href="#2-1-整数二分算法" class="headerlink" title="2.1 整数二分算法"></a>2.1 整数二分算法</h2><p>检查一个数的范围是否满足某种性质，通过二分算法将一列数分为红色区间（满足性质）和绿色区间（不满足性质），找到<strong>边界</strong>。</p>
 <p><strong>二分并不是找某个数，而是找到符合条件的最小的数或最大的数。</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220720214820406.png" alt="image-20220720214820406"></p>
-<p><strong>Case1</strong>：二分红色区间分界点<code>mid=(l+r+1)/2</code>，<code>if(check(mid))</code>：&#x2F;&#x2F;检查<code>mid</code>是否满足某种性质</p>
+<p><strong>Case1</strong>：二分红色区间分界点<code>mid=(l+r+1)/2</code>，<code>if(check(mid))</code>：//检查<code>mid</code>是否满足某种性质</p>
 <ul>
 <li>若为<code>true</code>，则<code>mid</code>取在红色区间内，答案（区间）更新为<code>[mid,r]</code>，<code>l=mid</code>；</li>
 <li>若为<code>false</code>，则<code>mid</code>取在绿色区间内，答案（区间）更新为<code>[l,mid-1]</code>，<code>r=mid-1</code>。</li>
@@ -579,7 +614,6 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="2-2-浮点数二分算法"><a href="#2-2-浮点数二分算法" class="headerlink" title="2.2 浮点数二分算法"></a>2.2 浮点数二分算法</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">/* ... */</span><span class="token punctuation">&#125;</span> <span class="token comment">// 检查x是否满足某种性质</span>
 
 <span class="token keyword">double</span> <span class="token function">bsearch_3</span><span class="token punctuation">(</span><span class="token keyword">double</span> l<span class="token punctuation">,</span> <span class="token keyword">double</span> r<span class="token punctuation">)</span>
@@ -593,7 +627,6 @@
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> l<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -616,7 +649,6 @@
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lf\n"</span><span class="token punctuation">,</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h1 id="三、高精度"><a href="#三、高精度" class="headerlink" title="三、高精度"></a>三、高精度</h1><p>大整数通过<strong>数组</strong>存储，数组每一位存一位数字，<strong>小端形式</strong>。</p>
 <h2 id="3-1-高精度加法"><a href="#3-1-高精度加法" class="headerlink" title="3.1 高精度加法"></a>3.1 高精度加法</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// C = A + B, A >= 0, B >= 0</span>
 vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">add</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>A<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>B<span class="token punctuation">)</span>
@@ -636,7 +668,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">)</span> C<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> C<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>【知识点】<strong>C++ vector</strong>：</p>
 <p>vector是一个可以不用再初始化就必须制定大小的变长数组。</p>
 <ul>
@@ -652,11 +683,10 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 vector<span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token function">v8</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"hi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v9</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//默认初始化为0</span>
 vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v10</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//默认初始化为空字符串</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><strong>添加元素</strong>：</li>
 </ul>
-<p>通过**push_back()**添加元素，该元素添加到vector数组的末尾。</p>
+<p>通过<strong>push_back()</strong>添加元素，该元素添加到vector数组的末尾。</p>
 <ul>
 <li><strong>访问vector中的元素</strong>：</li>
 </ul>
@@ -664,7 +694,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 <span class="token punctuation">&#123;</span>
 	cout <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>   
 <span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>使用迭代器来访问元素：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span>string<span class="token operator">></span> v6 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token string">"hi"</span><span class="token punctuation">,</span><span class="token string">"my"</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"is"</span><span class="token punctuation">,</span><span class="token string">"lee"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token double-colon punctuation">::</span>iterator iter <span class="token operator">=</span> v6<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> iter <span class="token operator">!=</span> v6<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> iter<span class="token operator">++</span><span class="token punctuation">)</span>
@@ -674,7 +703,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 	cout <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token operator">*</span>iter<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 	cout <span class="token operator">&lt;&lt;</span> iter<span class="token operator">-></span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> 
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><strong>插入元素</strong>：</li>
 </ul>
@@ -704,7 +732,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><strong>删除元素</strong>：</li>
 </ul>
@@ -742,7 +769,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="3-2-高精度减法"><a href="#3-2-高精度减法" class="headerlink" title="3.2 高精度减法"></a>3.2 高精度减法</h2><p>$A_{3}A_{2}A_{1}A_{0}-B_{2}B_{1}B_{0}$</p>
 <p>对每位进行计算：$A_{i}-B_{i}-t$，有：</p>
 <ul>
@@ -769,7 +795,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token keyword">while</span> <span class="token punctuation">(</span>C<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> C<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> C<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> C<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -832,20 +857,19 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="3-3-高精度乘低精度"><a href="#3-3-高精度乘低精度" class="headerlink" title="3.3 高精度乘低精度"></a>3.3 高精度乘低精度</h2><p><strong>手算模拟</strong>：每个<strong>被乘数位</strong>与B的整体进行<strong>相乘</strong></p>
 <p>A 1 2 3</p>
 <p>B    1 2</p>
 <hr>
 <p>$C_{3}C_{2}C_{1}C_{0}$</p>
 <p>每位分别是：</p>
-<p>$C_{0}&#x3D;(3*12)%10&#x3D;6$</p>
-<p>$t_{1}&#x3D;(3*12)&#x2F;10&#x3D;3$</p>
-<p>$C_{1}&#x3D;(2*12+t_{1})%10&#x3D;7$</p>
-<p>$t_{2}&#x3D;2$</p>
-<p>$C_{2}&#x3D;(1*12+t_{2})%10&#x3D;4$</p>
-<p>$t_{3}&#x3D;1$</p>
-<p>$C_{3}&#x3D;1$</p>
+<p>$C_{0}=(3*12)\%10=6$</p>
+<p>$t_{1}=(3*12)/10=3$</p>
+<p>$C_{1}=(2*12+t_{1})\%10=7$</p>
+<p>$t_{2}=2$</p>
+<p>$C_{2}=(1*12+t_{2})\%10=4$</p>
+<p>$t_{3}=1$</p>
+<p>$C_{3}=1$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// C = A * b, A >= 0, b >= 0</span>
 vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">mul</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>A<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -863,7 +887,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
     <span class="token keyword">return</span> C<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -894,7 +917,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 		cout <span class="token operator">&lt;&lt;</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="3-4-高精度除以低精度"><a href="#3-4-高精度除以低精度" class="headerlink" title="3.4 高精度除以低精度"></a>3.4 高精度除以低精度</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// A / b = C ... r, A >= 0, b > 0</span>
 vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">div</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>A<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>r<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -910,7 +932,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token keyword">while</span> <span class="token punctuation">(</span>C<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> C<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> C<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> C<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
@@ -951,10 +972,9 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 	cout <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> r <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="四、前缀和"><a href="#四、前缀和" class="headerlink" title="四、前缀和"></a>四、前缀和</h1><h2 id="4-1-一维前缀和"><a href="#4-1-一维前缀和" class="headerlink" title="4.1 一维前缀和"></a>4.1 一维前缀和</h2><p>前缀和表示为：$S_{i}&#x3D;a_{1}+a_{2}+…+a_{i}$（<code>S[0]=0</code>）</p>
+<h1 id="四、前缀和"><a href="#四、前缀和" class="headerlink" title="四、前缀和"></a>四、前缀和</h1><h2 id="4-1-一维前缀和"><a href="#4-1-一维前缀和" class="headerlink" title="4.1 一维前缀和"></a>4.1 一维前缀和</h2><p>前缀和表示为：$S_{i}=a_{1}+a_{2}+…+a_{i}$（<code>S[0]=0</code>）</p>
 <ul>
-<li>**求$S_{i}$**：<code>for(i = 1; i &lt;= n; i++) &#123;S[i] = S[i-1] + a[i];&#125;</code></li>
+<li><strong>求$S_{i}$</strong>：<code>for(i = 1; i &lt;= n; i++) &#123;S[i] = S[i-1] + a[i];&#125;</code></li>
 <li><strong>作用</strong>：范围为<code>[l,r]</code>数组的和，若没有前缀和数组，时间复杂度为<code>O(n)</code>；运用前缀和数组，可以用<code>S[r]-S[l-1]</code>进行计算，时间复杂度为<code>O(1)</code></li>
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
@@ -983,11 +1003,10 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="4-2-二维前缀和"><a href="#4-2-二维前缀和" class="headerlink" title="4.2 二维前缀和"></a>4.2 二维前缀和</h2><p><strong>容斥原理</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722160459614.png" alt="image-20220722160459614"></p>
 <ul>
-<li><p><code>S[i, j]</code> &#x3D; 第<code>i</code>行<code>j</code>列格子左上部分所有元素的和</p>
+<li><p><code>S[i, j]</code> = 第<code>i</code>行<code>j</code>列格子左上部分所有元素的和</p>
 </li>
 <li><p>以<code>(x1, y1)</code>为左上角，<code>(x2, y2)</code>为右下角的子矩阵的和为：</p>
 <p><code>S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 - 1]</code></p>
@@ -1018,9 +1037,8 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="五、差分"><a href="#五、差分" class="headerlink" title="五、差分"></a>五、差分</h1><h2 id="5-1-一维差分"><a href="#5-1-一维差分" class="headerlink" title="5.1 一维差分"></a>5.1 一维差分</h2><p>有$a_{1},a_{2},…,a_{n}$[前缀和]，构造$b_{1},b_{2},…,b_{n}$[差分]，使得$a_{i}&#x3D;b_{1}+b_{2}+…+b_{i}$，则有：</p>
-<p>$\begin{cases} b_{1}&#x3D;a_{1} \ b_{2}&#x3D; a_{2}-a_{1} \ b_{3}&#x3D; a_{3}-a_{2} \ … \ b_{n}&#x3D; a_{n}-a_{n-1} \end{cases}$</p>
+<h1 id="五、差分"><a href="#五、差分" class="headerlink" title="五、差分"></a>五、差分</h1><h2 id="5-1-一维差分"><a href="#5-1-一维差分" class="headerlink" title="5.1 一维差分"></a>5.1 一维差分</h2><p>有$a_{1},a_{2},…,a_{n}$[前缀和]，构造$b_{1},b_{2},…,b_{n}$[差分]，使得$a_{i}=b_{1}+b_{2}+…+b_{i}$，则有：</p>
+<p>$\begin{cases} b_{1}=a_{1} \\ b_{2}= a_{2}-a_{1} \\ b_{3}= a_{3}-a_{2} \\ … \\ b_{n}= a_{n}-a_{n-1} \end{cases}$</p>
 <ul>
 <li><code>O(n)</code>时间由<code>B</code>数组得到<code>A</code>数组</li>
 <li>给<code>A</code>数组区间<code>[l, r]</code>中的每个数加上<code>c</code>：<code>B[l] += c</code>, <code>B[r + 1] -= c</code></li>
@@ -1060,7 +1078,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="5-2-二维差分"><a href="#5-2-二维差分" class="headerlink" title="5.2 二维差分"></a>5.2 二维差分</h2><p>设<code>a[i][j]</code>是<code>b[i][j]</code>的前缀和。</p>
 <p>给以<code>(x1, y1)</code>为左上角，<code>(x2, y2)</code>为右下角的子矩阵中的所有元素加上<code>c</code>：<br><code>S[x1, y1] += c</code>, <code>S[x2 + 1, y1] -= c</code>, <code>S[x1, y2 + 1] -= c</code>, <code>S[x2 + 1, y2 + 1] += c</code>。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722171706570.png" alt="image-20220722171706570"></p>
@@ -1113,18 +1130,16 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h1 id="六、双指针算法"><a href="#六、双指针算法" class="headerlink" title="六、双指针算法"></a>六、双指针算法</h1><p><strong>Case1：</strong>对于两个序列，维护某种次序：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722222255815.png" alt="image-20220722222255815"><br>    如在归并排序中合并两个有序序列的操作：两个指针分别位于数组相应的位置，依次向右遍历，当数组执行到尾部，合并完成。</p>
 <p><strong>Case2：</strong>对于一个序列，用两个指针维护一段区间：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220722222346120.png" alt="image-20220722222346120"></p>
-<p>​	如快排，两个指针分别位于左右两端，依次中间比较交换。</p>
+<p>​    如快排，两个指针分别位于左右两端，依次中间比较交换。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 	<span class="token keyword">while</span><span class="token punctuation">(</span>j <span class="token operator">&lt;</span> i <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> j<span class="token operator">++</span><span class="token punctuation">;</span>		<span class="token comment">//寻找i，j的单调关系</span>
     <span class="token comment">//每道题的具体逻辑</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>核心思想</strong>：将<code>for(int i = 0;i &lt; n;i++) for(int j = 0;j &lt; n;j++)</code>朴素算法的时间复杂度优化到<code>O(n)</code>。</p>
 <p>[<strong>例：给定一个字符串，进行分割</strong>]</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
@@ -1150,14 +1165,12 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 		i <span class="token operator">=</span> j<span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//双指针算法:O(n)</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 	<span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;=</span> i <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span> j<span class="token operator">++</span><span class="token punctuation">;</span>		<span class="token comment">//j往左最远能到什么地方</span>
 	res <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> i <span class="token operator">-</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>【题解】</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -1188,8 +1201,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="七、位运算"><a href="#七、位运算" class="headerlink" title="七、位运算"></a>七、位运算</h1><h2 id="7-1-n的二进制表示第k位"><a href="#7-1-n的二进制表示第k位" class="headerlink" title="7.1 n的二进制表示第k位"></a>7.1 n的二进制表示第k位</h2><p><code>n</code>的二进制表示中第<code>k</code>位是几($k&#x3D;{0,1,2,…,n}$)</p>
+<h1 id="七、位运算"><a href="#七、位运算" class="headerlink" title="七、位运算"></a>七、位运算</h1><h2 id="7-1-n的二进制表示第k位"><a href="#7-1-n的二进制表示第k位" class="headerlink" title="7.1 n的二进制表示第k位"></a>7.1 n的二进制表示第k位</h2><p><code>n</code>的二进制表示中第<code>k</code>位是几($k=\{0,1,2,…,n\}$)</p>
 <ul>
 <li>先把第<code>k</code>位移到最后一位，<code>n&gt;&gt;k</code></li>
 <li>看个位是几，<code>x &amp;&amp; 1</code></li>
@@ -1224,13 +1236,12 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h1 id="八、离散化"><a href="#八、离散化" class="headerlink" title="八、离散化"></a>八、离散化</h1><p>值域$0-10^{9}$，个数$10^{5}$</p>
 <p><code>a[]</code>:1、3、100、2000、500000映射为0、1、2、3、4。</p>
 <p>问题：</p>
 <ul>
-<li><code>a[]</code>中可能有重复元素—–&gt;<strong>去重</strong></li>
-<li>如何算出<code>x</code>离散化后的值—–&gt;<strong>二分</strong></li>
+<li><code>a[]</code>中可能有重复元素——-&gt;<strong>去重</strong></li>
+<li>如何算出<code>x</code>离散化后的值——-&gt;<strong>二分</strong></li>
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> alls<span class="token punctuation">;</span> 		<span class="token comment">// 存储所有待离散化的值</span>
 <span class="token function">sort</span><span class="token punctuation">(</span>alls<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> alls<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">// 将所有值排序</span>
@@ -1248,7 +1259,6 @@ alls<span class="token punctuation">.</span><span class="token function">erase</
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> r <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>	 	<span class="token comment">// 映射到1, 2, ...n</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
@@ -1322,7 +1332,6 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p>[注]<code>unique</code>函数实现方法：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token double-colon punctuation">::</span>iterator <span class="token function">unique</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>a<span class="token punctuation">)</span>
@@ -1361,7 +1370,6 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
 
     segs <span class="token operator">=</span> res<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                                     
                             </div>
@@ -1426,9 +1434,15 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/Algorithm/">
+                                                    <a href="/tags/%E7%AE%97%E6%B3%95/">
                                                         <span class="chip bg-color">
-                                                            Algorithm
+                                                            算法
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                                        <span class="chip bg-color">
+                                                            数据结构
                                                         </span>
                                                     </a>
                                                     
@@ -1829,8 +1843,12 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ShiQuLiZhi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1838,8 +1856,8 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/JavaWeb/">
+                        <span class="chip bg-color">JavaWeb</span>
                     </a>
                     
                 </div>
@@ -1874,8 +1892,12 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ShiQuLiZhi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1884,8 +1906,12 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -2135,7 +2161,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.5k</span>&nbsp;字
+                class="white-color">76.1k</span>&nbsp;字
             
             
             
@@ -2432,25 +2458,10 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>
