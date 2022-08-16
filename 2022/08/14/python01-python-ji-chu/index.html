@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-08-15
+                                    2022-08-16
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            4.9k
+                                            5k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    21
+                                                    22
                                                         分
                                             </div>
                                             
@@ -465,7 +465,10 @@
 word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment">#'P'</span>
 word<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment">#'n'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="1-2-获取字符串使用切片操作"><a href="#1-2-获取字符串使用切片操作" class="headerlink" title="1.2 获取字符串使用切片操作"></a>1.2 获取字符串使用切片操作</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>   <span class="token comment">#'Py' 相当于数学中的[0,2)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="1-2-获取字符串使用切片操作"><a href="#1-2-获取字符串使用切片操作" class="headerlink" title="1.2 获取字符串使用切片操作"></a>1.2 获取字符串使用切片操作</h2><p>简单切片指的是这样的切片形式：<code>a[start:stop]</code>，其行为是得到下标在这样一个<strong>前闭后开区间</strong>范围内的元素，其中<code>start</code>和<code>stop</code>为负数时，简单看作是负数下标对应的位置即可。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>   <span class="token comment">#'Py' 相当于数学中的[0,2)</span>
+z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
+z<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>		<span class="token comment">#[1, 2, 3, 4]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="1-3-取幂运算"><a href="#1-3-取幂运算" class="headerlink" title="1.3 取幂运算"></a>1.3 取幂运算</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">a<span class="token operator">=</span><span class="token number">100</span>
 a<span class="token operator">**=</span><span class="token number">10</span>  <span class="token comment">#10000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -509,7 +512,7 @@ element <span class="token operator">=</span> x1<span class="token punctuation">
 <p>可以修改元组内的<code>list</code>内容(修改元素、增加、删除、反转等)。</p>
 </blockquote>
 <h2 id="3-1-只有一个元素的元组定义"><a href="#3-1-只有一个元素的元组定义" class="headerlink" title="3.1 只有一个元素的元组定义"></a>3.1 只有一个元素的元组定义</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">a1<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span><span class="token builtin">type</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">#&lt;class 'tuple'></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span><span class="token builtin">type</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span><span class="token punctuation">)</span>  	<span class="token comment">#&lt;class 'tuple'></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="3-2-统计某元素在元组中出现的次数"><a href="#3-2-统计某元素在元组中出现的次数" class="headerlink" title="3.2 统计某元素在元组中出现的次数"></a>3.2 统计某元素在元组中出现的次数</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">a1<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1791,7 +1794,7 @@ Main thread finish at 20:36:10<span aria-hidden="true" class="line-numbers-rows"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">178.3k</span>&nbsp;字
+                class="white-color">180.3k</span>&nbsp;字
             
             
             
