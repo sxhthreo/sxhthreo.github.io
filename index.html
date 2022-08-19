@@ -471,7 +471,7 @@
 
     
     
-    <div class="col s12 m6" >
+    <div class="col s12" >
         
             <div class="post-card" style="background-image: url('/medias/featureimages/17.jpg')">
             
@@ -486,13 +486,10 @@
                 <a href="/2022/08/13/suan-fa-01-ji-chu-suan-fa/">
                     <h3 class="post-title">1.基础算法</h3>
                 </a>
-                <p class="post-description">
-                    
-                        一、排序算法1.1 快速排序
+                <p class="post-description">一、排序算法1.1 快速排序
 确定分界点x：q[1]、q[(1+r)/2]、q[r]、随机
-调整区间：保证所有小于等于x的数在x的左区间，大
-                    
-                </p>
+调整区间：保证所有小于等于x的数在x的左区间，大于等于x的数在x的右区间
+递归</p>
                 <a href="/2022/08/13/suan-fa-01-ji-chu-suan-fa/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
@@ -501,7 +498,7 @@
     </div>
     
     
-    <div class="col s12 m6" >
+    <div class="col s12 m6" data-aos="zoom-in-up">
         
             <div class="post-card" style="background-image: url('/medias/featureimages/21.jpg')">
             
@@ -516,15 +513,36 @@
                 <a href="/2022/08/13/suan-fa-02-shu-ju-jie-gou/">
                     <h3 class="post-title">2.数据结构</h3>
                 </a>
-                <p class="post-description">
-                    
-                        一、链表这里讲解的是用数组模拟链表的实现。
+                <p class="post-description">一、链表这里讲解的是用数组模拟链表的实现。
 1.1 单链表应用：使用邻接表来存储(树和图)。
 
-// head存储链表头,e[]存储节点的值
-                    
-                </p>
+// head存储链表头,e[]存储节点的值</p>
                 <a href="/2022/08/13/suan-fa-02-shu-ju-jie-gou/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
+                    <i class="icon far fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        
+            <div class="post-card" style="background-image: url('/medias/featureimages/4.jpg')">
+            
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                        
+                            <a href="/categories/Python/" class="category">Python</a>
+                        
+                    
+                </div>
+                <a href="/2022/08/16/python04-python-pandas/">
+                    <h3 class="post-title">Python数据处理:数据分析处理库Pandas</h3>
+                </a>
+                <p class="post-description">一、Pandas读取数据import pandas as pd
+df = pd.read_csv(&#39;./data/titanic.csv&#39;)</p>
+                <a href="/2022/08/16/python04-python-pandas/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -567,6 +585,61 @@
                                 一、Pandas读取数据import pandas as pd
 df = pd.read_csv('./data/titanic.csv')
 df.head(6)									#.head()可以读取前几条数据,指定前几条都可以,相对应
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">程序设计</span>
+                        </a>
+                        
+                        <a href="/tags/Python/">
+                            <span class="chip bg-color">Python</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
+                            <span class="chip bg-color">数据处理</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/16/python05-python-matplotlib/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python数据处理:可视化库Matplotlib">
+                            
+                            <span class="card-title">Python数据处理:可视化库Matplotlib</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                一、Matplotlib概述
                             
                         </div>
                         <div class="publish-info">
@@ -914,11 +987,11 @@ Python学习网站：https://www.byhy.net/tut/py/extra/regex/
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、Python基础语法1.1 索引word='Python'
-word[0] #'P'
-word[-1] #'n'
-
-1.2 获取字符串使用切片操作简单切片指的是这样的切片形式：a[start:stop]，其行为是得到下标在这样一个前闭后
+                                一、Python基础语法1.1 基本运算1.1.1 取幂运算a=100
+a**=10  			#10000
+1.1.2 除以a/=10 #10.0
+1.1.3 整除a//9  #11
+1.2 字符串的定义与相关操作1.2.1 字符串的定义字
                             
                         </div>
                         <div class="publish-info">
@@ -1536,61 +1609,6 @@ x
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/13/java07-web-kai-fa/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="7.Web开发">
-                            
-                            <span class="card-title">7.Web开发</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、会话技术概述
-会话：一次会话中包含多次请求和响应。
-一次会话：浏览器第一次给服务器资源发送请求，会话建立，直到有一方断开为止
-
-
-功能：在一次会话的范围内的多次请求间，共享数据
-方式：
-客户端会话技术：Cookie
-服务器端会话技术：S
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/JavaWeb/">
-                            <span class="chip bg-color">JavaWeb</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1692,7 +1710,7 @@ x
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">186.1k</span>&nbsp;字
+                class="white-color">188.3k</span>&nbsp;字
             
             
             
