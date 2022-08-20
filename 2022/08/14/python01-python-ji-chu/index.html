@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-08-19
+                                    2022-08-20
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            5.5k
+                                            5.9k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    23
+                                                    25
                                                         分
                                             </div>
                                             
@@ -487,7 +487,7 @@ a<span class="token operator">**=</span><span class="token number">10</span>  		
 <h3 id="1-2-4-索引"><a href="#1-2-4-索引" class="headerlink" title="1.2.4 索引"></a>1.2.4 索引</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">word<span class="token operator">=</span><span class="token string">'Python'</span>
 word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment">#'P'</span>
 word<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment">#'n'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="1-3-字符串的格式化"><a href="#1-3-字符串的格式化" class="headerlink" title="1.3 字符串的格式化"></a>1.3 字符串的格式化</h2><p>字符串的拼接有明显的劣势：</p>
+<h2 id="1-3-字符串的格式化与对齐"><a href="#1-3-字符串的格式化与对齐" class="headerlink" title="1.3 字符串的格式化与对齐"></a>1.3 字符串的格式化与对齐</h2><p>字符串的拼接有明显的劣势：</p>
 <ul>
 <li>变量过多，拼接起来较麻烦</li>
 <li>字符串无法和数字或其他类型完成拼接</li>
@@ -511,11 +511,136 @@ message <span class="token operator">=</span> <span class="token string">"Python
 </ul>
 <h3 id="1-3-2-快速格式字符串的方式"><a href="#1-3-2-快速格式字符串的方式" class="headerlink" title="1.3.2 快速格式字符串的方式"></a>1.3.2 快速格式字符串的方式</h3><p><code>f&quot;内容&#123;变量&#125;&quot;</code>(<code>f</code>意为<code>format</code>)</p>
 <p>这种方式不理会类型，且不作精度控制，适合对精度没有要求的时候快速使用。</p>
+<h3 id="1-3-3-对齐字符串"><a href="#1-3-3-对齐字符串" class="headerlink" title="1.3.3 对齐字符串"></a>1.3.3 对齐字符串</h3><ul>
+<li><p><code>^</code> ：居中，后面带宽度</p>
+</li>
+<li><p><code>&lt;</code> ：左对齐，后面带宽度</p>
+</li>
+<li><p><code>&gt;</code> ：右对齐，后面带宽度</p>
+</li>
+<li><p><code>:</code> 后面带填充的字符，只能是一个字符，不指定则是默认用空格填充</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:>5&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  			<span class="token comment">#宽度为5,右对齐</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:>5&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:>5&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:>5&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果为：<br><pre class="line-numbers language-none"><code class="language-none">   1
+  10
+ 100
+1000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数字</th>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">输出</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3.1415926</td>
+<td style="text-align:center"><code>&#123;:.2f&#125;</code></td>
+<td style="text-align:center">3.14</td>
+<td style="text-align:center">保留小数点后两位</td>
+</tr>
+<tr>
+<td style="text-align:center">3.1415926</td>
+<td style="text-align:center"><code>&#123;:+.2f&#125;</code></td>
+<td style="text-align:center">+3.14</td>
+<td style="text-align:center">带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td style="text-align:center">-1</td>
+<td style="text-align:center"><code>&#123;:-.2f&#125;</code></td>
+<td style="text-align:center">-1.00</td>
+<td style="text-align:center">带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td style="text-align:center">2.71828</td>
+<td style="text-align:center"><code>&#123;:.0f&#125;</code></td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">不带小数</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center"><code>&#123;:0&gt;2d&#125;</code></td>
+<td style="text-align:center">05</td>
+<td style="text-align:center">数字补零 (填充左边, 宽度为2)</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center"><code>&#123;:x&lt;4d&#125;</code></td>
+<td style="text-align:center">5xxx</td>
+<td style="text-align:center">数字补x (填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><code>&#123;:x&lt;4d&#125;</code></td>
+<td style="text-align:center">10xx</td>
+<td style="text-align:center">数字补x (填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td style="text-align:center">1000000</td>
+<td style="text-align:center"><code>&#123;:,&#125;</code></td>
+<td style="text-align:center">1,000,000</td>
+<td style="text-align:center">以逗号分隔的数字格式</td>
+</tr>
+<tr>
+<td style="text-align:center">0.25</td>
+<td style="text-align:center"><code>&#123;:.2%&#125;</code></td>
+<td style="text-align:center">25.00%</td>
+<td style="text-align:center">百分比格式</td>
+</tr>
+<tr>
+<td style="text-align:center">1000000000</td>
+<td style="text-align:center"><code>&#123;:.2e&#125;</code></td>
+<td style="text-align:center">1.00e+09</td>
+<td style="text-align:center">指数记法</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><code>&#123;:&gt;10d&#125;</code></td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">右对齐 (默认, 宽度为10)</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><code>&#123;:&lt;10d&#125;</code></td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">左对齐 (宽度为10)</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><code>&#123;:^10d&#125;</code></td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">中间对齐 (宽度为10)</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><code>&#39;&#123;:b&#125;&#39;.format(11) &#39;&#123;:d&#125;&#39;.format(11) &#39;&#123;:o&#125;&#39;.format(11) &#39;&#123;:x&#125;&#39;.format(11) &#39;&#123;:#x&#125;&#39;.format(11) &#39;&#123;:#X&#125;&#39;.format(11)</code></td>
+<td style="text-align:center"><code>1011 11 13 b 0xb 0XB</code></td>
+<td style="text-align:center">进制</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 正号表示正数</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:+2f&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">3.14</span><span class="token punctuation">)</span><span class="token punctuation">)</span>            <span class="token comment">#+3.140000</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:-2f&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>              <span class="token comment">#-1.000000</span>
+<span class="token comment"># 不带小数的</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:.0f&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">3.23123131</span><span class="token punctuation">)</span><span class="token punctuation">)</span>      <span class="token comment">#3</span>
+<span class="token comment"># 以逗号为分隔符的</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:,&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>            <span class="token comment">#100,000</span>
+<span class="token comment"># 表示一个百份比</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"&#123;:.2%&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">0.25</span><span class="token punctuation">)</span><span class="token punctuation">)</span>            <span class="token comment">#25.00%</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1-4-切片操作"><a href="#1-4-切片操作" class="headerlink" title="1.4 切片操作"></a>1.4 切片操作</h2><p>简单切片指的是这样的切片形式：<code>a[start:stop]</code>，其行为是得到下标在这样一个<strong>前闭后开区间</strong>范围内的元素，其中<code>start</code>和<code>stop</code>为负数时，简单看作是负数下标对应的位置即可。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>  			<span class="token comment">#'Py'相当于数学中的[0,2)</span>
 z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
 z<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>				<span class="token comment">#[1, 2, 3, 4]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="1-5-一些概念"><a href="#1-5-一些概念" class="headerlink" title="1.5 一些概念"></a>1.5 一些概念</h2><ul>
+<h2 id="1-5-Python中的基本概念"><a href="#1-5-Python中的基本概念" class="headerlink" title="1.5 Python中的基本概念"></a>1.5 Python中的基本概念</h2><ul>
 <li><strong>列表</strong><code>list</code></li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">x1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1766,7 +1891,7 @@ Main thread finish at 20:36:10<span aria-hidden="true" class="line-numbers-rows"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">188.3k</span>&nbsp;字
+                class="white-color">193.2k</span>&nbsp;字
             
             
             
