@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-08-15
+                                    2022-08-21
                             </div>
                             
 
@@ -509,7 +509,7 @@
     idx <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token comment">// 在节点a的右边插入一个数x(若为左边,则调用add(l[a],x)即可)</span>
+<span class="token comment">// 在节点a的右边插入一个数x(若为左边,则调用insert(l[a],x)即可)</span>
 <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
@@ -589,6 +589,7 @@ q<span class="token punctuation">[</span>hh<span class="token punctuation">]</sp
     stk<span class="token punctuation">[</span> <span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/832/">例：单调栈</a></p>
 <p>给定一个长度为 N 的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出 −1。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -625,12 +626,13 @@ q<span class="token punctuation">[</span>hh<span class="token punctuation">]</sp
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>朴素算法—<strong>栈&#x2F;队列哪些元素是无用的，删去后是否具有单调性</strong>—&gt;优化</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/156/">例：滑动窗口</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1000010</span><span class="token punctuation">;</span>
 
-<span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> q<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> q<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">//q数组存放的是元素的下标</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -641,8 +643,10 @@ q<span class="token punctuation">[</span>hh<span class="token punctuation">]</sp
     <span class="token keyword">int</span> hh <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> tt <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>hh <span class="token operator">&lt;=</span> tt <span class="token operator">&amp;&amp;</span> i <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">></span> q<span class="token punctuation">[</span>hh<span class="token punctuation">]</span><span class="token punctuation">)</span> hh <span class="token operator">++</span> <span class="token punctuation">;</span>
+        <span class="token comment">//判断队头是否已经滑出了窗口</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hh <span class="token operator">&lt;=</span> tt <span class="token operator">&amp;&amp;</span> i <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">></span> q<span class="token punctuation">[</span>hh<span class="token punctuation">]</span><span class="token punctuation">)</span>   hh <span class="token operator">++</span> <span class="token punctuation">;</span>
 
+        <span class="token comment">//如果当前队尾元素大于新插入的数,队尾将无用,删去</span>
         <span class="token keyword">while</span> <span class="token punctuation">(</span>hh <span class="token operator">&lt;=</span> tt <span class="token operator">&amp;&amp;</span> a<span class="token punctuation">[</span>q<span class="token punctuation">[</span>tt<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">>=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> tt <span class="token operator">--</span> <span class="token punctuation">;</span>
         q<span class="token punctuation">[</span> <span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
 
@@ -665,7 +669,7 @@ q<span class="token punctuation">[</span>hh<span class="token punctuation">]</sp
     <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="三、KMP算法"><a href="#三、KMP算法" class="headerlink" title="三、KMP算法"></a>三、KMP算法</h1><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -770,6 +774,7 @@ q<span class="token punctuation">[</span>hh<span class="token punctuation">]</sp
 <span class="token comment">// 合并a和b所在的两个集合：</span>
 p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/838/">例：合并集合</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -826,6 +831,7 @@ p<span class="token punctuation">[</span><span class="token function">find</span
 size<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+=</span> size<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/839/">例：连通块中点的数量</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
@@ -896,7 +902,8 @@ p<span class="token punctuation">[</span><span class="token function">find</span
 <li><p><strong>修改任意一个元素</strong>：<code>heap[k] = x; down(k); up(k);</code></p>
 </li>
 </ul>
-<h2 id="6-1-堆排序"><a href="#6-1-堆排序" class="headerlink" title="6.1 堆排序"></a>6.1 堆排序</h2><ul>
+<h2 id="6-1-堆排序"><a href="#6-1-堆排序" class="headerlink" title="6.1 堆排序"></a>6.1 堆排序</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/840/">例1：堆排序</a></p>
+<ul>
 <li>熟练掌握<code>down()</code>、<code>up()</code>函数</li>
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
@@ -950,7 +957,8 @@ p<span class="token punctuation">[</span><span class="token function">find</span
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="6-2-带映射关系的堆排序"><a href="#6-2-带映射关系的堆排序" class="headerlink" title="6.2 带映射关系的堆排序"></a>6.2 带映射关系的堆排序</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220724232309449.png" alt="image-20220724232309449"></p>
+<h2 id="6-2-带映射关系的堆排序"><a href="#6-2-带映射关系的堆排序" class="headerlink" title="6.2 带映射关系的堆排序"></a>6.2 带映射关系的堆排序</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/841/">例2：模拟堆</a></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220724232309449.png" alt="image-20220724232309449"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
@@ -2039,7 +2047,7 @@ Example<span class="token operator">:</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">193.4k</span>&nbsp;字
+                class="white-color">193.6k</span>&nbsp;字
             
             
             
