@@ -490,6 +490,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>js/bootstrap.min.js<span class="token punctuation">"</span></span> <span class="token attr-name">integrity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd<span class="token punctuation">"</span></span> <span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>anonymous<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="2-响应式布局"><a href="#2-响应式布局" class="headerlink" title="2 响应式布局"></a>2 响应式布局</h1><p>同一套页面可以兼容不同分辨率的设备。</p>
 <p>实现：依赖于<strong>栅格系统</strong>：将一行平均分成<strong>12个格子</strong>，可以指定元素占几个格子</p>
 <p>步骤：</p>
@@ -498,12 +499,10 @@
 </ol>
 <p>容器分类：</p>
 <ul>
-<li>container：两边留白<ul>
+<li>container：两边留白</li>
 <li>container-fluid：每一种设备都是100%宽度</li>
 </ul>
-</li>
-</ul>
-<ol>
+<ol start="2">
 <li><p>定义行。相当于之前的tr   样式：<strong>row</strong></p>
 </li>
 <li><p>定义元素。指定该元素在不同的设备上，所占的格子数目。样式：<strong>col-设备代号-格子数目</strong></p>
@@ -563,6 +562,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220731152512402.png" alt="image-20220731152512402"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220731152522197.png" alt="image-20220731152522197"></p>
 <h1 id="3-CSS样式和JS插件"><a href="#3-CSS样式和JS插件" class="headerlink" title="3 CSS样式和JS插件"></a>3 CSS样式和JS插件</h1><p>更多内容参考：<a target="_blank" rel="noopener" href="https://v3.bootcss.com/css/#images">https://v3.bootcss.com/css/#images</a></p>
@@ -572,8 +572,8 @@
 <li><code>class=&quot;img-responsive&quot;</code>：图片在任意尺寸都占100%</li>
 <li>图片形状<ul>
 <li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-rounded&quot;&gt;</code>：方形</li>
-<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-circle&quot;&gt;</code>： 圆形</li>
-<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt;</code>：相框</li>
+<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-circle&quot;&gt; </code>： 圆形</li>
+<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt; </code>：相框</li>
 </ul>
 </li>
 </ul>
@@ -585,7 +585,7 @@
 </ul>
 </li>
 <li>表单<ul>
-<li>给表单项添加：<code>class=&quot;form-control&quot;</code></li>
+<li>给表单项添加：<code>class=&quot;form-control&quot; </code></li>
 </ul>
 </li>
 </ul>
@@ -869,6 +869,7 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                                     
                             </div>
@@ -1321,13 +1322,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/13/java04-jdbc/">
+                <a href="/2022/08/13/java02-javascript/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="4.JDBC">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="2.JavaScript">
                         
-                        <span class="card-title">4.JDBC</span>
+                        <span class="card-title">2.JavaScript</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1355,12 +1356,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JDBC/">
-                        <span class="chip bg-color">JDBC</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -1374,13 +1375,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/13/java07-web-kai-fa/">
+                <a href="/2022/08/13/java06-web-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="7.Web开发">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="6.Web基础">
                         
-                        <span class="card-title">7.Web开发</span>
+                        <span class="card-title">6.Web基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1659,7 +1660,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">211.8k</span>&nbsp;字
             
             
             

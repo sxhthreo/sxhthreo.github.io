@@ -497,7 +497,8 @@ result <span class="token operator">=</span> np<span class="token punctuation">.
 result <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>det<span class="token punctuation">(</span>e<span class="token punctuation">)</span>
 <span class="token comment">#矩阵的秩</span>
 e <span class="token operator">=</span> np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>matrix_rank<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="1-2-一次方程组的解"><a href="#1-2-一次方程组的解" class="headerlink" title="1.2 一次方程组的解"></a>1.2 一次方程组的解</h2><p>$\left\{\begin{aligned}<br>10 x-y-2 z &amp;=72 \\<br>-x+10 y-2 z &amp;=83 \\<br>-x-y+5 z &amp;=42<br>\end{aligned}\right.$</p>
+
+<h2 id="1-2-一次方程组的解"><a href="#1-2-一次方程组的解" class="headerlink" title="1.2 一次方程组的解"></a>1.2 一次方程组的解</h2><p>$\left{\begin{aligned}<br>10 x-y-2 z &amp;&#x3D;72 \<br>-x+10 y-2 z &amp;&#x3D;83 \<br>-x-y+5 z &amp;&#x3D;42<br>\end{aligned}\right.$</p>
 <p><code>numpy</code>库主要求解数值解，<code>sympy</code>库主要求解符号解。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 A <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>			<span class="token comment">#A为系数矩阵</span>
@@ -506,14 +507,16 @@ inv_A <span class="token operator">=</span> np<span class="token punctuation">.<
 x <span class="token operator">=</span> inv_A<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>b<span class="token punctuation">)</span>										<span class="token comment">#A的逆矩阵与b做点积运算</span>
 x <span class="token operator">=</span>np<span class="token punctuation">.</span>linalg<span class="token punctuation">.</span>solve<span class="token punctuation">(</span>A<span class="token punctuation">,</span> b<span class="token punctuation">)</span>								<span class="token comment"># 5,6两行也可以用本行替代</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sympy <span class="token keyword">import</span> symbols<span class="token punctuation">,</span> Eq<span class="token punctuation">,</span>solve
 x<span class="token punctuation">,</span>y，z <span class="token operator">=</span> symbols<span class="token punctuation">(</span><span class="token string">'x y z'</span><span class="token punctuation">)</span>
 eqs <span class="token operator">=</span><span class="token punctuation">[</span>Eq<span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> x<span class="token operator">-</span>y <span class="token operator">-</span> <span class="token number">2</span><span class="token operator">*</span>z，<span class="token number">72</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 	  Eq<span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token operator">+</span><span class="token number">10</span><span class="token operator">*</span>y <span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span> z<span class="token punctuation">,</span><span class="token number">83</span><span class="token punctuation">)</span><span class="token punctuation">,</span>Eq<span class="token punctuation">(</span><span class="token operator">-</span>x <span class="token operator">-</span>y <span class="token operator">+</span><span class="token number">5</span><span class="token operator">*</span> z<span class="token punctuation">,</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>solve<span class="token punctuation">(</span>eqs<span class="token punctuation">,</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-3-线性规划的标准形式"><a href="#1-3-线性规划的标准形式" class="headerlink" title="1.3 线性规划的标准形式"></a>1.3 线性规划的标准形式</h2><p>引入<strong>松弛变量</strong>：</p>
-<p>$ \max z=c^{T} X \\ s.t.  \left\{\begin{array}{l}A \tilde{X}=b \\ \tilde{X} \geqslant 0\end{array}\right. $</p>
-<p>[例]$ \min z=2 x_{1}+3 x_{2}-5 x_{3} \\<br>s.t.  \left\{\begin{array}{l}x_{1}+x_{2}+x_{3}=7 \\ 2 x_{1}-5 x_{2}+x_{3}&gt;=10 \\ x_{1}+3 x_{2}+x_{3}&lt;=12 \\ x_{1}, x_{2}, x_{3}&gt;=0\end{array}\right. $</p>
+<p>$ \max z&#x3D;c^{T} X \ s.t.  \left{\begin{array}{l}A \tilde{X}&#x3D;b \ \tilde{X} \geqslant 0\end{array}\right. $</p>
+<p>[例]$ \min z&#x3D;2 x_{1}+3 x_{2}-5 x_{3} \<br>s.t.  \left{\begin{array}{l}x_{1}+x_{2}+x_{3}&#x3D;7 \ 2 x_{1}-5 x_{2}+x_{3}&gt;&#x3D;10 \ x_{1}+3 x_{2}+x_{3}&lt;&#x3D;12 \ x_{1}, x_{2}, x_{3}&gt;&#x3D;0\end{array}\right. $</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> scipy<span class="token punctuation">.</span>optimize <span class="token keyword">import</span> linprog
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
@@ -526,6 +529,7 @@ x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</
 
 res <span class="token operator">=</span> linprog<span class="token punctuation">(</span>c<span class="token punctuation">,</span> A<span class="token punctuation">,</span> b<span class="token punctuation">,</span> Aeq<span class="token punctuation">,</span> beq<span class="token punctuation">,</span> bounds<span class="token operator">=</span><span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> x3<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-none"><code class="language-none">    con: array([1.80713489e-09])
     fun: -14.571428565645054
 message: &#39;Optimization terminated successfully.&#39;
@@ -534,6 +538,7 @@ message: &#39;Optimization terminated successfully.&#39;
  status: 0
 success: True
       x: array([6.42857143e+00, 5.71428571e-01, 2.35900788e-10])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-4-线性规划的求解策略"><a href="#1-4-线性规划的求解策略" class="headerlink" title="1.4 线性规划的求解策略"></a>1.4 线性规划的求解策略</h2><p>线性代数中，解方程组的时候可以用<strong>向量和基分解的思想</strong>解决的。</p>
 <ul>
 <li><p>单纯形法：固定变量，不断变换基向量求方程组的解带入，观察是否是最优解。</p>
@@ -542,21 +547,21 @@ success: True
 </li>
 </ul>
 <p>在线性规划中引入松弛变量：因为单纯形法要求约束条件都为等式（且所有变量非负），不可避免的存在不等式约束。</p>
-<p>$\begin{array}{rrrr}<br>\text { maximize: } &amp; z=x_{1}+2 x_{2} &amp; \text { maximize: } &amp; z=x_{1}+2 x_{2} \\<br>\text { subject to: } &amp; -3 x_{1}+2 x_{2} \leq 3 &amp; \text { subject to: } &amp; x_{3}=3+3 x_{1}-2 x_{2} \\<br>&amp; x_{1}+x_{2} \leq 2 &amp; &amp; x_{4}=2-x_{1}-x_{2} \\<br>&amp; x_{1}-x_{2} \leq 1 &amp; &amp; x_{5}=1-x_{1}+x_{2} \\<br>&amp; x_{1}, x_{2} \geq 0 &amp; &amp; x_{1}, x_{2}, x_{3}, x_{4}, x_{5} \geq 0<br>\end{array}$</p>
-<p>在绝对值问题中，引入$\left| X_{1} - X_{2} \right| \leq 2$，可转为：$X_{1} = X_{2} +  \epsilon$，其中$ -2 \leq \epsilon \leq 2$。</p>
+<p>$\begin{array}{rrrr}<br>\text { maximize: } &amp; z&#x3D;x_{1}+2 x_{2} &amp; \text { maximize: } &amp; z&#x3D;x_{1}+2 x_{2} \<br>\text { subject to: } &amp; -3 x_{1}+2 x_{2} \leq 3 &amp; \text { subject to: } &amp; x_{3}&#x3D;3+3 x_{1}-2 x_{2} \<br>&amp; x_{1}+x_{2} \leq 2 &amp; &amp; x_{4}&#x3D;2-x_{1}-x_{2} \<br>&amp; x_{1}-x_{2} \leq 1 &amp; &amp; x_{5}&#x3D;1-x_{1}+x_{2} \<br>&amp; x_{1}, x_{2} \geq 0 &amp; &amp; x_{1}, x_{2}, x_{3}, x_{4}, x_{5} \geq 0<br>\end{array}$</p>
+<p>在绝对值问题中，引入$\left| X_{1} - X_{2} \right| \leq 2$，可转为：$X_{1} &#x3D; X_{2} +  \epsilon$，其中$ -2 \leq \epsilon \leq 2$。</p>
 <h2 id="1-5-二次规划的基本形式"><a href="#1-5-二次规划的基本形式" class="headerlink" title="1.5 二次规划的基本形式"></a>1.5 二次规划的基本形式</h2><p>多元函数的极值求解：</p>
 <p>每个偏微分都能为0的点就可能是极值点，即：</p>
-<p>$\left\{\begin{array}{l}<br>\frac{\partial f}{\partial x}=0 \\<br>\frac{\partial f}{\partial y}=0<br>\end{array}\right.$</p>
+<p>$\left{\begin{array}{l}<br>\frac{\partial f}{\partial x}&#x3D;0 \<br>\frac{\partial f}{\partial y}&#x3D;0<br>\end{array}\right.$</p>
 <p>在数学最优问题中，拉格朗日乘子法（Lagrange Multiplier，以数学家拉格朗日命名）是一种寻找变量受一个或多个条件限制的多元函数的极值的方法。</p>
 <p>这种方法将一个有<code>n</code>个变量与<code>k</code>个约束条件的最优化问题转换为一个有<code>n + k</code>个变量的方程组的极值问题，其变量不受任何约束。</p>
 <p>这种方法引入了一种新的标量未知数，即拉格朗日乘数：约束方程的梯度（gradient）的线性组合里每个向量的系数。</p>
-<p>$maximizef  (x, y)\\ s.t.  \quad g(x, y)=0,\mathcal{L}(x, y, \lambda)=f(x, y)-\lambda \cdot g(x, y)$</p>
+<p>$maximizef  (x, y)\ s.t.  \quad g(x, y)&#x3D;0,\mathcal{L}(x, y, \lambda)&#x3D;f(x, y)-\lambda \cdot g(x, y)$</p>
 <p>设目标函数<code>f(x)</code>，不等式约束为<code>g(x)</code>，有的教程还会添加上等式约束条件<code>h(x)</code>。此时的约束优化问题描述如下：</p>
-<p>$\begin{array}{c}<br>\min f(x) \\<br>\text { s.t. }\left\{\begin{array}{r}<br>h(x)=0 \\<br>g(x) \leqslant 0<br>\end{array}\right.<br>\end{array}$</p>
-<p>$\begin{array}{l}<br>L(x, \lambda, \mu)=f(x)+\lambda h(x)+\mu g(x) \\<br>\qquad\left\{\begin{array}{l}<br>\left.\frac{\partial L}{\partial X}\right|_{X=X^{<em>}}=0 \\<br>\lambda \neq 0 \\<br>\mu \geqslant 0 \\<br>\mu g\left(X^{</em>}\right)=0 \\<br>h\left(X^{<em>}\right)=0 \\<br>g\left(X^{</em>}\right) \leqslant 0<br>\end{array}\right.<br>\end{array}$</p>
+<p>$\begin{array}{c}<br>\min f(x) \<br>\text { s.t. }\left{\begin{array}{r}<br>h(x)&#x3D;0 \<br>g(x) \leqslant 0<br>\end{array}\right.<br>\end{array}$</p>
+<p>$\begin{array}{l}<br>L(x, \lambda, \mu)&#x3D;f(x)+\lambda h(x)+\mu g(x) \<br>\qquad\left{\begin{array}{l}<br>\left.\frac{\partial L}{\partial X}\right|_{X&#x3D;X^{<em>}}&#x3D;0 \<br>\lambda \neq 0 \<br>\mu \geqslant 0 \<br>\mu g\left(X^{</em>}\right)&#x3D;0 \<br>h\left(X^{<em>}\right)&#x3D;0 \<br>g\left(X^{</em>}\right) \leqslant 0<br>\end{array}\right.<br>\end{array}$</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220820220809482.png" alt="image-20220820220809482"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220820221034527.png" alt="image-20220820221034527"></p>
-<p>根据条件有：$F = F_{G_{1}}+F_{G_{2}}+F_{G_{3}}$，三个不等式关系和$P_{1}+P_{2}+P_{3} = 700$，求最小的$F$。</p>
+<p>根据条件有：$F &#x3D; F_{G_{1}}+F_{G_{2}}+F_{G_{3}}$，三个不等式关系和$P_{1}+P_{2}+P_{3} &#x3D; 700$，求最小的$F$。</p>
 <p>使用<strong>遗传算法</strong>：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sko<span class="token punctuation">.</span>GA <span class="token keyword">import</span> GA
 
@@ -571,10 +576,11 @@ ga <span class="token operator">=</span> GA<span class="token punctuation">(</sp
         constraint_eq<span class="token operator">=</span><span class="token punctuation">[</span>cons<span class="token punctuation">]</span><span class="token punctuation">,</span> lb<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token number">150</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ub<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">250</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 best_x<span class="token punctuation">,</span> best_y <span class="token operator">=</span> ga<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"best x:\n"</span><span class="token punctuation">,</span> best_x<span class="token punctuation">,</span> <span class="token string">"\nbest_y:\n"</span><span class="token punctuation">,</span> best_y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>[例]<strong>流量的优化问题</strong>：</p>
 <p>某公司有6个建筑工地要开工,每个工地的位置(用平面坐标系a,b表示,距离单位:千米)及水泥日用 量d(吨)由下表给出。规划设立两个料场位于A,B,日储量各为20吨。假设从料场到工地之间均有 直线道路相连，试确定料场的位置,并制定每天的供应计划,即从A,B两料场分别向各工地运送多少吨水泥,使总的吨千米数最小。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220820224611477.png" alt="image-20220820224611477"></p>
-<p>$\begin{aligned}<br>\min f=\sum_{i=1}^{2} \sum_{j=1}^{6} w_{i j} \sqrt{\left(x_{i}-a_{j}\right)^{2}+\left(y_{i}-b_{j}\right)^{2}} \\<br>\text { s.t. }\left\{\begin{array}{l}<br>\sum_{i=1}^{2} x_{i j} \geqslant d_{j} \\<br>\sum_{j=1}^{6} x_{i j} \leqslant e_{i}<br>\end{array}\right.<br>\end{aligned}$</p>
+<p>$\begin{aligned}<br>\min f&#x3D;\sum_{i&#x3D;1}^{2} \sum_{j&#x3D;1}^{6} w_{i j} \sqrt{\left(x_{i}-a_{j}\right)^{2}+\left(y_{i}-b_{j}\right)^{2}} \<br>\text { s.t. }\left{\begin{array}{l}<br>\sum_{i&#x3D;1}^{2} x_{i j} \geqslant d_{j} \<br>\sum_{j&#x3D;1}^{6} x_{i j} \leqslant e_{i}<br>\end{array}\right.<br>\end{aligned}$</p>
 
                                     
                             </div>
@@ -1033,13 +1039,13 @@ best_x<span class="token punctuation">,</span> best_y <span class="token operato
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/16/python06-python-ji-qi-xue-xi/">
+                <a href="/2022/08/16/python05-python-matplotlib/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Python机器学习">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python数据处理:可视化库Matplotlib">
                         
-                        <span class="card-title">Python机器学习</span>
+                        <span class="card-title">Python数据处理:可视化库Matplotlib</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1075,8 +1081,8 @@ best_x<span class="token punctuation">,</span> best_y <span class="token operato
                         <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
+                        <span class="chip bg-color">数据处理</span>
                     </a>
                     
                 </div>
@@ -1090,13 +1096,13 @@ best_x<span class="token punctuation">,</span> best_y <span class="token operato
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/15/python03-python-numpy/">
+                <a href="/2022/08/16/python06-python-ji-qi-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python数据处理:科学计算库Numpy">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Python机器学习">
                         
-                        <span class="card-title">Python数据处理:科学计算库Numpy</span>
+                        <span class="card-title">Python机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1107,7 +1113,7 @@ best_x<span class="token punctuation">,</span> best_y <span class="token operato
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
                             </span>
                         <span class="publish-author">
                             
@@ -1132,8 +1138,8 @@ best_x<span class="token punctuation">,</span> best_y <span class="token operato
                         <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
-                        <span class="chip bg-color">数据处理</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
@@ -1383,7 +1389,7 @@ best_x<span class="token punctuation">,</span> best_y <span class="token operato
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">211.8k</span>&nbsp;字
             
             
             

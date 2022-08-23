@@ -469,22 +469,23 @@
 </ol>
 <h1 id="二、Cookie"><a href="#二、Cookie" class="headerlink" title="二、Cookie"></a>二、Cookie</h1><h2 id="2-1-Cookie定义"><a href="#2-1-Cookie定义" class="headerlink" title="2.1 Cookie定义"></a>2.1 Cookie定义</h2><p>客户端会话技术，<strong>将数据保存到客户端</strong>。</p>
 <h2 id="2-2-Cookie使用步骤"><a href="#2-2-Cookie使用步骤" class="headerlink" title="2.2 Cookie使用步骤"></a>2.2 Cookie使用步骤</h2><ol>
-<li><p>创建<code>Cookie</code>对象，绑定数据</p>
+<li>创建<code>Cookie</code>对象，绑定数据</li>
+</ol>
 <ul>
-<li><code>new Cookie(String name, String value)</code></li>
+<li><code>new Cookie(String name, String value) </code></li>
 </ul>
-</li>
-<li><p>发送<code>Cookie</code>对象</p>
+<ol start="2">
+<li>发送<code>Cookie</code>对象</li>
+</ol>
 <ul>
-<li><code>response.addCookie(Cookie cookie)</code></li>
+<li><code>response.addCookie(Cookie cookie) </code></li>
 </ul>
-</li>
-<li><p>获取<code>Cookie</code>，拿到数据</p>
+<ol start="3">
+<li>获取<code>Cookie</code>，拿到数据</li>
+</ol>
 <ul>
 <li><code>Cookie[] request.getCookies()</code></li>
 </ul>
-</li>
-</ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -505,6 +506,7 @@
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -533,33 +535,34 @@
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-3-实现原理"><a href="#2-3-实现原理" class="headerlink" title="2.3 实现原理"></a>2.3 实现原理</h2><p>基于<strong>响应头</strong><code>set-cookie</code>和<strong>请求头</strong><code>cookie</code>实现。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220812223918896.png" alt="image-20220812223918896"></p>
 <h2 id="2-4-Cookie使用细节"><a href="#2-4-Cookie使用细节" class="headerlink" title="2.4 Cookie使用细节"></a>2.4 Cookie使用细节</h2><h3 id="2-4-1-发送多个Cookie"><a href="#2-4-1-发送多个Cookie" class="headerlink" title="2.4.1 发送多个Cookie"></a>2.4.1 发送多个Cookie</h3><p>可以创建多个<code>Cookie</code>对象，使用<code>response</code>调用多次<code>addCookie</code>方法发送<code>cookie</code>即可。</p>
 <h3 id="2-4-2-Cookie存活时间"><a href="#2-4-2-Cookie存活时间" class="headerlink" title="2.4.2 Cookie存活时间"></a>2.4.2 Cookie存活时间</h3><ol>
 <li>默认情况下，当浏览器关闭后，<code>Cookie</code>数据被销毁</li>
-<li><p><strong>持久化存储</strong>：<code>setMaxAge(int seconds)</code></p>
+<li><strong>持久化存储</strong>：<code>setMaxAge(int seconds)</code></li>
+</ol>
 <ul>
 <li><p>正数：将<code>Cookie</code>数据写到硬盘的文件中。持久化存储，并指定<code>cookie</code>存活时间；时间到后，<code>cookie</code>文件自动失效</p>
 </li>
 <li><p>负数：默认值</p>
 </li>
 <li><p>零：删除<code>cookie</code>信息</p>
+<pre><code>3. cookie能不能存中文？
+    * 在tomcat 8 之前 cookie中不能直接存储中文数据。
+        * 需要将中文数据转码---一般采用URL编码(%E3)
+    * 在tomcat 8 之后，cookie支持中文数据。特殊字符还是不支持，建议使用URL编码存储，URL解码解析
+4. cookie共享问题？
+    1. 假设在一个tomcat服务器中，部署了多个web项目，那么在这些web项目中cookie能不能共享？
+        * 默认情况下cookie不能共享
+
+        * setPath(String path):设置cookie的获取范围。默认情况下，设置当前的虚拟目录
+            * 如果要共享，则可以将path设置为&quot;/&quot;
+</code></pre>
 </li>
 </ul>
-</li>
-</ol>
-<pre><code>    3. cookie能不能存中文？
-        * 在tomcat 8 之前 cookie中不能直接存储中文数据。
-            * 需要将中文数据转码---一般采用URL编码(%E3)
-        * 在tomcat 8 之后，cookie支持中文数据。特殊字符还是不支持，建议使用URL编码存储，URL解码解析
-    4. cookie共享问题？
-        1. 假设在一个tomcat服务器中，部署了多个web项目，那么在这些web项目中cookie能不能共享？
-            * 默认情况下cookie不能共享
-
-            * setPath(String path):设置cookie的获取范围。默认情况下，设置当前的虚拟目录
-                * 如果要共享，则可以将path设置为&quot;/&quot;
-</code></pre><p>​            </p>
+<p>​			</p>
 <pre><code>        2. 不同的tomcat服务器间cookie共享问题？
             * setDomain(String path):如果设置一级域名相同，那么多个服务器之间cookie可以共享
                 * setDomain(&quot;.baidu.com&quot;),那么tieba.baidu.com和news.baidu.com中cookie可以共享
@@ -609,7 +612,7 @@
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
             //设置响应的消息体的数据格式以及编码
             response.setContentType(&quot;text/html;charset=utf-8&quot;);
-
+    
             //1.获取所有Cookie
             Cookie[] cookies = request.getCookies();
             boolean flag = false;//没有cookie为lastTime
@@ -621,9 +624,9 @@
                     //4.判断名称是否是：lastTime
                     if(&quot;lastTime&quot;.equals(name))&#123;
                         //有该Cookie，不是第一次访问
-
+    
                         flag = true;//有lastTime的cookie
-
+    
                         //设置Cookie的value
                         //获取当前时间的字符串，重新设置Cookie的值，重新发送cookie
                         Date date  = new Date();
@@ -637,7 +640,8 @@
                         //设置cookie的存活时间
                         cookie.setMaxAge(60 * 60 * 24 * 30);//一个月
                         response.addCookie(cookie);
-</code></pre><p>​        </p>
+</code></pre>
+<p>​		</p>
 <pre><code>                        //响应数据
                         //获取Cookie的value，时间
                         String value = cookie.getValue();
@@ -646,16 +650,17 @@
                         value = URLDecoder.decode(value,&quot;utf-8&quot;);
                         System.out.println(&quot;解码后：&quot;+value);
                         response.getWriter().write(&quot;&lt;h1&gt;欢迎回来，您上次访问时间为:&quot;+value+&quot;&lt;/h1&gt;&quot;);
-
+    
                         break;
-
+    
                     &#125;
                 &#125;
             &#125;
-</code></pre><p>​        </p>
+</code></pre>
+<p>​		</p>
 <pre><code>            if(cookies == null || cookies.length == 0 || flag == false)&#123;
                 //没有，第一次访问
-
+    
                 //设置Cookie的value
                 //获取当前时间的字符串，重新设置Cookie的值，重新发送cookie
                 Date date  = new Date();
@@ -665,22 +670,24 @@
                 //URL编码
                 str_date = URLEncoder.encode(str_date,&quot;utf-8&quot;);
                 System.out.println(&quot;编码后：&quot;+str_date);
-
+    
                 Cookie cookie = new Cookie(&quot;lastTime&quot;,str_date);
                 //设置cookie的存活时间
                 cookie.setMaxAge(60 * 60 * 24 * 30);//一个月
                 response.addCookie(cookie);
-
+    
                 response.getWriter().write(&quot;&lt;h1&gt;您好，欢迎您首次访问&lt;/h1&gt;&quot;);
             &#125;
-</code></pre><p>​        </p>
+</code></pre>
+<p>​		</p>
 <pre><code>        &#125;
-
+    
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
             this.doPost(request, response);
         &#125;
     &#125;
-</code></pre><h2 id="JSP：入门学习"><a href="#JSP：入门学习" class="headerlink" title="JSP：入门学习"></a>JSP：入门学习</h2><pre><code>1. 概念：
+</code></pre>
+<h2 id="JSP：入门学习"><a href="#JSP：入门学习" class="headerlink" title="JSP：入门学习"></a>JSP：入门学习</h2><pre><code>1. 概念：
     * Java Server Pages： java服务器端页面
         * 可以理解为：一个特殊的页面，其中既可以指定定义html标签，又可以定义java代码
         * 用于简化书写！！！
@@ -705,9 +712,10 @@
             * response.getWriter()和out.write()的区别：
                 * 在tomcat服务器真正给客户端做出响应之前，会先找response缓冲区数据，再找out缓冲区数据。
                 * response.getWriter()数据输出永远在out.write()之前
-
+            
 5. 案例:改造Cookie案例
-</code></pre><h2 id="Session：主菜"><a href="#Session：主菜" class="headerlink" title="Session：主菜"></a>Session：主菜</h2><pre><code>1. 概念：服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。HttpSession
+</code></pre>
+<h2 id="Session：主菜"><a href="#Session：主菜" class="headerlink" title="Session：主菜"></a>Session：主菜</h2><pre><code>1. 概念：服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。HttpSession
 2. 快速入门：
     1. 获取HttpSession对象：
         HttpSession session = request.getSession();
@@ -718,7 +726,8 @@
 
 3. 原理
     * Session的实现是依赖于Cookie的。
-</code></pre><p>​    </p>
+</code></pre>
+<p>​	</p>
 <pre><code>4. 细节：
     1. 当客户端关闭后，服务器不关闭，两次获取session是否为同一个？
         * 默认情况下。不是。
@@ -733,12 +742,12 @@
                 * 在服务器正常关闭之前，将session对象系列化到硬盘上
             * session的活化：
                 * 在服务器启动后，将session文件转化为内存中的session对象即可。
-
+            
     3. session什么时候被销毁？
         1. 服务器关闭
         2. session对象调用invalidate() 。
         3. session默认失效时间 30分钟
-            选择性配置修改    
+            选择性配置修改	
             &lt;session-config&gt;
                 &lt;session-timeout&gt;30&lt;/session-timeout&gt;
             &lt;/session-config&gt;
@@ -751,7 +760,8 @@
         1. session存储数据在服务器端，Cookie在客户端
         2. session没有数据大小限制，Cookie有
         3. session数据安全，Cookie相对于不安全
-</code></pre><h2 id="案例：验证码"><a href="#案例：验证码" class="headerlink" title="案例：验证码"></a>案例：验证码</h2><pre><code>1. 案例需求：
+</code></pre>
+<h2 id="案例：验证码"><a href="#案例：验证码" class="headerlink" title="案例：验证码"></a>案例：验证码</h2><pre><code>1. 案例需求：
     1. 访问带有验证码的登录页面login.jsp
     2. 用户输入用户名，密码以及验证码。
         * 如果用户名和密码输入有误，跳转登录页面，提示:用户名或密码错误
@@ -760,7 +770,8 @@
 
 
 2. 分析：
-</code></pre><p>​    </p>
+</code></pre>
+<p>​	</p>
 
                                     
                             </div>
@@ -1207,13 +1218,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/13/java03-bootstrap/">
+                <a href="/2022/08/13/java06-web-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="3.Bootstrap">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="6.Web基础">
                         
-                        <span class="card-title">3.Bootstrap</span>
+                        <span class="card-title">6.Web基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1241,12 +1252,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">框架</span>
+                    <a href="/tags/JavaWeb/">
+                        <span class="chip bg-color">JavaWeb</span>
                     </a>
                     
                 </div>
@@ -1260,13 +1267,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/13/java06-web-ji-chu/">
+                <a href="/2022/08/13/java04-jdbc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="6.Web基础">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="4.JDBC">
                         
-                        <span class="card-title">6.Web基础</span>
+                        <span class="card-title">4.JDBC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1294,8 +1301,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaWeb/">
-                        <span class="chip bg-color">JavaWeb</span>
+                    <a href="/tags/JDBC/">
+                        <span class="chip bg-color">JDBC</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -1545,7 +1556,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">211.8k</span>&nbsp;字
             
             
             

@@ -426,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            885
+                                            914
                                     </div>
                                     
 
@@ -482,20 +482,22 @@
 <li><p>找到最合适的一条线（想象一个高维)来最好的拟合我们的数据点</p>
 </li>
 </ul>
-<p>假设$\theta_{1}$是年龄的参数，$\theta_{2}$是工资的参数，拟合的平面是：$h_{\theta}(x) = \theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}$($\theta_{0}$为<strong>偏置项</strong>)，整合为：</p>
-<p>$h_{\theta}(x) = \sum_{i=0}^{n}\theta_{i}x_{i} = \theta^{T}x$(其中$x_{0} = [1,…,1]$)</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220820231710408.png" alt="image-20220820231710408" style="zoom:67%;" /></p>
-<p>对于每个样本，真实值和预测值存在差异，即有：$y^{(i)} = \theta^{T}x^{(i)}+\varepsilon^{(i)}$</p>
+<p>假设$\theta_{1}$是年龄的参数，$\theta_{2}$是工资的参数，拟合的平面是：$h_{\theta}(x) &#x3D; \theta_{0}+\theta_{1}x_{1}+\theta_{2}x_{2}$($\theta_{0}$为<strong>偏置项</strong>)，整合为：</p>
+<p>$h_{\theta}(x) &#x3D; \sum_{i&#x3D;0}^{n}\theta_{i}x_{i} &#x3D; \theta^{T}x$(其中$x_{0} &#x3D; [1,…,1]$)</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220820231710408.png" alt="image-20220820231710408" style="zoom:67%;" />
+
+<p>对于每个样本，真实值和预测值存在差异，即有：$y^{(i)} &#x3D; \theta^{T}x^{(i)}+\varepsilon^{(i)}$</p>
 <h2 id="1-2-独立同分布的含义"><a href="#1-2-独立同分布的含义" class="headerlink" title="1.2 独立同分布的含义"></a>1.2 独立同分布的含义</h2><p>误差$\varepsilon^{(i)}$是独立并具有相同的分布，且服从均值为0、方差为$\theta^{2}$的<strong>高斯分布</strong>。</p>
 <p>高斯分布：银行可能会多给，也可能会少给，但绝大多数情况下这个浮动不会太大，极小情况下浮动会比较大，符合正常情况。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220820234415027.png" alt="image-20220820234415027" style="zoom: 80%;" /></p>
-<h2 id="1-3-似然函数"><a href="#1-3-似然函数" class="headerlink" title="1.3 似然函数"></a>1.3 似然函数</h2><p>预测值与误差：$y^{(i)} = \theta^{T}x^{(i)}+\varepsilon^{(i)}$</p>
-<p>由于误差服从高斯分布：$p\left(\epsilon^{(i)}\right)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(\epsilon^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$</p>
-<p>将(1)式代入(2)式：$p\left(y^{(i)} \mid x^{(i)} ; \theta\right)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220820234415027.png" alt="image-20220820234415027" style="zoom: 80%;" />
+
+<h2 id="1-3-似然函数"><a href="#1-3-似然函数" class="headerlink" title="1.3 似然函数"></a>1.3 似然函数</h2><p>预测值与误差：$y^{(i)} &#x3D; \theta^{T}x^{(i)}+\varepsilon^{(i)}$</p>
+<p>由于误差服从高斯分布：$p\left(\epsilon^{(i)}\right)&#x3D;\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(\epsilon^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$</p>
+<p>将(1)式代入(2)式：$p\left(y^{(i)} \mid x^{(i)} ; \theta\right)&#x3D;\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$</p>
 <blockquote>
 <p>注：$\theta$和$x^{(i)}$进行组合后，与$y^{(i)}$（真实值）越接近越好。</p>
 </blockquote>
-<p><strong>似然函数</strong>：$L(\theta)=\prod_{i=1}^{m} p\left(y^{(i)} \mid x^{(i)} ; \theta\right)=\prod_{i=1}^{m} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$</p>
+<p><strong>似然函数</strong>：$L(\theta)&#x3D;\prod_{i&#x3D;1}^{m} p\left(y^{(i)} \mid x^{(i)} ; \theta\right)&#x3D;\prod_{i&#x3D;1}^{m} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$</p>
 <blockquote>
 <p>注：</p>
 <ul>
@@ -503,20 +505,20 @@
 <li>解释：什么样的参数与数据组合后恰好是真实值</li>
 </ul>
 </blockquote>
-<p><strong>对数似然</strong>：$\log L(\theta)=\log \prod_{i=1}^{m} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$(对数中乘法可以转换为加法)</p>
+<p><strong>对数似然</strong>：$\log L(\theta)&#x3D;\log \prod_{i&#x3D;1}^{m} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right)$(对数中乘法可以转换为加法)</p>
 <blockquote>
 <p>展开化简：</p>
-<p>$\begin{array}{l}<br>\sum_{i=1}^{m} \log \frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right) \\<br>=m \log \frac{1}{\sqrt{2 \pi} \sigma}-\frac{1}{\sigma^{2}} \cdot \frac{1}{2} \sum_{i=1}^{m}\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}<br>\end{array}$</p>
+<p>$\begin{array}{l}<br>\sum_{i&#x3D;1}^{m} \log \frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}}{2 \sigma^{2}}\right) \<br>&#x3D;m \log \frac{1}{\sqrt{2 \pi} \sigma}-\frac{1}{\sigma^{2}} \cdot \frac{1}{2} \sum_{i&#x3D;1}^{m}\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}<br>\end{array}$</p>
 </blockquote>
 <p>目标：让似然函数越大越好，即下式越小越好：</p>
-<p>$J(\theta)=\frac{1}{2} \sum_{i=1}^{m}\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}$(<strong>最小二乘法</strong>)</p>
+<p>$J(\theta)&#x3D;\frac{1}{2} \sum_{i&#x3D;1}^{m}\left(y^{(i)}-\theta^{T} x^{(i)}\right)^{2}$(<strong>最小二乘法</strong>)</p>
 <ul>
-<li><p>目标函数：$J(\theta)=\frac{1}{2} \sum_{i=1}^{m}\left(h_{\theta}\left(x^{(i)}\right)-y^{(i)}\right)^{2}=\frac{1}{2}(X \theta-y)^{T}(X \theta-y)$</p>
+<li><p>目标函数：$J(\theta)&#x3D;\frac{1}{2} \sum_{i&#x3D;1}^{m}\left(h_{\theta}\left(x^{(i)}\right)-y^{(i)}\right)^{2}&#x3D;\frac{1}{2}(X \theta-y)^{T}(X \theta-y)$</p>
 </li>
 <li><p>求偏导：</p>
-<p>$\begin{array}{l}<br>\nabla_{\theta} J(\theta)=\nabla_{\theta}\left(\frac{1}{2}(X \theta-y)^{T}(X \theta-y)\right)=\nabla_{\theta}\left(\frac{1}{2}\left(\theta^{T} X^{T}-y^{T}\right)(X \theta-y)\right) \\<br>=\nabla_{\theta}\left(\frac{1}{2}\left(\theta^{T} X^{T} X \theta-\theta^{T} X^{T} y-y^{T} X \theta+y^{T} y\right)\right) \\<br>=\frac{1}{2}\left(2 X^{T} X \theta-X^{T} y-\left(y^{T} X\right)^{T}\right)=X^{T} X \theta-X^{T} y<br>\end{array}$</p>
+<p>$\begin{array}{l}<br>\nabla_{\theta} J(\theta)&#x3D;\nabla_{\theta}\left(\frac{1}{2}(X \theta-y)^{T}(X \theta-y)\right)&#x3D;\nabla_{\theta}\left(\frac{1}{2}\left(\theta^{T} X^{T}-y^{T}\right)(X \theta-y)\right) \<br>&#x3D;\nabla_{\theta}\left(\frac{1}{2}\left(\theta^{T} X^{T} X \theta-\theta^{T} X^{T} y-y^{T} X \theta+y^{T} y\right)\right) \<br>&#x3D;\frac{1}{2}\left(2 X^{T} X \theta-X^{T} y-\left(y^{T} X\right)^{T}\right)&#x3D;X^{T} X \theta-X^{T} y<br>\end{array}$</p>
 </li>
-<li><p>偏导为0：$\theta=\left(X^{T} X\right)^{-1} X^{T} y$</p>
+<li><p>偏导为0：$\theta&#x3D;\left(X^{T} X\right)^{-1} X^{T} y$</p>
 </li>
 </ul>
 <blockquote>
@@ -981,13 +983,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/16/python05-python-matplotlib/">
+                <a href="/2022/08/16/python07-python-shu-xue-jian-mo-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python数据处理:可视化库Matplotlib">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Python数学建模:规划问题">
                         
-                        <span class="card-title">Python数据处理:可视化库Matplotlib</span>
+                        <span class="card-title">Python数学建模:规划问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1038,13 +1040,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/16/python07-python-shu-xue-jian-mo-xue-xi/">
+                <a href="/2022/08/15/python03-python-numpy/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Python数学建模:规划问题">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python数据处理:科学计算库Numpy">
                         
-                        <span class="card-title">Python数学建模:规划问题</span>
+                        <span class="card-title">Python数据处理:科学计算库Numpy</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1055,7 +1057,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-15
                             </span>
                         <span class="publish-author">
                             
@@ -1331,7 +1333,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">211.8k</span>&nbsp;字
             
             
             

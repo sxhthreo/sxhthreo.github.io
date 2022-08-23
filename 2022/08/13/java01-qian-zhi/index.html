@@ -466,18 +466,17 @@
 </ol>
 <ul>
 <li>建议：<ul>
-<li>测试类名：被测试的类名Test        CalculatorTest</li>
-<li>包名：xxx.xxx.xx.test        cn.itcast.test</li>
+<li>测试类名：被测试的类名Test		CalculatorTest</li>
+<li>包名：xxx.xxx.xx.test		cn.itcast.test</li>
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="2">
 <li>定义测试方法：可以独立运行</li>
 </ol>
 <ul>
-<li><p>建议：</p>
-<ul>
-<li><p>方法名：test测试的方法名        testAdd()  </p>
+<li>建议：<ul>
+<li><p>方法名：test测试的方法名		testAdd()  </p>
 </li>
 <li><p>返回值：void</p>
 </li>
@@ -486,7 +485,7 @@
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="2">
 <li>给方法加@Test</li>
 <li>导入<strong>junit</strong>依赖环境</li>
 </ol>
@@ -511,12 +510,14 @@
         <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>@Before：修饰的方法会在测试方法之前被自动执行</li>
 <li>@After：修饰的方法会在测试方法执行之后自动被执行</li>
 </ul>
 <h1 id="2-反射"><a href="#2-反射" class="headerlink" title="2 反射"></a>2 反射</h1><ul>
-<li>框架：半成品软件。可以在框架的基础上进行软件开发，简化编码</li>
+<li><p>框架：半成品软件。可以在框架的基础上进行软件开发，简化编码</p>
+</li>
 <li><p>反射：将类的各个组成部分封装为其他对象，这就是反射机制</p>
 <ul>
 <li>好处：<ol>
@@ -528,7 +529,7 @@
 </li>
 <li><p>获取Class对象的方式：</p>
 <ol>
-<li><strong>Class.forName(“全类名”)</strong>：将字节码文件加载进内存，返回Class对象<ul>
+<li>**Class.forName(“全类名”)**：将字节码文件加载进内存，返回Class对象<ul>
 <li>多用于配置文件，将类名定义在配置文件中。读取文件，加载类</li>
 </ul>
 </li>
@@ -536,7 +537,7 @@
 <li>多用于参数的传递</li>
 </ul>
 </li>
-<li><strong>对象.getClass()</strong>：getClass()方法在Object类中定义着。<ul>
+<li>**对象.getClass()**：getClass()方法在Object类中定义着。<ul>
 <li>多用于对象的获取字节码的方式</li>
 </ul>
 </li>
@@ -1340,7 +1341,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">211.8k</span>&nbsp;字
             
             
             
