@@ -418,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-08-24
+                                    2022-08-25
                             </div>
                             
 
@@ -426,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            7.6k
+                                            8.4k
                                     </div>
                                     
 
@@ -434,7 +434,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    36
+                                                    40
                                                         分
                                             </div>
                                             
@@ -866,9 +866,9 @@ LL <span class="token function">qmi</span><span class="token punctuation">(</spa
 </ul>
 <p>变换后：</p>
 <ul>
-<li>完美阶梯形——唯一解</li>
-<li>0=非零——无解</li>
-<li>0=0(该方程可以被其他方程表示)——无穷多组解</li>
+<li><strong>完美阶梯形</strong>——唯一解</li>
+<li><strong>0=非零</strong>——无解</li>
+<li><strong>0=0</strong>(该方程可以被其他方程表示)——无穷多组解</li>
 </ul>
 <p><strong>高斯消元的算法步骤</strong>：</p>
 <p>枚举每一列<code>C</code></p>
@@ -1328,6 +1328,87 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-2-SG函数"><a href="#6-2-SG函数" class="headerlink" title="6.2 SG函数"></a>6.2 SG函数</h2><h3 id="6-2-1-Mex运算"><a href="#6-2-1-Mex运算" class="headerlink" title="6.2.1 Mex运算"></a>6.2.1 Mex运算</h3><p>设<code>S</code>表示一个非负整数集合。定义<code>mex(S)</code>为求出不属于集合<code>S</code>的最小非负整数的运算，即：<code>mex(S) = min&#123;x&#125;</code>, <code>x</code>属于自然数，且<code>x</code>不属于<code>S</code>。</p>
+<p>通俗的讲，即是：<strong>不存在<code>S</code>集合中的数中，最小的那个数。</strong></p>
+<h3 id="6-2-2-SG函数"><a href="#6-2-2-SG函数" class="headerlink" title="6.2.2 SG函数"></a>6.2.2 SG函数</h3><p>在有向图游戏中，对于每个节点<code>x</code>，设从<code>x</code>出发共有<code>k</code>条有向边，分别到达节点<code>y1, y2,..., yk</code>。</p>
+<p>定义<code>SG(x)</code>为<code>x</code>的后继节点<code>y1, y2, ..., yk</code>的<code>SG</code>函数值构成的集合再执行<code>mex(S)</code>运算的结果，即：<code>SG(x) = mex(&#123;SG(y1), SG(y2), …, SG(yk)&#125;)</code>。易知<code>SG(终点) = 0</code>。</p>
+<p>特别地，整个有向图游戏<code>G</code>的<code>SG</code>函数值被定义为有向图游戏起点<code>s</code>的<code>SG</code>函数值，即<code>SG(G) = SG(s)</code>。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220824225129309.png" alt="SG函数图示"></p>
+<p><strong>定理1</strong>：</p>
+<ul>
+<li>有向图游戏的某个局面必胜，当且仅当该局面对应节点的<code>SG</code>函数值大于<code>0</code>；</li>
+<li>有向图游戏的某个局面必败，当且仅当该局面对应节点的<code>SG</code>函数值等于<code>0</code>。</li>
+</ul>
+<p><strong>定理2</strong>：</p>
+<p>设<code>G1, G2,..., Gm</code>是<code>m</code>个有向图游戏。定义有向图游戏<code>G</code>，它的行动规则是任选某个有向图游戏<code>Gi</code>，并在<code>Gi</code>上行动一步。</p>
+<ul>
+<li><p><code>G</code>被称为有向图游戏<code>G1, G2,..., Gm</code>的和。</p>
+</li>
+<li><p>有向图游戏的和的<code>SG</code>函数值等于它包含的各个子游戏<code>SG</code>函数值的异或和，即：<code>SG(G) = SG(G1) ^ SG(G2) ^ ... ^ SG(Gm)</code>。</p>
+</li>
+</ul>
+<blockquote>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220824230501550.png" alt="定理2证明"></p>
+<p>证得：若先手面对的状态是<code>xor!=0</code>，则先手方总能使<code>xor=0</code>，即使后手面对的永远是<strong>必败态</strong>直到结束状态①，因此先手必胜；反之，必败。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/895/">例：集合-Nim游戏</a></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220825001201399.png" alt="集合-Nim游戏示例" style="zoom:67%;" /></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unordered_set></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">110</span><span class="token punctuation">,</span> M <span class="token operator">=</span> <span class="token number">10010</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+<span class="token keyword">int</span> s<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">;</span>					<span class="token comment">//s存储的是可供选择的集合,f存储的是所有出现过的情况的sg值</span>
+
+<span class="token keyword">int</span> <span class="token function">sg</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">//记忆化搜索,因为取石子数目的集合是已经确定了的,所以每个数的sg值也都是确定的,如果存储过了,直接返回即可</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>f<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> f<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    unordered_set<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> S<span class="token punctuation">;</span>		<span class="token comment">//因为在函数内部定义,所以下一次递归中的S不与本次相同</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>			<span class="token comment">// sum表示当前遍历到的操作数量</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">>=</span> sum<span class="token punctuation">)</span> 	 		<span class="token comment">// 若x >= sum表明当前x可以取走sum个石子</span>
+            <span class="token comment">// 递归，将得到的sg值存入S,即先延伸到终点的sg值后,再从后往前排查出所有数的sg值</span>
+            S<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token function">sg</span><span class="token punctuation">(</span>x <span class="token operator">-</span> sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>	<span class="token comment">// 从0开始遍历x可取的sg值，要保证为x未指向的最小的数</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>S<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> 		<span class="token comment">// 表明当前x并未指向i这个值，即x可取i，且此时最小</span>
+            <span class="token keyword">return</span> f<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>	<span class="token comment">// 将i存入f，并作为x的sg值返回</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    cin <span class="token operator">>></span> m<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> cin <span class="token operator">>></span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+
+    <span class="token function">memset</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//初始化f数组</span>
+
+    <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> x<span class="token punctuation">;</span>
+        res <span class="token operator">^=</span> <span class="token function">sg</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>			<span class="token comment">// 计算每堆石子sg值异或的结果</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Yes"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"No"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>注：<code>unordered_set_name.count(element)</code></p>
+<p>此函数接受单个参数<code>element</code>。表示容器中是否存在需要检查的元素。</p>
+<p><strong>返回值</strong>：如果元素存在于容器中，则此函数返回1，否则返回0。 </p>
+</blockquote>
 
                                     
                             </div>
@@ -2128,7 +2209,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.9k</span>&nbsp;字
+                class="white-color">230.7k</span>&nbsp;字
             
             
             
