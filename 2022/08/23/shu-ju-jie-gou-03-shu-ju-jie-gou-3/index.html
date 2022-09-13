@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            7.5k
+                                            7.6k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    29
+                                                    30
                                                         分
                                             </div>
                                             
@@ -463,7 +463,7 @@
                             <div id="articleContent">
                                 <h1 id="ch8-查找"><a href="#ch8-查找" class="headerlink" title="ch8.查找"></a>ch8.查找</h1><h2 id="8-1-查找算法的评价指标-ASL"><a href="#8-1-查找算法的评价指标-ASL" class="headerlink" title="8.1 查找算法的评价指标(ASL)"></a>8.1 查找算法的评价指标(ASL)</h2><p>查找长度：在查找运算中，需要对比关键字的次数称为查找长度；</p>
 <p><strong>平均查找长度</strong>（<strong>ASL</strong>，Average Search Length）：所有查找过程中进行关键字的比较次数的平均值。</p>
-<p>$ASL = {\sum\limits_{i = 1}^{n}{P_{i}C_{i}}}$（$P_{i}$为查找第<code>i</code>个元素的概率，$C_{i}$为查找第<code>i</code>个元素的查找长度，<code>n</code>为数据元素个数）</p>
+<p>$ASL &#x3D; {\sum\limits_{i &#x3D; 1}^{n}{P_{i}C_{i}}}$（$P_{i}$为查找第<code>i</code>个元素的概率，$C_{i}$为查找第<code>i</code>个元素的查找长度，<code>n</code>为数据元素个数）</p>
 <p>查找主要分为<strong>基于比较的查找</strong>和<strong>基于位置的查找</strong>（哈希表）。</p>
 <h2 id="8-2-静态查找表"><a href="#8-2-静态查找表" class="headerlink" title="8.2 静态查找表"></a>8.2 静态查找表</h2><h3 id="8-2-1-顺序查找"><a href="#8-2-1-顺序查找" class="headerlink" title="8.2.1 顺序查找"></a>8.2.1 顺序查找</h3><p>0号位置添加<strong>哨兵</strong>（sentry）实现：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220212172259467.png" alt="image-20220212172259467"></p>
@@ -480,20 +480,22 @@
     <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>ST<span class="token punctuation">.</span>TableLen<span class="token punctuation">;</span>ST<span class="token punctuation">.</span>elem<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>key<span class="token punctuation">;</span><span class="token operator">--</span>i<span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>		<span class="token comment">//从后往前找</span>
     <span class="token keyword">return</span> i<span class="token punctuation">;</span>			<span class="token comment">//查找成功，则返回元素下标；查找失败，则返回0</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>查找效率分析</strong>：</p>
-<p>${ASL}_{成功} = \frac{1 + 2 + 3 + \ldots + n}{n} = \frac{n + 1}{2}$（第一个查找到花1次，第二个花两次，以此类推），时间复杂度为$O(n)$。</p>
+<p>${ASL}_{成功} &#x3D; \frac{1 + 2 + 3 + \ldots + n}{n} &#x3D; \frac{n + 1}{2}$（第一个查找到花1次，第二个花两次，以此类推），时间复杂度为$O(n)$。</p>
 <blockquote>
 <p>注：</p>
 <ul>
-<li><p>平均查找长度也可以这样表示：$ASL_{成功}=\sum_{i=n}^{1}(n-i+1) / n=(n+1) / 2$；</p>
+<li><p>平均查找长度也可以这样表示：$ASL_{成功}&#x3D;\sum_{i&#x3D;n}^{1}(n-i+1) &#x2F; n&#x3D;(n+1) &#x2F; 2$；</p>
 </li>
 <li><p>若存在查找失败的情况，则需要另外进行讨论。</p>
 </li>
 </ul>
 </blockquote>
-<p>若顺序查找思想放在有序表中，表中元素有序存放（递增/递减），若……，则说明查找失败。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220212225904369.png" alt="image-20220212225904369" style="zoom: 80%;" /></p>
-<p>一个成功结点的查找长度=自身所在层数；一个失败结点的查找长度=其父结点所在层数。</p>
+<p>若顺序查找思想放在有序表中，表中元素有序存放（递增&#x2F;递减），若……，则说明查找失败。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220212225904369.png" alt="image-20220212225904369" style="zoom: 80%;" />
+
+<p>一个成功结点的查找长度&#x3D;自身所在层数；一个失败结点的查找长度&#x3D;其父结点所在层数。</p>
 <p>默认情况下，各种失败情况或成功情况都等概率发生。</p>
 <p>若各个关键字被查概率不同，可按照被查概率降序排列，这样可以使查找成功时ASL更少。</p>
 <h3 id="8-2-2-折半查找"><a href="#8-2-2-折半查找" class="headerlink" title="8.2.2 折半查找"></a>8.2.2 折半查找</h3><p>又称“二分查找”，仅适用于<strong>有序表的查找</strong>（有序表在计算机学科中默认正序）。</p>
@@ -512,8 +514,10 @@
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>折半查找判定树的构造</strong>：(基于<strong>位置</strong>)</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220515235350708.png" alt="image-20220515235350708" style="zoom: 67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220515235350708.png" alt="image-20220515235350708" style="zoom: 67%;" />
+
 <blockquote>
 <p>注：若基于数据，则是一个中序有序的二叉树。</p>
 </blockquote>
@@ -522,12 +526,12 @@
 <p>如果当前low和high之间有奇数个元素，则 mid 分隔后，左右两部分元素个数相等；</p>
 <p>如果当前low和high之间有偶数个元素，则 mid 分隔后，<strong>左半部分比右半部分少一个元素</strong>。</p>
 <p>【注意】<strong>每轮判断mid值时，需变动low值为mid+1或high值为mid-1</strong>。</p>
-<p>折半查找的判定树中，若$mid = \left\lfloor {\left( low + high \right)/2} \right\rfloor$，则对于任何一个结点，必有<strong>右子树结点数-左子树结点数=0或1</strong>。</p>
+<p>折半查找的判定树中，若$mid &#x3D; \left\lfloor {\left( low + high \right)&#x2F;2} \right\rfloor$，则对于任何一个结点，必有<strong>右子树结点数-左子树结点数&#x3D;0或1</strong>。</p>
 <p>折半查找的判定树一定是<strong>平衡二叉树</strong>。</p>
-<p>折半查找的判定树中，只有最下面一层是不满的，因此当元素个数为<code>n</code>时，树高$h = \lceil log_{2}\left( n + 1 \right) \rceil$（不包含失败结点）。</p>
+<p>折半查找的判定树中，只有最下面一层是不满的，因此当元素个数为<code>n</code>时，树高$h &#x3D; \lceil log_{2}\left( n + 1 \right) \rceil$（不包含失败结点）。</p>
 <p>查找成功时折半查找的平均查找长度</p>
-<p>$\begin{aligned}<br>ASL_{success} &amp;=\sum_{i=1}^{n} P_{i} C_{i} =\frac{1}{n} \sum_{j=1}^{h} j \cdot 2^{j-1} =\frac{n+1}{n} \log _{2}(n+1)-1<br>\end{aligned}$</p>
-<p>当<code>n</code>较大时，可得到近似结果：$\begin{aligned}<br>ASL_{success} =\log _{2}(n+1)-1<br>\end{aligned}$</p>
+<p>$\begin{aligned}<br>ASL_{success} &amp;&#x3D;\sum_{i&#x3D;1}^{n} P_{i} C_{i} &#x3D;\frac{1}{n} \sum_{j&#x3D;1}^{h} j \cdot 2^{j-1} &#x3D;\frac{n+1}{n} \log _{2}(n+1)-1<br>\end{aligned}$</p>
+<p>当<code>n</code>较大时，可得到近似结果：$\begin{aligned}<br>ASL_{success} &#x3D;\log _{2}(n+1)-1<br>\end{aligned}$</p>
 <p>折半查找实现代码如下：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//  Performs the standard binary search </span>
 <span class="token comment">//  Returns index where item is found, or -1, if not found.     </span>
@@ -544,7 +548,8 @@
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> NOT_FOUND<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="8-2-3-插值查找"><a href="#8-2-3-插值查找" class="headerlink" title="8.2.3 插值查找"></a>8.2.3 插值查找</h3><p>插值查找（interpolation search）实际上是二分查找的改良版。在插值查找中，可以改变二分查找的区间缩减策略，<strong>根据搜索的值来确定区间缩减幅度</strong>，其中间位置的计算公式如下：$mid=left+alpha\times(right-left)$，其中<code>alpha</code>用于衡量搜索目标值距离左边界的远近。将<code>alpha</code>的表达式代入，即有：$mid=\left\lfloor\frac{(k e y-A[l])(r-l)}{A[r]-A[l]}\right\rfloor$，其中<code>l</code>和<code>r</code>分别代表数组的第一个和最后一个索引，<code>key</code>代表待查找的元素。</p>
+
+<h3 id="8-2-3-插值查找"><a href="#8-2-3-插值查找" class="headerlink" title="8.2.3 插值查找"></a>8.2.3 插值查找</h3><p>插值查找（interpolation search）实际上是二分查找的改良版。在插值查找中，可以改变二分查找的区间缩减策略，<strong>根据搜索的值来确定区间缩减幅度</strong>，其中间位置的计算公式如下：$mid&#x3D;left+alpha\times(right-left)$，其中<code>alpha</code>用于衡量搜索目标值距离左边界的远近。将<code>alpha</code>的表达式代入，即有：$mid&#x3D;\left\lfloor\frac{(k e y-A[l])(r-l)}{A[r]-A[l]}\right\rfloor$，其中<code>l</code>和<code>r</code>分别代表数组的第一个和最后一个索引，<code>key</code>代表待查找的元素。</p>
 <p>当一次查找失败时，若目标值在中间值右边，更新左边界位置；若目标值在中间值左边，更新右边界位置。</p>
 <p>假设有这样一个数组 $[0,10,20,30,40,50,60,70,80,90]$ ，我们可以发现，每个相邻元素的差均为10，满足<strong>均匀分布</strong>。此时只要一次就能找到我们要找的元素。</p>
 <p>插值查找实现代码如下：</p>
@@ -579,6 +584,7 @@
 	<span class="token comment">// 搜索不到，返回-1</span>
 	<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="8-2-4-索引顺序表的分块查找"><a href="#8-2-4-索引顺序表的分块查找" class="headerlink" title="8.2.4 索引顺序表的分块查找"></a>8.2.4 索引顺序表的分块查找</h3><p>分块查找又称<strong>索引顺序查找</strong>。该查找算法中，除表本身以外，还需建立一个“<strong>索引表</strong>”，索引顺序表分块有序，每个子表中所有记录的关键字均大于上一个子表中的关键字。</p>
 <p>索引顺序查找分两步：</p>
 <ul>
@@ -589,13 +595,13 @@
 <p>算法中，对索引表的查找可以采用顺序查找或折半查找。</p>
 </blockquote>
 <p><strong>sequentially search index and data table</strong>：</p>
-<p>$\begin{array}{l}<br>A S L=L_{b}+L_{w} =\sum_{j=1}^{b}(j / b)+\sum_{j=1}^{S}(i / s) =(b+1) / 2+(s+1) / 2=(b+s) / 2+1<br>\end{array}$</p>
+<p>$\begin{array}{l}<br>A S L&#x3D;L_{b}+L_{w} &#x3D;\sum_{j&#x3D;1}^{b}(j &#x2F; b)+\sum_{j&#x3D;1}^{S}(i &#x2F; s) &#x3D;(b+1) &#x2F; 2+(s+1) &#x2F; 2&#x3D;(b+s) &#x2F; 2+1<br>\end{array}$</p>
 <p><strong>binary search index table, sequentially search data table</strong>：</p>
-<p>$A S L=\log _{2}(n / s+1)+s / 2$</p>
+<p>$A S L&#x3D;\log _{2}(n &#x2F; s+1)+s &#x2F; 2$</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220516001845231.png" alt="image-20220516001845231"></p>
 <h2 id="8-3-二叉排序树-BST"><a href="#8-3-二叉排序树-BST" class="headerlink" title="8.3 二叉排序树(BST)"></a>8.3 二叉排序树(BST)</h2><p>下面介绍的是<strong>动态查找表</strong>的表示和实现。二叉排序树，又称二叉查找树（<strong>BST</strong>，Binary Search Tree），在该树中，左子树结点值均小于根结点值，右子树结点值均大于根节点值（假定子树非空），且它的左右子树也分别是二叉排序树。</p>
 <p>对该树进行<strong>中序遍历</strong>，可以得到一个<strong>递增的有序序列</strong>。</p>
-<h3 id="8-3-1-查找"><a href="#8-3-1-查找" class="headerlink" title="8.3.1 查找"></a>8.3.1 查找</h3><p>查找算法中，<strong>成功，返回结点位置；失败，返回左/右孩子</strong>，算法实现如下：</p>
+<h3 id="8-3-1-查找"><a href="#8-3-1-查找" class="headerlink" title="8.3.1 查找"></a>8.3.1 查找</h3><p>查找算法中，<strong>成功，返回结点位置；失败，返回左&#x2F;右孩子</strong>，算法实现如下：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">Status <span class="token function">SearchBST</span><span class="token punctuation">(</span>BiTree T<span class="token punctuation">,</span> KeyType key<span class="token punctuation">,</span> BiTree<span class="token operator">&amp;</span> f<span class="token punctuation">,</span> BiTree<span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// IF SEARCH IS SUCCESS p points the node,else p points to the last node in the visiting path,f is the parent of T，initial value is NULL</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>T<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -608,9 +614,10 @@
         <span class="token function">SearchBST</span><span class="token punctuation">(</span>T<span class="token operator">-></span>lchild<span class="token punctuation">,</span> key<span class="token punctuation">,</span> T<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">else</span> <span class="token function">SearchBST</span><span class="token punctuation">(</span>T<span class="token operator">-></span>rchild<span class="token punctuation">,</span> key<span class="token punctuation">,</span> T<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span> <span class="token comment">// SearchBST</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>查找效率分析</strong>：</p>
-<p>​      在二叉排序树查找中，成功的查找次数不会超过二叉树的深度，而<strong>具有n个结点的二叉排序树的深度，最好为$log_{2}n$，最坏为$n$</strong>。因此，二叉排序树查找的最好时间复杂度为$O(log_{2}n)$，最坏的时间复杂度为O(n)。一般情形下，其时间复杂度大致可看成$O(log_{2}n)$，比顺序查找效率要好，但比折半查找要差。</p>
-<h3 id="8-3-2-插入"><a href="#8-3-2-插入" class="headerlink" title="8.3.2 插入"></a>8.3.2 插入</h3><p>若原二叉排序树为空，则直接插入结点；否则，若关键字k小于根结点值，则插入到左子树，若关键字k大于根结点值，则插入到右子树。该算法是递归实现的，故最坏的空间复杂度为<strong>O(h)</strong>（h为树的高度）。</p>
+<p>​      在二叉排序树查找中，成功的查找次数不会超过二叉树的深度，而**具有n个结点的二叉排序树的深度，最好为$log_{2}n$，最坏为$n$**。因此，二叉排序树查找的最好时间复杂度为$O(log_{2}n)$，最坏的时间复杂度为O(n)。一般情形下，其时间复杂度大致可看成$O(log_{2}n)$，比顺序查找效率要好，但比折半查找要差。</p>
+<h3 id="8-3-2-插入"><a href="#8-3-2-插入" class="headerlink" title="8.3.2 插入"></a>8.3.2 插入</h3><p>若原二叉排序树为空，则直接插入结点；否则，若关键字k小于根结点值，则插入到左子树，若关键字k大于根结点值，则插入到右子树。该算法是递归实现的，故最坏的空间复杂度为**O(h)**（h为树的高度）。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">insertBST</span><span class="token punctuation">(</span>BST<span class="token punctuation">,</span> s<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 	p <span class="token operator">=</span> BST<span class="token punctuation">;</span>
@@ -626,12 +633,13 @@
 		parent<span class="token operator">-></span>lc <span class="token operator">=</span> s<span class="token punctuation">;</span>
 	<span class="token keyword">else</span> parent<span class="token operator">-></span>rc <span class="token operator">=</span> s<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span> <span class="token comment">// Insert BST</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="8-3-3-删除"><a href="#8-3-3-删除" class="headerlink" title="8.3.3 删除"></a>8.3.3 删除</h3><p>先搜索找到目标结点，然后分以下三种情况进行删除操作：</p>
 <p>（1）若被删除结点z是<strong>叶子结点</strong>，则<strong>直接删除</strong>，不会破坏二叉排序树的性质（即左子树结点值&lt;根结点值&lt;右子树节点值）；</p>
 <p>（2）若结点z<strong>只有一棵子树</strong>（左子树或右子树），则让z的子树成为z父结点的子树，替代z的位置；</p>
 <blockquote>
 <p>也可以使用<strong>替身</strong>的做法[第三种情况也需使用替身]：</p>
-<p>将数据data搬上去，然后将可能的左/右子树作为它的左/右子树，这样不需要改动与双亲之间的关系。</p>
+<p>将数据data搬上去，然后将可能的左&#x2F;右子树作为它的左&#x2F;右子树，这样不需要改动与双亲之间的关系。</p>
 </blockquote>
 <p>（3）若结点z有左、右两棵子树，则<strong>用另一结点替代被删除的结点x</strong>[复制数据域]：x可为右子树的最小元素或者左子树的最大元素[后面使用的是第一种]，然后删除这个替代结点（因为在二叉排序树中右子树的最小元素、左子树的最大元素要么是叶子结点，要么只有一棵左子树或右子树，一定不会同时有左、右子树，这样就转换成了第一或第二种情况）；</p>
 <p>[<strong>注</strong>]进行中序遍历，可以得到一个递增的有序序列，故z的后继即为z的右子树中最左下结点（该结点一定没有左子树，然后可以参考第二种情况）。</p>
@@ -680,51 +688,49 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 	<span class="token keyword">else</span>
 		<span class="token keyword">return</span> <span class="token function">FindMin</span><span class="token punctuation">(</span>BST<span class="token operator">-></span>lchild<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//沿左分支继续递归查找</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>查找、插入、删除的时间复杂度分析</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">unsorted  array</th>
-<th style="text-align:center">sorted  array</th>
-<th style="text-align:center">linked  list</th>
-<th style="text-align:center">BST</th>
+<th align="center"></th>
+<th align="center">unsorted  array</th>
+<th align="center">sorted  array</th>
+<th align="center">linked  list</th>
+<th align="center">BST</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">insert</td>
-<td style="text-align:center">find  + O(n)</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">find  + O(1)</td>
-<td style="text-align:center">O(Depth)</td>
+<tbody><tr>
+<td align="center">insert</td>
+<td align="center">find  + O(n)</td>
+<td align="center">O(n)</td>
+<td align="center">find  + O(1)</td>
+<td align="center">O(Depth)</td>
 </tr>
 <tr>
-<td style="text-align:center">find</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">O(log n)</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">O(Depth)</td>
+<td align="center">find</td>
+<td align="center">O(n)</td>
+<td align="center">O(log n)</td>
+<td align="center">O(n)</td>
+<td align="center">O(Depth)</td>
 </tr>
 <tr>
-<td style="text-align:center">delete</td>
-<td style="text-align:center">find  + O(1)</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">find  + O(1)</td>
-<td style="text-align:center">O(Depth)</td>
+<td align="center">delete</td>
+<td align="center">find  + O(1)</td>
+<td align="center">O(n)</td>
+<td align="center">find  + O(1)</td>
+<td align="center">O(Depth)</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="8-4-平衡二叉树-AVL"><a href="#8-4-平衡二叉树-AVL" class="headerlink" title="8.4 平衡二叉树(AVL)"></a>8.4 平衡二叉树(AVL)</h2><h3 id="8-4-1-平衡二叉树的定义"><a href="#8-4-1-平衡二叉树的定义" class="headerlink" title="8.4.1 平衡二叉树的定义"></a>8.4.1 平衡二叉树的定义</h3><p>平衡二叉树（Balanced Binary Tree），简称平衡树（<strong>AVL树</strong>），其树上任一结点的<strong>左子树和右子树的深度之差的绝对值不超过1</strong>。</p>
-<p>结点的<strong>平衡因子BF（Balance Factor）</strong>=左子树的深度-右子树的深度。</p>
+<p>结点的<strong>平衡因子BF（Balance Factor）</strong>&#x3D;左子树的深度-右子树的深度。</p>
 <p>平衡二叉树结点存储结构的定义：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">AVLNode</span><span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> key<span class="token punctuation">;</span>		<span class="token comment">//数据域</span>
     <span class="token keyword">int</span> balance<span class="token punctuation">;</span>	<span class="token comment">//平衡因子</span>
 	<span class="token keyword">struct</span> <span class="token class-name">AVLNode</span> <span class="token operator">*</span>lchild<span class="token punctuation">,</span><span class="token operator">*</span>rchild<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>AVLNode<span class="token punctuation">,</span><span class="token operator">*</span>AVLTree<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>降低BST的高度，有以下两种方法：</p>
 <ul>
 <li><strong>平衡化</strong>：<ul>
@@ -738,7 +744,7 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <p>调整二叉树，使之称为AVL Tree有以下两个关键步骤：</p>
 <ul>
 <li><p>找到<strong>最小非平衡子树的树根</strong></p>
-<p>特点：==<strong>离插入点最近</strong>==；原平衡因子的绝对值为1</p>
+<p>特点：&#x3D;&#x3D;<strong>离插入点最近</strong>&#x3D;&#x3D;；原平衡因子的绝对值为1</p>
 </li>
 <li><p>判断类型：<strong>与孩子结点平衡因子符号</strong>：</p>
 <ul>
@@ -752,8 +758,10 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <ul>
 <li><strong>LL插入</strong>：右旋</li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220517235756091.png" alt="image-20220517235756091" style="zoom: 50%;" /></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220517235828224.png" alt="image-20220517235828224" style="zoom:50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220517235756091.png" alt="image-20220517235756091" style="zoom: 50%;" />
+
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220517235828224.png" alt="image-20220517235828224" style="zoom:50%;" />
+
 <ul>
 <li><strong>RR插入</strong>：左旋</li>
 </ul>
@@ -767,40 +775,38 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518000959473.png" alt="image-20220518000959473"></p>
 <p>每插入一个结点至多调整一次,全树都能达到平衡。</p>
-<h3 id="8-4-3-查找效率分析"><a href="#8-4-3-查找效率分析" class="headerlink" title="8.4.3 查找效率分析"></a>8.4.3 查找效率分析</h3><p>在平衡二叉树中，树上任一结点的左子树和右子树的高度之差不超过1，假设以$n_{h}$表示<strong>深度为h的平衡树中含有的最少结点数</strong>，则有$n_{0}=0,n_{1}=1,n_{2}=2$，且有$n_{h} = n_{h - 1} + n_{h - 2} + 1$。</p>
+<h3 id="8-4-3-查找效率分析"><a href="#8-4-3-查找效率分析" class="headerlink" title="8.4.3 查找效率分析"></a>8.4.3 查找效率分析</h3><p>在平衡二叉树中，树上任一结点的左子树和右子树的高度之差不超过1，假设以$n_{h}$表示<strong>深度为h的平衡树中含有的最少结点数</strong>，则有$n_{0}&#x3D;0,n_{1}&#x3D;1,n_{2}&#x3D;2$，且有$n_{h} &#x3D; n_{h - 1} + n_{h - 2} + 1$。</p>
 <p>含有$n$个结点的平衡二叉树的最大深度为$O\left( logn \right)$，即<strong>平衡二叉树的平均查找长度</strong>为$O\left( logn \right)$。</p>
 <h2 id="8-5-B树"><a href="#8-5-B树" class="headerlink" title="8.5 B树"></a>8.5 B树</h2><h3 id="8-5-1-B树的定义和性质"><a href="#8-5-1-B树的定义和性质" class="headerlink" title="8.5.1 B树的定义和性质"></a>8.5.1 B树的定义和性质</h3><p>B树，是<strong>m-ary search trees</strong>，<strong>要求所有叶结点都在同一层</strong>。B树用于数据组织，该树结构中，数据在同一个层次。</p>
-<p><strong>m阶的树有m-1个关键字</strong>；在B树中，根结点有$2$到$m$个孩子；其他内部结点（非终端结点）有$\lceil M / 2\rceil$到$M$个孩子，有$\lceil M / 2\rceil-1$到$M-1$个关键字。</p>
+<p><strong>m阶的树有m-1个关键字</strong>；在B树中，根结点有$2$到$m$个孩子；其他内部结点（非终端结点）有$\lceil M &#x2F; 2\rceil$到$M$个孩子，有$\lceil M &#x2F; 2\rceil-1$到$M-1$个关键字。</p>
 <blockquote>
 <p>注：</p>
 <p>B+树则是一种索引树，M个关键字对应M个孩子。</p>
 </blockquote>
 <p><strong>B树的结点结构</strong>如下：</p>
 <p>其中，$K_{i}(1≤i≤n)$为关键字（关键字按升序排序），指针$A_{i}(0≤i≤n)$指向子树的根结点</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">n</th>
-<th style="text-align:center">K1</th>
-<th style="text-align:center">K2</th>
-<th style="text-align:center">…</th>
-<th style="text-align:center">Kn</th>
+<th align="center">n</th>
+<th align="center">K1</th>
+<th align="center">K2</th>
+<th align="center">…</th>
+<th align="center">Kn</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">A0</td>
-<td style="text-align:center">A1</td>
-<td style="text-align:center">A2</td>
-<td style="text-align:center">…</td>
-<td style="text-align:center">An</td>
+<tbody><tr>
+<td align="center">A0</td>
+<td align="center">A1</td>
+<td align="center">A2</td>
+<td align="center">…</td>
+<td align="center">An</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518002653959.png" alt="image-20220518002653959" style="zoom:50%;" /></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518003259079.png" alt="image-20220518003259079" style="zoom:50%;" /></p>
+</tbody></table>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518002653959.png" alt="image-20220518002653959" style="zoom:50%;" />
+
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518003259079.png" alt="image-20220518003259079" style="zoom:50%;" />
+
 <h3 id="8-5-2-B树的查找操作"><a href="#8-5-2-B树的查找操作" class="headerlink" title="8.5.2 B树的查找操作"></a>8.5.2 B树的查找操作</h3><p>与分块查找类似，是二叉排序树的扩展。</p>
 <ul>
 <li>先让$key$与根结点中的<strong>关键字</strong>比较[可以采用折半查找]，如果$key$等于$K [i]$（$K []$为结点内的关键字数组），则查找成功。</li>
@@ -810,39 +816,48 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <li>如果最后遇到空指针，则证明查找不成功。</li>
 </ul>
 <h3 id="8-5-3-B树结点的插入"><a href="#8-5-3-B树结点的插入" class="headerlink" title="8.5.3 B树结点的插入"></a>8.5.3 B树结点的插入</h3><p>当在树中插入结点到最左边的叶子时，发生overflow（溢出），需要分割，即：</p>
-<p>$Left = [2,3] ,Middle = 5,Right = [6,7] $，<strong>将Left和Right分别作为叶子结点，然后将Middle加入到双亲结点的关键字中去。</strong></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518003310886.png" alt="image-20220518003310886" style="zoom:50%;" /></p>
+<p>$Left &#x3D; [2,3] ,Middle &#x3D; 5,Right &#x3D; [6,7] $，<strong>将Left和Right分别作为叶子结点，然后将Middle加入到双亲结点的关键字中去。</strong></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518003310886.png" alt="image-20220518003310886" style="zoom:50%;" />
+
 <p>在以下的情况中：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518003952347.png" alt="image-20220518003952347" style="zoom:50%;" /></p>
-<p>$Left = [55,66 ] ,Middle = 67 ,Right = [ 68,70 ] $，Middle加入关键字中去，发现关键字也已经满员，需要再通过Middle进行分割，如下所示：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518004008760.png" alt="image-20220518004008760" style="zoom:50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518003952347.png" alt="image-20220518003952347" style="zoom:50%;" />
+
+<p>$Left &#x3D; [55,66 ] ,Middle &#x3D; 67 ,Right &#x3D; [ 68,70 ] $，Middle加入关键字中去，发现关键字也已经满员，需要再通过Middle进行分割，如下所示：</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518004008760.png" alt="image-20220518004008760" style="zoom:50%;" />
+
 <h3 id="8-5-4-B树结点的删除"><a href="#8-5-4-B树结点的删除" class="headerlink" title="8.5.4 B树结点的删除"></a>8.5.4 B树结点的删除</h3><p><strong>Case1</strong>：要删除的键位于叶中，有以下方法来处理：</p>
 <ul>
 <li>找同学借（<strong>左右兄弟</strong>）</li>
 </ul>
 <p>删除键违反了节点应持有的<strong>最小键数</strong>的属性。在这种情况下，我们按照从左到右的顺序从紧邻的兄弟节点借用一个键。首先，去拜访他的左侧兄弟节点。如果左侧同级节点的键数超过最小值，则从该节点借用键。否则，尝试从紧邻的右侧同级节点借用。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518004336069.png" alt="image-20220518004336069" style="zoom:50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518004336069.png" alt="image-20220518004336069" style="zoom:50%;" />
+
 <ul>
 <li>拼桌（<strong>Merge</strong>）：如果两个直接同级节点的键数都已达到最小值，则将该节点与左侧同级节点或右侧同级节点合并，这个合并是通过父节点完成的。</li>
 </ul>
 <p>如删除7结点，进行以下操作：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518004447317.png" alt="image-20220518004447317" style="zoom:50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518004447317.png" alt="image-20220518004447317" style="zoom:50%;" />
+
 <p><strong>Case2</strong>：要删除的键位于内部节点中，有以下方法来处理：</p>
 <ul>
 <li>如果左子节点的键数超过最小值，则删除的内部节点将替换为<strong>中序前置节点</strong>。</li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/2021030315273617.png" alt="在这里插入图片描述" style="zoom: 33%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/2021030315273617.png" alt="在这里插入图片描述" style="zoom: 33%;" />
+
 <p>同理，如果右子节点的键数超过最小值，则删除的内部节点将替换为中序后置节点。</p>
 <ul>
 <li>如果任一子级的键数正好是最小的，则合并左子级和右子级。</li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/20210303153002414.png" alt="在这里插入图片描述" style="zoom:33%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/20210303153002414.png" alt="在这里插入图片描述" style="zoom:33%;" />
+
 <p><strong>Case3</strong>：要删除的键位于内部节点中，并且删除该键会导致节点中的键数量减少（即少于所需的最小值）：</p>
-<p>​     在这种情况下，<strong>树的高度会缩小</strong>。如果目标键位于内部节点中，则查找中序前置和中序后置。如果两个子项都包含最少数量的键，则不能进行借用，可以合并孩子。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/20210303153421289.png" alt="在这里插入图片描述" style="zoom: 50%;" /></p>
+<p>​	 在这种情况下，<strong>树的高度会缩小</strong>。如果目标键位于内部节点中，则查找中序前置和中序后置。如果两个子项都包含最少数量的键，则不能进行借用，可以合并孩子。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/20210303153421289.png" alt="在这里插入图片描述" style="zoom: 50%;" />
+
 <h2 id="8-6-哈希表"><a href="#8-6-哈希表" class="headerlink" title="8.6 哈希表"></a>8.6 哈希表</h2><p>前面所介绍的查找算法都是关键字间的比较，即<strong>基于比较的查找</strong>；哈希表则是一种<strong>基于位置的查找</strong>。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518010046726.png" alt="image-20220518010046726" style="zoom:50%;" /></p>
-<p>哈希表的<strong>装载密度</strong>由$\alpha = \frac{n}{sb}$来衡量，其中s是slot（槽）的大小，b是bucket（桶）的个数，$sb$指<strong>表的大小</strong>。工程上，装载密度介于0.6至0.995之间是合适的。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220518010046726.png" alt="image-20220518010046726" style="zoom:50%;" />
+
+<p>哈希表的<strong>装载密度</strong>由$\alpha &#x3D; \frac{n}{sb}$来衡量，其中s是slot（槽）的大小，b是bucket（桶）的个数，$sb$指<strong>表的大小</strong>。工程上，装载密度介于0.6至0.995之间是合适的。</p>
 <blockquote>
 <p>注：</p>
 <ul>
@@ -850,7 +865,7 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <li>散列的基本思想就是映射，散列表（哈希表）数据项的存储方式尤其有利于将来快速的查找定位。</li>
 </ul>
 </blockquote>
-<p>对于两个标识符i,j，若$f(i) = f(j)$，则称i和j是<strong>同义词</strong>，该现象称为<strong>冲突</strong>（Collision）。</p>
+<p>对于两个标识符i,j，若$f(i) &#x3D; f(j)$，则称i和j是<strong>同义词</strong>，该现象称为<strong>冲突</strong>（Collision）。</p>
 <p>在哈希表中需要解决的两个关键问题是：</p>
 <ul>
 <li><strong>映射</strong>（构造Hash函数），如线性（还需要考虑时间开销）</li>
@@ -858,7 +873,7 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 </ul>
 <h3 id="8-6-1-哈希表的构造方法"><a href="#8-6-1-哈希表的构造方法" class="headerlink" title="8.6.1 哈希表的构造方法"></a>8.6.1 哈希表的构造方法</h3><p><strong>直接定址法</strong>——适合数据的<strong>线性排列</strong>。</p>
 <ul>
-<li><p>构造：取关键字或关键字的某个线性函数作哈希地址，即$H(key)=key$ 或$H(key)=a·key+b$。</p>
+<li><p>构造：取关键字或关键字的某个线性函数作哈希地址，即$H(key)&#x3D;key$ 或$H(key)&#x3D;a·key+b$。</p>
 </li>
 <li><p>特点：</p>
 <ul>
@@ -874,9 +889,9 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <li>构造：取关键字平方后中间几位作哈希地址</li>
 <li>适于不知道全部关键字情况</li>
 </ul>
-<p>==<strong>除留余数法</strong>==：</p>
-<p>取关键字被某个<strong>不超过哈希表表长B的最大素数</strong>M除后所得余数，得到哈希地址，即$H(key)=key\; mod\; M$。</p>
-<p>例如，当B=15时，M=13。</p>
+<p>&#x3D;&#x3D;<strong>除留余数法</strong>&#x3D;&#x3D;：</p>
+<p>取关键字被某个<strong>不超过哈希表表长B的最大素数</strong>M除后所得余数，得到哈希地址，即$H(key)&#x3D;key; mod; M$。</p>
+<p>例如，当B&#x3D;15时，M&#x3D;13。</p>
 <blockquote>
 <p>当关键字是小数时，可以采用以下策略：</p>
 <ul>
@@ -884,8 +899,8 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <li>作乘法，并取整数部分</li>
 </ul>
 </blockquote>
-<p>==<strong>折叠法</strong>==：</p>
-<p>类似有损压缩（512—-&gt;64）。</p>
+<p>&#x3D;&#x3D;<strong>折叠法</strong>&#x3D;&#x3D;：</p>
+<p>类似有损压缩（512—&gt;64）。</p>
 <ul>
 <li>构造：将关键字分割成位数相同的几部分，然后取这几部分的<strong>叠加和</strong>（舍去进位）做哈希地址</li>
 <li>种类：<ul>
@@ -894,7 +909,8 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 </ul>
 </li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524224157827.png" alt="image-20220524224157827" style="zoom:67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524224157827.png" alt="image-20220524224157827" style="zoom:67%;" />
+
 <p><strong>数字分析法</strong>：</p>
 <ul>
 <li>构造：对关键字进行分析，取关键字的若干位或其组合作哈希地址</li>
@@ -904,7 +920,7 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220525120438779.png" alt="image-20220525120438779"></p>
 <p><strong>随机数法</strong>：</p>
 <ul>
-<li>构造：取关键字的<strong>随机函数值</strong>作哈希地址，即$H(key)=random(key)$。必须要注意的是，这里的随机数必须是<strong>伪随机数</strong>，即同一个数经过f运算必须保持不变。</li>
+<li>构造：取关键字的<strong>随机函数值</strong>作哈希地址，即$H(key)&#x3D;random(key)$。必须要注意的是，这里的随机数必须是<strong>伪随机数</strong>，即同一个数经过f运算必须保持不变。</li>
 <li>适于关键字长度不等的情况</li>
 </ul>
 <p>选取哈希函数，考虑以下因素：</p>
@@ -917,13 +933,13 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 </ul>
 <h3 id="8-6-2-处理冲突的方法"><a href="#8-6-2-处理冲突的方法" class="headerlink" title="8.6.2 处理冲突的方法"></a>8.6.2 处理冲突的方法</h3><p>存在<strong>开散列法和闭散列法</strong>两种方法，开散列使用链式结构，闭散列使用静态存储方式（数组、顺序表等）。</p>
 <h4 id="8-6-2-1-开放定址法"><a href="#8-6-2-1-开放定址法" class="headerlink" title="8.6.2.1 开放定址法"></a>8.6.2.1 开放定址法</h4><p>原理：<strong>闭散列</strong>中，当发生哈希冲突时，如果哈希表未被装满，说明在哈希表中必然还有空位置，那么可以把key存放到冲突位置中的“下一个” 空位置中去。</p>
-<p>方法：当冲突发生时，形成一个<strong>探查(probe)序列</strong>；沿此序列逐个地址探查，直到找到一个空位置（开放的地址），将发生冲突的记录放到该地址中，即$H_{i}=(H(key)+d_{i})\; mod\; m,i=1,2,……k(k\leq m-1)$。</p>
+<p>方法：当冲突发生时，形成一个<strong>探查(probe)序列</strong>；沿此序列逐个地址探查，直到找到一个空位置（开放的地址），将发生冲突的记录放到该地址中，即$H_{i}&#x3D;(H(key)+d_{i}); mod; m,i&#x3D;1,2,……k(k\leq m-1)$。</p>
 <p>其中：H(key)表示哈希函数，m表示哈希表表长，$d_{i}$表示<strong>增量序列</strong>。</p>
 <p>分类：</p>
 <ul>
-<li><strong>线性探测</strong>再散列：$d_{i}=1,2,3,…,m-1$，依次往后搜索，需构成<strong>循环形式的表</strong></li>
-<li>二次探测再散列：$d_{i}=1^{2},-1^{2},2^{2},-2^{2},3^{2},…,±k^{2}(k\leq m/2)$，右边+左边，并进行平方</li>
-<li>伪随机探测再散列：$d_{i}=$伪随机数序列</li>
+<li><strong>线性探测</strong>再散列：$d_{i}&#x3D;1,2,3,…,m-1$，依次往后搜索，需构成<strong>循环形式的表</strong></li>
+<li>二次探测再散列：$d_{i}&#x3D;1^{2},-1^{2},2^{2},-2^{2},3^{2},…,±k^{2}(k\leq m&#x2F;2)$，右边+左边，并进行平方</li>
+<li>伪随机探测再散列：$d_{i}&#x3D;$伪随机数序列</li>
 </ul>
 <blockquote>
 <p>注：</p>
@@ -934,39 +950,43 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 <li>插入时，遇到空位置或有删除标记的位置就可以插入。</li>
 </ul>
 </blockquote>
-<p>[例]表长为11的哈希表中已填有关键字为17，60，29的记录，H(key)=key  MOD  11，现有第4个记录，其关键字为38，按三种处理冲突的方法，将它填入表中。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524230640132.png" alt="image-20220524230640132" style="zoom:50%;" /></p>
+<p>[例]表长为11的哈希表中已填有关键字为17，60，29的记录，H(key)&#x3D;key  MOD  11，现有第4个记录，其关键字为38，按三种处理冲突的方法，将它填入表中。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524230640132.png" alt="image-20220524230640132" style="zoom:50%;" />
+
 <p>(1)(蓝) 查找的比较次数为4次</p>
-<p>​       H(38)=38 MOD 11=5    冲突<br>​       H1=(5+1) MOD 11=6    冲突<br>​       H2=(5+2) MOD 11=7    冲突<br>​       H3=(5+3) MOD 11=8    不冲突 </p>
+<p>​	   H(38)&#x3D;38 MOD 11&#x3D;5    冲突<br>​       H1&#x3D;(5+1) MOD 11&#x3D;6    冲突<br>​       H2&#x3D;(5+2) MOD 11&#x3D;7    冲突<br>​       H3&#x3D;(5+3) MOD 11&#x3D;8    不冲突 </p>
 <p>(2)(灰) 查找的比较次数为3次</p>
-<p>​       H(38)=38 MOD 11=5      冲突<br>​       H1=(5+1²) MOD 11=6    冲突<br>​       H2=(5-1²) MOD 11=4     不冲突</p>
+<p>​	   H(38)&#x3D;38 MOD 11&#x3D;5      冲突<br>​       H1&#x3D;(5+1²) MOD 11&#x3D;6    冲突<br>​       H2&#x3D;(5-1²) MOD 11&#x3D;4     不冲突</p>
 <p>(3)(红) 查找的比较次数为2次</p>
-<p>​      H(38)=38 MOD 11=5    冲突<br>​      设伪随机数序列为9，则：H1=(5+9) MOD 11=3    不冲突</p>
-<h4 id="8-6-2-2-再哈希法"><a href="#8-6-2-2-再哈希法" class="headerlink" title="8.6.2.2 再哈希法"></a>8.6.2.2 再哈希法</h4><p>再哈希法（双哈希法）的原理是：发生冲突时，再定义一个哈希函数，并重新计算散列地址。第二个哈希函数的构造方法可以是除留余数法，或$prime-(key\; \%\; prime)$的方法（其中素数为不超过表长的最大素数）。</p>
-<p>双重散列探测序列是：$H_{i}=(H_{1}(key)+iH_{2}(key))\; mod\; m$，其中$i=1,2,…,k$。</p>
+<p>​	  H(38)&#x3D;38 MOD 11&#x3D;5    冲突<br>​      设伪随机数序列为9，则：H1&#x3D;(5+9) MOD 11&#x3D;3    不冲突</p>
+<h4 id="8-6-2-2-再哈希法"><a href="#8-6-2-2-再哈希法" class="headerlink" title="8.6.2.2 再哈希法"></a>8.6.2.2 再哈希法</h4><p>再哈希法（双哈希法）的原理是：发生冲突时，再定义一个哈希函数，并重新计算散列地址。第二个哈希函数的构造方法可以是除留余数法，或$prime-(key; %; prime)$的方法（其中素数为不超过表长的最大素数）。</p>
+<p>双重散列探测序列是：$H_{i}&#x3D;(H_{1}(key)+iH_{2}(key)); mod; m$，其中$i&#x3D;1,2,…,k$。</p>
 <h4 id="8-6-2-3-链地址法"><a href="#8-6-2-3-链地址法" class="headerlink" title="8.6.2.3 链地址法"></a>8.6.2.3 链地址法</h4><p>也称<strong>独立链表法或拉链法</strong>，该方法不会出现聚集现象。方法的原理是：将所有关键字为同义词的记录存储在一个单链表中，并用一维数组存放头指针。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524232202789.png" alt="image-20220524232202789" style="zoom:67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524232202789.png" alt="image-20220524232202789" style="zoom:67%;" />
+
 <p><strong>哈希查找过程分析</strong>：</p>
 <p>在哈希表上进行查找的过程与哈希造表的过程基本一致。若查找不成功，会根据造表时设定的处理冲突的方法找下一个哈希地址，直到哈希表中<strong>某个位置为空</strong>（<strong>查找失败</strong>）或表中所填记录的关键字等于给定值（<strong>查找成功</strong>）为止。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524232232529.png" alt="image-20220524232232529" style="zoom:50%;" /></p>
-<h3 id="8-6-3-哈希表的查找"><a href="#8-6-3-哈希表的查找" class="headerlink" title="8.6.3 哈希表的查找"></a>8.6.3 哈希表的查找</h3><p>​        哈希查找过程仍是一个给定值与关键字进行比较的过程，评价哈希查找效率仍要用ASL。计算ASL查找成功的结果时，按照<strong>关键字</strong>进行计算；查找失败的结果则根据<strong>哈希表每个位置</strong>进行计算。哈希查找过程与给定值进行比较的关键字的个数取决于：</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524232232529.png" alt="image-20220524232232529" style="zoom:50%;" />
+
+<h3 id="8-6-3-哈希表的查找"><a href="#8-6-3-哈希表的查找" class="headerlink" title="8.6.3 哈希表的查找"></a>8.6.3 哈希表的查找</h3><p>​		哈希查找过程仍是一个给定值与关键字进行比较的过程，评价哈希查找效率仍要用ASL。计算ASL查找成功的结果时，按照<strong>关键字</strong>进行计算；查找失败的结果则根据<strong>哈希表每个位置</strong>进行计算。哈希查找过程与给定值进行比较的关键字的个数取决于：</p>
 <ul>
 <li>哈希函数</li>
 <li>处理冲突的方法</li>
-<li>哈希表的填满因子$\alpha$=表中填入的记录数/哈希表长度</li>
+<li>哈希表的填满因子$\alpha$&#x3D;表中填入的记录数&#x2F;哈希表长度</li>
 </ul>
-<p>[例]已知一组关键字(19,14,23,1,68,20,84,27,55,11,10,79)，哈希函数为：H(key)=key MOD 13, 哈希表长为m=16，设每个记录的查找概率相等。</p>
+<p>[例]已知一组关键字(19,14,23,1,68,20,84,27,55,11,10,79)，哈希函数为：H(key)&#x3D;key MOD 13, 哈希表长为m&#x3D;16，设每个记录的查找概率相等。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524233347821.png" alt="image-20220524233347821"></p>
-<p>查找失败的ASL根据位置进行计算，即$ASL_{nsucc}=\frac{1}{16}(1+13+12+…+2+1+1+1)$，方法是线性往后查找，发现某个位置为空时判定为查找失败。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524233706463.png" alt="image-20220524233706463"  /></p>
+<p>查找失败的ASL根据位置进行计算，即$ASL_{nsucc}&#x3D;\frac{1}{16}(1+13+12+…+2+1+1+1)$，方法是线性往后查找，发现某个位置为空时判定为查找失败。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220524233706463.png" alt="image-20220524233706463"  />
+
 <p>可证明线性探测再散列的哈希表查找成功时的平均查找长度为$\frac{1}{2}\left(1+\frac{1}{1-\alpha}\right)$（通过装填因子可以间接知道散列表的大小）。</p>
-<h1 id="ch9-排序"><a href="#ch9-排序" class="headerlink" title="ch9.排序"></a>ch9.排序</h1><h2 id="9-1-排序概述"><a href="#9-1-排序概述" class="headerlink" title="9.1 排序概述"></a>9.1 排序概述</h2><p>​     排序的功能是将一个数据元素（或记录）的任意序列重新排列成一个按关键字有序的序列。排序的空间性能基本相同，在排序算法中主要关注时间性能。</p>
-<p>​     排序基本操作是：</p>
+<h1 id="ch9-排序"><a href="#ch9-排序" class="headerlink" title="ch9.排序"></a>ch9.排序</h1><h2 id="9-1-排序概述"><a href="#9-1-排序概述" class="headerlink" title="9.1 排序概述"></a>9.1 排序概述</h2><p>​	 排序的功能是将一个数据元素（或记录）的任意序列重新排列成一个按关键字有序的序列。排序的空间性能基本相同，在排序算法中主要关注时间性能。</p>
+<p>​	 排序基本操作是：</p>
 <ul>
 <li>比较两个关键字大小：#(number) of key comparisons </li>
 <li>将记录从一个位置移动到另一个位置：# of interchanges（要发生三次移动）</li>
 </ul>
-<p>​     由于待排序的记录序列中可能存在两个或两个以上关键字相等的记录，若在排序后，<strong>相对位置保持不变</strong>，则称所用的排序方法是<strong>稳定</strong>的；若<strong>相对位置发生改变</strong>，则称所用的排序方法是<strong>不稳定</strong>的。</p>
+<p>​	 由于待排序的记录序列中可能存在两个或两个以上关键字相等的记录，若在排序后，<strong>相对位置保持不变</strong>，则称所用的排序方法是<strong>稳定</strong>的；若<strong>相对位置发生改变</strong>，则称所用的排序方法是<strong>不稳定</strong>的。</p>
 <h2 id="9-2-排序的分类"><a href="#9-2-排序的分类" class="headerlink" title="9.2 排序的分类"></a>9.2 排序的分类</h2><p><strong>按待排序记录所在位置</strong>：</p>
 <ul>
 <li>内部排序：待排序记录存放在<strong>内存</strong>（本章描述的排序算法）</li>
@@ -982,11 +1002,11 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 </ul>
 <p><strong>按排序所需工作量</strong>：</p>
 <ul>
-<li>简单的排序方法：$T(n)=O(n^{2})$</li>
-<li>先进的排序方法：$T(n)=O(nlogn)$</li>
-<li>基数排序：$T(n)=O(d*n)$</li>
+<li>简单的排序方法：$T(n)&#x3D;O(n^{2})$</li>
+<li>先进的排序方法：$T(n)&#x3D;O(nlogn)$</li>
+<li>基数排序：$T(n)&#x3D;O(d*n)$</li>
 </ul>
-<p>这里都描述的是通过<strong>值</strong>进行排序，还有通过<strong>关系/序</strong>进行排序，即前面提到的图的<strong>拓扑排序</strong>（Topological Sort）。</p>
+<p>这里都描述的是通过<strong>值</strong>进行排序，还有通过<strong>关系&#x2F;序</strong>进行排序，即前面提到的图的<strong>拓扑排序</strong>（Topological Sort）。</p>
 <h2 id="9-3-排序简析"><a href="#9-3-排序简析" class="headerlink" title="9.3 排序简析"></a>9.3 排序简析</h2><p><strong>选择排序</strong>：每次将未排序序列中选出一个值放在前面，$O(n^{2})$，是不稳定的($O(n^{2})$仅选择排序不稳定)；</p>
 <p>[优化]<strong>堆排序</strong>：堆的定义：小根堆$k_{i}\leq k_{2i}$(左子树)且$k_{i}\leq k_{2i+1}$(右子树)，自堆顶到叶子的调整过程称为“筛选”</p>
 <p><strong>插入排序</strong>：分为<strong>直接插入排序</strong>($O(n^{2})$，稳定，若原本有序，O(n))和<strong>折半插入排序</strong>(折半查找+插入,<code>low&gt;high</code>,<code>[low,i-1]</code>内元素全部右移，并将A[0]复制到low所指位置)</p>
@@ -1044,6 +1064,7 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"比较次数为：%d\n"</span><span class="token punctuation">,</span> CompareCount<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//比较次数</span>
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"移动次数为：%d\n"</span><span class="token punctuation">,</span> MoveCount<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//移动次数</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                                     
                             </div>
@@ -1496,13 +1517,13 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/01/an-quan-01-wang-luo-an-quan-bi-ji/">
+                <a href="/2022/09/01/suan-fa-05-dong-tai-gui-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="网络安全笔记">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="算法5:动态规划">
                         
-                        <span class="card-title">网络安全笔记</span>
+                        <span class="card-title">算法5:动态规划</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1519,8 +1540,8 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    信息安全专业课程
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -1530,12 +1551,12 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">信息安全</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">网络安全</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1838,7 +1859,7 @@ BSTree <span class="token function">FindMin</span><span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">238.3k</span>&nbsp;字
+                class="white-color">238.7k</span>&nbsp;字
             
             
             
