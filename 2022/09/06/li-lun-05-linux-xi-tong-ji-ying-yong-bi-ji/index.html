@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-09-07
+                                    2022-09-08
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            3.9k
+                                            5.3k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    14
+                                                    20
                                                         分
                                             </div>
                                             
@@ -759,7 +759,7 @@ useradd -g wudang zwj<span aria-hidden="true" class="line-numbers-rows"><span></
 <p>设置系统当前时间， 比如设置成<code>2020-11-03 20:02:10</code></p>
 <p><code>date -s &quot;2020-11-03 20:02:10&quot;</code></p>
 <h3 id="2-6-2-cal-指令"><a href="#2-6-2-cal-指令" class="headerlink" title="2.6.2 cal 指令"></a>2.6.2 cal 指令</h3><p>查看日历指令：<code>cal</code>指令。</p>
-<p>cal [选项] （功能描述：不加选项，显示本月日历）</p>
+<p><code>cal [选项]</code> (功能描述：不加选项，显示本月日历)</p>
 <p>案例1：显示当前日历 <code>cal</code></p>
 <p>案例2：显示2020年日历 <code>cal 2020</code></p>
 <h2 id="2-7-搜索查找类"><a href="#2-7-搜索查找类" class="headerlink" title="2.7 搜索查找类"></a>2.7 搜索查找类</h2><h3 id="2-7-1-find指令"><a href="#2-7-1-find指令" class="headerlink" title="2.7.1 find指令"></a>2.7.1 find指令</h3><p><code>find</code>指令将<strong>从指定目录向下递归地遍历其各个子目录</strong>，将满足条件的文件或者目录显示在终端。</p>
@@ -778,7 +778,7 @@ useradd -g wudang zwj<span aria-hidden="true" class="line-numbers-rows"><span></
 <p>注：<code>which</code>指令</p>
 <p>可以查看某个指令在哪个目录下，比如<code>ls</code>指令在哪个目录，可用<code>while ls</code>。</p>
 </blockquote>
-<h3 id="2-7-3-grep指令"><a href="#2-7-3-grep指令" class="headerlink" title="2.7.3 grep指令"></a>2.7.3 grep指令</h3><p><code>grep</code>过滤查找；管道符，“<code>|</code>”，表示将前一个命令的处理结果输出传递给后面的命令处理。</p>
+<h3 id="2-7-3-grep指令"><a href="#2-7-3-grep指令" class="headerlink" title="2.7.3 grep指令"></a>2.7.3 grep指令</h3><p><code>grep</code><strong>过滤查找</strong>；管道符“<code>|</code>”，表示将前一个命令的处理结果输出传递给后面的命令处理。</p>
 <p><code>grep [选项] 查找内容源文件</code></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220907234359395.png" alt="grep指令"></p>
 <p>案例1：请在<code>hello.txt</code>文件中，查找”<code>yes</code>“ 所在行，并且显示行号</p>
@@ -786,11 +786,139 @@ useradd -g wudang zwj<span aria-hidden="true" class="line-numbers-rows"><span></
 <p>写法2：<code>grep -n &quot;yes&quot; /home/hello.txt</code></p>
 <h2 id="2-8-压缩和解压类"><a href="#2-8-压缩和解压类" class="headerlink" title="2.8 压缩和解压类"></a>2.8 压缩和解压类</h2><h3 id="2-8-1-gzip-gunzip-指令"><a href="#2-8-1-gzip-gunzip-指令" class="headerlink" title="2.8.1 gzip/gunzip 指令"></a>2.8.1 gzip/gunzip 指令</h3><p><code>gzip</code>用于压缩文件，<code>gunzip</code>用于解压</p>
 <ul>
-<li><p><code>gzip 文件</code> (功能描述：压缩文件，只能将文件压缩为*.gz 文件)</p>
+<li><p><code>gzip 文件</code> (功能描述：压缩文件，只能将文件压缩为<code>*.gz</code>文件)</p>
 </li>
 <li><p><code>gunzip 文件.gz</code> (功能描述：解压缩文件命令)</p>
 </li>
 </ul>
+<h3 id="2-8-2-zip-unzip-指令"><a href="#2-8-2-zip-unzip-指令" class="headerlink" title="2.8.2 zip/unzip 指令"></a>2.8.2 zip/unzip 指令</h3><p><code>zip [选项] XXX.zip 将要压缩的内容</code>(功能描述：压缩文件和目录的命令)</p>
+<p><code>unzip [选项] XXX.zip</code> (功能描述：解压缩文件)</p>
+<ul>
+<li><p>zip 常用选项</p>
+<p><code>-r</code>：递归压缩，即压缩目录</p>
+</li>
+<li><p>unzip 的常用选项</p>
+<p><code>-d &lt;目录&gt;</code>：指定解压后文件的存放目录</p>
+</li>
+</ul>
+<p>案例1：将<code>/home</code>下的所有文件/文件夹进行压缩成<code>myhome.zip</code></p>
+<p><code>zip -r myhome.zip /home/</code> [将<code>home</code>目录及其包含的文件和子文件夹都压缩]</p>
+<p>案例2：将<code>myhome.zip</code>解压到<code>/opt/tmp</code>目录下</p>
+<pre class="line-numbers language-none"><code class="language-none">mkdir &#x2F;opt&#x2F;tmp
+unzip -d &#x2F;opt&#x2F;tmp &#x2F;home&#x2F;myhome.zip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="2-8-3-tar指令"><a href="#2-8-3-tar指令" class="headerlink" title="2.8.3 tar指令"></a>2.8.3 tar指令</h3><p><code>tar [选项] XXX.tar.gz 打包的内容</code>(功能描述：打包目录，压缩后的文件格式.tar.gz)</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908145446244.png" alt="tar指令选项说明"></p>
+<p>案例1：压缩多个文件，将<code>/home/pig.txt</code>和<code>/home/cat.txt</code>压缩成<code>pc.tar.gz</code></p>
+<p><code>tar -zcvf pc.tar.gz /home/pig.txt /home/cat.txt</code></p>
+<p>案例2：将<code>/home</code>的文件夹压缩成<code>myhome.tar.gz</code></p>
+<p><code>tar -zcvf myhome.tar.gz /home/</code></p>
+<p>案例3：将<code>pc.tar.gz</code>解压到当前目录</p>
+<p><code>tar -zxvf pc.tar.gz</code></p>
+<p>案例4：将<code>myhome.tar.gz</code>解压到<code>/opt/tmp2</code>目录下</p>
+<p>(1) <code>mkdir /opt/tmp2</code></p>
+<p>(2) <code>tar -zxvf /home/myhome.tar.gz -C /opt/tmp2</code></p>
+<h1 id="三、Linux组管理与权限管理"><a href="#三、Linux组管理与权限管理" class="headerlink" title="三、Linux组管理与权限管理"></a>三、Linux组管理与权限管理</h1><p>在Linux中的每个用户必须属于一个组，不能独立于组外。有以下概念：</p>
+<p>1) 所有者<br>2) 所在组<br>3) 其它组：除文件的所有者和所在组的用户外，系统的其它用户都是文件的其它组<br>4) 改变用户所在的组</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908150835253.png" alt="Linux组管理与权限管理" style="zoom:80%;" /></p>
+<h2 id="3-1-查看-修改文件-目录所在组"><a href="#3-1-查看-修改文件-目录所在组" class="headerlink" title="3.1 查看/修改文件/目录所在组"></a>3.1 查看/修改文件/目录所在组</h2><p>查看文件/目录所在组：<code>ls –ahl</code></p>
+<p>修改文件/目录所在组：<code>chgrp 组名 文件名</code></p>
+<p>使用<code>root</code>用户创建文件<code>orange.txt</code>，看看当前这个文件属于哪个组，然后将这个文件所在组，修改到<code>fruit</code>组。</p>
+<ol>
+<li><code>groupadd fruit</code></li>
+<li><code>touch orange.txt</code></li>
+<li>看看当前这个文件属于哪个组-&gt; <code>root 组</code></li>
+<li><code>chgrp fruit orange.txt</code></li>
+</ol>
+<h2 id="3-2-修改用户所在组"><a href="#3-2-修改用户所在组" class="headerlink" title="3.2 修改用户所在组"></a>3.2 修改用户所在组</h2><p>在添加用户时，可以指定将该用户添加到哪个组中，同样的用<code>root</code>的管理权限可以改变某个用户所在的组。</p>
+<p><code>usermod –g 新组名 用户名</code></p>
+<p><code>usermod –d 目录名 用户名</code>：改变该用户登陆的初始目录。</p>
+<blockquote>
+<p>特别说明：用户需要有进入到新目录的权限。</p>
+</blockquote>
+<h2 id="3-3-权限"><a href="#3-3-权限" class="headerlink" title="3.3 权限"></a>3.3 权限</h2><h3 id="3-3-1-显示内容"><a href="#3-3-1-显示内容" class="headerlink" title="3.3.1 显示内容"></a>3.3.1 显示内容</h3><p><code>ls -l</code>中显示的内容如下：</p>
+<p>-rwxrw-r— 1 root root 1213 Feb 2 09:39 abc</p>
+<p><strong>0-9 位说明</strong>：</p>
+<ul>
+<li>第 0 位确定文件类型(d, - , l , c , b)<ul>
+<li>l 是<strong>链接</strong>，相当于 windows 的快捷方式</li>
+<li>d 是<strong>目录</strong>，相当于 windows 的文件夹</li>
+<li>c 是<strong>字符设备文件</strong>，鼠标，键盘</li>
+<li>b 是<strong>块设备</strong>，比如硬盘</li>
+</ul>
+</li>
+<li>第 1-3 位确定所有者（该文件的所有者）拥有该文件的权限。—-User</li>
+<li>第 4-6 位确定所属组（同用户组的）拥有该文件的权限，—-Group</li>
+<li>第 7-9 位确定其他用户拥有该文件的权限—-Other</li>
+</ul>
+<h3 id="3-3-2-rwx权限"><a href="#3-3-2-rwx权限" class="headerlink" title="3.3.2 rwx权限"></a>3.3.2 rwx权限</h3><ul>
+<li><strong>rwx作用到文件</strong>：</li>
+</ul>
+<ol>
+<li>[ r ]代表可读(read)：可以读取,查看</li>
+</ol>
+<p>2) [ w ]代表可写(write)：可以修改,但是不代表可以删除该文件,删除一个文件的前提条件是对该文件所在的目录有写权限，才能删除该文件<br>3) [ x ]代表可执行(execute)：可以被执行</p>
+<ul>
+<li><strong>rwx作用到目录</strong>：</li>
+</ul>
+<p>1) [ r ]代表可读(read)：可以读取，<code>ls</code>查看目录内容<br>2) [ w ]代表可写(write)：可以修改, 对目录内<strong>创建+删除+重命名目录</strong><br>3) [ x ]代表可执行(execute)：可以进入该目录，比如<code>cd</code></p>
+<p>可用数字表示为: r=4,w=2,x=1 因此rwx=4+2+1=7, 数字可以进行组合</p>
+<p>其它说明：</p>
+<ul>
+<li>1 <strong>文件:硬连接数</strong>/<strong>目录:子目录数+文件数</strong></li>
+<li>root 用户</li>
+<li><p>root 组</p>
+</li>
+<li><p>1213 文件大小(字节)，如果是文件夹，显示4096 字节</p>
+</li>
+<li>Feb 2 09:39 最后修改日期</li>
+<li>abc 文件名</li>
+</ul>
+<h3 id="3-3-3-修改权限"><a href="#3-3-3-修改权限" class="headerlink" title="3.3.3 修改权限"></a>3.3.3 修改权限</h3><p>通过<code>chmod</code>指令，可以<strong>修改文件或者目录的权限</strong>。</p>
+<ul>
+<li><strong>+、-、= 变更权限</strong></li>
+</ul>
+<p><strong>u:所有者    g:所有组    o:其他人    a:所有人(u、g、o 的总和)</strong></p>
+<p>1) <code>chmod u=rwx,g=rx,o=x 文件/目录名</code><br>2) <code>chmod o+w 文件/目录名</code><br>3) <code>chmod a-x 文件/目录名</code></p>
+<ul>
+<li><strong>通过数字变更权限</strong></li>
+</ul>
+<p>r=4 w=2 x=1 rwx=4+2+1=7</p>
+<p><code>chmod u=rwx,g=rx,o=x 文件目录名</code>，相当于<code>chmod 751 文件/目录名</code></p>
+<h2 id="3-4-修改文件所有者"><a href="#3-4-修改文件所有者" class="headerlink" title="3.4 修改文件所有者"></a>3.4 修改文件所有者</h2><ul>
+<li><p><code>chown newowner 文件/目录</code>改变所有者</p>
+</li>
+<li><p><code>chown newowner newgroup 文件/目录</code>改变所有者和所在组</p>
+</li>
+</ul>
+<blockquote>
+<p>注：</p>
+<ul>
+<li><code>-R</code>表示：如果是目录，则使其下所有子文件或目录递归生效；</li>
+<li>修改文件/目录所在组使用<code>chgrp 组名 文件名</code>，详见3.1节。</li>
+</ul>
+</blockquote>
+<h1 id="四、crond任务调度"><a href="#四、crond任务调度" class="headerlink" title="四、crond任务调度"></a>四、crond任务调度</h1><p><code>crontab</code>进行定时任务的设置。</p>
+<p>任务调度：是指系统在某个时间执行的特定的命令或程序。</p>
+<p>任务调度分类：</p>
+<ol>
+<li>系统工作：有些重要的工作必须周而复始地执行。如病毒扫描等；</li>
+<li>个别用户工作：个别用户可能希望执行某些程序，比如对mysql 数据库的备份。</li>
+</ol>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908194425906.png" alt="crond任务调度原理图"></p>
+<p><code>crontab [选项]</code></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908194602382.png" alt="crontab选项"></p>
+<p>设置任务调度文件：<code>/etc/crontab</code></p>
+<p>设置个人任务调度：执行<code>crontab –e</code>命令。</p>
+<p>接着输入任务到调度文件，如：<code>*/1 * * * * ls –l /etc/ &gt; /tmp/to.txt</code>，意即<strong>每小时的每分钟执行<code>ls –l /etc/ &gt; /tmp/to.txt</code>命令</strong></p>
+<blockquote>
+<p>注：</p>
+<p>[1]<strong>5个占位符的说明</strong>：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908194954519.png" alt="image-20220908194954519"></p>
+<p>[2]<strong>特殊符号的含义</strong>：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908195035691.png" alt="特殊符号的含义"></p>
+<p>[3]<strong>特殊时间执行案例</strong>：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908200345907.png" alt="特殊时间执行案例"></p>
+</blockquote>
 
                                     
                             </div>
@@ -1580,7 +1708,7 @@ useradd -g wudang zwj<span aria-hidden="true" class="line-numbers-rows"><span></
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">236.9k</span>&nbsp;字
+                class="white-color">238.3k</span>&nbsp;字
             
             
             
