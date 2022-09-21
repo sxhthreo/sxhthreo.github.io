@@ -468,23 +468,20 @@
                         <div class="card-content article-card-content">
                             <div id="articleContent">
                                 <h1 id="一、递归算法时间复杂度分析"><a href="#一、递归算法时间复杂度分析" class="headerlink" title="一、递归算法时间复杂度分析"></a>一、递归算法时间复杂度分析</h1><h2 id="1-1-代入法"><a href="#1-1-代入法" class="headerlink" title="1.1 代入法"></a>1.1 代入法</h2><h3 id="1-1-1-数学归纳"><a href="#1-1-1-数学归纳" class="headerlink" title="1.1.1 数学归纳"></a>1.1.1 数学归纳</h3><ul>
-<li><p>Guess a solution</p>
+<li><p>猜测一种情况：</p>
 <ul>
 <li><p>$T(n) &#x3D; O(g(n))$</p>
 </li>
-<li><p>Induction goal: apply the definition of the asymptotic notation</p>
+<li><p>归纳目标：应用<strong>渐近符号</strong>的定义</p>
 <ul>
-<li>$T(n) ≤ d g(n)$, for some $d &gt; 0$ and $n ≥ n_0$</li>
+<li>$T(n) ≤ d g(n)$, 对某些 $d &gt; 0,n ≥ n_0$</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Induction hypothesis: $T(k) ≤ d g(k)$ for all $k &lt; n$</p>
+<li><p>归纳假设：$T(k) ≤ d g(k)$ (对任意$k &lt; n$)</p>
 </li>
-<li><p>Prove the induction goal</p>
-<ul>
-<li>Use the <strong>induction hypothesis</strong> to find some values of the constants d and n0 for which the <strong>induction goal</strong> holds</li>
-</ul>
+<li><p>证明归纳目标：使用<strong>归纳假设</strong>找到常数$d$和$n_0$的某些值，<strong>归纳目标</strong>成立</p>
 </li>
 </ul>
 <img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921202521365.png" alt="数学归纳法举例1" style="zoom: 80%;" />
