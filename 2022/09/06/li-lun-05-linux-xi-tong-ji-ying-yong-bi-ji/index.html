@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-09-22
+                                    2022-09-28
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            5.5k
+                                            7k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    21
+                                                    26
                                                         分
                                             </div>
                                             
@@ -461,7 +461,143 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="原理篇"><a href="#原理篇" class="headerlink" title="原理篇"></a>原理篇</h1><h1 id="一、Linux进程管理"><a href="#一、Linux进程管理" class="headerlink" title="一、Linux进程管理"></a>一、Linux进程管理</h1><p>Linux中的进程实体：PCB——进程存在和运行的唯一标志。</p>
+                                <h1 id="原理篇"><a href="#原理篇" class="headerlink" title="原理篇"></a>原理篇</h1><h1 id="一、Linux进程管理"><a href="#一、Linux进程管理" class="headerlink" title="一、Linux进程管理"></a>一、Linux进程管理</h1><h2 id="1-1-进程控制块与进程的创建"><a href="#1-1-进程控制块与进程的创建" class="headerlink" title="1.1 进程控制块与进程的创建"></a>1.1 进程控制块与进程的创建</h2><p><strong>OS的单体结构与Linux微内核结构</strong>：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220924231451765.png" alt="OS的单体结构与Linux微内核结构示意图"></p>
+<p>Linux中的进程实体：PCB——进程存在和运行的唯一标志。</p>
+<p>Linux中对应结构叫做<code>task_struct</code>：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">task_struct</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>进程控制块</strong>的信息有：</p>
+<ul>
+<li>状态信息－描述进程动态的变化</li>
+<li>链接信息－描述进程的父／子关系</li>
+<li>各种标识符－用简单数字对进程进行标识</li>
+<li>进程间通信信息－描述多个进程在同一任务上协作工作</li>
+<li>时间和定时器信息－描述进程在生存周期内使用CPU时间的统计、计费等信息</li>
+<li>调度信息－描述进程优先级、调度策略等信息</li>
+<li>文件系统信息－对进程使用文件情况进行记录</li>
+<li>虚拟内存信息－描述每个进程拥有的地址空间</li>
+<li>处理器环境信息－描述进程的执行环境(处理器的寄存器及堆栈等)</li>
+</ul>
+<p><strong>进程相关的系统调用</strong>：</p>
+<ul>
+<li>Fork()－父亲克隆一个儿子。执行fork()之后，兵分两路，两个进程并发执行。</li>
+<li>Exec()－新进程脱胎换骨，离家独立，开始了独立工作的职业生涯。</li>
+<li>Wait()－等待不仅仅是阻塞自己，还准备对僵死的子进程进行善后处理。</li>
+<li>Exit()－终止进程，把进程的状态置为“僵死”，并把其所有的子进程都托付给init进程，最后调用schedule()函数，选择一个新的进程运行。</li>
+</ul>
+<h2 id="1-2-进程的组织方式"><a href="#1-2-进程的组织方式" class="headerlink" title="1.2 进程的组织方式"></a>1.2 进程的组织方式</h2><h3 id="1-2-1-进程链表"><a href="#1-2-1-进程链表" class="headerlink" title="1.2.1 进程链表"></a>1.2.1 进程链表</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">task_struct</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token keyword">struct</span> <span class="token class-name">list_head</span> tasks<span class="token punctuation">;</span>
+	<span class="token keyword">char</span> comm<span class="token punctuation">[</span>TASK_COMM_LEN<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">/*可执行程序的名字
+    ...
+&#125;;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220924232451261.png" alt="进程链表"></p>
+<h3 id="1-2-2-哈希表"><a href="#1-2-2-哈希表" class="headerlink" title="1.2.2 哈希表"></a>1.2.2 哈希表</h3><p><code>#define pid_hashfn(x)  ((((x) &gt;&gt; 8) ^ (x)) &amp; (PIDHASH_SZ - 1))</code></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220924233239139.png" alt="哈希表"></p>
+<h3 id="1-2-3-可运行队列"><a href="#1-2-3-可运行队列" class="headerlink" title="1.2.3 可运行队列"></a>1.2.3 可运行队列</h3><p>把可运行状态的进程组成一个双向循环链表，也叫<strong>可运行队列</strong>(runqueue)，其中<strong>init_task起链表头的作用</strong>。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">task_struct</span><span class="token punctuation">&#123;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">struct</span> <span class="token class-name">list_head</span> run_list<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>在调度程序运行过程中，允许队列中加入新出现的可运行态进程，新出现的可运行态进程插入到队尾</strong> </p>
+<h3 id="1-2-4-等待队列"><a href="#1-2-4-等待队列" class="headerlink" title="1.2.4 等待队列"></a>1.2.4 等待队列</h3><p>等待队列表示一组睡眠的进程，<code>func</code>域指向唤醒函数，用于把等待队列中的进程唤醒。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">__wait_queue</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">unsigned</span> <span class="token keyword">int</span> flags<span class="token punctuation">;</span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">WQ_FLAG_EXCLUSIVE</span>	<span class="token expression"><span class="token number">0x01</span></span></span>
+	<span class="token keyword">void</span> <span class="token operator">*</span><span class="token keyword">private</span><span class="token punctuation">;</span>
+	wait_queue_func_t func<span class="token punctuation">;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">list_head</span> task_list<span class="token punctuation">;</span><span class="token comment">/*最主要的域*/</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">_</span> _wait_queue wait_queue_t<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="1-3-进程调度算法"><a href="#1-3-进程调度算法" class="headerlink" title="1.3 进程调度算法"></a>1.3 进程调度算法</h2><ul>
+<li>时间片轮转调度算法 <ul>
+<li>系统使每个进程依次地按时间片轮流地执行</li>
+</ul>
+</li>
+<li>优先权调度算法 <ul>
+<li>非抢占式优先权算法 </li>
+<li>抢占式优先权调度算法</li>
+</ul>
+</li>
+<li>多级反馈队列调度 <ul>
+<li>优先权高的进程先运行给定的时间片，相同优先权的进程轮流运行给定的时间片</li>
+</ul>
+</li>
+<li>实时调度 <ul>
+<li>一般采用抢占式调度方式</li>
+</ul>
+</li>
+</ul>
+<p><strong>与调度相关的系统调用</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">系统调用</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nice()</td>
+<td align="center">改变一个普通进程的优先级</td>
+</tr>
+<tr>
+<td align="center">getpriority()</td>
+<td align="center">取得一组普通进程的最大优先级</td>
+</tr>
+<tr>
+<td align="center">setpriority()</td>
+<td align="center">设置一组普通进程的优先级</td>
+</tr>
+<tr>
+<td align="center">sched_getscheduler()</td>
+<td align="center">取得一个进程的调度策略</td>
+</tr>
+<tr>
+<td align="center">sched_setscheduler()</td>
+<td align="center">设置一个进程的调度策略和优先级</td>
+</tr>
+<tr>
+<td align="center">sched_getparam()</td>
+<td align="center">取得一个进程的调度优先级</td>
+</tr>
+<tr>
+<td align="center">sched_setparam()</td>
+<td align="center">设置一个进程的优先级</td>
+</tr>
+<tr>
+<td align="center">sched_yield()</td>
+<td align="center">不阻塞的情况下自愿放弃处理机</td>
+</tr>
+<tr>
+<td align="center">sched_get_ priority_min()</td>
+<td align="center">取得某种策略的最小优先级</td>
+</tr>
+<tr>
+<td align="center">sched_get_ priority_max()</td>
+<td align="center">取得某种策略的最大优先级</td>
+</tr>
+</tbody></table>
+<h2 id="1-4-Linux内核线程"><a href="#1-4-Linux内核线程" class="headerlink" title="1.4 Linux内核线程"></a>1.4 Linux内核线程</h2><p>Linux把线程和进程一视同仁，不过线程本身拥有的资源少，共享进程的资源，如地址空间。</p>
+<p><strong>几个特殊身份的内核线程</strong>：</p>
+<ul>
+<li>没事闲逛的0号进程－从无到有诞生的第一个线程，执行cpu_idle()函数（省电又少热）。</li>
+<li>既是内核线程也是1号用户进程的init。Init进程诞生后就不愿意死亡了，它创建和监控操作系统外层所有进程的活动。</li>
+</ul>
+<p>还有另外四个线程：</p>
+<ul>
+<li><code>kflushd</code> (即<code>bdflush</code>)线程：刷新“脏”缓冲区中的内容到磁盘以归还内存。</li>
+<li><code>Kupdate</code>线程：刷新旧的“脏”缓冲区中的内容到磁盘以减少文件系统不一致的风险。 </li>
+<li><code>Kpiod</code>线程：把属于共享内存映射的页面交换</li>
+<li><code>Kswapd</code>线程：执行内存回收功能。</li>
+</ul>
 <h1 id="工程篇"><a href="#工程篇" class="headerlink" title="工程篇"></a>工程篇</h1><h1 id="一、Linux概述"><a href="#一、Linux概述" class="headerlink" title="一、Linux概述"></a>一、Linux概述</h1><h2 id="1-1-网络连接的三种模式"><a href="#1-1-网络连接的三种模式" class="headerlink" title="1.1 网络连接的三种模式"></a>1.1 网络连接的三种模式</h2><ul>
 <li><p><strong>桥接模式</strong>：虚拟系统可以和外部系统相互通讯，但容易造成<code>IP</code>冲突；</p>
 </li>
@@ -941,11 +1077,11 @@ unzip -d &#x2F;opt&#x2F;tmp &#x2F;home&#x2F;myhome.zip<span aria-hidden="true" c
 </ul>
 </blockquote>
 <h1 id="四、crond任务调度"><a href="#四、crond任务调度" class="headerlink" title="四、crond任务调度"></a>四、crond任务调度</h1><h2 id="4-1-crond时间规则"><a href="#4-1-crond时间规则" class="headerlink" title="4.1 crond时间规则"></a>4.1 crond时间规则</h2><p><code>crontab</code>进行定时任务的设置。</p>
-<p>任务调度：是指系统在某个时间执行的特定的命令或程序。</p>
+<p><strong>任务调度</strong>：是指系统在某个时间执行的特定的命令或程序。</p>
 <p>任务调度分类：</p>
 <ol>
 <li>系统工作：有些重要的工作必须周而复始地执行。如病毒扫描等；</li>
-<li>个别用户工作：个别用户可能希望执行某些程序，比如对mysql 数据库的备份。</li>
+<li>个别用户工作：个别用户可能希望执行某些程序，比如对 mysql 数据库的备份。</li>
 </ol>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908194425906.png" alt="crond任务调度原理图"></p>
 <p><code>crontab [选项]</code></p>
@@ -964,17 +1100,46 @@ unzip -d &#x2F;opt&#x2F;tmp &#x2F;home&#x2F;myhome.zip<span aria-hidden="true" c
 <p>[3]<strong>特殊时间执行案例</strong>：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220908200345907.png" alt="特殊时间执行案例"></p>
 </blockquote>
-<h2 id="4-2-at定时任务"><a href="#4-2-at定时任务" class="headerlink" title="4.2 at定时任务"></a>4.2 at定时任务</h2><ol>
+<h2 id="4-2-at定时任务"><a href="#4-2-at定时任务" class="headerlink" title="4.2 at定时任务"></a>4.2 at定时任务</h2><h3 id="4-2-1-at定时任务基本概念"><a href="#4-2-1-at定时任务基本概念" class="headerlink" title="4.2.1 at定时任务基本概念"></a>4.2.1 at定时任务基本概念</h3><ol>
 <li><p><code>at</code>命令是一次性定时计划任务，<code>at</code>的守护进程<code>atd</code>会以后台模式运行，检查作业队列来运行。</p>
 </li>
-<li><p>默认情况下，<code>atd</code>守护进程每 60 秒检查作业队列，有作业时，会检查作业运行时间，如果时间与当前时间匹配，则<br> 运行此作业。</p>
+<li><p>默认情况下，<code>atd</code>守护进程每 60 秒检查作业队列，有作业时，会检查作业运行时间，如果时间与当前时间匹配，则运行此作业。</p>
 </li>
 <li><p><code>at</code>命令是一次性定时计划任务，执行完一个任务后不再执行此任务了</p>
 </li>
 <li><p>在使用<code>at</code>命令的时候，一定要保证<code>atd</code>进程的启动, 可以使用相关指令来查看</p>
+<ul>
+<li><code>ps -ef | grep atd //可以检测atd是否在运行</code></li>
+</ul>
 </li>
 </ol>
-<p>  <code>ps -ef | grep atd //可以检测atd是否在运行</code></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220928213155072.png" alt="at定时任务"></p>
+<ul>
+<li><p><code>at [选项] [时间]</code></p>
+</li>
+<li><p>Ctrl + D 结束at 命令的输入，输入两次</p>
+</li>
+</ul>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220928213420736.png" alt="at命令选项"></p>
+<h3 id="4-2-2-at-时间定义"><a href="#4-2-2-at-时间定义" class="headerlink" title="4.2.2 at 时间定义"></a>4.2.2 at 时间定义</h3><ol>
+<li>接受在当天的hh:mm（小时:分钟）式的时间指定。假如该时间已过去，那么就放在第二天执行。例如：04:00</li>
+</ol>
+<ol start="2">
+<li>使用midnight（深夜），noon（中午），teatime（饮茶时间，一般是下午4 点）等比较模糊的词语来指定时间。</li>
+<li>采用 12 小时计时制，即在时间后面加上AM（上午）或PM（下午）来说明是上午还是下午。例如：12pm</li>
+<li>指定命令执行的具体日期，指定格式为month day（月日）或mm&#x2F;dd&#x2F;yy（月&#x2F;日&#x2F;年）或dd.mm.yy（日.月.年），指定的日期必须跟在指定时间的后面。例如：04:00 2021-03-1</li>
+<li>使用相对计时法。指定格式为：now + count time-units ，now 就是当前时间，time-units 是时间单位，这里能够是minutes（分钟）、hours（小时）、days（天）、weeks（星期）。count 是时间的数量，几天，几小时。例如：now + 5 minutes</li>
+<li>直接使用today（今天）、tomorrow（明天）来指定完成命令的时间。</li>
+</ol>
+<p><strong>案例1</strong>：2 天后的下午5 点执行&#x2F;bin&#x2F;ls &#x2F;home</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220928214005610.png" alt="image-20220928214005610"></p>
+<p><strong>案例2</strong>：atq 命令来查看系统中没有执行的工作任务</p>
+<p><strong>案例3</strong>：明天17 点钟，输出时间到指定文件内比如&#x2F;root&#x2F;date100.log</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220928214236767.png" alt="image-20220928214236767"></p>
+<p><strong>案例4</strong>：2 分钟后，输出时间到指定文件内比如&#x2F;root&#x2F;date200.log</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220928214245276.png" alt="image-20220928214245276"></p>
+<p><strong>案例5</strong>：删除已经设置的任务, atrm 编号</p>
+<p><code>atrm 4 //表示将job 队列，编号为4 的job 删除.</code></p>
 
                                     
                             </div>
@@ -1766,7 +1931,7 @@ unzip -d &#x2F;opt&#x2F;tmp &#x2F;home&#x2F;myhome.zip<span aria-hidden="true" c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">256k</span>&nbsp;字
+                class="white-color">259k</span>&nbsp;字
             
             
             

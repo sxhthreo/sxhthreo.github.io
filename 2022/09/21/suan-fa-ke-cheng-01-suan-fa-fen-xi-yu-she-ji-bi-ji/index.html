@@ -418,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-09-23
+                                    2022-10-05
                             </div>
                             
 
@@ -426,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            2.8k
+                                            4.4k
                                     </div>
                                     
 
@@ -434,7 +434,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    13
+                                                    19
                                                         分
                                             </div>
                                             
@@ -555,9 +555,9 @@
 <p>当$i&#x3D;k$(迭代到最后一层)时，有：$T(n)&#x3D;a^{\log _{b} n} T\left(\frac{b^{i}}{b^{i}}\right)&#x3D;a^{\log _{b} n} T(1)&#x3D;\Theta\left(a^{\log _{b} n}\right)&#x3D;\Theta\left(n^{\log _{b} a}\right)$</p>
 <p><strong>将$f(n)$与$n^{\log _{b} a}$比较</strong>：</p>
 <ol>
-<li>$f(n)&#x3D;O(n^{\log _{b} a}-\varepsilon)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度比$nlog_ba$的增长慢带有$n^{\varepsilon}$的多项式，则$T(n)&#x3D;\Theta\left(n^{\log _{b} a}\right)$</li>
-<li>$f(n)&#x3D;\Theta\left(n^{\log _{b} a} \lg ^{k} n\right)$(其中$k\geq 0$)：$f(n)$与$n^{log_b a}$有较为相似的增长速度，则$T(n)&#x3D;\Theta\left(n^{\log _{b} a} \lg ^{k+1} n\right)$</li>
-<li>$f(n)&#x3D;\Omega\left(n^{\log _{b} a+\varepsilon}\right)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度将比$n^{log_ba}$快$n^{\varepsilon}$，且**需满足存在一个$c(c&lt;1)$，有$af(n&#x2F;b)\leq cf(n)$**，则$T(n)&#x3D;\Theta(f(n))$。</li>
+<li><strong>$f(n)&#x3D;O(n^{\log _{b} a}-\varepsilon)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度比$nlog_ba$的增长慢带有$n^{\varepsilon}$的多项式，则$T(n)&#x3D;\Theta\left(n^{\log _{b} a}\right)$</strong></li>
+<li><strong>$f(n)&#x3D;\Theta\left(n^{\log _{b} a} \lg ^{k} n\right)$(其中$k\geq 0$)：$f(n)$与$n^{log_b a}$有较为相似的增长速度，则$T(n)&#x3D;\Theta\left(n^{\log _{b} a} \lg ^{k+1} n\right)$</strong></li>
+<li><strong>$f(n)&#x3D;\Omega\left(n^{\log _{b} a+\varepsilon}\right)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度将比$n^{log_ba}$快$n^{\varepsilon}$，且需满足存在一个$c(c&lt;1)$，有$af(n&#x2F;b)\leq cf(n)$，则$T(n)&#x3D;\Theta(f(n))$。</strong></li>
 </ol>
 <p>[例1] $T(n) &#x3D; 2T(n&#x2F;2) + n,a &#x3D; 2, b &#x3D; 2, log_22 &#x3D; 1.$</p>
 <p>Compare $n^{log_22}$ with $f(n) &#x3D; n$，有$f(n) &#x3D; \Theta(n)$，满足<strong>Case 2</strong>，故$T(n) &#x3D; \Theta(nlgn)$。</p>
@@ -691,47 +691,239 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
 <p>​	则，如果右侧指针指向的数字小于左侧指针指向的数字，那么说明左侧指针所指向的数字以及该序列之后的数字均大于右侧指针所指向的数字，所以将这些数字全部记录，<code>ans += mid - i + 1</code>即可。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220923192732243.png" alt="归并排序示意图"></p>
 <p>时间复杂度分析：$T(n) \leq 2T(|n &#x2F; 2|)+O(n) \Rightarrow \mathrm{T}(n)&#x3D;O(n \log n)$</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-using namespace std;
-const int N &#x3D; 100010;
-int a[N];
-long long count &#x3D; 0;
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">100010</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> <span class="token keyword">long</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-void merge_sort(int q[], int l, int r)
-&#123;
-    if (l &gt;&#x3D; r) return;
-    int tmp[N];
-    int mid &#x3D; l + r &gt;&gt; 1;
-    merge_sort(q, l, mid);
-    merge_sort(q, mid + 1, r);
+<span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">>=</span> r<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> tmp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> l <span class="token operator">+</span> r <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> l<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    int k &#x3D; 0, i &#x3D; l, j &#x3D; mid + 1;
-    while (i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; r)
-        if (q[i] &lt;&#x3D; q[j]) tmp[k++] &#x3D; q[i++];
-        else &#123;
-            tmp[k++] &#x3D; q[j++];
-            count +&#x3D; mid - i + 1;
-        &#125;
+    <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid <span class="token operator">&amp;&amp;</span> j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> q<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            count <span class="token operator">+=</span> mid <span class="token operator">-</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
 
-    while (i &lt;&#x3D; mid) tmp[k++] &#x3D; q[i++];
-    while (j &lt;&#x3D; r) tmp[k++] &#x3D; q[j++];
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span> tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    for (i &#x3D; l, j &#x3D; 0; i &lt;&#x3D; r; i++, j++) q[i] &#x3D; tmp[j];
-&#125;
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> r<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">,</span> j<span class="token operator">++</span><span class="token punctuation">)</span> q<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-int main()
-&#123;
-    int n;
-    cin &gt;&gt; n;
-    for (int i &#x3D; 0; i &lt; n; i++)
-    &#123;
-        cin &gt;&gt; a[i];
-    &#125;
-    merge_sort(a, 0, n - 1);
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        cin <span class="token operator">>></span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">merge_sort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    cout &lt;&lt; count &lt;&lt; endl;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    cout <span class="token operator">&lt;&lt;</span> count <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h1 id="三、减治法-Decrease-amp-Conquer"><a href="#三、减治法-Decrease-amp-Conquer" class="headerlink" title="三、减治法(Decrease&amp;Conquer)"></a>三、减治法(Decrease&amp;Conquer)</h1><p><strong>基本类型</strong>：</p>
+<ul>
+<li>Decrease by <strong>a constant</strong>：<strong>减去一个常量</strong>(通常是1)<ul>
+<li>插入排序</li>
+<li>拓扑排序</li>
+<li>生成排列和子集的算法</li>
+</ul>
+</li>
+<li>Decrease by <strong>a constant factor</strong>：<strong>减去一个常数因子</strong>(通常是一半)<ul>
+<li>二分查找</li>
+<li>快速幂</li>
+<li>multiplication à la russe</li>
+</ul>
+</li>
+<li>Variable-size decrease：<strong>不定规模</strong><ul>
+<li>欧几里得算法：<code>gcd(a,b) = gcd(b,a mod b)</code></li>
+<li>划分算法</li>
+<li>Nim-like games</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-1-减治法的设计思想"><a href="#3-1-减治法的设计思想" class="headerlink" title="3.1 减治法的设计思想"></a>3.1 减治法的设计思想</h2><h3 id="3-1-1-计算-a-n"><a href="#3-1-1-计算-a-n" class="headerlink" title="3.1.1 计算$a^n$"></a>3.1.1 计算$a^n$</h3><ul>
+<li><p>减去一个常量：</p>
+<ul>
+<li>暴力：$a^n&#x3D;a<em>a</em>a*…*a$</li>
+<li>递归：$a^n&#x3D;a^{n-1}*a$</li>
+</ul>
+</li>
+<li><p>减去一个常数因子：</p>
+<ul>
+<li><p>$a^n&#x3D;(a^{n&#x2F;2})^{2}$($n$为偶数)</p>
+<p>$&#x3D;(a^{(n-1)&#x2F;2})^{2}*a&#x3D;a$($n$为奇数)</p>
+<p>$&#x3D;a$($n&#x3D;1$)</p>
+</li>
+</ul>
+</li>
+<li><p>分治法：</p>
+<ul>
+<li><p>$a^n&#x3D;a^{\lfloor n&#x2F;2 \rfloor}*a^{\lfloor n&#x2F;2 \rfloor}$($n&gt;1$)</p>
+<p>$&#x3D;a$($n&#x3D;1$)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>减治法只对一个子问题求解，并且不需要进行解的合并。应用减治法（例如减半法）得到的算法通常具有如下递推式： </p>
+<p>$T(n)&#x3D;\left{\begin{array}{cc}<br>0 &amp; n&#x3D;1 \<br>T(n &#x2F; 2)+1 &amp; n&gt;1<br>\end{array}\right.$</p>
+<p>通常来说，应用减治法处理问题的效率是很高的，一般是$O(log_2n)$数量级。 </p>
+<h3 id="3-1-2-两个序列的中位数"><a href="#3-1-2-两个序列的中位数" class="headerlink" title="3.1.2 两个序列的中位数"></a>3.1.2 两个序列的中位数</h3><p>一个长度为n（n≥1）的升序序列S，处在第n&#x2F;2个位置的数称为序列S的中位数。两个序列的中位数是他们所有元素的升序序列的中位数。现有两个<strong>等长升序序列</strong>A和B，试设计一个在时间和空间两方面都尽可能高效的算法，找出两个序列的中位数。</p>
+<ul>
+<li>合并并求中位数</li>
+<li>分别求中位数(<strong>减治</strong>)</li>
+</ul>
+<p>分别求出两个序列的中位数，记为a和b；比较a和b，有下列三种情况：</p>
+<p>① a &#x3D; b：则a即为两个序列的中位数；</p>
+<p>② a &lt; b：则中位数只能出现在a和b之间，在序列$A$中舍弃a之前的元素得到序列$A_1$，在序列$B$中舍弃b之后的元素得到序列$B_1$；</p>
+<p>③ a &gt; b：则中位数只能出现在b和a之间，在序列$A$中舍弃a之后的元素得到序列$A_1$，在序列$B$中舍弃b之前的元素得到序列$B_1$；</p>
+<p>在$A_1$和$B_1$中分别求出中位数，重复上述过程，直到两个序列中只有一个元素，则较小者即为所求。</p>
+<p>对于两个给定的序列A&#x3D;{11, <strong>13</strong>, 15, 17, 19}, B&#x3D;{2, 4, 10, 15, 20}，求序列A和B的中位数的过程。</p>
+<table>
+<thead>
+<tr>
+<th align="center">步骤</th>
+<th align="center">操作说明</th>
+<th align="center">序列<em>A</em></th>
+<th align="center">序列<em>B</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">初始序列</td>
+<td align="center">{11, 13, 15, 17, 19}</td>
+<td align="center">{2, 4, 10, 15, 20}</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">分别求中位数</td>
+<td align="center">{11, 13, <strong>15</strong>,  17, 19}</td>
+<td align="center">{2, 4, <strong>10</strong>,  15, 20}</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">15&gt;10，结果在[10,  15]之间</td>
+<td align="center">舍弃15之后元素，{11,13,15}</td>
+<td align="center">舍弃10之前元素，{10,15,20}</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">分别求中位数</td>
+<td align="center">{11,<strong>13</strong>,15}</td>
+<td align="center">{10,<strong>15</strong>,20}</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">13&lt;15，结果在[11,  15]之间</td>
+<td align="center">舍弃13之前元素，{13,15}</td>
+<td align="center">舍弃15之后元素，{10,15}</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">分别求中位数</td>
+<td align="center">{<strong>13</strong>,15}</td>
+<td align="center">{<strong>10</strong>,15}</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">10&lt;13，结果在[10,  13]之间</td>
+<td align="center">舍弃13之后元素，{13}</td>
+<td align="center">舍弃10之前元素，{15}</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">长度为1，较小者为所求</td>
+<td align="center">{13}</td>
+<td align="center">{15}</td>
+</tr>
+</tbody></table>
+<p>我们的例子是以<strong>奇数个数序列</strong>举例的，整个算法应如下描述：</p>
+<p>舍弃<code>a</code>、<code>b</code>中较小者所在序列之较小一半，同时舍弃较大者所在序列之较大一半，要求两次舍弃的元素个数相同。</p>
+<ul>
+<li><p>当$S_1$长度为奇数时，左半边&#x3D;右半边，直接舍弃即可；</p>
+</li>
+<li><p>当$S_1$长度为偶数时，左半边+1&#x3D;右半边。若<code>a&lt;b</code>，舍弃<code>a</code>的左半边(包括中点)，舍弃<code>b</code>的右半边(保留中点)，始终保持$S_1,S_2$等长。</p>
+</li>
+</ul>
+<h3 id="3-1-3-插入排序"><a href="#3-1-3-插入排序" class="headerlink" title="3.1.3 插入排序"></a>3.1.3 插入排序</h3><p>思想：无序序列中的数插入到有序序列中。</p>
+<p>排序$[6, 4, 1, 8, 5]$：</p>
+<p>6 | 4  1  8  5</p>
+<p>4  6 | 1  8  5</p>
+<p>1  4  6 | 8  5</p>
+<p>1  4  6  8 | 5</p>
+<p>1  4  5  6  8</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">algorithm <span class="token function">InsertionSort</span><span class="token punctuation">(</span>A<span class="token punctuation">[</span><span class="token number">0.</span><span class="token punctuation">.</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">//Sorts a given array by insertion sort</span>
+<span class="token comment">//Input:An array A[0..n-1] of n orderable elements</span>
+<span class="token comment">//Output: Array A[0..n-1] sorted in nondecreasing order</span>
+<span class="token keyword">for</span> i <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token number">1</span> to n<span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">do</span>
+<span class="token punctuation">&#123;</span>
+      v <span class="token operator">&lt;</span><span class="token operator">-</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      j <span class="token operator">&lt;</span><span class="token operator">-</span> i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>j≥<span class="token number">0</span> <span class="token operator">and</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>v<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            A<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">-</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            j <span class="token operator">&lt;</span><span class="token operator">-</span> j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+         <span class="token punctuation">&#125;</span>
+     A<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">-</span> v<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-2-DFS"><a href="#3-2-DFS" class="headerlink" title="3.2 DFS"></a>3.2 DFS</h2><p>基本思路：采用<strong>递归算法</strong>。</p>
+<p>​		从图中某个顶点出发，访问此顶点，然后<strong>依次从其未被访问的邻接点出发深度优先遍历图</strong>，直至所有与其有路径相同的顶点都被访问到；若此时图中尚有顶点未被访问，则另选图中一个未被访问的顶点作为起始点，重复以上过程，直至图中所有顶点都被访问到为止。</p>
+<p><strong>记录未被访问的节点的方法</strong>：</p>
+<ul>
+<li><code>visited[]</code>数组</li>
+<li>$flag&#x3D;\left{\begin{array}{cc}<br>0 &#x2F;1 \<br>color(染色)<br>\end{array}\right.$(使用结构体)</li>
+<li>使用$set$，将访问过的点放入集合</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">DFS</span><span class="token punctuation">(</span>G<span class="token punctuation">)</span>
+   count <span class="token operator">:</span><span class="token operator">=</span><span class="token number">0</span>
+   未访问的顶点标记为 <span class="token number">0</span>
+  <span class="token keyword">for</span> each vertex v∈ V <span class="token keyword">do</span>
+  <span class="token keyword">if</span> v 的标记为 <span class="token number">0</span> 
+	<span class="token function">dfs</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>								<span class="token comment">// 2</span>
+      
+<span class="token function">dfs</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+   count <span class="token operator">:</span><span class="token operator">=</span> count <span class="token operator">+</span> <span class="token number">1</span>					<span class="token comment">// 1</span>
+   顶点 v 标记为 count
+   <span class="token keyword">for</span> each vertex w adjacent to v <span class="token keyword">do</span>
+  <span class="token keyword">if</span> w is marked with <span class="token number">0</span> 
+ <span class="token function">dfs</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注：</p>
+<ul>
+<li>将语句1移到语句2之前，可以通过<code>count</code>得到多少个连通的子图；当<code>count == 1</code>时为连通图；</li>
+<li><code>DFS</code>可以判断是否有环；</li>
+<li>深度优先数(<code>DFN</code>)：<code>DFS</code>遍历到的点的序号。</li>
+</ul>
+</blockquote>
+<p><strong>复杂度分析</strong>：</p>
+<p>空间复杂度：来自函数调用栈，最坏情况，递归深度为$O\left( \middle| V \middle| \right)$.</p>
+<p>时间复杂度与BFS是一样的，主要取决于使用哪种数据结构来存储图：</p>
+<ul>
+<li><p><strong>邻接矩阵</strong>存储的图：</p>
+<ul>
+<li>访问$\left| V \right|$个顶点需要$O\left( \middle| V \middle| \right)$的时间。查找每个顶点的邻接点都需要$O\left( \middle| V \middle| \right)$的时间，而总共有$\left| V \right|$个顶点，其时间复杂度为$O\left( \left| V \right|^{2} \right)$；</li>
+</ul>
+</li>
+<li><p><strong>邻接表</strong>存储的图：</p>
+<ul>
+<li>访问$\left| V \right|$个顶点需要$O\left( \middle| V \middle| \right)$的时间。查找每个顶点的邻接点都需要$O\left( \middle| E \middle| \right)$的时间，其时间复杂度为$O\left( \left| V \right| + \left| E \right| \right)$。</li>
+</ul>
+</li>
+</ul>
 
                                     
                             </div>
@@ -1532,7 +1724,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">256k</span>&nbsp;字
+                class="white-color">259k</span>&nbsp;字
             
             
             
