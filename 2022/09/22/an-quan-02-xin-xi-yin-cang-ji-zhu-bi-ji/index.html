@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-09-22
+                                    2022-10-10
                             </div>
                             
 
@@ -556,7 +556,7 @@
 <li>同步要求</li>
 <li>盲水印</li>
 </ul>
-<h3 id="2-3-2-最低有效位方法-LSB"><a href="#2-3-2-最低有效位方法-LSB" class="headerlink" title="2.3.2 最低有效位方法(LSB)"></a>2.3.2 最低有效位方法(LSB)</h3><p>将一位或者多位的最低有效位直接替换为秘密信息。它具有以下优点：</p>
+<h3 id="2-3-2-最低有效位方法-LSB"><a href="#2-3-2-最低有效位方法-LSB" class="headerlink" title="2.3.2 最低有效位方法(LSB)"></a>2.3.2 最低有效位方法(LSB)</h3><p><strong>将一位或者多位的最低有效位直接替换为秘密信息。</strong>它具有以下优点：</p>
 <ul>
 <li>不可感知性好</li>
 <li>嵌入容量大</li>
@@ -582,7 +582,7 @@
 <p>进行隐藏信息嵌入时，宿主信号按照下述原则修改：</p>
 <p>$s’&#x3D;\begin{cases}Q_0(s),m&#x3D;0\ Q_1(s),m&#x3D;1\end{cases}$</p>
 <p>隐藏信息提取时，假设接收到的信号为$y$，则隐含的信息$m’$可以通过解决下述优化问题提取：</p>
-<p>$m’&#x3D;arg ;\mathop{min}\limits_{i&#x3D;1}||y-Q_m(y)||$</p>
+<p>$m’&#x3D;arg ;\mathop{min}\limits_{m\in {0,1}}||y-Q_m(y)||$</p>
 <ul>
 <li><p>通过上述嵌入过程可以看出，该嵌入方法引入的最大误差为$Δ&#x2F;2$</p>
 </li>
@@ -623,7 +623,7 @@
 <p>(2)QIM嵌入1后，DCT域高频系数为？</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922112739316.png" alt="DWT算法例题"></p>
 <h3 id="2-3-6-压缩域隐写术"><a href="#2-3-6-压缩域隐写术" class="headerlink" title="2.3.6 压缩域隐写术"></a>2.3.6 压缩域隐写术</h3><p>MP3音频信号：</p>
-<p>MP3的全称应为MPEG1 Layer-3音频文件，MPEG(Moving Picture Experts Group)在汉语中译为活动图像专家组，特指活动影音压缩标准，MPEG音频文件是MPEG1标准中的声音部分，也叫MPEG音频层，它根据压缩质量和编码复杂程度划分为三层，即Layer-1、Layer2、Layer3，且分别对应MP1、MP2、MP3这三种声音文件，并根据不同的用途，使用不同层次的编码。</p>
+<p>MP3的全称应为MPEG1 Layer-3音频文件，MPEG(Moving Picture Experts Group)在汉语中译为活动图像专家组，特指活动影音压缩标准，MPEG音频文件是MPEG1标准中的声音部分，也叫MPEG音频层，它根据压缩质量和编码复杂程度划分为三层，即Layer1、Layer2、Layer3，且分别对应MP1、MP2、MP3这三种声音文件，并根据不同的用途，使用不同层次的编码。</p>
 <ul>
 <li>在音频编码器中嵌入，这种方法稳健性较高，但需要复杂的编码和解码过程，运算量大，实时性不好，有错误扩散效应；</li>
 <li>在压缩后的音频数据流中直接嵌入，这种方法避免了复杂的编解码过程，但稳健性不高，而且能够嵌入的水印容量不大，有错误扩散效应（雪崩效应）。</li>
@@ -1176,18 +1176,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/22/an-quan-02-xin-xi-yin-cang-ji-zhu-bi-ji/">
+                <a href="/2022/10/15/suan-fa-06-tan-xin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="信息隐藏技术笔记">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="算法6:贪心">
                         
-                        <span class="card-title">信息隐藏技术笔记</span>
+                        <span class="card-title">算法6:贪心</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1197,31 +1196,30 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    信息安全专业课程
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">信息安全</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1524,7 +1522,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">259k</span>&nbsp;字
+                class="white-color">279.3k</span>&nbsp;字
             
             
             
@@ -1821,27 +1819,12 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>
