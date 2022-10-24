@@ -390,8 +390,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                                <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    算法学习
                                 </a>
                                 
                         </div>
@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-22
+                                    2022-10-24
                             </div>
                             
 
@@ -468,7 +468,7 @@
 <li>最高位数字不为 0。</li>
 </ol>
 <p>本题为<strong>组合计数问题</strong>，对应算法笔记第四章(数学知识)。</p>
-<p>将0、1分为一组，将2、3分为一组，<strong>在0、1中选<code>k</code>位，在2、3中选<code>n-k</code>位</strong>，而由于最高位数字不能为0，而所有0都在所有1之前，所以最高位没有0或1，则在剩下的<code>n-1</code>位中选<code>k</code>位，对应组合数$C_{n-1}^k$。0的个数有<code>k-1</code>种可能，2的个数有<code>n-k-1</code>种可能，则答案为：$\sum_{k=2}^{n-2}C_{n-1}^{k}(k-1)(n-k-1)$。</p>
+<p>将0、1分为一组，将2、3分为一组，<strong>在0、1中选<code>k</code>位，在2、3中选<code>n-k</code>位</strong>，而由于最高位数字不能为0，而所有0都在所有1之前，所以最高位没有0或1，则在剩下的<code>n-1</code>位中选<code>k</code>位，对应组合数$C_{n-1}^k$。0的个数有<code>k-1</code>种可能，2的个数有<code>n-k-1</code>种可能，则答案为：$\sum_{k&#x3D;2}^{n-2}C_{n-1}^{k}(k-1)(n-k-1)$。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//组合计数问题</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -503,10 +503,13 @@
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第1次"><a href="#第1次" class="headerlink" title="第1次"></a>第1次</h1><h2 id="第3题-命令行选项"><a href="#第3题-命令行选项" class="headerlink" title="第3题 命令行选项"></a>第3题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3202/">命令行选项</a></h2><ul>
-<li><code>stringstream</code>定义于头文件<code>&lt;sstream&gt;</code>中，掌握其构造方式和分割字符串的方法<ul>
-<li>stringstream ssin(str);        // stringstream读入字符串</li>
-<li>while (ssin &gt;&gt; str) ops.push_back(str);        // stringstream以空格的方式分割字符串</li>
+<li><code>stringstream</code>定义于头文件<code> &lt;sstream&gt;</code>中，掌握其构造方式和分割字符串的方法<ul>
+<li>stringstream ssin(str);		&#x2F;&#x2F; stringstream读入字符串</li>
+<li>while (ssin &gt;&gt; str) ops.push_back(str);		&#x2F;&#x2F; stringstream以空格的方式分割字符串</li>
 </ul>
 </li>
 <li>运用<code>vector</code>存储答案</li>
@@ -564,6 +567,9 @@ string ans<span class="token punctuation">[</span>N<span class="token punctuatio
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第3次"><a href="#第3次" class="headerlink" title="第3次"></a>第3次</h1><h2 id="第3题-集合竞价"><a href="#第3题-集合竞价" class="headerlink" title="第3题 集合竞价"></a>第3题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3212/">集合竞价</a></h2><p>我的代码：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
@@ -634,6 +640,7 @@ string ans<span class="token punctuation">[</span>N<span class="token punctuatio
     
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>前缀和+双指针$O(nlogn)$：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -722,6 +729,9 @@ LL s1<span class="token punctuation">[</span>N<span class="token punctuation">]<
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.2lf %lld\n"</span><span class="token punctuation">,</span> resp<span class="token punctuation">,</span> resc<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第4次"><a href="#第4次" class="headerlink" title="第4次"></a>第4次</h1><h2 id="第3题-节日"><a href="#第3题-节日" class="headerlink" title="第3题 节日"></a>第3题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3217/">节日</a></h2><p>y总的代码：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -777,6 +787,7 @@ LL s1<span class="token punctuation">[</span>N<span class="token punctuation">]<
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>我的代码：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -851,6 +862,9 @@ LL s1<span class="token punctuation">[</span>N<span class="token punctuation">]<
     
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第18次"><a href="#第18次" class="headerlink" title="第18次"></a>第18次</h1><h2 id="第3题-化学方程式"><a href="#第3题-化学方程式" class="headerlink" title="第3题 化学方程式"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/3287/">第3题 化学方程式</a></h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
@@ -937,10 +951,13 @@ MPSI <span class="token function">work</span><span class="token punctuation">(</
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第21次"><a href="#第21次" class="headerlink" title="第21次"></a>第21次</h1><h2 id="第2题-期末预测之最佳阈值"><a href="#第2题-期末预测之最佳阈值" class="headerlink" title="第2题 期末预测之最佳阈值"></a>第2题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3301/">期末预测之最佳阈值</a></h2><ul>
-<li>$S_{0,i}=前i项中0的个数$</li>
-<li>$S_{1,i}=前i项中1的个数$</li>
-<li>$预测结果=S_{0,k-1}+S_{1,n}-S_{1,k-1}$</li>
+<li>$S_{0,i}&#x3D;前i项中0的个数$</li>
+<li>$S_{1,i}&#x3D;前i项中1的个数$</li>
+<li>$预测结果&#x3D;S_{0,k-1}+S_{1,n}-S_{1,k-1}$</li>
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221020192424536.png" alt="image-20221020192424536"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -978,6 +995,9 @@ PII q<span class="token punctuation">[</span>N<span class="token punctuation">]<
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第22次"><a href="#第22次" class="headerlink" title="第22次"></a>第22次</h1><h2 id="第2题-邻域均值"><a href="#第2题-邻域均值" class="headerlink" title="第2题  邻域均值"></a>第2题  <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/3415/">邻域均值</a></h2><ul>
 <li>求子矩阵的和使用<strong>二维前缀和</strong></li>
 </ul>
@@ -1025,6 +1045,7 @@ PII q<span class="token punctuation">[</span>N<span class="token punctuation">]<
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="第3题-DHCP服务器"><a href="#第3题-DHCP服务器" class="headerlink" title="第3题 DHCP服务器"></a>第3题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3416/">DHCP服务器</a></h2><ul>
 <li><p>模拟题</p>
 </li>
@@ -1150,14 +1171,19 @@ string h<span class="token punctuation">;</span>
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第23次"><a href="#第23次" class="headerlink" title="第23次"></a>第23次</h1><h2 id="第2题-非零段划分"><a href="#第2题-非零段划分" class="headerlink" title="第2题 非零段划分"></a>第2题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/4010/">非零段划分</a></h2><ul>
 <li><p>思维题</p>
 </li>
 <li><p><strong>模拟：在基准线不断下沉的过程中，有多少段小山峰</strong>。</p>
 </li>
-<li>如下图所示有两端小山峰：</li>
+<li><p>如下图所示有两端小山峰：</p>
+</li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221018232554395.png" alt="image-20221018232554395" style="zoom: 50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221018232554395.png" alt="image-20221018232554395" style="zoom: 50%;" />
+
 <p><strong>规则</strong>：</p>
 <ul>
 <li>从大到小露出，高度越高的先露出来</li>
@@ -1212,6 +1238,7 @@ string h<span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>法2：<strong>前缀和</strong>，时间复杂度<code>O(n)</code></p>
 <p>如果<code>a[i] &gt; a[i − 1]</code>，意味着当<code>p</code>取到<code>a[i − 1] + 1</code>到<code>a[i]</code>之间的值时，非零段+1</p>
 <p>使用数组<code>cnt[]</code>，<code>cnt[i]</code> 表示<code>p</code>从<code>i - 1</code>上升到<code>i</code>时，非零段数量的变化</p>
@@ -1249,6 +1276,9 @@ string h<span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> phrase<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="第26次"><a href="#第26次" class="headerlink" title="第26次"></a>第26次</h1><h2 id="第2题-寻宝！大冒险！"><a href="#第2题-寻宝！大冒险！" class="headerlink" title="第2题 寻宝！大冒险！"></a>第2题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/4513/">寻宝！大冒险！</a></h2><ul>
 <li>运用到<code>pair</code>、<code>map</code>数据结构，多加注意<code>map</code>的用法</li>
 <li>暴力遍历数组，二重循环，通过<code>mp[&#123;dx + i, dy + j&#125;] != rp[&#123;i, j&#125;]</code>判断</li>
@@ -1311,6 +1341,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                                     
                             </div>
@@ -1786,8 +1817,8 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                             
                             
@@ -1839,8 +1870,8 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                             
                             
@@ -2109,7 +2140,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">285.8k</span>&nbsp;字
+                class="white-color">286.1k</span>&nbsp;字
             
             
             

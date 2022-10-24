@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            563
+                                            582
                                     </div>
                                     
 
@@ -472,46 +472,47 @@
 </li>
 </ol>
 <p>ㅤㅤㅤ●ㅤ<code>ls -a</code>：查看所有文件包括隐藏文件（以<code>.</code>开头的文件就是隐藏文件）</p>
-<p>ㅤㅤㅤ●ㅤ<code>ls -A</code>:    除<code>.</code>/<code>..</code>(当前目录与上一级目录)外的所有文件(包括隐藏文件)</p>
+<p>ㅤㅤㅤ●ㅤ<code>ls -A</code>:	除<code>.</code>&#x2F;<code>..</code>(当前目录与上一级目录)外的所有文件(包括隐藏文件)</p>
 <p>ㅤㅤㅤ●ㅤ<code>ls -l</code>：查看当前路径下文件的读、写、执行权限(<code>ls -lh</code>，可简写为<code>ll</code>)</p>
 <p>ㅤㅤㅤ●ㅤ<code>ls | wc -l</code>：查看<code>ls</code>下有多少个文件</p>
-<ol>
+<ol start="5">
 <li><p><code>pwd</code>：显示当前路径</p>
 </li>
 <li><p><code>cd XXX</code>：进入XXX目录下，cd ..返回上层目录</p>
 </li>
 </ol>
 <p>ㅤㅤㅤ●ㅤ<code>.</code>：当前目录 <code>..</code>：上级目录</p>
-<p>ㅤㅤㅤ●ㅤ<code>~</code>：家目录，回回到路径/home/acs下</p>
-<p>ㅤㅤㅤ●ㅤ<code>cd -</code>：<strong>返回改变路径前的路径</strong>，比如当前在/home/acs/homework然后cd /这个时候就处于/目录下，然后cd -就会回到改变路径前的路径也就是/home/acs/homework</p>
-<ol>
-<li><code>cp XXX YYY</code>：将XXX文件复制成YYY，XXX和YYY可以是同一个路径，比如../dir_c/a.txt，表示上层目录下的dir_c文件夹下的文件a.txt</li>
+<p>ㅤㅤㅤ●ㅤ<code>~</code>：家目录，回回到路径&#x2F;home&#x2F;acs下</p>
+<p>ㅤㅤㅤ●ㅤ<code>cd -</code>：<strong>返回改变路径前的路径</strong>，比如当前在<code>/home/acs/homework</code>然后<code>cd /</code>，这个时候就处于&#x2F;目录下，然后<code>cd -</code>就会回到改变路径前的路径也就是<code>/home/acs/homework</code></p>
+<ol start="7">
+<li><code>cp XXX YYY</code>：将XXX文件复制成YYY，XXX和YYY可以是同一个路径，比如..&#x2F;dir_c&#x2F;a.txt，表示上层目录下的dir_c文件夹下的文件a.txt</li>
 </ol>
 <p>ㅤㅤㅤ●ㅤ<code>cp XXX YYY -r</code>将XXX目录（文件夹）复制到YYY下</p>
 <p>ㅤㅤㅤ●ㅤ非当前路径重命名方法：<code>cp a.txt ../b.txt</code></p>
 <p>ㅤㅤㅤ●ㅤ<code>cp</code>：复制 + 粘贴 + 重命名</p>
-<ol>
+<ol start="8">
 <li><code>mkdir XXX</code>：创建目录（文件夹）XXX</li>
 </ol>
 <p>ㅤㅤㅤ●ㅤ<code>mkdir -p</code>：-p：如果文件夹不存在，则创建</p>
-<ol>
-<li><code>rm XXX</code>：删除普通文件； rm XXX -r：删除文件夹</li>
+<p>ㅤㅤㅤ●ㅤ<code>mkdir a/b/c -p</code>：<code>a</code>里有<code>b</code>，<code>b</code>里有<code>c</code></p>
+<ol start="9">
+<li><code>rm XXX</code>：删除普通文件； <code>rm XXX -r</code>：删除文件夹</li>
 </ol>
-<p>ㅤㅤㅤ●ㅤ支持正则表达式，删除所有.txt类型文件：rm *.txt</p>
-<p>ㅤㅤㅤ●ㅤ删除所有文件（不包括文件夹）：rm *</p>
-<p>ㅤㅤㅤ●ㅤ正则表达式删除所有文件夹：rm * -r即可</p>
-<ol>
+<p>ㅤㅤㅤ●ㅤ支持正则表达式，删除所有<code>.txt</code>类型文件：<code>rm *.txt</code></p>
+<p>ㅤㅤㅤ●ㅤ删除所有文件（不包括文件夹）：<code>rm *</code></p>
+<p>ㅤㅤㅤ●ㅤ正则表达式删除所有文件夹：<code>rm * -r</code>即可</p>
+<ol start="10">
 <li><code>mv XXX YYY</code>：将XXX文件移动到YYY下，和cp命令一样，XXX和YYY可以是同一个路径；重命名也是用这个命令</li>
 </ol>
-<p>ㅤㅤㅤ●ㅤ非当前路径移动方法：mv a.txt ../b.txt</p>
-<ol>
+<p>ㅤㅤㅤ●ㅤ非当前路径移动方法：<code>mv a.txt ../b.txt</code></p>
+<ol start="11">
 <li><p><code>touch XXX</code>：创建一个文件</p>
 </li>
 <li><p><code>cat XXX</code>：展示文件XXX中的内容</p>
 </li>
-<li><p>复制文本：windows/Linux下：Ctrl + insert，Mac下：command + c</p>
+<li><p><strong>复制文本</strong>：windows&#x2F;Linux下：<strong>Ctrl + insert</strong>，Mac下：<strong>command + c</strong></p>
 </li>
-<li><p>粘贴文本：windows/Linux下：Shift + insert，Mac下：command + v</p>
+<li><p><strong>粘贴文本</strong>：windows&#x2F;Linux下：<strong>Shift + insert</strong>，Mac下：<strong>command + v</strong></p>
 </li>
 <li><p><code>history</code>：查看历史输入指令</p>
 </li>
@@ -1025,13 +1026,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/15/suan-fa-06-tan-xin/">
+                <a href="/2022/10/15/suan-fa-ji-chu-06-tan-xin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="算法6:贪心">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="算法基础6:贪心">
                         
-                        <span class="card-title">算法6:贪心</span>
+                        <span class="card-title">算法基础6:贪心</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1048,8 +1049,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    算法学习
                                 </a>
                             
                             
@@ -1307,7 +1308,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">285.8k</span>&nbsp;字
+                class="white-color">286.1k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="算法5:动态规划, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="算法基础5:动态规划, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法5:动态规划 | ShiQuLiZhi BLOG</title>
+    <title>算法基础5:动态规划 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法5:动态规划</h1>
+                    <h1 class="description center-align post-title">算法基础5:动态规划</h1>
                 </div>
             </div>
         </div>
@@ -390,8 +390,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                                <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    算法学习
                                 </a>
                                 
                         </div>
@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-23
+                                    2022-10-24
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            6.4k
+                                            6.5k
                                     </div>
                                     
 
@@ -462,7 +462,7 @@
                         <div class="card-content article-card-content">
                             <div id="articleContent">
                                 <h1 id="一、背包问题"><a href="#一、背包问题" class="headerlink" title="一、背包问题"></a>一、背包问题</h1><h2 id="1-1-01背包"><a href="#1-1-01背包" class="headerlink" title="1.1 01背包"></a>1.1 01背包</h2><p>有$N$件物品和一个容量是$V$的背包。每件物品只能使用一次。</p>
-<p><strong>第$i$件物品的体积是$v_{i}$，价值是$w_{i}$</strong>。</p>
+<p>**第$i$件物品的体积是$v_{i}$，价值是$w_{i}$**。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
 <p>输出最大价值。</p>
 <p><strong>DP问题</strong>：</p>
@@ -482,7 +482,7 @@
 </ul>
 </li>
 </ul>
-<p>故有：$f(i,j) = Max(f(i-1,j),f(i-1,j-v_i)+w_i)$</p>
+<p>故有：$f(i,j) &#x3D; Max(f(i-1,j),f(i-1,j-v_i)+w_i)$</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2/">例：01背包问题</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
@@ -508,6 +508,7 @@
     cout<span class="token operator">&lt;&lt;</span> f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/116859/">优化为一维的方法</a>：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -535,12 +536,13 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>注</strong>：(1式)</p>
 <p><code>f[i][j] = max(f[i][j],f[i - 1][j - v[i]] + w[i]);</code></p>
 <p>若改为一维(<strong>滚动数组</strong>)，且<code>j</code>从<code>v[i]</code>开始递增，则算到第<code>i</code>层时，<code>f[j - v[i]]</code>已经被更新为第<code>i</code>层的，不符合二维情况，故<code>j</code>应递减遍历。</p>
 </blockquote>
 <h2 id="1-2-完全背包"><a href="#1-2-完全背包" class="headerlink" title="1.2 完全背包"></a>1.2 完全背包</h2><p>有$N$件物品和一个容量是$V$的背包。每件物品都有无限件可用。</p>
-<p><strong>第$i$件物品的体积是$v_{i}$，价值是$w_{i}$</strong>。</p>
+<p>**第$i$件物品的体积是$v_{i}$，价值是$w_{i}$**。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
 <p>输出最大价值。</p>
 <p><strong>DP问题</strong>：</p>
@@ -566,7 +568,7 @@
 </ul>
 <p>以物品$i$选的数量进行集合划分：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221010205532011.png" alt="集合划分"></p>
-<p>故有：$f[i,j] = f[i - 1,j - k <em> v[i]] + k </em> w[i]$</p>
+<p>故有：$f[i,j] &#x3D; f[i - 1,j - k * v[i]] + k * w[i]$</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3/">例：完全背包问题</a></p>
 <p><strong>朴素做法</strong>(<strong>枚举<code>k</code></strong>)：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
@@ -579,12 +581,13 @@
         <span class="token punctuation">&#125;</span>
      <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>优化做法</strong>：</p>
 <p>由动态规划的转移方程入手。观察以下式子：</p>
-<p>$f[i,j]=Max(f[i-1,j],f[i-1,j-v]+w,f[i-1,j-2v]+2w,f[i-1,j-3v]+3w,…)$</p>
-<p>$f[i,j-v]=Max(\quad\quad\quad f[i-1,j-v],f[i-1,j-2v]+w,f[i-1,j-3v]+2w,…)$</p>
+<p>$f[i,j]&#x3D;Max(f[i-1,j],f[i-1,j-v]+w,f[i-1,j-2v]+2w,f[i-1,j-3v]+3w,…)$</p>
+<p>$f[i,j-v]&#x3D;Max(\quad\quad\quad f[i-1,j-v],f[i-1,j-2v]+w,f[i-1,j-3v]+2w,…)$</p>
 <p>两式从第二项开始只差了<code>w</code>，故可得$f[i-1,j-v]+w,f[i-1,j-2v]+2w,f[i-1,j-3v]+3w,…$的最大值为$f[i,j-v]+w$</p>
-<p>故<strong>不需要枚举所有<code>k</code></strong>，只需求以下两式即可：$f[i,j]=Max(f[i-1,j],f[i,j-v]+w)$</p>
+<p>故**不需要枚举所有<code>k</code>**，只需求以下两式即可：$f[i,j]&#x3D;Max(f[i-1,j],f[i,j-v]+w)$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
 
@@ -609,8 +612,9 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-3-多重背包"><a href="#1-3-多重背包" class="headerlink" title="1.3 多重背包"></a>1.3 多重背包</h2><p>有$N$件物品和一个容量是$V$的背包。每件物品都有无限件可用。</p>
-<p><strong>第$i$种物品最多有$s_i$件，每件体积是$v_{i}$，价值是$w_{i}$</strong>。</p>
+<p>**第$i$种物品最多有$s_i$件，每件体积是$v_{i}$，价值是$w_{i}$**。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
 <p>输出最大价值。</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/5/">例：多重背包问题 II</a></p>
@@ -628,13 +632,14 @@
 <li><strong>状态计算</strong>：集合划分——$f(i,j)$</li>
 </ul>
 <p><strong>朴素做法</strong>(<strong>枚举<code>k</code></strong>)：</p>
-<p>$f(i,j) = Max(f(i-1,j-v[i]<em>k)+w[i]</em>k)(k=0,1,2,…,s[i])$</p>
+<p>$f(i,j) &#x3D; Max(f(i-1,j-v[i]*k)+w[i]*k)(k&#x3D;0,1,2,…,s[i])$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> j <span class="token operator">++</span> <span class="token punctuation">)</span>
             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> k <span class="token operator">*</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> j<span class="token punctuation">;</span> k <span class="token operator">++</span> <span class="token punctuation">)</span>
                 f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> k<span class="token punctuation">]</span> <span class="token operator">+</span> w<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>优化做法</strong>：二进制的优化方式(与快速幂的原理类似)</p>
-<p>如$s=1024$，不需要列举$s$从0到1023的所有情况，只需列举$s$有1,2,4,8,…,512件的情况，则0-1023内的所有情况都能由上述情况表示，等价于一个<strong>01背包问题</strong>。</p>
+<p>如$s&#x3D;1024$，不需要列举$s$从0到1023的所有情况，只需列举$s$有1,2,4,8,…,512件的情况，则0-1023内的所有情况都能由上述情况表示，等价于一个<strong>01背包问题</strong>。</p>
 <p>对于一个一般的$s$，有：$1,2,4,…,2^k,c(c&lt;2^{k+1})$</p>
 <p>$s\rightarrow logs$，再对新的物品做一遍<strong>01背包问题</strong>即可。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -685,6 +690,7 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-4-分组背包"><a href="#1-4-分组背包" class="headerlink" title="1.4 分组背包"></a>1.4 分组背包</h2><p>有$N$组物品和一个容量是$V$的背包。</p>
 <p>每组物品有若干个，同一组内的物品最多只能选一个。<br>每件物品的体积是$v_{ij}$，价值是$w_{ij}$，其中$i$是组号，$j$是组内编号。</p>
 <p>求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。</p>
@@ -736,12 +742,16 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="二、线性DP"><a href="#二、线性DP" class="headerlink" title="二、线性DP"></a>二、线性DP</h1><h2 id="2-1-例1：数字三角形"><a href="#2-1-例1：数字三角形" class="headerlink" title="2.1 例1：数字三角形"></a>2.1 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/900/">例1：数字三角形</a></h2><p>给定一个如下图所示的数字三角形，从顶部出发，在每一结点可以选择移动至其左下方的结点或移动至其右下方的结点，一直走到底层，要求找出一条路径，使路径上的数字的和最大。</p>
 <pre class="line-numbers language-none"><code class="language-none">        7
       3   8
     8   1   0
   2   7   4   4
 4   5   2   6   5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>DP问题</strong>：</p>
 <ul>
 <li><p><strong>状态表示</strong>$f(i,j)$：</p>
@@ -749,8 +759,7 @@
 <li><p><strong>集合</strong></p>
 <ul>
 <li><p>所有从起点走到$(i,j)$的路径</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013101622200.png" alt="数字三角形示意图" style="zoom:50%;" /></p>
-</li>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013101622200.png" alt="数字三角形示意图" style="zoom:50%;" /></li>
 </ul>
 </li>
 <li><p><strong>属性</strong>：$Max$</p>
@@ -794,15 +803,17 @@
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>注：</p>
-<p>for (int j = 0; j &lt;= <strong>i + 1</strong>; j ++ ) ——-&gt; <strong>每次需多初始化一个元素</strong></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013104024823.png" alt="细节问题" style="zoom:50%;" /></p>
+<p>for (int j &#x3D; 0; j &lt;&#x3D; **i + 1**; j ++ ) —–&gt; <strong>每次需多初始化一个元素</strong></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013104024823.png" alt="细节问题" style="zoom:50%;" />
 </blockquote>
 <h2 id="2-2-例2-3：最长上升子序列问题"><a href="#2-2-例2-3：最长上升子序列问题" class="headerlink" title="2.2 例2-3：最长上升子序列问题"></a>2.2 例2-3：最长上升子序列问题</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/897/">例2：最长上升子序列</a></p>
 <p>给定一个长度为N的数列，求数值严格单调递增的子序列的长度最长是多少。</p>
 <pre class="line-numbers language-none"><code class="language-none">7
 3 1 2 1 8 5 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>答案是4($[1,2,5,6]$)。</p>
 <p><strong>DP问题</strong>：</p>
 <ul>
@@ -819,7 +830,7 @@
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013105456315.png" alt="集合划分"></p>
 <blockquote>
 <p><strong>以上一个数的位置进行划分</strong>(0表示没有上一个数，序列长度为1)</p>
-<p>若$a_j&lt;a_i$，则$f[i] = max(f[j] + 1),j=0,1,2,…,i-1$</p>
+<p>若$a_j&lt;a_i$，则$f[i] &#x3D; max(f[j] + 1),j&#x3D;0,1,2,…,i-1$</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
@@ -851,6 +862,7 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>时间复杂度为$O(n^2)$</p>
 </blockquote>
@@ -897,10 +909,12 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-3-例4：最长公共子序列"><a href="#2-3-例4：最长公共子序列" class="headerlink" title="2.3 例4：最长公共子序列"></a>2.3 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/899/">例4：最长公共子序列</a></h2><p>给定两个长度分别为 N 和 M 的字符串 A 和 B，求既是 A 的子序列又是 B 的子序列的字符串长度最长是多少。</p>
 <pre class="line-numbers language-none"><code class="language-none">4 5
 acbd
 abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>输出为3。</p>
 <p><strong>DP问题</strong>：</p>
 <ul>
@@ -955,6 +969,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-4-例5：最短编辑距离"><a href="#2-4-例5：最短编辑距离" class="headerlink" title="2.4 例5：最短编辑距离"></a>2.4 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/904/">例5：最短编辑距离</a></h2><p>给定两个字符串 A 和 B，现在要将 A 经过若干操作变为 B，可进行的操作有：</p>
 <ol>
 <li>删除–将字符串 A 中的某个字符删除。</li>
@@ -973,12 +988,13 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li><strong>属性</strong>：$Min$</li>
 </ul>
 </li>
-<li><strong>状态计算</strong>：<ul>
+<li><p><strong>状态计算</strong>：</p>
+<ul>
 <li>集合划分——$f(i,j)$</li>
 <li><strong>考虑最后一步操作</strong>，有三种操作方式，取最小值即可：<ul>
 <li>删：$f(i-1,j)+1$</li>
 <li>增：$f(i,j-1)+1$</li>
-<li>改：$f(i-1,j-1)+1\;or\;0$</li>
+<li>改：$f(i-1,j-1)+1;or;0$</li>
 </ul>
 </li>
 </ul>
@@ -1019,6 +1035,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/901/">变式：编辑距离</a></p>
 <h1 id="三、区间DP"><a href="#三、区间DP" class="headerlink" title="三、区间DP"></a>三、区间DP</h1><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/284/">例：石子合并</a></p>
 <p>设有 N 堆石子排成一排，其编号为 1，2，3，…，N。</p>
@@ -1052,8 +1069,9 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 </li>
 </ul>
 <p><strong>状态转移方程示意图</strong>：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013203232876.png" alt="状态转移方程示意图" style="zoom:50%;" /></p>
-<p>我们有：$f[i,j]=Min\{f(i,k)+f(k+1,j)+s[j]-s[i-1]\}$</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013203232876.png" alt="状态转移方程示意图" style="zoom:50%;" />
+
+<p>我们有：$f[i,j]&#x3D;Min{f(i,k)+f(k+1,j)+s[j]-s[i-1]}$</p>
 <blockquote>
 <p>求某一段的总和可以用<strong>前缀和</strong>来表示，即$s[j]-s[i-1]$</p>
 </blockquote>
@@ -1087,8 +1105,11 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="四、计数类DP"><a href="#四、计数类DP" class="headerlink" title="四、计数类DP"></a>四、计数类DP</h1><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/902/">例：整数划分</a></p>
-<p>一个正整数 $n$ 可以表示成若干个正整数之和，形如：$n=n_1+n_2+…+n_k$，其中 $n_1≥n_2≥…≥n_k,k≥1$。</p>
+<p>一个正整数 $n$ 可以表示成若干个正整数之和，形如：$n&#x3D;n_1+n_2+…+n_k$，其中 $n_1≥n_2≥…≥n_k,k≥1$。</p>
 <p>我们将这样的一种表示称为正整数 $n$ 的一种划分。</p>
 <p>现在给定一个正整数 $n$，求出 $n$ 共有多少种不同的划分方法。</p>
 <p><strong>方法1</strong>：可看成<strong>完全背包问题</strong>：</p>
@@ -1113,7 +1134,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 </ul>
 </li>
 </ul>
-<p>对完全背包问题优化(找规律)：$f[i][j] = f[i - 1][j] + f[i][j - i]$</p>
+<p>对完全背包问题优化(找规律)：$f[i][j] &#x3D; f[i - 1][j] + f[i][j - i]$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
 
@@ -1137,6 +1158,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>方法2</strong>：</p>
 <p><strong>DP问题</strong>：</p>
 <ul>
@@ -1152,14 +1174,16 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li><p><strong>状态计算</strong>：</p>
 <ul>
 <li><p>集合划分——$f(i,j)$</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015162546415.png" alt="集合划分" style="zoom: 80%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015162546415.png" alt="集合划分" style="zoom: 80%;" />
+
 <ul>
 <li>最大值大于1，则将每个数减去1，可将其任何一种方案变成和是$i-j$，分成$j$个数的方案</li>
 </ul>
 </li>
-<li><p>$f[i,j]=f[i-1,j-1]+f[i-j,j]$</p>
+<li><p>$f[i,j]&#x3D;f[i-1,j-1]+f[i-j,j]$</p>
 </li>
-<li>$ans=f[n,1]+f[n,2]+…+f[n,n]$</li>
+<li><p>$ans&#x3D;f[n,1]+f[n,2]+…+f[n,n]$</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -1189,24 +1213,28 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="五、数位统计DP"><a href="#五、数位统计DP" class="headerlink" title="五、数位统计DP"></a>五、数位统计DP</h1><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/340/">例：计数问题</a></p>
 <p>给定两个整数 $a$ 和 $b$，求 $a$ 和 $b$ 之间的所有数字中 0∼9 的出现次数。</p>
-<p>例如，$a=1024$，$b=1032$，则 $a$ 和 $b$ 之间共有 9 个数如下：</p>
+<p>例如，$a&#x3D;1024$，$b&#x3D;1032$，则 $a$ 和 $b$ 之间共有 9 个数如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">1024 1025 1026 1027 1028 1029 1030 1031 1032<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>其中 <code>0</code> 出现 10 次，<code>1</code> 出现 10 次，<code>2</code> 出现 7 次，<code>3</code> 出现 3 次等等…</p>
-<p><strong>前缀思想</strong>：<strong>区间答案</strong>——转化为——&gt;<strong>前缀答案</strong></p>
+<p><strong>前缀思想</strong>：<strong>区间答案</strong>—-转化为—-&gt;<strong>前缀答案</strong></p>
 <p>$count(n,x)$为 $1\sim n$ 中 $x$ 出现的次数，则答案为$count(b,x)-count(a-1,x)$</p>
-<p>$1\sim n$，$x=1$，$n=abcdefg$，分别求出$1$在每一位上出现的次数。</p>
+<p>$1\sim n$，$x&#x3D;1$，$n&#x3D;abcdefg$，分别求出$1$在每一位上出现的次数。</p>
 <p>如求$1$在第$4$位上出现的次数，则在$1\leq xxx1yyy\leq abcdefg$</p>
 <ul>
-<li><p>$xxx=000\sim abc-1$，$yyy=000\sim 999$，共有$abc*1000$种情况</p>
+<li><p>$xxx&#x3D;000\sim abc-1$，$yyy&#x3D;000\sim 999$，共有$abc*1000$种情况</p>
 <p><strong>注意</strong>：当求$0$在某位的出现次数时，由于<strong>前导零</strong>的存在，$xxx$应从$001$开始枚举</p>
 </li>
-<li><p>$xxx=abc$</p>
+<li><p>$xxx&#x3D;abc$</p>
 <ul>
-<li>$d<1$，$abc1yyy>abc0efg$，方案数为$0$</li>
-<li>$d=1$，$yyy=000\sim efg$，方案数为$efg+1$</li>
-<li>$d&gt;1$，$yyy=000\sim 999$，方案数为$1000$</li>
+<li>$d&lt;1$，$abc1yyy&gt;abc0efg$，方案数为$0$</li>
+<li>$d&#x3D;1$，$yyy&#x3D;000\sim efg$，方案数为$efg+1$</li>
+<li>$d&gt;1$，$yyy&#x3D;000\sim 999$，方案数为$1000$</li>
 </ul>
 </li>
 </ul>
@@ -1285,6 +1313,9 @@ abc
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="六、状态压缩DP"><a href="#六、状态压缩DP" class="headerlink" title="六、状态压缩DP"></a>六、状态压缩DP</h1><p><strong>思想：用一个整数(二进制数)表示某个状态</strong>($n$一般较小)</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/293/">例1：蒙德里安的梦想</a></p>
 <p>求把 $N×M$ 的棋盘分割成若干个 $1×2$ 的长方形，有多少种方案。</p>
@@ -1294,9 +1325,8 @@ abc
 <ul>
 <li><p><strong>集合</strong></p>
 <ul>
-<li><p>所有摆到了第$i$列，<strong>上一列伸出来小方格</strong>的状态是$j$的情况下的方案数(如下所示$j=(10010)_2$)</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015203329820.png" alt="集合示意" style="zoom: 67%;" /></p>
-</li>
+<li><p>所有摆到了第$i$列，<strong>上一列伸出来小方格</strong>的状态是$j$的情况下的方案数(如下所示$j&#x3D;(10010)_2$)</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015203329820.png" alt="集合示意" style="zoom: 67%;" /></li>
 </ul>
 </li>
 <li><p><strong>属性</strong>：数量</p>
@@ -1307,7 +1337,7 @@ abc
 <ul>
 <li><p>集合划分——$f(i,j)$</p>
 </li>
-<li><p>如下图，$j=01001,k=10010$</p>
+<li><p>如下图，$j&#x3D;01001,k&#x3D;10010$</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015204308347.png" alt="集合划分"></p>
 </li>
 </ul>
@@ -1315,7 +1345,7 @@ abc
 </ul>
 <p>需满足：</p>
 <ul>
-<li><p>$(j\&amp;k)==0$—-&gt;不存在冲突</p>
+<li><p>$(j&amp;k)&#x3D;&#x3D;0$—&gt;不存在冲突</p>
 </li>
 <li><p>$j|k$不存在<strong>连续奇数个$0$</strong></p>
 </li>
@@ -1363,6 +1393,7 @@ abc
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/93/">例2：最短Hamilton路径</a></p>
 <p>给定一张 $n$ 个点的带权无向图，点从 $0∼n−1$ 标号，求起点 $0$ 到终点 $n−1$ 的最短 Hamilton 路径。</p>
 <p>Hamilton 路径的定义是从 $0$ 到 $n−1$ 不重不漏地经过每个点恰好一次。</p>
@@ -1371,7 +1402,7 @@ abc
 <li><p><strong>状态表示</strong>$f(i,j)$：</p>
 <ul>
 <li><strong>集合</strong><ul>
-<li>所有从$0$走到$j$，<strong>走过的所有点是$i$</strong>的所有路径($i$是二进制数，每一位分别表示当前点是否走过)</li>
+<li>所有从$0$走到$j$，**走过的所有点是$i$**的所有路径($i$是二进制数，每一位分别表示当前点是否走过)</li>
 <li><strong>属性</strong>：$Min$</li>
 </ul>
 </li>
@@ -1383,7 +1414,7 @@ abc
 </li>
 <li><p>以倒数第二个点是哪个点进行分类：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015213242169.png" alt="状态分类"></p>
-<p>0—-&gt;k—-&gt;j：$f(i,j)=min(f(i-\{j\},k)+a[k,j])$</p>
+<p>0—&gt;k—&gt;j：$f(i,j)&#x3D;min(f(i-{j},k)+a[k,j])$</p>
 </li>
 </ul>
 </li>
@@ -1421,6 +1452,9 @@ abc
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="七、树形DP"><a href="#七、树形DP" class="headerlink" title="七、树形DP"></a>七、树形DP</h1><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/287/">例：没有上司的舞会</a></p>
 <p>Ural 大学有 $N$ 名职员，编号为 $1∼N$。</p>
 <p>他们的关系就像一棵以校长为根的树，父节点就是子节点的直接上司。</p>
@@ -1429,15 +1463,14 @@ abc
 <p>在满足这个条件的前提下，主办方希望邀请一部分职员参会，使得所有参会职员的快乐指数总和最大，求这个最大值。</p>
 <p><strong>DP问题</strong>：</p>
 <ul>
-<li><p><strong>状态表示</strong>$f(u,0\; or \; 1)$：</p>
+<li><p><strong>状态表示</strong>$f(u,0; or ; 1)$：</p>
 <ul>
 <li><p><strong>集合</strong></p>
 <ul>
 <li><p>$f(u,0)$表示所有从以$u$为根的子树中选择，并且不选$u$这个点的方案</p>
 </li>
 <li><p>$f(u,1)$表示所有从以$u$为根的子树中选择，并且选$u$这个点的方案</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015215017320.png" alt="集合" style="zoom: 80%;" /></p>
-</li>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015215017320.png" alt="集合" style="zoom: 80%;" /></li>
 </ul>
 </li>
 <li><p><strong>属性</strong>：$Max$</p>
@@ -1446,8 +1479,8 @@ abc
 </li>
 <li><p><strong>状态计算</strong>：</p>
 <ul>
-<li>$f(u,0)=\sum_i max(f(s_i,0),f(s_i,1))$</li>
-<li>$f(u,1)=\sum_i f(s_i,0)$(选了上司，直接职员则不选择)</li>
+<li>$f(u,0)&#x3D;\sum_i max(f(s_i,0),f(s_i,1))$</li>
+<li>$f(u,1)&#x3D;\sum_i f(s_i,0)$(选了上司，直接职员则不选择)</li>
 </ul>
 </li>
 </ul>
@@ -1508,6 +1541,9 @@ abc
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="八、记忆化搜索"><a href="#八、记忆化搜索" class="headerlink" title="八、记忆化搜索"></a>八、记忆化搜索</h1><p><strong>递归实现方式</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/903/">例：滑雪</a></p>
 <p>给定一个 $R$ 行 $C$ 列的矩阵，表示一个矩形网格滑雪场。</p>
@@ -1528,8 +1564,7 @@ abc
 </li>
 <li><p><strong>状态计算</strong>：</p>
 <p>按第一步往哪个方向滑</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015222835616.png" alt="状态计算" style="zoom: 80%;" /></p>
-</li>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221015222835616.png" alt="状态计算" style="zoom: 80%;" /></li>
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -1580,6 +1615,7 @@ abc
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
                                     
                             </div>
                             <hr />
@@ -1605,7 +1641,7 @@ abc
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/09/01/suan-fa-05-dong-tai-gui-hua/">https://sxhthreo.github.io/2022/09/01/suan-fa-05-dong-tai-gui-hua/</a>
+                    <a href="https://sxhthreo.github.io/2022/09/01/suan-fa-ji-chu-05-dong-tai-gui-hua/">https://sxhthreo.github.io/2022/09/01/suan-fa-ji-chu-05-dong-tai-gui-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -2107,8 +2143,8 @@ abc
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                             
                             
@@ -2373,7 +2409,7 @@ abc
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">285.8k</span>&nbsp;字
+                class="white-color">286.1k</span>&nbsp;字
             
             
             
