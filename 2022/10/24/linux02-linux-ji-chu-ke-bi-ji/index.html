@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="分类, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="Linux基础课笔记, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | ShiQuLiZhi BLOG</title>
+    <title>Linux基础课笔记 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">categories</h1>
+                    <h1 class="description center-align post-title">Linux基础课笔记</h1>
                 </div>
             </div>
         </div>
@@ -368,15 +368,34 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                            <div class="article-tag">
-                                <span class="chip bg-color">
-                                    无标签
-                                </span>
-                            </div>
+                        <div class="article-tag">
                             
+                                <a href="/tags/Linux%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">
+                                        Linux系统
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                                    <span class="chip bg-color">
+                                        后端
+                                    </span>
+                                </a>
+                                
+                        </div>
+                        
                 </div>
                 <div class="col s5 right-align">
                     
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    前后端知识学习
+                                </a>
+                                
+                        </div>
+                        
                 </div>
             </div>
 
@@ -385,7 +404,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-08-14
+                            2022-10-24
                     </div>
                     
 
@@ -393,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-08-14
+                                    2022-10-24
                             </div>
                             
 
@@ -401,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            0
+                                            563
                                     </div>
                                     
 
@@ -409,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    1
+                                                    2
                                                         分
                                             </div>
                                             
@@ -442,7 +461,64 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                
+                                <h1 id="Chapter-1-常用文件管理命令"><a href="#Chapter-1-常用文件管理命令" class="headerlink" title="Chapter 1 常用文件管理命令"></a>Chapter 1 常用文件管理命令</h1><ol>
+<li><p><code>Ctrl c</code>：取消命令，并且换行</p>
+</li>
+<li><p><code>Ctrl u</code>：清空本行命令</p>
+</li>
+<li><p><code>tab</code>键：可以补全命令和文件名，如果补全不了快速按两下tab键，可以显示备选选项</p>
+</li>
+<li><p><code>ls</code>：列出当前目录下所有文件，<strong>蓝色的是文件夹，白色的是普通文件，绿色的是可执行文件</strong></p>
+</li>
+</ol>
+<p>ㅤㅤㅤ●ㅤ<code>ls -a</code>：查看所有文件包括隐藏文件（以<code>.</code>开头的文件就是隐藏文件）</p>
+<p>ㅤㅤㅤ●ㅤ<code>ls -A</code>:    除<code>.</code>/<code>..</code>(当前目录与上一级目录)外的所有文件(包括隐藏文件)</p>
+<p>ㅤㅤㅤ●ㅤ<code>ls -l</code>：查看当前路径下文件的读、写、执行权限(<code>ls -lh</code>，可简写为<code>ll</code>)</p>
+<p>ㅤㅤㅤ●ㅤ<code>ls | wc -l</code>：查看<code>ls</code>下有多少个文件</p>
+<ol>
+<li><p><code>pwd</code>：显示当前路径</p>
+</li>
+<li><p><code>cd XXX</code>：进入XXX目录下，cd ..返回上层目录</p>
+</li>
+</ol>
+<p>ㅤㅤㅤ●ㅤ<code>.</code>：当前目录 <code>..</code>：上级目录</p>
+<p>ㅤㅤㅤ●ㅤ<code>~</code>：家目录，回回到路径/home/acs下</p>
+<p>ㅤㅤㅤ●ㅤ<code>cd -</code>：<strong>返回改变路径前的路径</strong>，比如当前在/home/acs/homework然后cd /这个时候就处于/目录下，然后cd -就会回到改变路径前的路径也就是/home/acs/homework</p>
+<ol>
+<li><code>cp XXX YYY</code>：将XXX文件复制成YYY，XXX和YYY可以是同一个路径，比如../dir_c/a.txt，表示上层目录下的dir_c文件夹下的文件a.txt</li>
+</ol>
+<p>ㅤㅤㅤ●ㅤ<code>cp XXX YYY -r</code>将XXX目录（文件夹）复制到YYY下</p>
+<p>ㅤㅤㅤ●ㅤ非当前路径重命名方法：<code>cp a.txt ../b.txt</code></p>
+<p>ㅤㅤㅤ●ㅤ<code>cp</code>：复制 + 粘贴 + 重命名</p>
+<ol>
+<li><code>mkdir XXX</code>：创建目录（文件夹）XXX</li>
+</ol>
+<p>ㅤㅤㅤ●ㅤ<code>mkdir -p</code>：-p：如果文件夹不存在，则创建</p>
+<ol>
+<li><code>rm XXX</code>：删除普通文件； rm XXX -r：删除文件夹</li>
+</ol>
+<p>ㅤㅤㅤ●ㅤ支持正则表达式，删除所有.txt类型文件：rm *.txt</p>
+<p>ㅤㅤㅤ●ㅤ删除所有文件（不包括文件夹）：rm *</p>
+<p>ㅤㅤㅤ●ㅤ正则表达式删除所有文件夹：rm * -r即可</p>
+<ol>
+<li><code>mv XXX YYY</code>：将XXX文件移动到YYY下，和cp命令一样，XXX和YYY可以是同一个路径；重命名也是用这个命令</li>
+</ol>
+<p>ㅤㅤㅤ●ㅤ非当前路径移动方法：mv a.txt ../b.txt</p>
+<ol>
+<li><p><code>touch XXX</code>：创建一个文件</p>
+</li>
+<li><p><code>cat XXX</code>：展示文件XXX中的内容</p>
+</li>
+<li><p>复制文本：windows/Linux下：Ctrl + insert，Mac下：command + c</p>
+</li>
+<li><p>粘贴文本：windows/Linux下：Shift + insert，Mac下：command + v</p>
+</li>
+<li><p><code>history</code>：查看历史输入指令</p>
+</li>
+<li><p><code>tree</code>：以树形显示文件目录结构</p>
+</li>
+</ol>
+
                                     
                             </div>
                             <hr />
@@ -468,7 +544,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/categories/index-1.html">https://sxhthreo.github.io/categories/index-1.html</a>
+                    <a href="https://sxhthreo.github.io/2022/10/24/linux02-linux-ji-chu-ke-bi-ji/">https://sxhthreo.github.io/2022/10/24/linux02-linux-ji-chu-ke-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -504,12 +580,22 @@
                                 <div class="tag_share" style="display: block;">
                                     <div class="post-meta__tag-list" style="display: inline-block;">
                                         
-                                                <div class="article-tag">
-                                                    <span class="chip bg-color">
-                                                        无标签
-                                                    </span>
-                                                </div>
+                                            <div class="article-tag">
                                                 
+                                                    <a href="/tags/Linux%E7%B3%BB%E7%BB%9F/">
+                                                        <span class="chip bg-color">
+                                                            Linux系统
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                                                        <span class="chip bg-color">
+                                                            后端
+                                                        </span>
+                                                    </a>
+                                                    
+                                            </div>
+                                            
                                     </div>
                                     <div class="post_share"
                                         style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
@@ -885,13 +971,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/categories/index-1.html">
+                <a href="/2022/10/24/linux02-linux-ji-chu-ke-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Linux基础课笔记">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">Linux基础课笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -902,17 +988,33 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ShiQuLiZhi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    前后端知识学习
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">Linux系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -920,16 +1022,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/categories/index-1.html">
+                <a href="/2022/10/15/suan-fa-06-tan-xin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="categories">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="算法6:贪心">
                         
-                        <span class="card-title">categories</span>
+                        <span class="card-title">算法6:贪心</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -940,17 +1042,32 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            ShiQuLiZhi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

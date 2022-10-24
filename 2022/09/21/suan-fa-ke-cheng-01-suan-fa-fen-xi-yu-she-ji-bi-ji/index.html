@@ -418,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-08
+                                    2022-10-16
                             </div>
                             
 
@@ -426,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            4.4k
+                                            4.6k
                                     </div>
                                     
 
@@ -467,11 +467,30 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922201836892.png" alt="由数据范围反推算法复杂度以及算法内容"></p>
+                                <h1 id="前言：由数据范围反推算法复杂度以及算法内容"><a href="#前言：由数据范围反推算法复杂度以及算法内容" class="headerlink" title="前言：由数据范围反推算法复杂度以及算法内容"></a>前言：由数据范围反推算法复杂度以及算法内容</h1><p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳。</p>
+<p>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</p>
+<ol>
+<li>$n≤30$, 指数级别，dfs+剪枝，状态压缩dp</li>
+<li>$n≤100$ =&gt; $O(n^3)$，floyd，dp，高斯消元</li>
+<li>$n≤1000$ =&gt; $O(n^2)$，$O(n^2logn)$，dp，二分，朴素版Dijkstra、朴素版Prim、Bellman-Ford</li>
+<li>$n≤10000$ =&gt; $O(n\sqrt n)$，块状链表、分块、莫队</li>
+<li>$n≤100000$ =&gt; $O(nlogn)$ =&gt; 各种sort，线段树、树状数组、set/map、heap、拓扑排序、dijkstra+heap、prim+heap、Kruskal、spfa、求凸包、求半平面交、二分、CDQ分治、整体二分、后缀数组、树链剖分、动态树</li>
+<li>$n≤1000000$ =&gt; $O(n)$, 以及常数较小的 $O(nlogn)$ 算法 =&gt; 单调队列、 hash、双指针扫描、并查集，kmp、AC自动机，常数比较小的 $O(nlogn)$ 的做法：sort、树状数组、heap、dijkstra、spfa</li>
+<li>$n≤10000000$ =&gt; $O(n)$，双指针扫描、kmp、AC自动机、线性筛素数</li>
+<li>$n≤10^9$ =&gt; $O(\sqrt n)$，判断质数</li>
+<li>$n≤10^{18}$ =&gt; $O(logn)$，最大公约数，快速幂，数位DP</li>
+<li>$n≤10^{1000}$ =&gt; $O((logn)^2)$，高精度加减乘除</li>
+<li>$n≤10^{100000}$ =&gt; $O(logk×loglogk)$，k表示位数，高精度加减、FFT/NTT</li>
+</ol>
+<p><strong>Tips</strong>：</p>
+<ul>
+<li>$log ⁡_2 10^n = 3n$</li>
+<li>64MB至多开1600万个int</li>
+</ul>
 <h1 id="一、递归算法时间复杂度分析"><a href="#一、递归算法时间复杂度分析" class="headerlink" title="一、递归算法时间复杂度分析"></a>一、递归算法时间复杂度分析</h1><h2 id="1-1-替代法"><a href="#1-1-替代法" class="headerlink" title="1.1 替代法"></a>1.1 替代法</h2><h3 id="1-1-1-数学归纳"><a href="#1-1-1-数学归纳" class="headerlink" title="1.1.1 数学归纳"></a>1.1.1 数学归纳</h3><ul>
 <li><p>猜测一种情况：</p>
 <ul>
-<li><p>$T(n) &#x3D; O(g(n))$</p>
+<li><p>$T(n) = O(g(n))$</p>
 </li>
 <li><p>归纳目标：应用<strong>渐近符号</strong>的定义</p>
 <ul>
@@ -485,49 +504,45 @@
 <li><p>证明归纳目标：使用<strong>归纳假设</strong>找到常数$d$和$n_0$的某些值，<strong>归纳目标</strong>成立</p>
 </li>
 </ul>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921202521365.png" alt="数学归纳法举例1" style="zoom: 80%;" />
-
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921202805176.png" alt="数学归纳法举例2" style="zoom: 67%;" />
-
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921202929246.png" alt="数学归纳法举例3" style="zoom: 67%;" />
-
-<h3 id="1-1-2-待定系数"><a href="#1-1-2-待定系数" class="headerlink" title="1.1.2 待定系数"></a>1.1.2 待定系数</h3><p>$T(1) &#x3D; 1,T(n) &#x3D; 4T(\frac{n}{2}) + n$，求时间复杂度。</p>
-<p><strong>待定系数法</strong>：$T(n) &#x3D; an^2 + bn + c$</p>
-<p>则$T(n) &#x3D; an^2 + bn + c$，$4T(\frac{n}{2})+n &#x3D; 4[a(\frac{n}{2})^2 + b(\frac{n}{2}) + c]+n&#x3D;an^2+(2b+1)n+4c$，</p>
-<p>故$T(n) &#x3D; 2n^2-n$。</p>
-<h3 id="1-1-3-近似形式"><a href="#1-1-3-近似形式" class="headerlink" title="1.1.3 近似形式"></a>1.1.3 近似形式</h3><p>$T(1) &#x3D; 1$，$T(n) &#x3D; aT(\frac{n}{b}) + f(n)$</p>
-<p><strong>Case1</strong>：若$aT(\frac{n}{b})&lt;&lt;f(n)$，则简化为$T(n)\approx f(n)$，则$T(n)&#x3D;\Theta(f(n))$。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921202521365.png" alt="数学归纳法举例1" style="zoom: 80%;" /></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921202805176.png" alt="数学归纳法举例2" style="zoom: 67%;" /></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921202929246.png" alt="数学归纳法举例3" style="zoom: 67%;" /></p>
+<h3 id="1-1-2-待定系数"><a href="#1-1-2-待定系数" class="headerlink" title="1.1.2 待定系数"></a>1.1.2 待定系数</h3><p>$T(1) = 1,T(n) = 4T(\frac{n}{2}) + n$，求时间复杂度。</p>
+<p><strong>待定系数法</strong>：$T(n) = an^2 + bn + c$</p>
+<p>则$T(n) = an^2 + bn + c$，$4T(\frac{n}{2})+n = 4[a(\frac{n}{2})^2 + b(\frac{n}{2}) + c]+n=an^2+(2b+1)n+4c$，</p>
+<p>故$T(n) = 2n^2-n$。</p>
+<h3 id="1-1-3-近似形式"><a href="#1-1-3-近似形式" class="headerlink" title="1.1.3 近似形式"></a>1.1.3 近似形式</h3><p>$T(1) = 1$，$T(n) = aT(\frac{n}{b}) + f(n)$</p>
+<p><strong>Case1</strong>：若$aT(\frac{n}{b})&lt;&lt;f(n)$，则简化为$T(n)\approx f(n)$，则$T(n)=\Theta(f(n))$。</p>
 <blockquote>
 <p>注：<strong>渐进符号</strong>：</p>
 <p>$O(n)$表示<strong>上界</strong>，$\Omega(n)$表示<strong>下界</strong>，$\Theta(n)$表示<strong>精确情况</strong>。</p>
 </blockquote>
 <p><strong>Case2</strong>：若$aT(\frac{n}{b})&gt;&gt;f(n)$，则简化为$T(n)\approx aT(\frac{n}{b})$。</p>
-<p>待定系数法：假定$T(n)&#x3D;cn^{\alpha}$，则有：</p>
+<p>待定系数法：假定$T(n)=cn^{\alpha}$，则有：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921210055531.png" alt="待定系数求解近似形式"></p>
-<p>故$T(n) &#x3D; \Theta (n^{log_a&#x2F;log_b})$。</p>
+<p>故$T(n) = \Theta (n^{log_a/log_b})$。</p>
 <p>Case3：两部分时间复杂度相似，需使用下一种算法(<strong>递归树法</strong>)。</p>
-<h2 id="1-2-递归树法"><a href="#1-2-递归树法" class="headerlink" title="1.2 递归树法"></a>1.2 递归树法</h2><p>Multiplication Algorithms：$T(n) &#x3D; kT(n &#x2F; b) + f(n)$</p>
-<p>(1) 每层的节点为$T(n) &#x3D; kT(n &#x2F; b) + f(n)$中的$f(n)$在当前的$n&#x2F;b$下的值；</p>
+<h2 id="1-2-递归树法"><a href="#1-2-递归树法" class="headerlink" title="1.2 递归树法"></a>1.2 递归树法</h2><p>Multiplication Algorithms：$T(n) = kT(n / b) + f(n)$</p>
+<p>(1) 每层的节点为$T(n) = kT(n / b) + f(n)$中的$f(n)$在当前的$n/b$下的值；</p>
 <p>(2) 每个节点的分支数为$k$。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921210710944.png" alt="递归树法原理1"></p>
 <blockquote>
-<p>注：每棵子树代表$T(n&#x2F;b) &#x3D; f(n&#x2F;b)+4T(n&#x2F;b^2)$。</p>
+<p>注：每棵子树代表$T(n/b) = f(n/b)+4T(n/b^2)$。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921215145437.png" alt="示意图"></p>
-<p>上图中，$T(n) &#x3D; 4T(n&#x2F;2)+n$。</p>
+<p>上图中，$T(n) = 4T(n/2)+n$。</p>
 </blockquote>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921210900958.png" alt="递归树法原理2"></p>
 <p>可以得到如下关系的表格：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921211006828.png" alt="递归树法关系表"></p>
 <ul>
-<li><p><strong>树高算法</strong>：$b^h&#x3D;n$，两边取对数，则有$hlogb&#x3D;logn$，则$h&#x3D;\frac{logn}{logb}$</p>
+<li><strong>树高算法</strong>：$b^h=n$，两边取对数，则有$hlogb=logn$，则$h=\frac{logn}{logb}$</li>
+<li><p>$T(n)=\sum_{i=0 … h} a^{i} \times f\left(n / b^{i}\right)$</p>
 </li>
-<li><p>$T(n)&#x3D;\sum_{i&#x3D;0 … h} a^{i} \times f\left(n &#x2F; b^{i}\right)$</p>
-</li>
-<li><p>$\sum_{i&#x3D;0 … n} x^{i}&#x3D;\Theta(\max (\text { first term, last term }))$</p>
+<li><p>$\sum_{i=0 … n} x^{i}=\Theta(\max (\text { first term, last term }))$</p>
 </li>
 </ul>
 <blockquote>
-<p><strong>注</strong>：如下图，$T(n)&#x3D;3T(n&#x2F;2)+n$呈几何增长时，时间复杂度取决于<strong>最后一项</strong>：</p>
+<p><strong>注</strong>：如下图，$T(n)=3T(n/2)+n$呈几何增长时，时间复杂度取决于<strong>最后一项</strong>：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921215539750.png" alt="递归树示意注"></p>
 </blockquote>
 <p><strong>变式题1</strong>：</p>
@@ -535,38 +550,37 @@
 <p><strong>变式题2</strong>：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921222806192.png" alt="变式题2"></p>
 <blockquote>
-<p>注：$\sum_{i&#x3D;0}^{\left(\log _{3 &#x2F; 2} n\right)-1} n+2^{\left(\log _{3 &#x2F; 2} n\right)} W(1)$意即：<strong>将该树放缩为二叉树</strong>+<strong>出口条件</strong>的时间复杂度之和。</p>
+<p>注：$\sum_{i=0}^{\left(\log _{3 / 2} n\right)-1} n+2^{\left(\log _{3 / 2} n\right)} W(1)$意即：<strong>将该树放缩为二叉树</strong>+<strong>出口条件</strong>的时间复杂度之和。</p>
 </blockquote>
 <h2 id="1-3-迭代法"><a href="#1-3-迭代法" class="headerlink" title="1.3 迭代法"></a>1.3 迭代法</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921222932647.png" alt="迭代法1"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921222954948.png" alt="迭代法2"></p>
-<h2 id="1-4-主定理-Master-Theorem-法"><a href="#1-4-主定理-Master-Theorem-法" class="headerlink" title="1.4 主定理(Master Theorem)法"></a>1.4 主定理(Master Theorem)法</h2><p>主定理法用于解决以下迭代式：$T(n)&#x3D;aT(\frac{n}{b})+f(n)$，其中$a\geq 1,b&gt;1,f(n)&gt;0$。</p>
+<h2 id="1-4-主定理-Master-Theorem-法"><a href="#1-4-主定理-Master-Theorem-法" class="headerlink" title="1.4 主定理(Master Theorem)法"></a>1.4 主定理(Master Theorem)法</h2><p>主定理法用于解决以下迭代式：$T(n)=aT(\frac{n}{b})+f(n)$，其中$a\geq 1,b&gt;1,f(n)&gt;0$。</p>
 <blockquote>
 <p>其中以下情况不能用主定理法求解：</p>
 <ul>
-<li><p>$T(n)$不是单调的。e.g. $T(n) &#x3D; sin(x)$</p>
+<li><p>$T(n)$不是单调的。e.g. $T(n) = sin(x)$</p>
 </li>
-<li><p>$f(n)$不是一个多项式。e.g. $T(n)&#x3D;2T(n&#x2F;2)+2^n$</p>
+<li><p>$f(n)$不是一个多项式。e.g. $T(n)=2T(n/2)+2^n$</p>
 </li>
 </ul>
 </blockquote>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921225837013.png" alt="nlog_b a推导" style="zoom:50%;" />
-
-<p>假设$n&#x3D;b^k$，则$k&#x3D;log_b n$。</p>
-<p>当$i&#x3D;k$(迭代到最后一层)时，有：$T(n)&#x3D;a^{\log _{b} n} T\left(\frac{b^{i}}{b^{i}}\right)&#x3D;a^{\log _{b} n} T(1)&#x3D;\Theta\left(a^{\log _{b} n}\right)&#x3D;\Theta\left(n^{\log _{b} a}\right)$</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921225837013.png" alt="nlog_b a推导" style="zoom:50%;" /></p>
+<p>假设$n=b^k$，则$k=log_b n$。</p>
+<p>当$i=k$(迭代到最后一层)时，有：$T(n)=a^{\log _{b} n} T\left(\frac{b^{i}}{b^{i}}\right)=a^{\log _{b} n} T(1)=\Theta\left(a^{\log _{b} n}\right)=\Theta\left(n^{\log _{b} a}\right)$</p>
 <p><strong>将$f(n)$与$n^{\log _{b} a}$比较</strong>：</p>
 <ol>
-<li><strong>$f(n)&#x3D;O(n^{\log _{b} a}-\varepsilon)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度比$nlog_ba$的增长慢带有$n^{\varepsilon}$的多项式，则$T(n)&#x3D;\Theta\left(n^{\log _{b} a}\right)$</strong></li>
-<li><strong>$f(n)&#x3D;\Theta\left(n^{\log _{b} a} \lg ^{k} n\right)$(其中$k\geq 0$)：$f(n)$与$n^{log_b a}$有较为相似的增长速度，则$T(n)&#x3D;\Theta\left(n^{\log _{b} a} \lg ^{k+1} n\right)$</strong></li>
-<li><strong>$f(n)&#x3D;\Omega\left(n^{\log _{b} a+\varepsilon}\right)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度将比$n^{log_ba}$快$n^{\varepsilon}$，且需满足存在一个$c(c&lt;1)$，有$af(n&#x2F;b)\leq cf(n)$，则$T(n)&#x3D;\Theta(f(n))$。</strong></li>
+<li><strong>$f(n)=O(n^{\log _{b} a}-\varepsilon)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度比$nlog_ba$的增长慢带有$n^{\varepsilon}$的多项式，则$T(n)=\Theta\left(n^{\log _{b} a}\right)$</strong></li>
+<li><strong>$f(n)=\Theta\left(n^{\log _{b} a} \lg ^{k} n\right)$(其中$k\geq 0$)：$f(n)$与$n^{log_b a}$有较为相似的增长速度，则$T(n)=\Theta\left(n^{\log _{b} a} \lg ^{k+1} n\right)$</strong></li>
+<li><strong>$f(n)=\Omega\left(n^{\log _{b} a+\varepsilon}\right)$(其中$\varepsilon&gt;0$)：$f(n)$的增长速度将比$n^{log_ba}$快$n^{\varepsilon}$，且需满足存在一个$c(c&lt;1)$，有$af(n/b)\leq cf(n)$，则$T(n)=\Theta(f(n))$。</strong></li>
 </ol>
-<p>[例1] $T(n) &#x3D; 2T(n&#x2F;2) + n,a &#x3D; 2, b &#x3D; 2, log_22 &#x3D; 1.$</p>
-<p>Compare $n^{log_22}$ with $f(n) &#x3D; n$，有$f(n) &#x3D; \Theta(n)$，满足<strong>Case 2</strong>，故$T(n) &#x3D; \Theta(nlgn)$。</p>
-<p>[例2]$T(n) &#x3D; 2T(n&#x2F;2) + n^2, a &#x3D; 2, b &#x3D; 2, log_22 &#x3D; 1$.</p>
-<p>Compare $n$ with $f(n) &#x3D; n^2$，有$f(n) &#x3D; \Omega(n^{1+\varepsilon})$，满足<strong>Case 3</strong>。</p>
-<p><strong>还需验证</strong>：$a f(n&#x2F;b) ≤ c f(n) $，即$2 n^2&#x2F;4 ≤ c n^2$ ，有$c &#x3D; 1&#x2F;2$ 满足要求($c&lt;1$)，故$T(n) &#x3D; \Theta(n^2)$。</p>
-<p>[例3]$T(n) &#x3D; 3T(n&#x2F;4) + nlgn,a &#x3D; 3, b &#x3D; 4, log_43 &#x3D; 0.793.$</p>
-<p> Compare $n^{0.793}$ with $f(n) &#x3D; nlgn$，有$f(n) &#x3D; \Omega(n^{log_43+\varepsilon})$，满足<strong>Case 3</strong>。</p>
-<p><strong>还需验证</strong>：$3*(n&#x2F;4)lg(n&#x2F;4) ≤ (3&#x2F;4)nlgn &#x3D; c *f(n), c&#x3D;3&#x2F;4$，故$T(n) &#x3D; \Theta(nlgn)$。</p>
+<p>[例1] $T(n) = 2T(n/2) + n,a = 2, b = 2, log_22 = 1.$</p>
+<p>Compare $n^{log_22}$ with $f(n) = n$，有$f(n) = \Theta(n)$，满足<strong>Case 2</strong>，故$T(n) = \Theta(nlgn)$。</p>
+<p>[例2]$T(n) = 2T(n/2) + n^2, a = 2, b = 2, log_22 = 1$.</p>
+<p>Compare $n$ with $f(n) = n^2$，有$f(n) = \Omega(n^{1+\varepsilon})$，满足<strong>Case 3</strong>。</p>
+<p><strong>还需验证</strong>：$a f(n/b) ≤ c f(n) $，即$2 n^2/4 ≤ c n^2$ ，有$c = 1/2$ 满足要求($c&lt;1$)，故$T(n) = \Theta(n^2)$。</p>
+<p>[例3]$T(n) = 3T(n/4) + nlgn,a = 3, b = 4, log_43 = 0.793.$</p>
+<p> Compare $n^{0.793}$ with $f(n) = nlgn$，有$f(n) = \Omega(n^{log_43+\varepsilon})$，满足<strong>Case 3</strong>。</p>
+<p><strong>还需验证</strong>：$3<em>(n/4)lg(n/4) ≤ (3/4)nlgn = c </em>f(n), c=3/4$，故$T(n) = \Theta(nlgn)$。</p>
 <blockquote>
 <p><strong>更简单的情况</strong>：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220921233203433.png" alt="更简单的情况"></p>
@@ -574,8 +588,8 @@
 </blockquote>
 <p>主定理法的第四种情况：</p>
 <p>$f(n)$不是多项式，但满足$f(n) \in \Theta\left(n^{\log _{b} a} \log ^{k} n\right)$，则$T(n) \in \Theta\left(n^{\log _{b} a} \log ^{k+1} n\right)$。</p>
-<p>如$T(n)&#x3D; 2 T(n&#x2F;2) + n log n$，$a&#x3D;2, b&#x3D;2,f(n) \in \Theta(n \log n), k&#x3D;1$，则有</p>
-<p>$T(n) \in \Theta\left(n^{\log _{b} a} \log ^{k+1} n\right)&#x3D;\Theta\left(n^{\log _{2} 2} \log ^{2} n\right)&#x3D;\Theta\left(n \log ^{2} n\right)$</p>
+<p>如$T(n)= 2 T(n/2) + n log n$，$a=2, b=2,f(n) \in \Theta(n \log n), k=1$，则有</p>
+<p>$T(n) \in \Theta\left(n^{\log _{b} a} \log ^{k+1} n\right)=\Theta\left(n^{\log _{2} 2} \log ^{2} n\right)=\Theta\left(n \log ^{2} n\right)$</p>
 <blockquote>
 <p>注：</p>
 <p>该情况的使用条件是相当有限的，我们提出它只是为了介绍的完整性。</p>
@@ -590,14 +604,13 @@
 		<span class="token number">3.</span> Return <span class="token function">Combine</span><span class="token punctuation">(</span><span class="token function">DQ</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">DQ</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">,</span>…<span class="token punctuation">,</span><span class="token function">DQ</span><span class="token punctuation">(</span>pk<span class="token punctuation">)</span><span class="token punctuation">)</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>将$g(n)$表示为当$p$较小时$S(p)$的时间复杂度，$f(n)$表示为拆分$p$并合并解决方案的时间复杂度，则：</p>
-<p>当$p$较小时，$T(n)&#x3D;g(n)$；否则有$T(n)&#x3D;\sum_{i&#x3D;1}^{k} T\left(n_{i}\right)+f(n)$</p>
+<p>当$p$较小时，$T(n)=g(n)$；否则有$T(n)=\sum_{i=1}^{k} T\left(n_{i}\right)+f(n)$</p>
 <h2 id="2-1-最近点对问题"><a href="#2-1-最近点对问题" class="headerlink" title="2.1 最近点对问题"></a>2.1 最近点对问题</h2><p><strong>一维</strong>：</p>
 <ul>
-<li><p><strong>排序+扫描</strong>：按照原点到各个点的距离进行排序，排序完成后只要进行一次扫描，将相邻点距离做一次计算即可。时间复杂度为$O(nlgn)+O(n)&#x3D;O(nlgn)$(在时间性能要求比较高的情况下，可以采用基于位置的排序算法，时间复杂度为$O(dn)$)</p>
+<li><p><strong>排序+扫描</strong>：按照原点到各个点的距离进行排序，排序完成后只要进行一次扫描，将相邻点距离做一次计算即可。时间复杂度为$O(nlgn)+O(n)=O(nlgn)$(在时间性能要求比较高的情况下，可以采用基于位置的排序算法，时间复杂度为$O(dn)$)</p>
 </li>
-<li><p><strong>D&amp;Q算法</strong>：分治，找到两部分最小和中间部分最小的，三部分取<code>min</code>，时间复杂度为$2T(n&#x2F;2)+O(n)+O(1)$</p>
+<li><p><strong>D&amp;Q算法</strong>：分治，找到两部分最小和中间部分最小的，三部分取<code>min</code>，时间复杂度为$2T(n/2)+O(n)+O(1)$</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220923164014543.png" alt="一维D&amp;Q示意图"></p>
 </li>
 </ul>
@@ -606,19 +619,17 @@
 <p>对于SL虚框范围内的p点，我们可以画圆弧并进行比对；</p>
 <blockquote>
 <p>注：</p>
-<p>时间复杂度仍为$O(n^2)$，因为最坏情形下，在SR虚框中有可能会有$n&#x2F;2$个点，对于SL虚框中的p点，每次要比较$n&#x2F;2$次，浪费了算法的效率。</p>
+<p>时间复杂度仍为$O(n^2)$，因为最坏情形下，在SR虚框中有可能会有$n/2$个点，对于SL虚框中的p点，每次要比较$n/2$次，浪费了算法的效率。</p>
 </blockquote>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220923165750944.png" alt="法1" style="zoom:50%;" />
-
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220923165750944.png" alt="法1" style="zoom:50%;" /></p>
 <p>我们可以直接计算右图中的六个点：</p>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220923165816271.png" alt="image-20220923165816271" style="zoom: 67%;" />
-
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220923165816271.png" alt="image-20220923165816271" style="zoom: 67%;" /></p>
 <blockquote>
 <p>注：</p>
 <p>$S_R$不会存在第七个点，若存在，右边的最小值不可能为$\delta$。时间复杂度将降为$O(n)$。</p>
 </blockquote>
 <p>则该问题的时间复杂度为：</p>
-<p>$\begin{array}{ll}<br>T(n)&#x3D;\left{\begin{array}{ll}<br>2 T(n &#x2F; 2)+O(n)+O(n) &amp; , n&gt;1 \<br>1 &amp; , n&#x3D;1<br>\end{array}\right. \<br>\Rightarrow T(n)&#x3D;O(n \log n) &amp;<br>\end{array}$</p>
+<p>$\begin{array}{ll}<br>T(n)=\left\{\begin{array}{ll}<br>2 T(n / 2)+O(n)+O(n) &amp; , n&gt;1 \\<br>1 &amp; , n=1<br>\end{array}\right. \\<br>\Rightarrow T(n)=O(n \log n) &amp;<br>\end{array}$</p>
 <h2 id="2-2-逆序对问题"><a href="#2-2-逆序对问题" class="headerlink" title="2.2 逆序对问题"></a>2.2 逆序对问题</h2><h3 id="2-2-1-树状数组求逆序对"><a href="#2-2-1-树状数组求逆序对" class="headerlink" title="2.2.1 树状数组求逆序对"></a>2.2.1 树状数组求逆序对</h3><p>给出一个长度为$n$的数组，完成以下两种操作：</p>
 <ul>
 <li>将第$x$个数加上$k$</li>
@@ -656,13 +667,10 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> result<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>树状数组求逆序对</strong>：</p>
 <ul>
-<li><p>**离散化(Discretization)**：开一个数组<code>d</code>，<code>d[i]</code>用来存放第<code>i</code>大的数在原序列的什么位置，比如原序列<code>a=&#123;5，3，4，2，1&#125;</code>，第一大就是5，它在<code>a</code>中的位是1，所以<code>d[1]=1</code>，同理<code>d[2]=3</code>，········所以d数组为<code>&#123;1，3，2，4，5&#125;</code></p>
-</li>
-<li><p>转换后，<strong>求d中的正序对</strong>：</p>
-<ul>
+<li><strong>离散化(Discretization)</strong>：开一个数组<code>d</code>，<code>d[i]</code>用来存放第<code>i</code>大的数在原序列的什么位置，比如原序列<code>a=&#123;5，3，4，2，1&#125;</code>，第一大就是5，它在<code>a</code>中的位是1，所以<code>d[1]=1</code>，同理<code>d[2]=3</code>，········所以d数组为<code>&#123;1，3，2，4，5&#125;</code></li>
+<li>转换后，<strong>求d中的正序对</strong>：<ul>
 <li>首先把1放到树状数组<code>t</code>中，此时<code>t</code>只有一个数1，t中比1小的数没有，<code>sum+=0</code></li>
 <li>再把3放到树状数组<code>t</code>中，此时<code>t</code>只有两个数1，3，比3小的数只有一个，<code>sum+=1</code></li>
 <li>把2放到树状数组<code>t</code>中，此时<code>t</code>只有两个数1，2，3，比2小的数只有一个，<code>sum+=1</code></li>
@@ -672,25 +680,22 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
 </li>
 <li><p><strong><code>t[x]</code>表示的是<code>[1,x]</code>中有几个数已经存在</strong></p>
 </li>
-<li><p>实现方法如下：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41431457/article/details/88945833?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166392553816782388059677%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166392553816782388059677&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-88945833-null-null.142%5Ev50%5Econtrol,201%5Ev3%5Econtrol_1&utm_term=%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9&spm=1018.2226.3001.4187">代码</a></p>
+<li><p>实现方法如下：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41431457/article/details/88945833?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166392553816782388059677%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=166392553816782388059677&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-88945833-null-null.142^v50^control,201^v3^control_1&amp;utm_term=%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9&amp;spm=1018.2226.3001.4187">代码</a></p>
 <ul>
 <li><p>把1放进去，包含<code>t[1]</code>的结点<code>t[1]++</code>，<code>t[2]++</code>、<code>t[4]++</code>, 由于<code>n==5</code>，算到<code>t[8]</code>的时候就已经跳出，查询<code>[1,1-1]</code>中比它小的数为0</p>
 </li>
-<li><p>把3放进去， 包含<code>t[3]</code>的结点<code>t[3]++</code>, <code> t[4]++</code>  ，然后查询<code>[1, 3-1]</code>中有几个数已经存在，<code>t[2]==1</code>, <code>sum+=1</code>，<code>lowbit</code>等于0跳出</p>
+<li><p>把3放进去， 包含<code>t[3]</code>的结点<code>t[3]++</code>, <code>t[4]++</code>  ，然后查询<code>[1, 3-1]</code>中有几个数已经存在，<code>t[2]==1</code>, <code>sum+=1</code>，<code>lowbit</code>等于0跳出</p>
 </li>
-<li><p>把2放进去， 包含<code>t[2]</code>的结点<code>t[2]++</code>,  <code>t[4]++</code> ， 然后查询<code>[1,2-1]</code>中有几个数已经存在，<code>t[1]==1</code>, <code>sum+=1</code>，<code>lowbit</code>等于0跳出</p>
-</li>
-<li><p>把4放进去，包含<code>t[4]</code>的结点<code>t[4]++</code>,   <code>t[8]</code>大于<code>n</code>跳出， 查询<code>[1,4-1]</code>中有几个数已经存在，<code>t[3]==1</code>, <code>sum+=1</code>，执行<code>lowbit</code>语句，<code>t[2]==2</code>，所以<code>sum+=2</code></p>
-</li>
-<li><p>把5放进去， 包含<code>t[5]</code>的结点<code>t[5]++</code>, <code> t[6]</code>大于<code>n</code>跳出 ， 查询<code>[1,5-1]</code>中有几个数已经存在，<code>t[4]==4</code>, <code>sum+=4</code>，执行<code>lowbit</code>语句，等于0跳出</p>
-</li>
+<li>把2放进去， 包含<code>t[2]</code>的结点<code>t[2]++</code>,  <code>t[4]++</code> ， 然后查询<code>[1,2-1]</code>中有几个数已经存在，<code>t[1]==1</code>, <code>sum+=1</code>，<code>lowbit</code>等于0跳出</li>
+<li>把4放进去，包含<code>t[4]</code>的结点<code>t[4]++</code>,   <code>t[8]</code>大于<code>n</code>跳出， 查询<code>[1,4-1]</code>中有几个数已经存在，<code>t[3]==1</code>, <code>sum+=1</code>，执行<code>lowbit</code>语句，<code>t[2]==2</code>，所以<code>sum+=2</code></li>
+<li>把5放进去， 包含<code>t[5]</code>的结点<code>t[5]++</code>, <code>t[6]</code>大于<code>n</code>跳出 ， 查询<code>[1,5-1]</code>中有几个数已经存在，<code>t[4]==4</code>, <code>sum+=4</code>，执行<code>lowbit</code>语句，等于0跳出</li>
 </ul>
 </li>
 </ul>
-<h3 id="2-2-2-归并排序求逆序对"><a href="#2-2-2-归并排序求逆序对" class="headerlink" title="2.2.2 归并排序求逆序对"></a>2.2.2 归并排序求逆序对</h3><p>​	我们发现一个性质：当数组分为左右两部分时，其中一个部分中的数字位置进行了交换并不会影响另外一部分与该部分之间产生的逆序对数（也就是“<strong>一左一右</strong>”的情况）。 根据归并排序流程，发现可以用归并排序排序。</p>
-<p>​	则，如果右侧指针指向的数字小于左侧指针指向的数字，那么说明左侧指针所指向的数字以及该序列之后的数字均大于右侧指针所指向的数字，所以将这些数字全部记录，<code>ans += mid - i + 1</code>即可。</p>
+<h3 id="2-2-2-归并排序求逆序对"><a href="#2-2-2-归并排序求逆序对" class="headerlink" title="2.2.2 归并排序求逆序对"></a>2.2.2 归并排序求逆序对</h3><p>​    我们发现一个性质：当数组分为左右两部分时，其中一个部分中的数字位置进行了交换并不会影响另外一部分与该部分之间产生的逆序对数（也就是“<strong>一左一右</strong>”的情况）。 根据归并排序流程，发现可以用归并排序排序。</p>
+<p>​    则，如果右侧指针指向的数字小于左侧指针指向的数字，那么说明左侧指针所指向的数字以及该序列之后的数字均大于右侧指针所指向的数字，所以将这些数字全部记录，<code>ans += mid - i + 1</code>即可。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220923192732243.png" alt="归并排序示意图"></p>
-<p>时间复杂度分析：$T(n) \leq 2T(|n &#x2F; 2|)+O(n) \Rightarrow \mathrm{T}(n)&#x3D;O(n \log n)$</p>
+<p>时间复杂度分析：$T(n) \leq 2T(|n / 2|)+O(n) \Rightarrow \mathrm{T}(n)=O(n \log n)$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">100010</span><span class="token punctuation">;</span>
@@ -731,7 +736,6 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
 
     cout <span class="token operator">&lt;&lt;</span> count <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h1 id="三、减治法-Decrease-amp-Conquer"><a href="#三、减治法-Decrease-amp-Conquer" class="headerlink" title="三、减治法(Decrease&amp;Conquer)"></a>三、减治法(Decrease&amp;Conquer)</h1><p><strong>基本类型</strong>：</p>
 <ul>
 <li>Decrease by <strong>a constant</strong>：<strong>减去一个常量</strong>(通常是1)<ul>
@@ -756,104 +760,108 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
 <h2 id="3-1-减治法的设计思想"><a href="#3-1-减治法的设计思想" class="headerlink" title="3.1 减治法的设计思想"></a>3.1 减治法的设计思想</h2><h3 id="3-1-1-计算-a-n"><a href="#3-1-1-计算-a-n" class="headerlink" title="3.1.1 计算$a^n$"></a>3.1.1 计算$a^n$</h3><ul>
 <li><p>减去一个常量：</p>
 <ul>
-<li>暴力：$a^n&#x3D;a<em>a</em>a*…*a$</li>
-<li>递归：$a^n&#x3D;a^{n-1}*a$</li>
+<li>暴力：$a^n=a<em>a</em>a<em>…</em>a$</li>
+<li>递归：$a^n=a^{n-1}*a$</li>
 </ul>
 </li>
 <li><p>减去一个常数因子：</p>
 <ul>
-<li><p>$a^n&#x3D;(a^{n&#x2F;2})^{2}$($n$为偶数)</p>
-<p>$&#x3D;(a^{(n-1)&#x2F;2})^{2}*a&#x3D;a$($n$为奇数)</p>
-<p>$&#x3D;a$($n&#x3D;1$)</p>
+<li><p>$a^n=(a^{n/2})^{2}$($n$为偶数)</p>
+<p>$=(a^{(n-1)/2})^{2}*a=a$($n$为奇数)</p>
+<p>$=a$($n=1$)</p>
 </li>
 </ul>
 </li>
 <li><p>分治法：</p>
 <ul>
-<li><p>$a^n&#x3D;a^{\lfloor n&#x2F;2 \rfloor}*a^{\lfloor n&#x2F;2 \rfloor}$($n&gt;1$)</p>
-<p>$&#x3D;a$($n&#x3D;1$)</p>
+<li><p>$a^n=a^{\lfloor n/2 \rfloor}*a^{\lfloor n/2 \rfloor}$($n&gt;1$)</p>
+<p>$=a$($n=1$)</p>
 </li>
 </ul>
 </li>
 </ul>
 <p>减治法只对一个子问题求解，并且不需要进行解的合并。应用减治法（例如减半法）得到的算法通常具有如下递推式： </p>
-<p>$T(n)&#x3D;\left{\begin{array}{cc}<br>0 &amp; n&#x3D;1 \<br>T(n &#x2F; 2)+1 &amp; n&gt;1<br>\end{array}\right.$</p>
+<p>$T(n)=\left\{\begin{array}{cc}<br>0 &amp; n=1 \\<br>T(n / 2)+1 &amp; n&gt;1<br>\end{array}\right.$</p>
 <p>通常来说，应用减治法处理问题的效率是很高的，一般是$O(log_2n)$数量级。 </p>
-<h3 id="3-1-2-两个序列的中位数"><a href="#3-1-2-两个序列的中位数" class="headerlink" title="3.1.2 两个序列的中位数"></a>3.1.2 两个序列的中位数</h3><p>一个长度为n（n≥1）的升序序列S，处在第n&#x2F;2个位置的数称为序列S的中位数。两个序列的中位数是他们所有元素的升序序列的中位数。现有两个<strong>等长升序序列</strong>A和B，试设计一个在时间和空间两方面都尽可能高效的算法，找出两个序列的中位数。</p>
+<h3 id="3-1-2-两个序列的中位数"><a href="#3-1-2-两个序列的中位数" class="headerlink" title="3.1.2 两个序列的中位数"></a>3.1.2 两个序列的中位数</h3><p>一个长度为n（n≥1）的升序序列S，处在第n/2个位置的数称为序列S的中位数。两个序列的中位数是他们所有元素的升序序列的中位数。现有两个<strong>等长升序序列</strong>A和B，试设计一个在时间和空间两方面都尽可能高效的算法，找出两个序列的中位数。</p>
 <ul>
 <li>合并并求中位数</li>
 <li>分别求中位数(<strong>减治</strong>)</li>
 </ul>
 <p>分别求出两个序列的中位数，记为a和b；比较a和b，有下列三种情况：</p>
-<p>① a &#x3D; b：则a即为两个序列的中位数；</p>
+<p>① a = b：则a即为两个序列的中位数；</p>
 <p>② a &lt; b：则中位数只能出现在a和b之间，在序列$A$中舍弃a之前的元素得到序列$A_1$，在序列$B$中舍弃b之后的元素得到序列$B_1$；</p>
 <p>③ a &gt; b：则中位数只能出现在b和a之间，在序列$A$中舍弃a之后的元素得到序列$A_1$，在序列$B$中舍弃b之前的元素得到序列$B_1$；</p>
 <p>在$A_1$和$B_1$中分别求出中位数，重复上述过程，直到两个序列中只有一个元素，则较小者即为所求。</p>
-<p>对于两个给定的序列A&#x3D;{11, <strong>13</strong>, 15, 17, 19}, B&#x3D;{2, 4, 10, 15, 20}，求序列A和B的中位数的过程。</p>
+<p>对于两个给定的序列A={11, <strong>13</strong>, 15, 17, 19}, B={2, 4, 10, 15, 20}，求序列A和B的中位数的过程。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">步骤</th>
-<th align="center">操作说明</th>
-<th align="center">序列<em>A</em></th>
-<th align="center">序列<em>B</em></th>
+<th style="text-align:center">步骤</th>
+<th style="text-align:center">操作说明</th>
+<th style="text-align:center">序列<em>A</em></th>
+<th style="text-align:center">序列<em>B</em></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">初始序列</td>
-<td align="center">{11, 13, 15, 17, 19}</td>
-<td align="center">{2, 4, 10, 15, 20}</td>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">初始序列</td>
+<td style="text-align:center">{11, 13, 15, 17, 19}</td>
+<td style="text-align:center">{2, 4, 10, 15, 20}</td>
 </tr>
 <tr>
-<td align="center">2</td>
-<td align="center">分别求中位数</td>
-<td align="center">{11, 13, <strong>15</strong>,  17, 19}</td>
-<td align="center">{2, 4, <strong>10</strong>,  15, 20}</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">分别求中位数</td>
+<td style="text-align:center">{11, 13, <strong>15</strong>,  17, 19}</td>
+<td style="text-align:center">{2, 4, <strong>10</strong>,  15, 20}</td>
 </tr>
 <tr>
-<td align="center">3</td>
-<td align="center">15&gt;10，结果在[10,  15]之间</td>
-<td align="center">舍弃15之后元素，{11,13,15}</td>
-<td align="center">舍弃10之前元素，{10,15,20}</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">15&gt;10，结果在[10,  15]之间</td>
+<td style="text-align:center">舍弃15之后元素，{11,13,15}</td>
+<td style="text-align:center">舍弃10之前元素，{10,15,20}</td>
 </tr>
 <tr>
-<td align="center">4</td>
-<td align="center">分别求中位数</td>
-<td align="center">{11,<strong>13</strong>,15}</td>
-<td align="center">{10,<strong>15</strong>,20}</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">分别求中位数</td>
+<td style="text-align:center">{11,<strong>13</strong>,15}</td>
+<td style="text-align:center">{10,<strong>15</strong>,20}</td>
 </tr>
 <tr>
-<td align="center">5</td>
-<td align="center">13&lt;15，结果在[11,  15]之间</td>
-<td align="center">舍弃13之前元素，{13,15}</td>
-<td align="center">舍弃15之后元素，{10,15}</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">13&lt;15，结果在[11,  15]之间</td>
+<td style="text-align:center">舍弃13之前元素，{13,15}</td>
+<td style="text-align:center">舍弃15之后元素，{10,15}</td>
 </tr>
 <tr>
-<td align="center">6</td>
-<td align="center">分别求中位数</td>
-<td align="center">{<strong>13</strong>,15}</td>
-<td align="center">{<strong>10</strong>,15}</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">分别求中位数</td>
+<td style="text-align:center">{<strong>13</strong>,15}</td>
+<td style="text-align:center">{<strong>10</strong>,15}</td>
 </tr>
 <tr>
-<td align="center">7</td>
-<td align="center">10&lt;13，结果在[10,  13]之间</td>
-<td align="center">舍弃13之后元素，{13}</td>
-<td align="center">舍弃10之前元素，{15}</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">10&lt;13，结果在[10,  13]之间</td>
+<td style="text-align:center">舍弃13之后元素，{13}</td>
+<td style="text-align:center">舍弃10之前元素，{15}</td>
 </tr>
 <tr>
-<td align="center">8</td>
-<td align="center">长度为1，较小者为所求</td>
-<td align="center">{13}</td>
-<td align="center">{15}</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">长度为1，较小者为所求</td>
+<td style="text-align:center">{13}</td>
+<td style="text-align:center">{15}</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>我们的例子是以<strong>奇数个数序列</strong>举例的，整个算法应如下描述：</p>
 <p>舍弃<code>a</code>、<code>b</code>中较小者所在序列之较小一半，同时舍弃较大者所在序列之较大一半，要求两次舍弃的元素个数相同。</p>
 <ul>
-<li><p>当$S_1$长度为奇数时，左半边&#x3D;右半边，直接舍弃即可；</p>
+<li><p>当$S_1$长度为奇数时，左半边=右半边，直接舍弃即可；</p>
 </li>
-<li><p>当$S_1$长度为偶数时，左半边+1&#x3D;右半边。若<code>a&lt;b</code>，舍弃<code>a</code>的左半边(包括中点)，舍弃<code>b</code>的右半边(保留中点)，始终保持$S_1,S_2$等长。</p>
+<li><p>当$S_1$长度为偶数时，左半边+1=右半边。若<code>a&lt;b</code>，舍弃<code>a</code>的左半边(包括中点)，舍弃<code>b</code>的右半边(保留中点)，始终保持$S_1,S_2$等长。</p>
 </li>
 </ul>
 <h3 id="3-1-3-插入排序"><a href="#3-1-3-插入排序" class="headerlink" title="3.1.3 插入排序"></a>3.1.3 插入排序</h3><p>思想：无序序列中的数插入到有序序列中。</p>
@@ -878,13 +886,12 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
          <span class="token punctuation">&#125;</span>
      A<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">-</span> v<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="3-2-DFS"><a href="#3-2-DFS" class="headerlink" title="3.2 DFS"></a>3.2 DFS</h2><p>基本思路：采用<strong>递归算法</strong>。</p>
-<p>​		从图中某个顶点出发，访问此顶点，然后<strong>依次从其未被访问的邻接点出发深度优先遍历图</strong>，直至所有与其有路径相同的顶点都被访问到；若此时图中尚有顶点未被访问，则另选图中一个未被访问的顶点作为起始点，重复以上过程，直至图中所有顶点都被访问到为止。</p>
+<p>​        从图中某个顶点出发，访问此顶点，然后<strong>依次从其未被访问的邻接点出发深度优先遍历图</strong>，直至所有与其有路径相同的顶点都被访问到；若此时图中尚有顶点未被访问，则另选图中一个未被访问的顶点作为起始点，重复以上过程，直至图中所有顶点都被访问到为止。</p>
 <p><strong>记录未被访问的节点的方法</strong>：</p>
 <ul>
 <li><code>visited[]</code>数组</li>
-<li>$flag&#x3D;\left{\begin{array}{cc}<br>0 &#x2F;1 \<br>color(染色)<br>\end{array}\right.$(使用结构体)</li>
+<li>$flag=\left\{\begin{array}{cc}<br>0 /1 \\<br>color(染色)<br>\end{array}\right.$(使用结构体)</li>
 <li>使用$set$，将访问过的点放入集合</li>
 </ul>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">DFS</span><span class="token punctuation">(</span>G<span class="token punctuation">)</span>
@@ -900,7 +907,6 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
    <span class="token keyword">for</span> each vertex w adjacent to v <span class="token keyword">do</span>
   <span class="token keyword">if</span> w is marked with <span class="token number">0</span> 
  <span class="token function">dfs</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
 <p>注：</p>
 <ul>
@@ -913,13 +919,13 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
 <p>空间复杂度：来自函数调用栈，最坏情况，递归深度为$O\left( \middle| V \middle| \right)$.</p>
 <p>时间复杂度与BFS是一样的，主要取决于使用哪种数据结构来存储图：</p>
 <ul>
-<li><p><strong>邻接矩阵</strong>存储的图：</p>
-<ul>
+<li><strong>邻接矩阵</strong>存储的图：<ul>
 <li>访问$\left| V \right|$个顶点需要$O\left( \middle| V \middle| \right)$的时间。查找每个顶点的邻接点都需要$O\left( \middle| V \middle| \right)$的时间，而总共有$\left| V \right|$个顶点，其时间复杂度为$O\left( \left| V \right|^{2} \right)$；</li>
 </ul>
 </li>
-<li><p><strong>邻接表</strong>存储的图：</p>
+</ul>
 <ul>
+<li><strong>邻接表</strong>存储的图：<ul>
 <li>访问$\left| V \right|$个顶点需要$O\left( \middle| V \middle| \right)$的时间。查找每个顶点的邻接点都需要$O\left( \middle| E \middle| \right)$的时间，其时间复杂度为$O\left( \left| V \right| + \left| E \right| \right)$。</li>
 </ul>
 </li>
@@ -1435,7 +1441,7 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/06/li-lun-05-linux-xi-tong-ji-ying-yong-bi-ji/">
+                <a href="/2022/09/06/linux01-linux-xi-tong-ji-ying-yong-bi-ji/">
                     <div class="card-image">
                         
                         
@@ -1458,8 +1464,8 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/" class="post-category">
-                                    计算机学科理论
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    前后端知识学习
                                 </a>
                             
                             
@@ -1469,12 +1475,12 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
-                    </a>
-                    
                     <a href="/tags/Linux%E7%B3%BB%E7%BB%9F/">
                         <span class="chip bg-color">Linux系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                        <span class="chip bg-color">后端</span>
                     </a>
                     
                 </div>
@@ -1724,7 +1730,7 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">279.3k</span>&nbsp;字
+                class="white-color">285.8k</span>&nbsp;字
             
             
             
