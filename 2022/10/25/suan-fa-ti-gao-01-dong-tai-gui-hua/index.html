@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="信息隐藏技术笔记, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="算法提高1:动态规划, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>信息隐藏技术笔记 | ShiQuLiZhi BLOG</title>
+    <title>算法提高1:动态规划 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">信息隐藏技术笔记</h1>
+                    <h1 class="description center-align post-title">算法提高1:动态规划</h1>
                 </div>
             </div>
         </div>
@@ -370,15 +370,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">
-                                        信息安全
+                                        算法
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                                     <span class="chip bg-color">
-                                        理论知识
+                                        数据结构
                                     </span>
                                 </a>
                                 
@@ -390,8 +390,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    信息安全专业课程
+                                <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    算法学习
                                 </a>
                                 
                         </div>
@@ -404,7 +404,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-09-22
+                            2022-10-25
                     </div>
                     
 
@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-10
+                                    2022-10-25
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            3.6k
+                                            8
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    12
+                                                    1
                                                         分
                                             </div>
                                             
@@ -461,274 +461,7 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="一、信息隐藏的基本概念"><a href="#一、信息隐藏的基本概念" class="headerlink" title="一、信息隐藏的基本概念"></a>一、信息隐藏的基本概念</h1><h2 id="1-1-信息隐藏的基本模型"><a href="#1-1-信息隐藏的基本模型" class="headerlink" title="1.1 信息隐藏的基本模型"></a>1.1 信息隐藏的基本模型</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922100407401.png" alt="信息隐藏的原理框图"></p>
-<p><strong>隐写术</strong>：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922100801019.png" alt="隐写术的原理框图"></p>
-<p><strong>数字水印</strong>：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922100828767.png" alt="数字水印的原理框图"></p>
-<h2 id="1-2-信息隐藏的分类"><a href="#1-2-信息隐藏的分类" class="headerlink" title="1.2 信息隐藏的分类"></a>1.2 信息隐藏的分类</h2><ul>
-<li><p>按载体类型分类：包括基于文本，图像，声音和视频的信息隐藏技术</p>
-</li>
-<li><p>按密钥分类：无密钥隐藏算法，私钥隐藏算法，公钥隐藏算法</p>
-</li>
-<li><p>按嵌入域分类：主要可分为空域（或时域）方法及变换域方法</p>
-</li>
-<li><p>按提取的要求分类：若在提取隐藏信息时不需要利用原始载体C，则称为盲隐藏；否则称为非盲隐藏。</p>
-</li>
-<li><p>按可逆性分类：可逆信息隐藏和不可逆信息隐藏</p>
-</li>
-<li><p>按鲁棒性分类：鲁棒性信息隐藏、半脆弱性信息隐藏和脆弱性信息隐藏</p>
-</li>
-</ul>
-<h1 id="二、隐写术"><a href="#二、隐写术" class="headerlink" title="二、隐写术"></a>二、隐写术</h1><p>隐写术分为<strong>文本隐写术、音频隐写术、图像隐写术、视频隐写术</strong>等四部分。</p>
-<h2 id="2-1-隐写术的性能评价"><a href="#2-1-隐写术的性能评价" class="headerlink" title="2.1 隐写术的性能评价"></a>2.1 隐写术的性能评价</h2><ul>
-<li>不可感知性</li>
-<li>鲁棒性</li>
-<li>隐写容量</li>
-<li>是否可逆</li>
-<li>是否盲水印</li>
-<li>复杂度</li>
-</ul>
-<h2 id="2-2-文本隐写术"><a href="#2-2-文本隐写术" class="headerlink" title="2.2 文本隐写术"></a>2.2 文本隐写术</h2><ul>
-<li><p><strong>行移编码</strong></p>
-<ul>
-<li>在这种方法中,信息嵌入是通过将文本的某一整行垂直移动。通常,当一行被上移（嵌入0）或下移（嵌入1）时,与其相邻的两行或其中的一行保持不动。不动的相邻行被看作是解码过程中的参考位置。</li>
-<li>不可感知性不好：是否有信息隐藏可以通过机器分析行间距来判断</li>
-<li>鲁棒性一般：文档格式调整</li>
-<li>隐藏容量一般：最大隐藏容量2行1bit</li>
-<li>盲水印：不需要任何有关这个文档信息</li>
-</ul>
-</li>
-<li><p><strong>字移编码</strong></p>
-<ul>
-<li>通过将文本的某一行中的一个单词水平移位。通常在编码过程中,某一个单词左移（嵌入0）或右移（嵌入1）,而与其相邻的单词并不移动。这些单词被看作是解码过程中的参考位置。</li>
-<li>不可感知性不好：是否有信息隐藏可以通过机器分析行单词偏移来判断</li>
-<li>鲁棒性一般：文档格式调整</li>
-<li>嵌入容量：较好，优于行移</li>
-<li>盲水印：不需要任何有关这个文档信息</li>
-</ul>
-</li>
-<li><p><strong>标点编码</strong></p>
-<ul>
-<li>通过将文本的某些标点符号进行修改。通常在编码过程中,某标点符号设为全角（嵌入0）或符号设为半角（嵌入1）。</li>
-<li>不可感知性不好</li>
-<li>鲁棒性一般</li>
-<li>隐藏容量一般</li>
-<li>盲水印</li>
-</ul>
-</li>
-<li><p><strong>特征编码</strong></p>
-<ul>
-<li>特征编码是一种通过改变某个单个字母的某一特殊特征来插入标记的技术。可能的字母特征改变例子包括改变它的加粗，颜色等。同样,总有一些字母特征未作改变以帮助解码。</li>
-<li>在文本中插入不易辨认的标记必须非常细心,以不改变该字母和上下文的结合关系。一个读者很容易便认出字母的变化。</li>
-<li>不可感知性一般</li>
-<li>嵌入容量一般</li>
-<li>鲁棒性一般</li>
-<li>盲水印</li>
-</ul>
-</li>
-<li><p><strong>同义词替换</strong></p>
-<ul>
-<li>在文本中选择不同的同一词如“我们”，“咱们”；“动画”，“卡通”来嵌入隐藏信息。</li>
-<li>使用绝对同义词</li>
-<li>注意上下文语境</li>
-<li>不可感知较好</li>
-<li>嵌入容量较差</li>
-<li>鲁棒性较好</li>
-<li>盲水印</li>
-</ul>
-</li>
-<li><p><strong>句法替换</strong></p>
-<ul>
-<li>在文本中选择不同的句法如主动句（嵌入0）和被动句（嵌入1）；主语前置（嵌入0）和后置（嵌入1）等。</li>
-<li>注意上下文语境</li>
-<li>不可感知较好</li>
-<li>嵌入容量一般（看脸）</li>
-<li>鲁棒性较好</li>
-<li>盲水印</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-3-音频隐写术"><a href="#2-3-音频隐写术" class="headerlink" title="2.3 音频隐写术"></a>2.3 音频隐写术</h2><h3 id="2-3-1-性能要求"><a href="#2-3-1-性能要求" class="headerlink" title="2.3.1 性能要求"></a>2.3.1 性能要求</h3><ul>
-<li>不可感知性</li>
-<li>鲁棒性</li>
-<li>隐藏容量</li>
-<li>同步要求</li>
-<li>盲水印</li>
-</ul>
-<h3 id="2-3-2-最低有效位方法-LSB"><a href="#2-3-2-最低有效位方法-LSB" class="headerlink" title="2.3.2 最低有效位方法(LSB)"></a>2.3.2 最低有效位方法(LSB)</h3><p><strong>将一位或者多位的最低有效位直接替换为秘密信息。</strong>它具有以下优点：</p>
-<ul>
-<li>不可感知性好</li>
-<li>嵌入容量大</li>
-<li>嵌入和提取算法简单，速度快</li>
-<li>安全差，易被去除，改进，通过密钥决定随机的嵌入位置</li>
-<li>鲁棒性差</li>
-<li>信号同步</li>
-<li>音频隐写术</li>
-</ul>
-<h3 id="2-3-3-回声隐藏"><a href="#2-3-3-回声隐藏" class="headerlink" title="2.3.3 回声隐藏"></a>2.3.3 回声隐藏</h3><p>优点：</p>
-<ul>
-<li>基于掩蔽效应，具有非常好的隐藏效果，并且具有较好的抗攻击能力，对于一般的数字信号处理如加入随机噪声、滤波、重采样和失真压缩等均具有较好鲁棒性</li>
-</ul>
-<p>弱点：</p>
-<ul>
-<li>嵌入容量较小，计算量较大</li>
-<li>要求信号同步</li>
-</ul>
-<h3 id="2-3-4-量化索引调制算法-QIM"><a href="#2-3-4-量化索引调制算法-QIM" class="headerlink" title="2.3.4 量化索引调制算法(QIM)"></a>2.3.4 量化索引调制算法(QIM)</h3><p>QIM算法的嵌入方法是根据隐藏信息 0 或者 1 的不同，选择相应的量化器，使用量化器对载体信息进行量化。提取时对嵌入过隐藏信息的载体数据进行重新量化，使用重新量化的结果与两个量化器相应的距离进行判决，与量化器1 距离近，嵌入信息则为1。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922105659563.png" alt="QIM算法"></p>
-<p>假定待嵌入的隐藏信息表示为$m\in {0,1}$，$s$代表载体信号，该技术将会产生两个量化器$Q_i(s), i&#x3D;0,1$，定义如下：</p>
-<p>其中，$Q(s) &#x3D;Δ×round(s&#x2F;Δ), d_0&#x3D;0, d_1&#x3D;Δ&#x2F;2$(改动可控), $Δ$ 是量化步长，$round(x)$是就近取整操作。</p>
-<p>进行隐藏信息嵌入时，宿主信号按照下述原则修改：</p>
-<p>$s’&#x3D;\begin{cases}Q_0(s),m&#x3D;0\ Q_1(s),m&#x3D;1\end{cases}$</p>
-<p>隐藏信息提取时，假设接收到的信号为$y$，则隐含的信息$m’$可以通过解决下述优化问题提取：</p>
-<p>$m’&#x3D;arg ;\mathop{min}\limits_{m\in {0,1}}||y-Q_m(y)||$</p>
-<ul>
-<li><p>通过上述嵌入过程可以看出，该嵌入方法引入的最大误差为$Δ&#x2F;2$</p>
-</li>
-<li><p>量化步长越大，引入的失真也就越大，但算法的鲁棒性越强</p>
-</li>
-<li><p>可以通过调整量化步长的大小实现算法不可见性和鲁棒性之间的权衡</p>
-</li>
-<li><p>半盲</p>
-</li>
-</ul>
-<h3 id="2-3-5-离散小波变换-DWT-域算法"><a href="#2-3-5-离散小波变换-DWT-域算法" class="headerlink" title="2.3.5 离散小波变换(DWT)域算法"></a>2.3.5 离散小波变换(DWT)域算法</h3><p>DWT全称Discrete Wavelet Transform。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922112152979.png" alt="DWT算法"></p>
-<p><strong>嵌入</strong>：</p>
-<ul>
-<li>选择适当的小波基对原始语音信号进行L级分解，在第L级的小波细节分量中隐藏信息</li>
-<li>修改后的细节分量和没有修改的其他分量一起IDWT变换</li>
-</ul>
-<p><strong>提取</strong>：</p>
-<p>选择相同的小波基对接受的语音信号进行L级分解，对L级分解的细节分量，利用原始语音信号找到隐藏位置，提取信息。</p>
-<p>$x’(i)&#x3D;(d’_L(i)&#x2F;d_L(i)-1)&#x2F;\alpha$</p>
-<p>此算法是<strong>非盲</strong>的。</p>
-<h3 id="2-3-6-离散余弦变换-DCT-域算法"><a href="#2-3-6-离散余弦变换-DCT-域算法" class="headerlink" title="2.3.6 离散余弦变换(DCT)域算法"></a>2.3.6 离散余弦变换(DCT)域算法</h3><p>DCT全称Discrete Cosine Transform。</p>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922113559948.png" alt="DCT算法" style="zoom:50%;" />
-
-<p><strong>嵌入</strong>：</p>
-<ul>
-<li>对原始语音信号<strong>进行DCT变换</strong></li>
-<li>改变DCT变换的高频系数，可以对高频系数进行QIM等算法进行嵌入隐藏信息</li>
-<li>IDCT变换</li>
-</ul>
-<p><strong>提取</strong>：</p>
-<ul>
-<li>对接受到原始语音信号进行DCT变换</li>
-<li>对高频系数进行QIM等算法提取隐藏信息</li>
-</ul>
-<p>[例]假设待嵌入DCT域高频系数为14.235，QIM步长为4，</p>
-<p>(1)QIM嵌入0后，DCT域高频系数为？</p>
-<p>(2)QIM嵌入1后，DCT域高频系数为？</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922112739316.png" alt="DWT算法例题"></p>
-<h3 id="2-3-6-压缩域隐写术"><a href="#2-3-6-压缩域隐写术" class="headerlink" title="2.3.6 压缩域隐写术"></a>2.3.6 压缩域隐写术</h3><p>MP3音频信号：</p>
-<p>MP3的全称应为MPEG1 Layer-3音频文件，MPEG(Moving Picture Experts Group)在汉语中译为活动图像专家组，特指活动影音压缩标准，MPEG音频文件是MPEG1标准中的声音部分，也叫MPEG音频层，它根据压缩质量和编码复杂程度划分为三层，即Layer1、Layer2、Layer3，且分别对应MP1、MP2、MP3这三种声音文件，并根据不同的用途，使用不同层次的编码。</p>
-<ul>
-<li>在音频编码器中嵌入，这种方法稳健性较高，但需要复杂的编码和解码过程，运算量大，实时性不好，有错误扩散效应；</li>
-<li>在压缩后的音频数据流中直接嵌入，这种方法避免了复杂的编解码过程，但稳健性不高，而且能够嵌入的水印容量不大，有错误扩散效应（雪崩效应）。</li>
-</ul>
-<h2 id="2-4-图像隐写术"><a href="#2-4-图像隐写术" class="headerlink" title="2.4 图像隐写术"></a>2.4 图像隐写术</h2><h3 id="2-4-1-图像质量评价"><a href="#2-4-1-图像质量评价" class="headerlink" title="2.4.1 图像质量评价"></a>2.4.1 图像质量评价</h3><p>对一个系统中输入和输出的图像信号做处理和分析，一般是从图像中提取一些特征参量作为研究分析对象，处理并作比较，<strong>从总体上反映了图像间的差别</strong>。</p>
-<p>常用的有：均方误差(MSE)，峰值信噪比(PSNR)。</p>
-<p><strong>图像的基本表示</strong>：</p>
-<ul>
-<li>像素点组成的矩阵</li>
-<li><strong>灰度图像</strong>：灰度值</li>
-<li><strong>彩色图像</strong>：三个矩阵，分别代表RGB三种颜色的大小</li>
-<li><strong>调色板图像</strong>：单独保存一个调色板(如256色调色板，每一个序号代表一个颜色)，图像矩阵由这些序号组成</li>
-</ul>
-<h3 id="2-4-2-文件格式法"><a href="#2-4-2-文件格式法" class="headerlink" title="2.4.2 文件格式法"></a>2.4.2 文件格式法</h3><p>在<strong>图像文件格式</strong>中隐藏信息(BMP,GIF,TIF)</p>
-<ul>
-<li>图像文件都有一定的存贮格式</li>
-<li>文件头主要描述图像文件的格式、文件大小、<strong>数据起始偏移地址</strong>、图像数据大小等关键信息</li>
-<li>利用图像文件的这种特性，可以在图像文件中隐藏秘密数据</li>
-</ul>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922165233694.png" alt="BMP文件格式示意图" style="zoom:67%;" />
-
-<p>在<strong>HTML文件</strong>中隐藏信息</p>
-<ul>
-<li><p>HTML文件是文本文件，在浏览器端仅能显示ASCII码中的可见字符。 利用这一特点，可以在HTML的标记之间插入隐藏的数据</p>
-</li>
-<li><p>比如，如果要隐藏的二进制比特值为1，在选定的HTML标记后插入ASCII码值为9的字符；如果要隐藏的二进制比特值为0，则在选定的HTML标记后插入ASCII码值为20的字符</p>
-</li>
-<li><p>ASCII控制字符 0-31</p>
-</li>
-<li><p>ASCII可见字符 32-126</p>
-</li>
-<li><p><strong>嵌入容量理论上无穷大</strong>，不可见性与鲁棒性都存在前提</p>
-</li>
-</ul>
-<h3 id="2-4-3-空间域算法"><a href="#2-4-3-空间域算法" class="headerlink" title="2.4.3 空间域算法"></a>2.4.3 空间域算法</h3><ul>
-<li>多媒体信息在数字化时，会产生物理随机噪声，一般在数据 低位，而人的感观系统对这些数据低位的随机噪声是不敏感的</li>
-<li>替换技术就是利用这个原理，试图用秘密信息比特替换掉数 据低位的随机噪声，以达到隐藏秘密信息的目的</li>
-</ul>
-<blockquote>
-<p><strong>图像的位平面</strong>概念：</p>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922165940549.png" alt="图像的位平面示意图" style="zoom: 50%;" />
-</blockquote>
-<p>去掉第1－6个位平面的Lena图像和第1－6个位平面，<strong>低频</strong>可嵌入隐藏信息：</p>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922170026487.png" alt="图像对比" style="zoom:50%;" />
-
-<h4 id="2-4-3-1-LSB替换算法"><a href="#2-4-3-1-LSB替换算法" class="headerlink" title="2.4.3.1 LSB替换算法"></a>2.4.3.1 LSB替换算法</h4><ul>
-<li><p>$C_i$：载体对象的取样值</p>
-</li>
-<li><p>$L(c) $：载体的长度</p>
-</li>
-<li><p>$m$：秘密信息</p>
-</li>
-<li><p>$L(m)$ ：秘密信息的长度</p>
-</li>
-<li><p>$S_i$：伪装对象的取样值</p>
-</li>
-<li><p>$K$：伪装密钥</p>
-</li>
-</ul>
-<p>LSB替换算法的执行过程为：</p>
-<ul>
-<li><p><strong>嵌入</strong>：选择一个载体元素的子集${j_1, j_2 ,…, j_{L(m)}}$，其中共有$L(m)$个元素，用以隐藏秘密信息的$L(m)$个比特。然后在这个子集上执行替换操作，把$C_{ji}$的最低比特用$m_i$来替换</p>
-</li>
-<li><p><strong>提取</strong>：找到嵌入信息的伪装元素的子集${j_1, j_2 ,…, j_{L(m)}}$，从这些伪装对象中抽出它们的<strong>最低比特位</strong>，排列之后组成秘密信息</p>
-</li>
-</ul>
-<p><strong>隐藏位置选取</strong></p>
-<ol>
-<li><p>顺序选取</p>
-<ul>
-<li>视觉效果好，但是已嵌和未嵌部分数据特征不同, 易被察 觉，安全性能较差，已有多种分析方法。</li>
-</ul>
-</li>
-<li><p><strong>随机间隔法</strong>：用伪装密钥$k$作为伪随机数发生器的种子，生成一个<strong>伪随机序列</strong>，嵌入位置为：</p>
-<p>$\begin{cases}j_1&#x3D;k_1\j_i&#x3D;j_{i-1}+k_i(i\geq 2)\end{cases}$</p>
-<ul>
-<li>修改量很小，视觉效果好，与图像内容无关，安全性能较好</li>
-<li>非满嵌</li>
-</ul>
-</li>
-</ol>
-<p>现在采用的做法一般是：<strong>图像打乱-&gt;还原-&gt;顺序选取</strong></p>
-<h4 id="2-4-3-2-利用奇偶校验位的方法"><a href="#2-4-3-2-利用奇偶校验位的方法" class="headerlink" title="2.4.3.2 利用奇偶校验位的方法"></a>2.4.3.2 利用奇偶校验位的方法</h4><p>把载体划分成几个不相重叠的区域，在一个载体区域中存储 一比特信息</p>
-<p>嵌入：</p>
-<p>选择$L(m)$个不重叠区域，计算出每一区域的所有最低 比特的奇偶性，并选择一个载体元素的最低比特位存放这个 区域的奇偶校验位。隐藏信息时，在对应区域的奇偶校验位上嵌入信息比特$m_i$，如果奇偶校验位与$m_i$不匹配，则将该区域中所有元素的<strong>最低比特位</strong>进行翻转，使得奇偶校验位与$m_i$相同</p>
-<p>提取：</p>
-<p>用同样的方法划分载体区域，计算出奇偶校验位，构成秘密信息</p>
-<h4 id="2-4-3-3-Patchwork算法"><a href="#2-4-3-3-Patchwork算法" class="headerlink" title="2.4.3.3 Patchwork算法"></a>2.4.3.3 Patchwork算法</h4><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922174120572.png" alt="Patchwork算法" style="zoom: 80%;" />
-
-<h3 id="2-4-4-二值图像中的信息隐藏"><a href="#2-4-4-二值图像中的信息隐藏" class="headerlink" title="2.4.4 二值图像中的信息隐藏"></a>2.4.4 二值图像中的信息隐藏</h3><p><strong>嵌入</strong>：</p>
-<p>把一个二值图像分成$L(m)$个矩形图像区域$B_i$，如果其中黑色像素的个数大于一半，则表示嵌入0；如果白色像素的个数大于一半，则表示嵌入1</p>
-<p>当需要嵌入的比特与所选区域的黑白像素的比例不一致时， 为了达到希望的像素关系，则<strong>需修改一些像素的颜色</strong></p>
-<p>修改应遵循一定的规则，原则是不引起感观察觉</p>
-<p><strong>修改应在黑白区域的边缘进行</strong>(以保证黑白均匀)</p>
-<p>确定两个阈值$R_1&gt;50%$和$R_0&lt;50%$，以及一个性能参数$\lambda$。</p>
-<p>隐藏0时，该块的黑色象素的个数应属于$[R_1,R_1+\lambda]$ ；隐藏1时，该块的黑色象素的个数应属于$[R_0-\lambda,R_0]$</p>
-<p>如果为了适应所嵌入的比特，目标块必须修改太多的像素，就把该块设为无效，该块不做修改，即黑色象素的百分比大于$R_1+3\lambda$或者小于$R_1-3\lambda$</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220922174449364.png" alt="二值图像中的信息隐藏"></p>
-<p><strong>提取</strong>：</p>
-<p>判断每一个图像块黑色像素的百分比，如果大于$R_1+3\lambda$或小于$R_0-3\lambda$，则跳过这样的无效块；</p>
-<p>如果在$[R_1,R_1+\lambda]$或者$[R_0-\lambda,R_0]$的范围内，则能正确提取出秘密信息0或1。</p>
-<blockquote>
-<p>在载体的显著区域隐藏信息，比LSB方法能够更好地抵抗攻击，而且还保持了对人类感观的不可察觉性。</p>
-</blockquote>
-
+                                <h1 id="一、数字三角形模型"><a href="#一、数字三角形模型" class="headerlink" title="一、数字三角形模型"></a>一、数字三角形模型</h1>
                                     
                             </div>
                             <hr />
@@ -754,7 +487,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/09/22/an-quan-02-xin-xi-yin-cang-ji-zhu-bi-ji/">https://sxhthreo.github.io/2022/09/22/an-quan-02-xin-xi-yin-cang-ji-zhu-bi-ji/</a>
+                    <a href="https://sxhthreo.github.io/2022/10/25/suan-fa-ti-gao-01-dong-tai-gui-hua/">https://sxhthreo.github.io/2022/10/25/suan-fa-ti-gao-01-dong-tai-gui-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -792,15 +525,15 @@
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                                    <a href="/tags/%E7%AE%97%E6%B3%95/">
                                                         <span class="chip bg-color">
-                                                            信息安全
+                                                            算法
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                                                         <span class="chip bg-color">
-                                                            理论知识
+                                                            数据结构
                                                         </span>
                                                     </a>
                                                     
@@ -1176,17 +909,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/15/suan-fa-ji-chu-06-tan-xin/">
+                <a href="/2022/10/25/suan-fa-ti-gao-01-dong-tai-gui-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="算法基础6:贪心">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="算法提高1:动态规划">
                         
-                        <span class="card-title">算法基础6:贪心</span>
+                        <span class="card-title">算法提高1:动态规划</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1196,9 +930,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1211,6 +945,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1233,13 +968,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/21/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-ke-wai-si-kao-ti/">
+                <a href="/2022/10/24/linux02-linux-ji-chu-ke-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="算法分析与设计课外思考题">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Linux基础课笔记">
                         
-                        <span class="card-title">算法分析与设计课外思考题</span>
+                        <span class="card-title">Linux基础课笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1250,14 +985,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    数据结构与算法课程
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    前后端知识学习
                                 </a>
                             
                             
@@ -1267,12 +1002,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
+                    <a href="/tags/Linux%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">Linux系统</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                        <span class="chip bg-color">后端</span>
                     </a>
                     
                 </div>
