@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-24
+                                    2022-10-27
                             </div>
                             
 
@@ -462,8 +462,11 @@
                         <div class="card-content article-card-content">
                             <div id="articleContent">
                                 <h1 id="一、链表"><a href="#一、链表" class="headerlink" title="一、链表"></a>一、链表</h1><p>这里讲解的是用<strong>数组</strong>模拟链表的实现。</p>
-<h2 id="1-1-单链表"><a href="#1-1-单链表" class="headerlink" title="1.1 单链表"></a>1.1 单链表</h2><p>应用：使用<strong>邻接表</strong>来存储(树和图)。</p>
+<h2 id="1-1-单链表"><a href="#1-1-单链表" class="headerlink" title="1.1 单链表"></a>1.1 单链表</h2><p>应用在使用<strong>邻接表</strong>来存储的场景中，如树和图的存储。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220723223002534.png" alt="image-20220723223002534"></p>
+<blockquote>
+<p>在图的存储中，<code>head</code>将相应变为<code>h[]</code>数组，<code>h[]</code>数组存储每个链表(节点)的链表头。</p>
+</blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// head存储链表头,e[]存储节点的值,ne[]存储节点的next指针,idx表示当前用到了哪个节点</span>
 <span class="token keyword">int</span> head<span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
 
@@ -499,7 +502,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
-<p><code>idx</code>相当于一个分配器，如果需要加入新的结点就用<code>++idx</code>分配出一个下标。</p>
+<p>注：<code>idx</code>相当于一个分配器，如果需要加入新的结点就用<code>++idx</code>分配出一个下标。</p>
 </blockquote>
 <h2 id="1-2-双链表"><a href="#1-2-双链表" class="headerlink" title="1.2 双链表"></a>1.2 双链表</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// e[]表示节点的值,l[]表示节点的左指针,r[]表示节点的右指针,idx表示当前用到了哪个节点</span>
 <span class="token keyword">int</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> l<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> r<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
@@ -2147,7 +2150,7 @@ cout <span class="token operator">&lt;&lt;</span> b3 <span class="token operator
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">287.2k</span>&nbsp;字
+                class="white-color">292.7k</span>&nbsp;字
             
             
             
