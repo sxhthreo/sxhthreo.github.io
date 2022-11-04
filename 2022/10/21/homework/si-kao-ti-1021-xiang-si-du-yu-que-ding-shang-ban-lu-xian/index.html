@@ -1,0 +1,1980 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="算法课外思考题1021(相似度与确定上班路线), ShiQuLiZhi BLOG">
+    <meta name="description" content="Record the study life of an ordinary college student">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>算法课外思考题1021(相似度与确定上班路线) | ShiQuLiZhi BLOG</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+    
+        <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+            
+
+                <body>
+
+                    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ShiQuLiZhi BLOG</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/goodpapers" class="waves-effect waves-light">
+      
+      <i class="fas fa-coffee" style="zoom: 0.6;"></i>
+      
+      <span>收藏</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ShiQuLiZhi BLOG</div>
+        <div class="logo-desc">
+            
+            Record the study life of an ordinary college student
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/goodpapers" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-coffee"></i>
+			
+			收藏
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+                        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">算法课外思考题1021(相似度与确定上班路线)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">
+                                        程序设计
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">
+                                        算法
+                                    </span>
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+                <div class="col s5 right-align">
+                    
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
+                                    作业
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                    <div class="post-date info-break-policy">
+                        <i class="far fa-calendar-minus fa-fw"></i>
+                        发布日期:&nbsp;&nbsp;
+                            2022-10-21
+                    </div>
+                    
+
+                        
+                            <div class="post-date info-break-policy">
+                                <i class="far fa-calendar-check fa-fw"></i>
+                                更新日期:&nbsp;&nbsp;
+                                    2022-11-04
+                            </div>
+                            
+
+                                
+                                    <div class="info-break-policy">
+                                        <i class="far fa-file-word fa-fw"></i>
+                                        文章字数:&nbsp;&nbsp;
+                                            6.6k
+                                    </div>
+                                    
+
+                                        
+                                            <div class="info-break-policy">
+                                                <i class="far fa-clock fa-fw"></i>
+                                                阅读时长:&nbsp;&nbsp;
+                                                    27
+                                                        分
+                                            </div>
+                                            
+
+                                                
+                                                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                                                        <i class="far fa-eye fa-fw"></i>
+                                                        阅读次数:&nbsp;&nbsp;
+                                                            <span id="busuanzi_value_page_pv"></span>
+                                                    </div>
+                                                    
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+            <!-- 是否加载使用自带的 prismjs. -->
+            <link rel="stylesheet" href="/libs/prism/prism.css">
+            
+
+                
+                    <!-- 代码块折行 -->
+                    <style type="text/css">
+                        code[class*="language-"],
+                        pre[class*="language-"] {
+                            white-space: pre-wrap !important;
+                        }
+                    </style>
+                    
+
+                        <div class="card-content article-card-content">
+                            <div id="articleContent">
+                                <h1 id="思考题1021"><a href="#思考题1021" class="headerlink" title="思考题1021"></a>思考题1021</h1><p>信安2002钱泽枢</p>
+<h1 id="一、调研学习相似度的定义与应用"><a href="#一、调研学习相似度的定义与应用" class="headerlink" title="一、调研学习相似度的定义与应用"></a>一、调研学习相似度的定义与应用</h1><p>调研学习相似度的定义方法与应用场景。</p>
+<h2 id="1-1-相关-相似-系数"><a href="#1-1-相关-相似-系数" class="headerlink" title="1.1 相关(相似)系数"></a>1.1 相关(相似)系数</h2><p><strong>皮尔森(Pearson)相关系数</strong>、<strong>斯皮尔曼(Spearman)相关系数</strong>和<strong>肯德尔(Kendall)相关系数</strong>并称为统计学三大相关系数。</p>
+<h3 id="1-1-1-皮尔逊相关系数-Pearson-Correlation-Coefficient"><a href="#1-1-1-皮尔逊相关系数-Pearson-Correlation-Coefficient" class="headerlink" title="1.1.1 皮尔逊相关系数(Pearson Correlation Coefficient)"></a>1.1.1 皮尔逊相关系数(Pearson Correlation Coefficient)</h3><p> 在统计学中，皮尔逊相关系数(Pearson Correlation Coefficient），又称皮尔逊积矩相关系数（Pearson Product-Moment Correlation Coefficient，简称 PPMCC 或 PCCs），是用于度量两个变量X和Y之间的相关（线性相关），其值介于 $-1$ 与 $1$ 之间，公式是：</p>
+<p>$\rho_{x y}&#x3D;\frac{\operatorname{Cov}(x, y)}{\sqrt{D(x)} \sqrt{D(y)}}&#x3D;\frac{E[(x-E x)(y-E y)]}{\sqrt{D(x)} \sqrt{D(y)}}$</p>
+<p>推导过程如下，其中$Z$代表在正态分布中，数据偏离中心点的距离，计算过程是变量减掉平均数再除以标准差：</p>
+<p>$\begin{array}{l}<br>r_{x y}&#x3D;\frac{\sum Z x Z y}{N} \<br>&#x3D;\frac{\sum\left(\frac{X-\bar{X}}{S x}\right)\left(\frac{Y-\bar{Y}}{S y}\right)}{N} \<br>&#x3D;\frac{\sum(X-\bar{X})(Y-\bar{Y})}{N \bullet S x S y} \<br>&#x3D;\frac{\sum(X-\bar{X})(Y-\bar{Y})}{N \bullet\left(\sqrt{\left.\frac{1}{n} \sum_{i&#x3D;1}^{n}\left(X_{i}-\bar{X}\right)^{2}\right)\left(\sqrt{\frac{1}{n} \sum_{i&#x3D;1}^{n}\left(Y_{i}-\bar{Y}\right)^{2}}\right)}\right.} \<br>&#x3D;\frac{\sum(X-\bar{X})(Y-\bar{Y})}{\left(\sqrt{\sum_{i&#x3D;1}^{n}\left(X_{i}-\bar{X}\right)^{2}}\right)\left(\sqrt{\sum_{i&#x3D;1}^{n}\left(Y_{i}-\bar{Y}\right)^{2}}\right)}<br>\end{array}$</p>
+<p><strong>皮尔逊相关的约束条件：</strong></p>
+<ol>
+<li>两个变量间有线性关系</li>
+<li>变量是连续变量</li>
+<li>变量均符合正态分布,且二元分布也符合正态分布</li>
+<li>两变量独立</li>
+</ol>
+<p>相关系数的取值范围是$[-1,1]$。相关系数定量地刻画了 $x$ 与 $y$ 的相关程度，即 $ρ_{xy}$ 越大，相关程度越大； $ρ_{xy}$ 越小，对应相关程度越低。当 $x$ 与 $y$ 线性相关时，相关系数取值为1(正线性相关)或-1(负线性相关)；当$ρ_{xy}&#x3D;0$时，对应的相关性最低。</p>
+<p>类似地，有相关距离的定义：$d_{xy}&#x3D;1−ρ_{xy}$.</p>
+<h3 id="1-1-2-斯皮尔曼相关系数-Spearman-Correlation-Coefficient"><a href="#1-1-2-斯皮尔曼相关系数-Spearman-Correlation-Coefficient" class="headerlink" title="1.1.2 斯皮尔曼相关系数(Spearman Correlation Coefficient)"></a>1.1.2 斯皮尔曼相关系数(Spearman Correlation Coefficient)</h3><p>$X$ 和 $Y$ 为两组数据，其斯皮尔曼(等级)相关系数为：</p>
+<p>$r_{s}&#x3D;1-\frac{6 \sum_{i&#x3D;1}^{n} d_{i}^{2}}{n\left(n^{2}-1\right)}$</p>
+<p>其中，$d_i$为$X_i$和$Y_i$之间的等级差。可以证明：$r_s$位于 $-1$ 和 $1$ 之间。</p>
+<p>等级差代表一个数的等级，即将它所在的一列按照从小到大排序后，这个数所在的位置；若有的数数值相同，则取它们所在位置的<strong>算术平均</strong>。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221023121546398.png" alt="等级差"></p>
+<h3 id="1-1-3-肯德尔相关系数-Kendall-Correlation-Coefficient"><a href="#1-1-3-肯德尔相关系数-Kendall-Correlation-Coefficient" class="headerlink" title="1.1.3 肯德尔相关系数(Kendall Correlation Coefficient)"></a>1.1.3 肯德尔相关系数(Kendall Correlation Coefficient)</h3><p>$n$ 个同类的统计对象按特定属性排序，其他属性通常是乱序的。同序对(concordant pairs)和异序对(discordant pairs)之差与总对数$\frac{n*(n-1)}{2}$的比值定义为肯德尔相关系数，也称Kendall秩相关系数。</p>
+<p>$\tau&#x3D;\frac{\text { (number of concordant pairs) }-\text { (number of discordant pairs) }}{\frac{1}{2} n(n-1)}$</p>
+<p>肯德尔相关系数有以下特性：</p>
+<ul>
+<li><p>如果两个属性排名是相同的，系数为1 ，两个属性正相关；</p>
+</li>
+<li><p>如果两个属性排名完全相反，系数为-1 ，两个属性负相关；</p>
+</li>
+<li><p>如果排名是完全独立的，系数为0。</p>
+</li>
+</ul>
+<h3 id="1-1-4-杰卡德相似系数-Jaccard-Index"><a href="#1-1-4-杰卡德相似系数-Jaccard-Index" class="headerlink" title="1.1.4 杰卡德相似系数(Jaccard Index)"></a>1.1.4 杰卡德相似系数(Jaccard Index)</h3><p>两个集合 $A$ 和 $B$ 的交集元素在 $A$，$B$ 的并集中所占的比例，称为两个集合的杰卡德相似系数，用符号 $J(A,B)$ 表示。它是衡量两个集合相似度的一种指标，公式为：</p>
+<p>$J(A, B)&#x3D;\frac{|A \cap B|}{|A \cup B|}$</p>
+<p>杰卡德相似度算法没有考虑向量中潜在数值的大小，而是简单的处理为0和1。但经过处理之后，杰卡德方法的计算效率是比较高的。</p>
+<p>类似地，杰卡德距离用两个集合中不同元素占所有元素的比例来衡量两个集合的区分度。</p>
+<p>$J_{\delta}(A, B)&#x3D;1-\frac{|A \cap B|}{|A \cup B|}&#x3D;\frac{|A \cup B|-|A \cap B|}{|A \cup B|}$</p>
+<h2 id="1-2-样本间的距离"><a href="#1-2-样本间的距离" class="headerlink" title="1.2 样本间的距离"></a>1.2 样本间的距离</h2><p>在机器学习中，无论是分类问题、聚类问题或降维问题，经常需要度量不同样本之间的相似性，常用方法则是计算样本间的距离。</p>
+<h3 id="1-2-1-欧氏距离-Euclidean-Distance"><a href="#1-2-1-欧氏距离-Euclidean-Distance" class="headerlink" title="1.2.1 欧氏距离(Euclidean Distance)"></a>1.2.1 欧氏距离(Euclidean Distance)</h3><p>欧氏距离是一个通常采用的距离定义，指在$n$维空间中两个点之间的真实距离，或者向量的自然长度（即该点到原点的距离）。</p>
+<p>两个$n$维向量$\mathbf{x}<em>{1}&#x3D;(x</em>{11},x_{12},…,x_{1n})$与$\mathbf{x}<em>{2}&#x3D;(x</em>{21},x_{22},…,x_{2n})$间的欧氏距离为：</p>
+<p>$d\left(\mathbf{x}<em>{1}, \mathbf{x}</em>{2}\right)&#x3D;\sqrt{\sum_{i&#x3D;1}^{n}\left(x_{1 i}-x_{2 i}\right)^{2}}$</p>
+<h3 id="1-2-2-曼哈顿距离-Manhattan-Distance"><a href="#1-2-2-曼哈顿距离-Manhattan-Distance" class="headerlink" title="1.2.2 曼哈顿距离(Manhattan Distance)"></a>1.2.2 曼哈顿距离(Manhattan Distance)</h3><p>曼哈顿距离是由十九世纪的赫尔曼·闵可夫斯基所创的词汇 ，是一种使用在几何度量空间的几何学用语，用以标明两个点在标准坐标系上的绝对轴距总和。</p>
+<p>两个$n$维向量$\mathbf{x}<em>{1}&#x3D;(x</em>{11},x_{12},…,x_{1n})$与$\mathbf{x}<em>{2}&#x3D;(x</em>{21},x_{22},…,x_{2n})$间的曼哈顿距离为：</p>
+<p>$d\left(\mathbf{x}<em>{1}, \mathbf{x}</em>{2}\right)&#x3D;\sum_{i&#x3D;1}^{n}\left|x_{1 i}-x_{2 i}\right|$</p>
+<p>示意图如图所示：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221023113931141.png" alt="曼哈顿距离示意图"></p>
+<h3 id="1-2-3-切比雪夫距离-Chebyshev-Distance"><a href="#1-2-3-切比雪夫距离-Chebyshev-Distance" class="headerlink" title="1.2.3 切比雪夫距离(Chebyshev Distance)"></a>1.2.3 切比雪夫距离(Chebyshev Distance)</h3><p>二个点之间的切比雪夫距离定义是其各坐标数值差绝对值的最大值。</p>
+<p>两个$n$维向量$\mathbf{x}<em>{1}&#x3D;(x</em>{11},x_{12},…,x_{1n})$与$\mathbf{x}<em>{2}&#x3D;(x</em>{21},x_{22},…,x_{2n})$间的切比雪夫距离为：</p>
+<p>$d\left(\mathbf{x}<em>{1}, \mathbf{x}</em>{2}\right)&#x3D;\max <em>{i}\left(\left|x</em>{1 i}-x_{2 i}\right|\right)$</p>
+<p>也等价于$d\left(\mathbf{x}<em>{1}, \mathbf{x}</em>{2}\right)&#x3D;\lim <em>{k \rightarrow \infty}\left(\sum</em>{i&#x3D;1}^{n}\left(x_{1 i}-x_{2 i}\right)^{k}\right)^{1 &#x2F; k}$</p>
+<h3 id="1-2-4-闵氏距离-Minkowski-Distance"><a href="#1-2-4-闵氏距离-Minkowski-Distance" class="headerlink" title="1.2.4 闵氏距离(Minkowski Distance)"></a>1.2.4 闵氏距离(Minkowski Distance)</h3><p>闵氏距离是以俄裔德国数学家闵可夫斯基命名的，它代表的不是一种距离，而是一组距离的定义。</p>
+<p>两个$n$维向量$\mathbf{x}<em>{1}&#x3D;(x</em>{11},x_{12},…,x_{1n})$与$\mathbf{x}<em>{2}&#x3D;(x</em>{21},x_{22},…,x_{2n})$间的闵氏距离为：</p>
+<p>$d\left(\mathbf{x}<em>{1}, \mathbf{x}</em>{2}\right)&#x3D;\sqrt[k]{\sum_{i&#x3D;1}^{n}\left(x_{1 i}-x_{2 i}\right)^{k}}$</p>
+<p>其中 $k$ 是一个变参数。当$k&#x3D;1$时，就是曼哈顿距离；当$k&#x3D;2$时，就是欧氏距离；当$k→∞$时，就是切比雪夫距离。根据变参数的不同，闵氏距离可以表示一类的距离。</p>
+<h3 id="1-2-5-马氏距离-Mahalanobis-Distance"><a href="#1-2-5-马氏距离-Mahalanobis-Distance" class="headerlink" title="1.2.5 马氏距离(Mahalanobis Distance)"></a>1.2.5 马氏距离(Mahalanobis Distance)</h3><p>马氏距离是由印度统计学家马哈拉诺比斯(P. C. Mahalanobis)提出的，表示数据的协方差距离。</p>
+<p>两个$n$维向量$\mathbf{x}<em>{1}&#x3D;(x</em>{11},x_{12},…,x_{1n})$与$\mathbf{x}<em>{2}&#x3D;(x</em>{21},x_{22},…,x_{2n})$间的马氏距离为：</p>
+<p>$d\left(\mathbf{x}<em>{1}, \mathbf{x}</em>{2}\right)&#x3D;\sqrt{\left(\mathbf{x}<em>{1}-\mathbf{x}</em>{2}\right) \mathbf{S}^{-1}\left(\mathbf{x}<em>{1}-\mathbf{x}</em>{2}\right)^{T}}$</p>
+<p>其中$S$为 $\mathbf{x}<em>{1},\mathbf{x}</em>{2}$ 的协方差矩阵。如果协方差矩阵为单位矩阵，那么马氏距离就简化为欧氏距离。</p>
+<h3 id="1-2-6-夹角余弦距离-Cosine-Dsitance"><a href="#1-2-6-夹角余弦距离-Cosine-Dsitance" class="headerlink" title="1.2.6 夹角余弦距离(Cosine Dsitance)"></a>1.2.6 夹角余弦距离(Cosine Dsitance)</h3><p>夹角余弦距离也称余弦相似度。</p>
+<p>两个$n$维向量$\mathbf{x}<em>{1}&#x3D;(x</em>{11},x_{12},…,x_{1n})$与$\mathbf{x}<em>{2}&#x3D;(x</em>{21},x_{22},…,x_{2n})$间的夹角余弦距离为：</p>
+<p>$\cos \theta&#x3D;d\left(\mathbf{x}<em>{1}, \mathbf{x}</em>{2}\right)&#x3D;\frac{\mathbf{x}<em>{1} \mathbf{x}</em>{2}^{T}}{\left||\mathbf{x}<em>{1}\right||\left||\mathbf{x}</em>{2}\right||}&#x3D;\frac{\sum_{i&#x3D;1}^{n} x_{1 i} x_{2 i}}{\sqrt{\sum_{i&#x3D;1}^{n} x_{1 i}^{2}} \sqrt{\sum_{i&#x3D;1}^{n} x_{1 i}^{2}}}$</p>
+<p>根据余弦函数的性质可知<strong>夹角余弦</strong>取值范围为$[−1,1]$。相似性强弱随着夹角余弦值单调递增：<strong>夹角余弦越大表示两个向量的夹角越小，两者的相似性较强；夹角余弦越小表示两向量的夹角越大，两者的相似性较弱</strong>。当两个向量的方向重合时，夹角余弦取最大值$1$，当两个向量的方向完全相反时，夹角余弦取最小值$-1$。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221023115225137.png" alt="夹角余弦距离"></p>
+<h3 id="1-2-7-汉明距离"><a href="#1-2-7-汉明距离" class="headerlink" title="1.2.7 汉明距离"></a>1.2.7 汉明距离</h3><p>汉明距离是以理查德·卫斯里·汉明的名字命名的。两个等长字符串 $s_1$ 与 $s_2$ 之间的汉明距离定义为将其中一个变为另外一个所需要作的最小替换次数。若想快速计算两个字符串的汉明距离，可以对两个字符串进行异或运算，然后统计结果为1的个数，那么这个数就是两者的汉明距离。例如字符串“1111”与“1001”之间的汉明距离为2，“11110011”与“10011000”之间的汉明距离为5。</p>
+<p>汉明距离在<strong>计算机网络</strong>中被应用于数据传输差错控制编码的距离度量方式。</p>
+<h2 id="1-3-相似度的应用"><a href="#1-3-相似度的应用" class="headerlink" title="1.3 相似度的应用"></a>1.3 相似度的应用</h2><h3 id="1-3-1-KNN算法"><a href="#1-3-1-KNN算法" class="headerlink" title="1.3.1 KNN算法"></a>1.3.1 KNN算法</h3><p>$k-$近邻算法(k-Nearest Neighbour algorithm)，又称为 $KNN$ 算法。</p>
+<p>$KNN$ 算法的工作原理是：给定一个已知标签类别的训练数据集，输入没有标签的新数据后，在训练数据集中找到与新数据<strong>最邻近</strong>的 $k$ 个实例，如果这 $k$ 个实例的多数属于某个类别，那么新数据就属于这个类别。可以简单理解为：由那些离 $X$ 最近的 $k$ 个点来投票决定X归为哪一类。</p>
+<p>$KNN$ 算法的三个基本要素是：$k$ 值的选择、距离度量和分类决策规则。<strong>当训练集、距离度量、k值及分类决策规则确定后，对于任何一个新的输入实例，它所属的类唯一地确定</strong>。</p>
+<p>$KNN$ 算法的基本步骤是：</p>
+<ol>
+<li>计算已知类别数据集中的点与当前点之间的<strong>距离</strong>，<strong>距离的计算方法可以在上一节中所描述的样本间距离的计算方法中进行选取</strong>；</li>
+<li>按照距离<strong>递增次序排序</strong>；</li>
+<li>选取与当前点距离最小的k个点；</li>
+<li>确定前k个点所在类别的出现频率；</li>
+<li>返回前k个点出现频率最高的类别作为当前点的预测类别。</li>
+</ol>
+<p>一般而言，从 $k &#x3D; 1$ 开始，随着的逐渐增大，$k-$近邻算法的分类效果会逐渐提升；在增大到某个值后，随着的进一步增大，$k-$近邻算法的分类效果会逐渐下降。我们往往需要通过**交叉验证(Cross Validation)**等方法评估模型在不同取值下的性能，进而确定具体问题的K值。</p>
+<h3 id="1-3-2-文本相似度测算"><a href="#1-3-2-文本相似度测算" class="headerlink" title="1.3.2 文本相似度测算"></a>1.3.2 文本相似度测算</h3><p>文本相似度主要用于各种搜索引擎的类似文章的推荐，或者购物网站的类似商品推荐，点评网站&#x2F;微博微信平台上的类似内容推荐。</p>
+<p>如果两个文档&#x2F;两句话的用词越相似，它们的内容就应该越相似。因此，可以从词频入手，计算它们的相似程度。</p>
+<p>目前主要有以下几大类方法：</p>
+<p>&#x3D;&#x3D;<strong>基于关键词匹配</strong>&#x3D;&#x3D;：</p>
+<p>我们可以采用<strong>N-gram 相似度</strong>：</p>
+<p>​	基于N-Gram模型定义的句子（字符串）相似度是一种模糊匹配方式，通过两个长得很像的句子间的“差异”来衡量相似度。</p>
+<p>　N-Gram相似度的计算是指按长度N切分原句得到词段，也就是原句中所有长度为N的子字符串。对于两个句子$S$和$T$，则可以从共有子串的数量上去定义两个句子的相似度。</p>
+<p>$\text { Similarity }&#x3D;\left|G_{N}(S)\right|+\left|G_{N}(T)\right|-2 *\left|G_{N}(S) \cap G_{N}(T)\right|$</p>
+<p>其中， $G_{N}(S)$ 和 $G_{N}(T)$分别表示字符串 $S$ 和 $T$ 中 N-Gram 的集合，$N$ 一般取2或3。字符串距离越近，它们就越相似，当两个字符串完全相等时，距离为0。</p>
+<p>还可以采用1.1.4节介绍的<strong>Jaccard 相似度</strong>：</p>
+<p>　Jaccard相似度的计算相对简单，原理也容易理解。就是计算两个句子之间词集合的交集和并集的比值。该值越大，表示两个句子越相似，在涉及大规模并行运算的时候，该方法在效率上有一定的优势。</p>
+<p>​	其公式为：$J(A, B)&#x3D;\frac{|A \cap B|}{|A \cup B|}$，其中$0≤J(A,B)≤1$</p>
+<p>&#x3D;&#x3D;<strong>基于向量空间</strong>&#x3D;&#x3D;：</p>
+<p>　　关于如何表达词意目前有三种方法，第一种的代表就是 WordNet，它提供了一种词的分类资源但是缺少了词之间的细微区别，同时它也很难计算词之间的相似度；第二种就是 Discrete representation，如One-hot representation，它的向量维度和词典的长度相同，因此向量维度可能十分高，同时由于向量之间本身正交，无法计算词之间的相似度；第三种就是 Distributed representation，基本想法就是将每个词映射为一个固定长度的短向量（相对于one-hot representation而言），所有这些词构成一个词向量空间，每一个向量视为空间中的一个点，在这个空间引入“距离”，就可以根据词之间的距离来判断它们之间的相似性，代表方法如word2vec, LDA等。</p>
+<p>目前采用的其中一种改进方法是：</p>
+<ul>
+<li>语料分词</li>
+<li>语料向量化</li>
+<li>将语料转换为基于关键词的词频向量</li>
+<li>为了避免文章长度的差异，长度悬殊时可以考虑使用相对词频使用<code>TF-IDF</code>算法，找出两篇文章的关键词。例如取前20个，或者前50个计算相似度</li>
+<li>计算两个向量的<strong>余弦相似度</strong>，值越大就表示越相似</li>
+</ul>
+<p>　<code>TF-IDF</code>的核心思想是：在一篇文章中，某个词语的重要性与该词语在这篇文章中出现的次数成正相关，同时与整个语料库中出现该词语的文章数成负相关。其中有两个概念：</p>
+<ul>
+<li><code>TF</code>(term frequency)：词频，某一个给定的词语在该文件中出现的频率，表示一个词语与该文章的相关性。这个数字是对词数（term count）的归一化，以防止它偏向长的文件。</li>
+<li><code>IDF</code>(inverse document frequency)：逆向文件词频，表示一个词语出现的普遍程度。某一特定词语的idf，可以由总文件数目除以包含该词语之文件的数目，再将得到的商取以10为底的对数得到。</li>
+</ul>
+<p>​	 一篇文章中某个词语的重要程度，可以标记为词频和逆向文件词频的乘积，即：$tfidf&#x3D;tf∗idf$</p>
+<p>　通过计算出文档中每个词的<code>TF-IDF</code>值，然后结合相似度计算方法（一般采用余弦相似度）就可以计算两个文档的相似度。采用<code>TF-IDF</code>的前提是“<strong>文章的词语重要性与词语在文章中出现的位置不相关</strong>”。</p>
+<p>&#x3D;&#x3D;<strong>基于深度学习</strong>&#x3D;&#x3D;：</p>
+<p>​	随着深度学习在图像和语音识别中取得不错的进展，近些年深度学习也开始应用于自然语言处理的不同应用中，语义相似性匹配问题已经逐渐从人工设计特征转向分布式表达和神经网络结构相结合的方式。</p>
+<p>​	<code>DSSM</code>是一种深度学习语义匹配模型，在检索场景下，利用用户的点击数据来训练语义层次的匹配。</p>
+<p>​	<code>DSSM</code>利用点击率来代替相关性，点击数据中包含大量的用户问句和对应的点击文档，这些点击数据将用户的问题和匹配的文档连接起来。</p>
+<p>​	下图就是利用<code>DNN</code>的<code>DSSM</code>结构。<code>DNN</code>的输入是用户问句和对应文档的高维未归一化向量（如图中的<code>500K</code>维），<code>DNN</code>的输出是一个低维的语义特征空间向量（如图中的128维）。</p>
+<p><img src="https://img-blog.csdn.net/20180320102033724?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3FxXzI4MDMxNTI1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="DSSM"></p>
+<p>​	上图中的Multilayer non-linear projection采用了非线性的多层神经网络，利用<code>tanh</code>作为激活函数，同时问句和文档的神经网络共享参数，并在<code>DNN</code>的输出层利用cosine similarity计算问句和文档之间的语义相关性。有以下公式：</p>
+<p>$R(D, Q)&#x3D;\operatorname{cosine}\left(y_{Q}, y_{D}\right)&#x3D;\frac{y_{Q}^{T} y_{D}}{\left|y_{Q}\right|\left|y_{D}\right|}$</p>
+<p>　其中 $y_Q$ 和 $y_D$ 表示<code>DNN</code>输出层问句和文档的低维语义向量，然后通过<code>softmax</code>得到条件概率分布。</p>
+<h2 id="1-4-总结与讨论"><a href="#1-4-总结与讨论" class="headerlink" title="1.4 总结与讨论"></a>1.4 总结与讨论</h2><p>​	对于不同的应用场景，可以采用不同的衡量相关系数和样本间的距离的方法来测算数据间的相似度，并结合图论、机器学习、深度学习等实际问题分别进行选择。通过这次调研，我了解并掌握了不同的相似度测算方法，其中有些方法是高等数学、概率论、机器学习课程有所提到的，我将在今后对它们加以应用。</p>
+<h1 id="二、确定上班路线"><a href="#二、确定上班路线" class="headerlink" title="二、确定上班路线"></a>二、确定上班路线</h1><p>W先生每天驾车去公司上班。W先生的住所位于A，公司位于F，图中的直线段代表公路，交叉点代表路口，直线段上的数字代表两路口之间的平均行驶时间。现在W先生的问题是要确定一条最省时的上班路线。</p>
+<img src="http://lms.csu.edu.cn/api/uploads/8817838/in-rich-content?created_at=2022-10-21T09:29:49Z" alt="image.png" style="zoom: 50%;" />
+
+<h2 id="2-1-迪杰斯特拉算法"><a href="#2-1-迪杰斯特拉算法" class="headerlink" title="2.1 迪杰斯特拉算法"></a>2.1 迪杰斯特拉算法</h2><h3 id="2-1-1-算法思路"><a href="#2-1-1-算法思路" class="headerlink" title="2.1.1 算法思路"></a>2.1.1 算法思路</h3><p>我们可以通过<strong>迪杰斯特拉算法求最短路径</strong>的方法确定上班路线。迪杰斯特拉算法的一般步骤是：</p>
+<p>算法求<strong>单个源点到其余各顶点</strong>的最短路径，计算思路是<strong>离源点最低路径长度的开序</strong>，运用到的思想是<strong>贪心</strong>（每次取离源点最近的点）。设<code>C</code>数组为<strong>蓝点集</strong>，起点为红点。当红点集合加入值时，关联的蓝点将更新最短路径。</p>
+<p>我们通过在更新最短路径时对路径经过的点进行记录，可以得到最后的上班路线。</p>
+<h3 id="2-1-2-算法图解"><a href="#2-1-2-算法图解" class="headerlink" title="2.1.2 算法图解"></a>2.1.2 算法图解</h3><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/8509fecc858642b4ae2f4fe866dea7b7.gif" alt="算法图解"></p>
+<blockquote>
+<p>markdown文档中这是一个动图……本算法直接套用迪杰斯特拉算法即可，不多赘述。</p>
+</blockquote>
+<h3 id="2-1-3-代码设计"><a href="#2-1-3-代码设计" class="headerlink" title="2.1.3 代码设计"></a>2.1.3 代码设计</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">graph</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">graph</span> <span class="token operator">&amp;</span>graph<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> path<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> res<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> dist<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	dist<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>	<span class="token comment">//初始化</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>			<span class="token comment">//t为-1表示还未选择一个点</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> dist<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">></span> dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+				t <span class="token operator">=</span> j<span class="token punctuation">;</span>		<span class="token comment">//选取还未被选择的且距离最近的点</span>
+		<span class="token punctuation">&#125;</span>
+		st<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> dist<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> graph<span class="token punctuation">.</span>g<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+			<span class="token punctuation">&#123;</span>
+				dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dist<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> graph<span class="token punctuation">.</span>g<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				path<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"需要的时间最短为:"</span> <span class="token operator">&lt;&lt;</span> dist<span class="token punctuation">[</span>graph<span class="token punctuation">.</span>n<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> <span class="token string">"路径依次是:"</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">int</span> j <span class="token operator">=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span>		<span class="token comment">// 记录终点</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>path<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>	<span class="token comment">// 将路径存放到结果数组中</span>
+	<span class="token punctuation">&#123;</span>
+		res<span class="token punctuation">[</span><span class="token operator">++</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		j <span class="token operator">=</span> path<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> m <span class="token operator">=</span> i<span class="token punctuation">;</span> m <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> m<span class="token operator">--</span><span class="token punctuation">)</span>	<span class="token comment">// 逆序输出</span>
+	<span class="token punctuation">&#123;</span>
+		cout <span class="token operator">&lt;&lt;</span> res<span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-1-4-算法复杂度分析"><a href="#2-1-4-算法复杂度分析" class="headerlink" title="2.1.4 算法复杂度分析"></a>2.1.4 算法复杂度分析</h3><p>Dijkstra算法的时间复杂度为：</p>
+<ul>
+<li><p>对于邻接矩阵表示，为$O\left( n^{2} \right)$（其中$n&#x3D;\left| V \right|$）；</p>
+</li>
+<li><p>对于邻接表表示，为$O\left( n+|E|\right)$（其中$n&#x3D;\left| V \right|$，$|E|$为边数[结点的度的加和]）。</p>
+</li>
+</ul>
+<p>在这里，我采用的是邻接矩阵进行表示，故算法时间复杂度为$O\left( n^{2} \right)$。</p>
+<h2 id="2-2-动态规划算法"><a href="#2-2-动态规划算法" class="headerlink" title="2.2 动态规划算法"></a>2.2 动态规划算法</h2><h3 id="2-2-1-算法思路"><a href="#2-2-1-算法思路" class="headerlink" title="2.2.1 算法思路"></a>2.2.1 算法思路</h3><p>仔细观察此图，发现<strong>每个数都是由其左边&#x2F;下面的数的最短路径和其左边&#x2F;下面的数到该数的距离的加和</strong>得到。我们可以采用动态规划思想，从上到下、从左到右遍历各点，当遍历到最后一个点时，即得需要的最短时间。每次更新最短距离时，可以记录路径，从而确定上班路线。</p>
+<ul>
+<li><p><strong>状态表示</strong>$dist[i]$：</p>
+<ul>
+<li><strong>集合</strong><ul>
+<li>所有源点是1、终点是$i$的路径的集合</li>
+</ul>
+</li>
+<li><strong>属性</strong>：$Min$(最短路径)</li>
+</ul>
+</li>
+<li><p><strong>状态计算</strong>：</p>
+<ul>
+<li><p>集合划分——$dist[i]$</p>
+</li>
+<li><p>$dist[i] &#x3D; Min(dist[i - 1] + g[i - 1][i],dist[i - m] + g[i - m][i])$，其中$dist[i - m]$表示起点到该数下一行数的最短路径</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-2-算法图解"><a href="#2-2-2-算法图解" class="headerlink" title="2.2.2 算法图解"></a>2.2.2 算法图解</h3><p>如图，蓝点标记各点的序号，每个数都是由其左边&#x2F;下面的数的最短路径和其左边&#x2F;下面的数到该数的距离的加和得到：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221023234639146.png" alt="image-20221023234639146"></p>
+<h3 id="2-2-3-代码设计"><a href="#2-2-3-代码设计" class="headerlink" title="2.2.3 代码设计"></a>2.2.3 代码设计</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">dp</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> path<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> res<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> dist<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	dist<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token comment">// 读入数据(见后) ...</span>
+
+	<span class="token comment">// 动态规划</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">// 对第一行的各元素,直接将路径作为答案</span>
+    <span class="token punctuation">&#125;</span>
+    
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n <span class="token operator">*</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> m <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>			<span class="token comment">// 记录路径</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">else</span>
+		<span class="token punctuation">&#123;</span>
+			dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">-</span> m<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 输出答案(见后) ...</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"需要的时间最短为:"</span> <span class="token operator">&lt;&lt;</span> dist<span class="token punctuation">[</span>n <span class="token operator">*</span> m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> <span class="token string">"路径依次是:"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-2-4-算法复杂度分析"><a href="#2-2-4-算法复杂度分析" class="headerlink" title="2.2.4 算法复杂度分析"></a>2.2.4 算法复杂度分析</h3><p>动态规划算法的时间代价在于遍历所有点，算法时间复杂度为$O(n)$($n$为图中所有点的数目)，而空间开销主要来源于存储点、边、最短路径带来的开销。</p>
+<h2 id="2-3-测试结果"><a href="#2-3-测试结果" class="headerlink" title="2.3 测试结果"></a>2.3 测试结果</h2><p>设图中各点依次为：</p>
+<pre class="line-numbers language-none"><code class="language-none">7 8 9
+4 5 6
+1 2 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>方法1以图示方法输入：</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221023214931222.png" alt="image-测试结果" style="zoom: 80%;" />
+
+<p>方法2以先输入行再输入列的形式输入：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221024080533351.png" alt="image-20221024080533351"></p>
+<p>多次测试，算法运行结果均正确，符合题意。</p>
+<h2 id="2-4-总结与讨论"><a href="#2-4-总结与讨论" class="headerlink" title="2.4 总结与讨论"></a>2.4 总结与讨论</h2><p>我们对比以上两种算法的时间复杂度：</p>
+<ul>
+<li><strong>迪杰斯特拉算法</strong>：邻接矩阵$T(n)&#x3D;O\left( n^{2} \right)$(其中$n&#x3D;\left| V \right|$)，邻接表$T(n)&#x3D;O\left( n+|E|\right)$(其中$n&#x3D;\left| V \right|$，$|E|$为边数)</li>
+<li><strong>动态规划算法</strong>：$T(n)&#x3D;O(n)$($n$为图中所有点的数目)</li>
+</ul>
+<p>通过对以上两种算法时间复杂度的比较，使用<strong>动态规划算法</strong>的时间性能是最优的。</p>
+<p>动态规划算法主要分为几大阶段，即划分阶段、选择状态、确定决策并写出状态转移方程、写出规划方程。动态规划本质上是多阶段决策过程，最关键的是确定最优子结构，并根据上一阶段的状态和决策来导出本阶段的状态以写出状态转移方程。</p>
+<p>我在代码设计中遇到的问题主要有：</p>
+<ul>
+<li>动态规划算法中，确定以什么形式输入点</li>
+<li>边界条件没判断正确，第一行和第一列的<code>dist</code>数组需要特别判断</li>
+<li>数组开始未初始化，导致调试出错</li>
+</ul>
+<h2 id="2-5-附：源代码"><a href="#2-5-附：源代码" class="headerlink" title="2.5 附：源代码"></a>2.5 附：源代码</h2><p>法1：<strong>迪杰斯特拉算法</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">510</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">graph</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">graph</span> <span class="token operator">&amp;</span>graph<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> path<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> res<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> dist<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	dist<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>	<span class="token comment">//初始化</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>			<span class="token comment">//t为-1表示还未选择一个点</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> dist<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">></span> dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+				t <span class="token operator">=</span> j<span class="token punctuation">;</span>		<span class="token comment">//选取还未被选择的且距离最近的点</span>
+		<span class="token punctuation">&#125;</span>
+		st<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> dist<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> graph<span class="token punctuation">.</span>g<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+			<span class="token punctuation">&#123;</span>
+				dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dist<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dist<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> graph<span class="token punctuation">.</span>g<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				path<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"需要的时间最短为:"</span> <span class="token operator">&lt;&lt;</span> dist<span class="token punctuation">[</span>graph<span class="token punctuation">.</span>n<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> <span class="token string">"路径依次是:"</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">int</span> j <span class="token operator">=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> graph<span class="token punctuation">.</span>n<span class="token punctuation">;</span>		<span class="token comment">// 记录终点</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>path<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>	<span class="token comment">// 将路径存放到结果数组中</span>
+	<span class="token punctuation">&#123;</span>
+		res<span class="token punctuation">[</span><span class="token operator">++</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		j <span class="token operator">=</span> path<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> m <span class="token operator">=</span> i<span class="token punctuation">;</span> m <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> m<span class="token operator">--</span><span class="token punctuation">)</span>	<span class="token comment">// 逆序输出</span>
+	<span class="token punctuation">&#123;</span>
+		cout <span class="token operator">&lt;&lt;</span> res<span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">graph</span> graph<span class="token punctuation">;</span>
+	cin <span class="token operator">>></span> graph<span class="token punctuation">.</span>n <span class="token operator">>></span> graph<span class="token punctuation">.</span>m<span class="token punctuation">;</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>graph<span class="token punctuation">.</span>g<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> graph<span class="token punctuation">.</span>g<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>graph<span class="token punctuation">.</span>m<span class="token operator">--</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">;</span>
+		cin <span class="token operator">>></span> a <span class="token operator">>></span> b <span class="token operator">>></span> c<span class="token punctuation">;</span>
+		graph<span class="token punctuation">.</span>g<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>graph<span class="token punctuation">.</span>g<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">dijkstra</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>法2：<strong>动态规划算法</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;utility></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">dp</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> path<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> res<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> dist<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	dist<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token comment">// 读入数据</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m <span class="token operator">*</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> m <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+			<span class="token keyword">continue</span><span class="token punctuation">;</span>
+		cin <span class="token operator">>></span> g<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		cin <span class="token operator">>></span> g<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i <span class="token operator">+</span> m<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// 动态规划</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n <span class="token operator">*</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> m <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+		<span class="token punctuation">&#123;</span>
+			dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">else</span>
+		<span class="token punctuation">&#123;</span>
+			dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span> <span class="token operator">+</span> g<span class="token punctuation">[</span>i <span class="token operator">-</span> m<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			path<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">-</span> m<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 输出答案</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"需要的时间最短为:"</span> <span class="token operator">&lt;&lt;</span> dist<span class="token punctuation">[</span>n <span class="token operator">*</span> m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl <span class="token operator">&lt;&lt;</span> <span class="token string">"路径依次是:"</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">int</span> j <span class="token operator">=</span> n <span class="token operator">*</span> m<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> n <span class="token operator">*</span> m<span class="token punctuation">;</span>		<span class="token comment">// 记录终点</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>path<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>	<span class="token comment">// 将路径存放到结果数组中</span>
+	<span class="token punctuation">&#123;</span>
+		res<span class="token punctuation">[</span><span class="token operator">++</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		j <span class="token operator">=</span> path<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> m <span class="token operator">=</span> i<span class="token punctuation">;</span> m <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> m<span class="token operator">--</span><span class="token punctuation">)</span>	<span class="token comment">// 逆序输出</span>
+	<span class="token punctuation">&#123;</span>
+		cout <span class="token operator">&lt;&lt;</span> res<span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>		<span class="token comment">// n代表行数, m代表列数</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"请输入公路矩阵行列的点数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	cin <span class="token operator">>></span> n <span class="token operator">>></span> m<span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"请输入各条边"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token function">dp</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                                    
+                            </div>
+                            <hr />
+
+                            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ShiQuLiZhi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sxhthreo.github.io/2022/10/21/homework/si-kao-ti-1021-xiang-si-du-yu-que-ding-shang-ban-lu-xian/">https://sxhthreo.github.io/2022/10/21/homework/si-kao-ti-1021-xiang-si-du-yu-que-ding-shang-ban-lu-xian/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">ShiQuLiZhi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+                                <div class="tag_share" style="display: block;">
+                                    <div class="post-meta__tag-list" style="display: inline-block;">
+                                        
+                                            <div class="article-tag">
+                                                
+                                                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                                        <span class="chip bg-color">
+                                                            程序设计
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                                        <span class="chip bg-color">
+                                                            算法
+                                                        </span>
+                                                    </a>
+                                                    
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="post_share"
+                                        style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                        <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                                    </div>
+                                </div>
+                                
+                        </div>
+    </div>
+
+    
+
+                
+
+                            
+
+                                        
+
+                                                    
+                                                        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling"
+        style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '8SzvSoQjCOrTadqpJ1LjqujD-9Nh9j0Va',
+        appKey: 'iv4mV6VBG7twuE7yQgwpsYaq',
+        notify: '' === 'true',
+        verify: '' === 'true',
+        visitor: '' === 'true',
+        avatar: '/medias/moren.png',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '快来评论区发表你的观点吧~ 听说昵称填写qq号可以显示qq头像和qq昵称哦!',
+        enableQQ: true,
+        boolean: true,
+        emojiCDN: '//i0.hdslb.com/bfs/emote/',
+        // 表情title和图片映射
+        emojiMaps: {
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+            "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+            "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+            "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+            "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+            "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+            "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+            "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+            "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+            "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+            "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+            "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+            "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+            "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+            "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+            "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+            "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+            "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+            "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+            "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+            "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+            "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+            "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+            "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+            "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+            "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+            "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+            "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+            "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+            "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+            "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+            "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+            "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+            "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+            "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+            "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+            "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+            "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+            "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+            "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+            "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+            "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+            "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+            "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+            "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+            "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+            "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+            "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+            "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+            "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+        },
+        requiredFields: ['nick'], //设置必填项
+    });
+</script>
+                                                            
+
+                                                                
+
+                                                                            
+
+                                                                                        
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/10/24/development/kai-fa-02-linux-ji-chu-ke-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Linux基础课笔记">
+                        
+                        <span class="card-title">Linux基础课笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    前后端知识学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">Linux系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/10/19/homework/si-kao-ti-1019-xin-pian-she-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="算法课外思考题1019(芯片设计)">
+                        
+                        <span class="card-title">算法课外思考题1019(芯片设计)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
+                                    作业
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">程序设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+    <script>
+        $('#articleContent').on('copy', function (e) {
+            // IE8 or earlier browser is 'undefined'
+            if (typeof window.getSelection === 'undefined') return;
+
+            var selection = window.getSelection();
+            // if the selection is short let's not annoy our users.
+            if (('' + selection).length < Number.parseInt('150')) {
+                return;
+            }
+
+            // create a div outside of the visible area and fill it with the selected text.
+            var bodyElement = document.getElementsByTagName('body')[0];
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            bodyElement.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            // we need a <pre> tag workaround.
+            // otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            var url = document.location.href;
+            newdiv.innerHTML += '<br />'
+                + '来源: ShiQuLiZhi BLOG<br />'
+                + '文章作者: ShiQuLiZhi<br />'
+                + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+                + '本文著作权归作者所有，任何形式的转载均请注明出处。';
+
+            selection.selectAllChildren(newdiv);
+            window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+        });
+    </script>
+    
+
+        <!-- 代码块功能依赖 -->
+        <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+        <!-- 代码语言 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+            
+
+                <!-- 代码块复制 -->
+                
+                    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+                    
+
+                        <!-- 代码块收缩 -->
+                        
+                            <script type="text/javascript"
+                                src="/libs/codeBlock/codeShrink.js"></script>
+                            
+
+                                <!-- 代码块折行 -->
+                                
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src=""></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+                            <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">ShiQuLiZhi</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">313.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2022";
+                    var startMonth = "8";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sxhthreo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+        data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+    
+
+        
+            <a href="mailto:951161604@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+                data-position="top" data-delay="50">
+                <i class="fas fa-envelope-open"></i>
+            </a>
+            
+
+                
+
+                        
+
+                                
+                                    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=951161604"
+                                        class="tooltipped" target="_blank"
+                                        data-tooltip="QQ联系我: 951161604" data-position="top"
+                                        data-delay="50">
+                                        <i class="fab fa-qq"></i>
+                                    </a>
+                                    
+
+                                        
+
+                                                
+                                                    <a href="https://www.zhihu.com/people/shui-he-qing-chi-zi-14" class="tooltipped"
+                                                        target="_blank"
+                                                        data-tooltip="关注我的知乎: https://www.zhihu.com/people/shui-he-qing-chi-zi-14"
+                                                        data-position="top" data-delay="50">
+                                                        <i class="fab fa-zhihu1">知</i>
+                                                    </a>
+                                                    
+
+                                                        
+
+                                                                
+                                                                    <a href="https://blog.csdn.net/sxH3O?type=blog"
+                                                                        class="tooltipped" target="_blank"
+                                                                        data-tooltip="关注我的CSDN: https://blog.csdn.net/sxH3O?type=blog"
+                                                                        data-position="top" data-delay="50">
+                                                                        <i class="fab fa-csdn">C</i>
+                                                                    </a>
+                                                                    </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+                                <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+                                    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                                        <script
+                                            src="/libs/materialize/materialize.min.js"></script>
+                                        <script
+                                            src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                        <script
+                                            src="/libs/aos/aos.js"></script>
+                                        <script
+                                            src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                        <script
+                                            src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                        <script
+                                            src="/js/matery.js"></script>
+
+                                        <!-- Baidu Analytics -->
+
+                                            <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                                
+                                                    <script
+                                                        src="/libs/others/clicklove.js"
+                                                        async="async"></script>
+                                                    
+                                                        
+                                                            <script async
+                                                                src="/libs/others/busuanzi.pure.mini.js"></script>
+                                                            
+
+                                                                
+
+                                                                        
+
+                                                                                
+                                                                                        
+                                                                                            <script
+                                                                                                type="text/javascript"
+                                                                                                color="0,0,255"
+                                                                                                pointColor="0,0,255"
+                                                                                                opacity='0.7'
+                                                                                                zIndex="-1"
+                                                                                                count="99"
+                                                                                                src="/libs/background/canvas-nest.js"></script>
+                                                                                            
+
+                                                                                                
+
+                                                                                                            
+
+                                                                                                                    
+                                                                                                                        <script
+                                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                                            type="module"></script>
+                                                                                                                        
+
+
+
+
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
