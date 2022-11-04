@@ -370,12 +370,6 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                    <span class="chip bg-color">
-                                        程序设计
-                                    </span>
-                                </a>
-                                
                                 <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">
                                         算法
@@ -385,6 +379,12 @@
                                 <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
                                     <span class="chip bg-color">
                                         理论知识
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">
+                                        程序设计
                                     </span>
                                 </a>
                                 
@@ -1007,12 +1007,6 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                                        <span class="chip bg-color">
-                                                            程序设计
-                                                        </span>
-                                                    </a>
-                                                    
                                                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                                                         <span class="chip bg-color">
                                                             算法
@@ -1022,6 +1016,12 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
                                                     <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
                                                         <span class="chip bg-color">
                                                             理论知识
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                                        <span class="chip bg-color">
+                                                            程序设计
                                                         </span>
                                                     </a>
                                                     
@@ -1435,12 +1435,12 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
-                    </a>
-                    
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">程序设计</span>
                     </a>
                     
                 </div>
@@ -1488,12 +1488,12 @@ ll <span class="token function">count</span><span class="token punctuation">(</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
-                    </a>
-                    
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">程序设计</span>
                     </a>
                     
                 </div>
@@ -2040,12 +2040,27 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+                                                                                                                            type="module"></script>
                                                                                                                         
 
 
 
 
-                </body>
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>

@@ -370,15 +370,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaWeb/">
-                                    <span class="chip bg-color">
-                                        JavaWeb
-                                    </span>
-                                </a>
-                                
                                 <a href="/tags/%E5%90%8E%E7%AB%AF/">
                                     <span class="chip bg-color">
                                         后端
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/JavaWeb/">
+                                    <span class="chip bg-color">
+                                        JavaWeb
                                     </span>
                                 </a>
                                 
@@ -2022,15 +2022,15 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/JavaWeb/">
-                                                        <span class="chip bg-color">
-                                                            JavaWeb
-                                                        </span>
-                                                    </a>
-                                                    
                                                     <a href="/tags/%E5%90%8E%E7%AB%AF/">
                                                         <span class="chip bg-color">
                                                             后端
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/JavaWeb/">
+                                                        <span class="chip bg-color">
+                                                            JavaWeb
                                                         </span>
                                                     </a>
                                                     
@@ -2494,12 +2494,12 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaWeb/">
-                        <span class="chip bg-color">JavaWeb</span>
-                    </a>
-                    
                     <a href="/tags/%E5%90%8E%E7%AB%AF/">
                         <span class="chip bg-color">后端</span>
+                    </a>
+                    
+                    <a href="/tags/JavaWeb/">
+                        <span class="chip bg-color">JavaWeb</span>
                     </a>
                     
                 </div>
@@ -3046,12 +3046,27 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+                                                                                                                            type="module"></script>
                                                                                                                         
 
 
 
 
-                </body>
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>

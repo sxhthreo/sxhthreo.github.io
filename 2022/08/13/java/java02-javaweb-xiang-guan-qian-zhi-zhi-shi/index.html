@@ -370,15 +370,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaSE/">
-                                    <span class="chip bg-color">
-                                        JavaSE
-                                    </span>
-                                </a>
-                                
                                 <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
                                     <span class="chip bg-color">
                                         程序设计
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/JavaSE/">
+                                    <span class="chip bg-color">
+                                        JavaSE
                                     </span>
                                 </a>
                                 
@@ -2076,15 +2076,15 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/JavaSE/">
-                                                        <span class="chip bg-color">
-                                                            JavaSE
-                                                        </span>
-                                                    </a>
-                                                    
                                                     <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
                                                         <span class="chip bg-color">
                                                             程序设计
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/JavaSE/">
+                                                        <span class="chip bg-color">
+                                                            JavaSE
                                                         </span>
                                                     </a>
                                                     
@@ -2557,16 +2557,16 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                        <span class="chip bg-color">后端</span>
+                    </a>
+                    
                     <a href="/tags/JDBC/">
                         <span class="chip bg-color">JDBC</span>
                     </a>
                     
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                         <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                        <span class="chip bg-color">后端</span>
                     </a>
                     
                 </div>
@@ -3113,12 +3113,27 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+                                                                                                                            type="module"></script>
                                                                                                                         
 
 
 
 
-                </body>
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>
