@@ -463,7 +463,7 @@
                             <div id="articleContent">
                                 <blockquote>
 <p>💡Author：信安2002钱泽枢(<em><a href="https://sxhthreo.github.io/">ShiQuLiZhi</a></em>)</p>
-<p>🚀欢迎访问我的作业合集：</p>
+<p>🚀欢迎访问我的作业合集：<a href="https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/">https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/</a></p>
 </blockquote>
 <h1 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h1><p>请给出栈的实现策略，使得入栈、出栈与求最小值都能在<code>O(1)</code>内完成，请进行相应的算法分析。</p>
 <h2 id="1-1-算法分析"><a href="#1-1-算法分析" class="headerlink" title="1.1 算法分析"></a>1.1 算法分析</h2><p>本题我采用的是顺序存储栈(链式存储同理)。入栈、出栈在<code>O(1)</code>内完成是栈的特性，通过栈的基本操作即可实现。我通过设置<code>min</code>栈，当<code>min</code>栈中没有元素(即第一次入栈)或当前元素小于等于<code>min</code>的栈顶，对<code>min</code>进行压栈；当<code>S</code>出栈的元素与<code>min</code>栈的元素相同，则也将<code>min</code>栈栈顶弹出。当想知道栈中最小的元素时，仅需调用<code>getMin</code>函数，返回<code>min</code>栈的栈顶。</p>
@@ -1318,7 +1318,7 @@ stack<span class="token punctuation">.</span><span class="token function">remove
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('1'),
             headingSelector: 'h1, h2, h3, h4'
         });
 
@@ -1470,7 +1470,7 @@ stack<span class="token punctuation">.</span><span class="token function">remove
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">313.7k</span>&nbsp;字
+                class="white-color">314.3k</span>&nbsp;字
             
             
             
@@ -1767,27 +1767,12 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>

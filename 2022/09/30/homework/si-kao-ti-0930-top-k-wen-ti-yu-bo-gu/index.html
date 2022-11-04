@@ -461,7 +461,10 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="思考题0930"><a href="#思考题0930" class="headerlink" title="思考题0930"></a>思考题0930</h1><p>信安2002钱泽枢</p>
+                                <blockquote>
+<p>💡Author：信安2002钱泽枢(<em><a href="https://sxhthreo.github.io/">ShiQuLiZhi</a></em>)</p>
+<p>🚀欢迎访问我的作业合集：<a href="https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/">https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/</a></p>
+</blockquote>
 <h1 id="一、Top-k问题"><a href="#一、Top-k问题" class="headerlink" title="一、Top k问题"></a>一、Top k问题</h1><p>给出不同策略求解Top k 问题，并进行分析。</p>
 <h2 id="1-1-冒泡排序"><a href="#1-1-冒泡排序" class="headerlink" title="1.1 冒泡排序"></a>1.1 冒泡排序</h2><h3 id="1-1-1-算法思路"><a href="#1-1-1-算法思路" class="headerlink" title="1.1.1 算法思路"></a>1.1.1 算法思路</h3><p>这个问题最直接也是最笨的思路就是直接排序，排序完取出最大的<code>k</code>个即可，时间复杂度取决于<strong>排序算法的时间性能</strong>，当采用快速排序或归并排序时，时间复杂度为$O(nlogn)$。我们使用<strong>冒泡排序</strong>，并进行<strong>优化</strong>，每次冒泡都是找到<strong>序列中第<code>i</code>大的数</strong>(<code>i</code>为冒泡的次数)，当<code>i = k</code>时，即可找到序列中<code>Top k</code>的数。</p>
 <h3 id="1-1-2-代码设计"><a href="#1-1-2-代码设计" class="headerlink" title="1.1.2 代码设计"></a>1.1.2 代码设计</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">bubblesort</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
@@ -1644,7 +1647,7 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('1'),
             headingSelector: 'h1, h2, h3, h4'
         });
 
@@ -1796,7 +1799,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">313.7k</span>&nbsp;字
+                class="white-color">314.3k</span>&nbsp;字
             
             
             
@@ -2093,27 +2096,12 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>

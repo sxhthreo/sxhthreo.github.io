@@ -461,7 +461,11 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>数学王子高斯曾在1801年将质因数分解问题和质性检验问题作为数论研究中的两个重大难题着重推介给国际数学界，要求大家竭尽全力想方设法解决这两个问题，因为这两个问题一旦解决，其它很多数学问题都将迎刃而解。如今，质性检验问题(<code>PTP</code>)基本上算是被解决了。三位印度计算机科学家 Agrawal 、Kayal和 Saxena于2002年提出了一种快速的确定性的质性检验算法，简称为<code>AKS</code>质性检验法。但质因数分解问题仍未解决。</p>
+                                <blockquote>
+<p>💡Author：信安2002钱泽枢(<em><a href="https://sxhthreo.github.io/">ShiQuLiZhi</a></em>)</p>
+<p>🚀欢迎访问我的作业合集：<a href="https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/">https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/</a></p>
+</blockquote>
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>数学王子高斯曾在1801年将质因数分解问题和质性检验问题作为数论研究中的两个重大难题着重推介给国际数学界，要求大家竭尽全力想方设法解决这两个问题，因为这两个问题一旦解决，其它很多数学问题都将迎刃而解。如今，质性检验问题(<code>PTP</code>)基本上算是被解决了。三位印度计算机科学家 Agrawal 、Kayal和 Saxena于2002年提出了一种快速的确定性的质性检验算法，简称为<code>AKS</code>质性检验法。但质因数分解问题仍未解决。</p>
 <p>在《密码学及应用》课程中，我们曾介绍<code>RSA</code>算法在实际网络场景中的巨大用途。由于对大数的因式分解极其困难，对200位数分解因子需40亿年，<code>RSA</code>算法被认为是一种安全的算法。</p>
 <p>在本调研报告中，我将阐述在因式分解的可能解决方案，并分析其可行性。</p>
 <p>最有效的因式分解算法主要可分为两大类：</p>
@@ -1286,7 +1290,7 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('1'),
             headingSelector: 'h1, h2, h3, h4'
         });
 
@@ -1438,7 +1442,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">313.7k</span>&nbsp;字
+                class="white-color">314.3k</span>&nbsp;字
             
             
             
@@ -1735,27 +1739,12 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>
