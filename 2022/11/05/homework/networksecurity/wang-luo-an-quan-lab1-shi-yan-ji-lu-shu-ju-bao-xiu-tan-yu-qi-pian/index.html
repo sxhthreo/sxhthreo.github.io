@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    6
+                                                    7
                                                         分
                                             </div>
                                             
@@ -475,6 +475,7 @@
     pkt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 pkt <span class="token operator">=</span> sniff<span class="token punctuation">(</span><span class="token builtin">filter</span><span class="token operator">=</span><span class="token string">"icmp"</span><span class="token punctuation">,</span>prn<span class="token operator">=</span>print_pkt<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>ping百度官网：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005201950441.png" alt="image-20221005201950441"></p>
 <h2 id="Task1-B-欺骗ICMP数据包"><a href="#Task1-B-欺骗ICMP数据包" class="headerlink" title="Task1.B 欺骗ICMP数据包"></a>Task1.B 欺骗ICMP数据包</h2><p>我们的目标是任意源IP地址欺骗IP数据包。我们将欺骗ICMP回显请求数据包，并将其发送到同一网络上的另一个VM。我们将使用Wireshark观察我们的请求是否会被接收方接受。如果接受，将向伪造的IP地址发送回显回复数据包。<strong>sendFakePackage.py</strong>：</p>
@@ -489,6 +490,7 @@ icmp<span class="token operator">=</span>ICMP<span class="token punctuation">(</
 send<span class="token punctuation">(</span>ip<span class="token operator">/</span>icmp<span class="token punctuation">)</span>
 
 ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122025101.png" alt="image-20220929122025101"></p>
 <p>使用WireShark抓包：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122220354.png" alt="image-20220929122220354"></p>
@@ -512,11 +514,13 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
         traceroute<span class="token punctuation">(</span><span class="token string">"baidu.com"</span><span class="token punctuation">)</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         traceroute<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>sr函数返回两个参数，分别是得到响应的数据包和未响应的数据包。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013222144939.png" alt="image-20221013222144939" style="zoom:50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013222144939.png" alt="image-20221013222144939" style="zoom:50%;" />
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122915332.png" alt="image-20220929122915332"></p>
 <h2 id="Task1-D-先Sniffing后Spoofing"><a href="#Task1-D-先Sniffing后Spoofing" class="headerlink" title="Task1.D 先Sniffing后Spoofing"></a>Task1.D 先Sniffing后Spoofing</h2><p>我们抓取icmp协议的数据包，然后<strong>对数据包进行改造后发回给源地址</strong>实现数据包嗅探和欺骗。</p>
-<p>ttl=64为我们伪造的回复包，ttl=128为正常的相应包。</p>
+<p>ttl&#x3D;64为我们伪造的回复包，ttl&#x3D;128为正常的相应包。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005170949415.png" alt="image-20221005170949415"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005171529451.png" alt="image-20221005171529451"></p>
 <p>我们在另一台虚拟机终端上ping一个不存在的ip地址1.2.3.4，就会发现竟然得到了回显，即我们运行程序的终端在进行嗅探和欺骗。</p>
@@ -595,21 +599,24 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
 	<span class="token function">pcap_close</span><span class="token punctuation">(</span>handle<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Close the handle</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>代码中运用到的函数说明如下：</p>
 <p><strong>pcap_open_live函数获得用于捕获网络数据包的数据包捕获描述字，pcap_compile函数将str参数指定的字符串编译到过滤程序中，pcap_setfilter函数指定一个过滤程序，pcap_loop函数捕获并处理数据包。</strong></p>
 <p>详细介绍：</p>
-<p><strong>函数名称</strong>：pcap_t <em>pcap_open_live(char </em>device, int snaplen, int promisc, int to_ms, char <em>ebuf)<br><strong>函数功能</strong>：获得用于<strong>捕获网络数据包的数据包捕获描述字</strong>。<br><em>*参数说明</em></em>：device 参数为指定打开的网络设备名。snaplen参数定义捕获数据的最大字节数。promisc指定是否将网络接口置于混杂模式。to_ms参数指定超时时间（毫秒）。ebuf参数则仅在pcap_open_live()函数出错返回NULL时用于传递错误消息</p>
-<p><strong>函数名称</strong>：int pcap_compile(pcap_t <em>p, struct bpf_program </em>fp,char <em>str, int optimize, bpf_u_int32 netmask)<br><strong>函数功能</strong>：将str参数指定的字符串编译到过滤程序中。<br><em>*参数说明</em></em>：fp是一个bpf_program结构的指针，在pcap_compile()函数中被赋值。optimize参数控制结果代码的优化。netmask参数指定本地网络的网络掩码。</p>
-<p><strong>函数名称</strong>：int pcap_setfilter(pcap_t <em>p, struct bpf_program </em>fp)<br><strong>函数功能</strong>：<strong>指定一个过滤程序</strong>。<br><strong>参数说明</strong>：fp参数是bpf_program结构指针，通常取自pcap_compile()函数调用。出错时返回-1；成功时返回0。</p>
-<p><strong>函数名称</strong>：int pcap_loop(pcap_t <em>p, int cnt,pcap_handler callback, u_char </em>user)<br><strong>函数功能</strong>：<strong>捕获并处理数据包</strong>。<br><strong>参数说明</strong>：cnt 参数指定函数返回前所处理数据包的最大值。cnt=-1表示在一个缓冲区中处理所有的数据包。cnt=0表示处理所有数据包，直到产生以下错误之一：读取到EOF；超时读取。callback参数指定一个带有三个参数的回调函数，这三个参数为：一个从pcap_dispatch()函数传递过来的 u_char指针，一个pcap_pkthdr结构的指针，和一个数据包大小的u_char指针。如果成功则返回读取到的字节数。读取到EOF时则返回零值。出错时则返回-1，此时可调用pcap_perror()或pcap_geterr()函数获取错误消息。</p>
+<p><strong>函数名称</strong>：pcap_t *pcap_open_live(char *device, int snaplen, int promisc, int to_ms, char *ebuf)<br><strong>函数功能</strong>：获得用于<strong>捕获网络数据包的数据包捕获描述字</strong>。<br><strong>参数说明</strong>：device 参数为指定打开的网络设备名。snaplen参数定义捕获数据的最大字节数。promisc指定是否将网络接口置于混杂模式。to_ms参数指定超时时间（毫秒）。ebuf参数则仅在pcap_open_live()函数出错返回NULL时用于传递错误消息</p>
+<p><strong>函数名称</strong>：int pcap_compile(pcap_t *p, struct bpf_program *fp,char *str, int optimize, bpf_u_int32 netmask)<br><strong>函数功能</strong>：将str参数指定的字符串编译到过滤程序中。<br><strong>参数说明</strong>：fp是一个bpf_program结构的指针，在pcap_compile()函数中被赋值。optimize参数控制结果代码的优化。netmask参数指定本地网络的网络掩码。</p>
+<p><strong>函数名称</strong>：int pcap_setfilter(pcap_t *p, struct bpf_program *fp)<br><strong>函数功能</strong>：<strong>指定一个过滤程序</strong>。<br><strong>参数说明</strong>：fp参数是bpf_program结构指针，通常取自pcap_compile()函数调用。出错时返回-1；成功时返回0。</p>
+<p><strong>函数名称</strong>：int pcap_loop(pcap_t *p, int cnt,pcap_handler callback, u_char *user)<br><strong>函数功能</strong>：<strong>捕获并处理数据包</strong>。<br><strong>参数说明</strong>：cnt 参数指定函数返回前所处理数据包的最大值。cnt&#x3D;-1表示在一个缓冲区中处理所有的数据包。cnt&#x3D;0表示处理所有数据包，直到产生以下错误之一：读取到EOF；超时读取。callback参数指定一个带有三个参数的回调函数，这三个参数为：一个从pcap_dispatch()函数传递过来的 u_char指针，一个pcap_pkthdr结构的指针，和一个数据包大小的u_char指针。如果成功则返回读取到的字节数。读取到EOF时则返回零值。出错时则返回-1，此时可调用pcap_perror()或pcap_geterr()函数获取错误消息。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005205058296.png" alt="image-20221005205058296"></p>
 <h2 id="Task2-B-数据包欺骗"><a href="#Task2-B-数据包欺骗" class="headerlink" title="Task2.B 数据包欺骗"></a>Task2.B 数据包欺骗</h2><p>我们在这里伪造UDP和ICMP请求。我们在myheader.h头文件中定义Ethernet头、IP头、ICMP头、UDP头、TCP头、Psuedo TCP头。spoof.c文件中定义send_raw_ip_packet发送数据包函数，需要执行以下步骤：创建一个原始套接字、设置套接字规则、提供目的地所需的信息，并发出数据包。</p>
 <p>这里以UDP请求的伪造为例（ICMP伪造请求类似，也编写了相应代码并成功运行），<strong>task.c中的执行步骤分别为：填充UDP数据域、UDP头、IP头，并发送欺骗的数据包。</strong></p>
 <p><strong>伪造UDP请求</strong>：</p>
 <pre class="line-numbers language-none"><code class="language-none">gcc -o spoof spoof.c task.c -lpcap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005213231037.png" alt="image-20221005213231037"></p>
 <p><strong>伪造ICMP请求</strong>：</p>
 <pre class="line-numbers language-none"><code class="language-none">gcc -o spoof2 spoof.c task2.c checksum.c -lpcap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005215915441.png" alt="image-20221005215915441"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005215929948.png" alt="image-20221005215929948"></p>
 <h2 id="Task2-C-嗅探-amp-欺骗"><a href="#Task2-C-嗅探-amp-欺骗" class="headerlink" title="Task2.C 嗅探&amp;欺骗"></a>Task2.C 嗅探&amp;欺骗</h2><p>准备两个在同一个局域网的虚拟机，任务中一台虚拟机将同时嗅探和伪造包，实现一个机器ping任意IP x，另一个机器伪造ICMP回复请求，使得其有回复，而IP x所对应的机器可能根本不存在。</p>
@@ -641,7 +648,7 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/11/05/homework/networksecurity/lab1-shi-yan-ji-lu-shu-ju-bao-xiu-tan-yu-qi-pian/">https://sxhthreo.github.io/2022/11/05/homework/networksecurity/lab1-shi-yan-ji-lu-shu-ju-bao-xiu-tan-yu-qi-pian/</a>
+                    <a href="https://sxhthreo.github.io/2022/11/05/homework/networksecurity/wang-luo-an-quan-lab1-shi-yan-ji-lu-shu-ju-bao-xiu-tan-yu-qi-pian/">https://sxhthreo.github.io/2022/11/05/homework/networksecurity/wang-luo-an-quan-lab1-shi-yan-ji-lu-shu-ju-bao-xiu-tan-yu-qi-pian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1409,7 +1416,7 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">331.5k</span>&nbsp;字
+                class="white-color">331.6k</span>&nbsp;字
             
             
             
