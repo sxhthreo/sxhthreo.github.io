@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-01
+                                    2022-12-11
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            9.6k
+                                            11.6k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    45
+                                                    53
                                                         分
                                             </div>
                                             
@@ -988,7 +988,7 @@
 <blockquote>
 <p><strong>证明</strong>：不妨设长度为$x$的最长上升子序列最后一位与长度为$x-1$的相同，则长度为$x$的子序列的倒数第二位必然比最后一位小，故找到一个长度为$x-1$的最长上升子序列，使得其最后一位更小，与前提矛盾。</p>
 </blockquote>
-<p>我们<strong>找到一个最大的小于$a[i]$的数</strong>，如$q[4]$，则$q[5]\geq a[i]$，则$a[i]$无法接到长度大于等于5的上升子序列的后面，因此<strong>以$a[i]$结尾的最大上升子序列为5</strong>。</p>
+<p>我们<strong>找到一个最大的小于$a[i]$的数</strong>，如$q[4]$，则$q[5]\geq a[i]$，则$a[i]$无法接到长度大于等于5的上升子序列的后面，因此<strong>以$a[i]$结尾的最大上升子序列为5</strong>，并将 $q[5]$ 的值更新。</p>
 <blockquote>
 <p>时间复杂度为$O(nlogn)$( $logn$ 为二分查找的时间复杂度)</p>
 </blockquote>
@@ -1203,13 +1203,13 @@ PII city<span class="token punctuation">[</span>N<span class="token punctuation"
 <li>情况2：将当前数放到结尾大于等于它的最小的子序列后面</li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/52042/">如何证明两个数相等？</a> $A&gt;&#x3D;B,A&lt;&#x3D;B$</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/52042/">如何证明两个数相等？</a></p>
+<p>我们证明贪心算法的正确性：</p>
 <p>$A$ 表示贪心算法得到的序列个数，$B$ 表示最优解</p>
-<p>$B&lt;&#x3D;A$：显然</p>
-<p>$A&lt;&#x3D;B$：调整法</p>
-<p>假设存在一种最优策略，不是按照贪心方案进行阶段决策的</p>
-<p>则我们可以通过有限次的调整，把最优解调整成贪心解的方案，且不增加子序列个数，具体如下图所示：</p>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221030125538048.png" alt="贪心法证明" style="zoom:67%;" />
+<p>由于是最优解，必然存在 $B&lt;&#x3D;A$ ，接下来证明 $A&lt;&#x3D;B$，运用<strong>调整法</strong>：</p>
+<p>假设存在一种最优策略，不是按照贪心方案进行阶段决策的，如下图，则最优解序列与贪心法得到的序列不同的数存在关系 $b\geq a$，我们可以通过有限次的调整，把最优解调整成贪心解的方案，且不增加子序列个数。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221127114223390.png" alt="image-20221127114223390"></p>
+<p>故最优解得到的序列个数小于等于贪心算法得到的序列个数。综上，贪心解即是最优解。</p>
 </blockquote>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -1849,8 +1849,123 @@ abc
 
 
 
-<h1 id="七、树形DP"><a href="#七、树形DP" class="headerlink" title="七、树形DP"></a>七、树形DP</h1><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/287/">例：没有上司的舞会</a></p>
-<p>Ural 大学有 $N$ 名职员，编号为 $1∼N$。</p>
+<h1 id="七、树形DP"><a href="#七、树形DP" class="headerlink" title="七、树形DP"></a>七、树形DP</h1><h2 id="6-1-例1：树的最长路径"><a href="#6-1-例1：树的最长路径" class="headerlink" title="6.1 例1：树的最长路径"></a>6.1 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1074/">例1：树的最长路径</a></h2><p>给定一棵树，树中包含 $n$ 个结点（编号 $1-n$）和 $n−1$ 条无向边，每条边都有一个权值。</p>
+<p>现在请你找到树中的一条最长路径。</p>
+<p>换句话说，要找到一条路径，使得使得路径两端的点的距离最远。</p>
+<p>注意：路径中可以只包含一个点。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行包含整数 $n$。</p>
+<p>接下来 $n−1$ 行，每行包含三个整数 $a_i,b_i,c_i$，表示点 $a_i$ 和 $b_i$ 之间存在一条权值为 $c_i$ 的边。</p>
+<p><strong>输出格式</strong></p>
+<p>输出一个整数，表示树的最长路径的长度。</p>
+<p>我们将树按照某个点为根进行展开得到以下树，所有路径经过的最高的点为 $u$：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221129084457640.png" alt="image-20221129084457640"></p>
+<p><strong>DP问题</strong>：</p>
+<ul>
+<li><p><strong>状态表示</strong>$f(0&#x2F;1,j)$：</p>
+<ul>
+<li><strong>集合</strong><ul>
+<li>以节点 $i$ 为根的子树中，从子树某一个节点到 $i$ 的最长路为 $f(0,i)$，次长路为 $f(1,i)$</li>
+<li><strong>属性</strong>：$Max$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>状态计算</strong>：</p>
+<ul>
+<li><p>如果子节点的最长路加上对应边后大于当前的最长路，那么就更新最长路</p>
+</li>
+<li><p>否则如果大于次长路，那么就更新次长路</p>
+</li>
+<li><p>状态转移方程：</p>
+<p>$\left{\begin{array}{c}<br>f_{0, i}&#x3D;\max \limits_{s \in \text { son }<em>{i}}\left{f</em>{0, s}+w_{i, s}\right} \<br>f_{1, i}&#x3D;\max \limits_{s \in \text { soni } \text { and } f_{0, s}+w_{i, s}&lt;f_{0, i}}\left{f_{0, s}+w_{i, s}\right}<br>\end{array}\right.$</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221129085034090.png" alt="image-20221129085034090"></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">10010</span><span class="token punctuation">,</span> M <span class="token operator">=</span> N <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>		<span class="token comment">// 无向边边数*2</span>
+
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> w<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> w<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> c<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> father<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> dist <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 		<span class="token comment">// 表示从当前点往下走的最大长度</span>
+    <span class="token keyword">int</span> d1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> d2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">=</span> ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>	<span class="token comment">// ~i 等同于 i!=-1</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// father保证DFS不往回走, 避免造成死循环</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> father<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> d <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> u<span class="token punctuation">)</span> <span class="token operator">+</span> w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// w[i] 为当前点与子节点边的权值</span>
+        dist <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>d <span class="token operator">>=</span> d1<span class="token punctuation">)</span> d2 <span class="token operator">=</span> d1<span class="token punctuation">,</span> d1 <span class="token operator">=</span> d<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>d <span class="token operator">></span> d2<span class="token punctuation">)</span> d2 <span class="token operator">=</span> d<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> d1 <span class="token operator">+</span> d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> dist<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+
+    <span class="token function">memset</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> a <span class="token operator">>></span> b <span class="token operator">>></span> c<span class="token punctuation">;</span>
+        <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">add</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>无边权</strong>的树的最长路径(<strong>直径</strong>)可以由以下算法得到：</p>
+<ol>
+<li>任取一点作为起点，找到距离该点最远的一个点 $u$，可用 BFS</li>
+<li>再找到距离 $u$ 最远的一点 $v$，可用 BFS</li>
+</ol>
+<p>那么 $u$ 和 $v$ 之间的路径就是一条直径。</p>
+<p><strong>证明</strong></p>
+<p>假设 $a$ 和 $u$ 是由第一步得到的直径，$b$ 和 $c$ 是一条真正的直径。</p>
+<ul>
+<li><p>case 1：<strong>两条直径不相交</strong></p>
+<p>由于 $u$ 是距离 $a$ 最远的点，则有 边 $1\geq$ 边 $2+$ 边 $3$，则有边 $1+$ 边 $2\geq$ 边 $3$</p>
+<p>则 $b$ 到 $u$ 的距离大于等于 $b$ 到 $c$ 的距离，则 $u$ 必然是某个直径的端点</p>
+</li>
+</ul>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221129082335264.png" alt="image-20221129082335264" style="zoom:50%;" />
+
+<ul>
+<li><p>case 2：<strong>两条直径存在交点</strong></p>
+<p>由于 $u$ 是距离 $a$ 最远的点，则有 边 $1\geq$ 边 $2$，则 $b$ 到 $u$ 的距离大于等于 $b$ 到 $c$ 的距离，则 $u$ 必然是某个直径的端点</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221129082723742.png" alt="image-20221129082723742" style="zoom:50%;" /></li>
+</ul>
+</blockquote>
+<h2 id="6-2-例2：没有上司的舞会"><a href="#6-2-例2：没有上司的舞会" class="headerlink" title="6.2 例2：没有上司的舞会"></a>6.2 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/287/">例2：没有上司的舞会</a></h2><p>Ural 大学有 $N$ 名职员，编号为 $1∼N$。</p>
 <p>他们的关系就像一棵以校长为根的树，父节点就是子节点的直接上司。</p>
 <p>每个职员<strong>有一个快乐指数</strong>，用整数 $H_i$ 给出，其中 $1≤i≤N$。</p>
 <p>现在要召开一场周年庆宴会，不过，<strong>没有职员愿意和直接上司一起参会</strong>。</p>
@@ -1935,6 +2050,120 @@ abc
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="6-3-例3：皇宫看守"><a href="#6-3-例3：皇宫看守" class="headerlink" title="6.3 例3：皇宫看守"></a>6.3 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/1079/">例3：皇宫看守</a></h2><p>太平王世子事件后，陆小凤成了皇上特聘的御前一品侍卫。</p>
+<p>皇宫各个宫殿的分布，呈一棵树的形状，宫殿可视为树中结点，两个宫殿之间如果存在道路直接相连，则该道路视为树中的一条边。</p>
+<p>已知，在一个宫殿镇守的守卫不仅能够观察到本宫殿的状况，还能观察到与该宫殿直接存在道路相连的其他宫殿的状况。</p>
+<p>大内保卫森严，三步一岗，五步一哨，每个宫殿都要有人全天候看守，在不同的宫殿安排看守所需的费用不同。</p>
+<p>可是陆小凤手上的经费不足，无论如何也没法在每个宫殿都安置留守侍卫。</p>
+<p>帮助陆小凤布置侍卫，在看守全部宫殿的前提下，使得花费的经费最少。</p>
+<p><strong>输入格式</strong></p>
+<p>输入中数据描述一棵树，描述如下：</p>
+<p>第一行 $n$，表示树中结点的数目。</p>
+<p>第二行至第 $n+1$ 行，每行描述每个宫殿结点信息，依次为：该宫殿结点标号 $i$，在该宫殿安置侍卫所需的经费 $k$，该结点的子结点数 $m$，接下来 $m$ 个数，分别是这个结点的 $m$ 个子结点的标号 $r_1,r_2,…,r_m$。</p>
+<p>对于一个 $n$ 个结点的树，结点标号在 $1$ 到 $n$ 之间，且标号不重复。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221125180222307.png" alt="image-20221125180222307"></p>
+<p><strong>输出格式</strong></p>
+<p>输出一个整数，表示最少的经费。</p>
+<p>本题要求<strong>图中每个点都被观察到</strong>：</p>
+<ul>
+<li>父节点 <strong>放置</strong> 哨兵，所有子节点都 <strong>可放可不放</strong> 哨兵</li>
+<li>父节点 <strong>不放</strong> 哨兵，但是他至少有一个 <strong>子节点</strong> 放置哨兵，观察住了他</li>
+<li>父节点 <strong>不放</strong> 哨兵，但 父节点 的 <strong>父节点</strong> 放置哨兵观察，则 <strong>子节点</strong> 可放可不放 哨兵</li>
+</ul>
+<p>则每个节点有以下三种情况：</p>
+<ul>
+<li>被父节点观察 （0）</li>
+<li>被子节点观察 （1）</li>
+<li>被自己来观察 （2）</li>
+</ul>
+<p><strong>状态表示</strong>：$f_{i,0&#x2F;1&#x2F;2}$ </p>
+<ul>
+<li>集合： 以结点 $i$ 为 根节点 的子树，在 $i$ 状态为 $j$ 的方案</li>
+<li>属性：方案中，放置哨兵的代价最少【最小花费】</li>
+</ul>
+<p><strong>状态计算</strong>：</p>
+<ul>
+<li><strong>在 $i$ 上被父节点观察 （0）</strong>：</li>
+</ul>
+<p>$f_{i, 0} &#x3D;\sum_{i_{c h}} \min \left(f_{i_{c h}, 1}, f_{i_{c h}, 2}\right)$，其中 $i_{c h} \in{\text { ver } \mid \text { ver } \text { 是 } \mathrm{i} \text { 的子节点 }}$</p>
+<ul>
+<li><strong>在 $i$ 上被子节点观察 （1）</strong> ：</li>
+</ul>
+<p>$f_{i, 1}&#x3D;\min \left(f_{i_{c h}, 2}+\sum_{\text {other } i_{c h}} \min \left(f_{ {\text {other } {i_{c h}, 1}}}, f_{\text {other } i_{c h}, 2}\right)\right)$，其中 $i_{c h} \in{v e r \mid v e r \text { 是 } \mathrm{i} \text { 的子节点 }} \quad \text { other } i_{c h} \in\left{v e r \mid v e r \text { 是 } \mathrm{i} \text { 的子节点, 且 } v e r \neq i_{c h}\right}$</p>
+<ul>
+<li><strong>在 $i$ 上被自己来观察 （2）</strong> ：</li>
+</ul>
+<p>$f_{i, 2}&#x3D;\sum_{i_{c h}} \min \left{f_{i_{c h}, 0}, f_{i_{c h}, 1}, f_{i_{c h}, 2}\right}+w_{i}$，其中 $i_{c h} \in{v e r \mid v e r \text { 是 } \mathrm{i} \text { 的子节点 }}$</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1510</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> w<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
+<span class="token keyword">int</span> f<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    f<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token operator">~</span>i<span class="token punctuation">;</span> i <span class="token operator">=</span> ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">// 遍历所有子节点</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        f<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        f<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    f<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1e9</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token operator">~</span>i<span class="token punctuation">;</span> i <span class="token operator">=</span> ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// f[u][0]为所有子节点的摆放方案代价之和, 减去 min(f[j][1], f[j][2]) 即是除了j节点其余节点的代价之和</span>
+        f<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span> <span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+
+    <span class="token function">memset</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> id<span class="token punctuation">,</span> cost<span class="token punctuation">,</span> cnt<span class="token punctuation">;</span>
+        cin <span class="token operator">>></span> id <span class="token operator">>></span> cost <span class="token operator">>></span> cnt<span class="token punctuation">;</span>
+        w<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> cost<span class="token punctuation">;</span>           <span class="token comment">// 点上记录花费</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>cnt <span class="token operator">--</span> <span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> ver<span class="token punctuation">;</span>
+            cin <span class="token operator">>></span> ver<span class="token punctuation">;</span>
+            <span class="token function">add</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> ver<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            st<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token comment">// 标记不是根节点</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">int</span> root <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>st<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">)</span> root <span class="token operator">++</span> <span class="token punctuation">;</span>  <span class="token comment">// 找到根节点</span>
+
+    <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2803,7 +3032,7 @@ abc
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">334.8k</span>&nbsp;字
+                class="white-color">349k</span>&nbsp;字
             
             
             
