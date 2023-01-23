@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="网络安全lab1实验记录(数据包嗅探与欺骗), ShiQuLiZhi BLOG">
+    <meta name="keywords" content="网络安全lab2实验记录(公钥基础设施PKI), ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>网络安全lab1实验记录(数据包嗅探与欺骗) | ShiQuLiZhi BLOG</title>
+    <title>网络安全lab2实验记录(公钥基础设施PKI) | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">网络安全lab1实验记录(数据包嗅探与欺骗)</h1>
+                    <h1 class="description center-align post-title">网络安全lab2实验记录(公钥基础设施PKI)</h1>
                 </div>
             </div>
         </div>
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            1.6k
+                                            1.3k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    6
+                                                    5
                                                         分
                                             </div>
                                             
@@ -455,173 +455,78 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h1><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image002.gif" alt="img"></p>
-<h1 id="Task1"><a href="#Task1" class="headerlink" title="Task1"></a>Task1</h1><h2 id="使用scapy"><a href="#使用scapy" class="headerlink" title="使用scapy"></a>使用scapy</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929110057393.png" alt="image-20220929110057393"></p>
-<p><code>ifconfig</code>可知本机ip地址为10.9.0.1</p>
-<h2 id="Task1-A-嗅探数据包"><a href="#Task1-A-嗅探数据包" class="headerlink" title="Task1.A 嗅探数据包"></a>Task1.A 嗅探数据包</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929114149399.png" alt="image-20220929114149399"></p>
-<p>执行ping：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929120618127.png" alt="image-20220929120618127"></p>
-<p>sniff到了icmp报文：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929120715827.png" alt="image-20220929120715827"></p>
-<p><strong>sniffer.py</strong></p>
-<ol>
-<li>filter：过滤规则，这里过滤的是icmp包</li>
-<li>prn：为每个数据包定义一个回调函数</li>
-</ol>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
-<span class="token keyword">from</span> scapy<span class="token punctuation">.</span><span class="token builtin">all</span> <span class="token keyword">import</span> <span class="token operator">*</span>
-
-<span class="token keyword">def</span> <span class="token function">print_pkt</span><span class="token punctuation">(</span>pkt<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    pkt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-pkt <span class="token operator">=</span> sniff<span class="token punctuation">(</span><span class="token builtin">filter</span><span class="token operator">=</span><span class="token string">"icmp"</span><span class="token punctuation">,</span>prn<span class="token operator">=</span>print_pkt<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>ping百度官网：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005201950441.png" alt="image-20221005201950441"></p>
-<h2 id="Task1-B-欺骗ICMP数据包"><a href="#Task1-B-欺骗ICMP数据包" class="headerlink" title="Task1.B 欺骗ICMP数据包"></a>Task1.B 欺骗ICMP数据包</h2><p>我们的目标是任意源IP地址欺骗IP数据包。我们将欺骗ICMP回显请求数据包，并将其发送到同一网络上的另一个VM。我们将使用Wireshark观察我们的请求是否会被接收方接受。如果接受，将向伪造的IP地址发送回显回复数据包。<strong>sendFakePackage.py</strong>：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
-<span class="token keyword">from</span> scapy<span class="token punctuation">.</span><span class="token builtin">all</span> <span class="token keyword">import</span> <span class="token operator">*</span>
-
-ip <span class="token operator">=</span> IP<span class="token punctuation">(</span><span class="token punctuation">)</span>
-ip<span class="token punctuation">.</span>src <span class="token operator">=</span><span class="token string">"10.0.2.4"</span>
-ip<span class="token punctuation">.</span>dst <span class="token operator">=</span><span class="token string">"192.169.0.1"</span>
-
-icmp<span class="token operator">=</span>ICMP<span class="token punctuation">(</span><span class="token punctuation">)</span>
-send<span class="token punctuation">(</span>ip<span class="token operator">/</span>icmp<span class="token punctuation">)</span>
-
-ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122025101.png" alt="image-20220929122025101"></p>
-<p>使用WireShark抓包：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122220354.png" alt="image-20220929122220354"></p>
-<p>添加<code>ls(ip)</code>语句：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122424924.png" alt="image-20220929122424924"></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122501553.png" alt="image-20220929122501553"></p>
-<h2 id="Task1-C-路由跟踪"><a href="#Task1-C-路由跟踪" class="headerlink" title="Task1.C 路由跟踪"></a>Task1.C 路由跟踪</h2><p>模拟一个traceroute，循环每次TTL+1，中间节点都发回ICMP TTL字段过期的错误信息，目的节点发回ICMP reply就结束</p>
-<p><strong>trace.py</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> scapy<span class="token punctuation">.</span><span class="token builtin">all</span> <span class="token keyword">import</span> <span class="token operator">*</span>
-<span class="token keyword">import</span> sys
- 
- 
-<span class="token keyword">def</span> <span class="token function">traceroute</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> minttl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> maxttl<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span> dport<span class="token operator">=</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"target: %s(port=%s)"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>target<span class="token punctuation">,</span> dport<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    ans<span class="token punctuation">,</span> unans <span class="token operator">=</span> sr<span class="token punctuation">(</span>IP<span class="token punctuation">(</span>dst<span class="token operator">=</span>target<span class="token punctuation">,</span> ttl<span class="token operator">=</span><span class="token punctuation">(</span>minttl<span class="token punctuation">,</span>maxttl<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">id</span><span class="token operator">=</span>RandShort<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span>TCP<span class="token punctuation">(</span>flags<span class="token operator">=</span><span class="token number">0x2</span><span class="token punctuation">,</span> dport<span class="token operator">=</span>dport<span class="token punctuation">)</span><span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> snd<span class="token punctuation">,</span>rcv <span class="token keyword">in</span> ans<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>snd<span class="token punctuation">.</span>ttl<span class="token punctuation">,</span> rcv<span class="token punctuation">.</span>src<span class="token punctuation">)</span>
- 
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">:</span>
-        traceroute<span class="token punctuation">(</span><span class="token string">"baidu.com"</span><span class="token punctuation">)</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        traceroute<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>sr函数返回两个参数，分别是得到响应的数据包和未响应的数据包。</p>
-<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221013222144939.png" alt="image-20221013222144939" style="zoom:50%;" />
-
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220929122915332.png" alt="image-20220929122915332"></p>
-<h2 id="Task1-D-先Sniffing后Spoofing"><a href="#Task1-D-先Sniffing后Spoofing" class="headerlink" title="Task1.D 先Sniffing后Spoofing"></a>Task1.D 先Sniffing后Spoofing</h2><p>我们抓取icmp协议的数据包，然后<strong>对数据包进行改造后发回给源地址</strong>实现数据包嗅探和欺骗。</p>
-<p>ttl&#x3D;64为我们伪造的回复包，ttl&#x3D;128为正常的相应包。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005170949415.png" alt="image-20221005170949415"></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005171529451.png" alt="image-20221005171529451"></p>
-<p>我们在另一台虚拟机终端上ping一个不存在的ip地址1.2.3.4，就会发现竟然得到了回显，即我们运行程序的终端在进行嗅探和欺骗。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005170902195.png" alt="image-20221005170902195"></p>
-<h1 id="Task2"><a href="#Task2" class="headerlink" title="Task2"></a>Task2</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zjl_1026_2001/article/details/2202436">Libpcap库主要函数说明</a></p>
-<h2 id="Task2-A-嗅探数据包"><a href="#Task2-A-嗅探数据包" class="headerlink" title="Task2.A 嗅探数据包"></a>Task2.A 嗅探数据包</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;pcap.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;arpa/inet.h></span></span>
-
-<span class="token comment">/* Ethernet header */</span>
-<span class="token keyword">struct</span> <span class="token class-name">ethheader</span> <span class="token punctuation">&#123;</span>
-  u_char  ether_dhost<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">/* destination host address */</span>
-  u_char  ether_shost<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">/* source host address */</span>
-  u_short ether_type<span class="token punctuation">;</span>     <span class="token comment">/* protocol type (IP, ARP, RARP, etc) */</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token comment">/* IP Header */</span>
-<span class="token keyword">struct</span> <span class="token class-name">ipheader</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">char</span>      iph_ihl<span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token comment">//IP header length</span>
-                     iph_ver<span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">;</span> <span class="token comment">//IP version</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">char</span>      iph_tos<span class="token punctuation">;</span> <span class="token comment">//Type of service</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">short</span> <span class="token keyword">int</span> iph_len<span class="token punctuation">;</span> <span class="token comment">//IP Packet length (data + header)</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">short</span> <span class="token keyword">int</span> iph_ident<span class="token punctuation">;</span> <span class="token comment">//Identification</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">short</span> <span class="token keyword">int</span> iph_flag<span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">//Fragmentation flags(分片标记)</span>
-                     iph_offset<span class="token operator">:</span><span class="token number">13</span><span class="token punctuation">;</span> <span class="token comment">//Flags offset</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">char</span>      iph_ttl<span class="token punctuation">;</span> <span class="token comment">//Time to Live</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">char</span>      iph_protocol<span class="token punctuation">;</span> <span class="token comment">//Protocol type</span>
-  <span class="token keyword">unsigned</span> <span class="token keyword">short</span> <span class="token keyword">int</span> iph_chksum<span class="token punctuation">;</span> <span class="token comment">//IP datagram checksum</span>
-  <span class="token keyword">struct</span>  <span class="token class-name">in_addr</span>    iph_sourceip<span class="token punctuation">;</span> <span class="token comment">//Source IP address</span>
-  <span class="token keyword">struct</span>  <span class="token class-name">in_addr</span>    iph_destip<span class="token punctuation">;</span>   <span class="token comment">//Destination IP address</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">void</span> <span class="token function">got_packet</span><span class="token punctuation">(</span>u_char <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">struct</span> <span class="token class-name">pcap_pkthdr</span> <span class="token operator">*</span>header<span class="token punctuation">,</span><span class="token keyword">const</span> u_char <span class="token operator">*</span>packet<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-  <span class="token keyword">struct</span> <span class="token class-name">ethheader</span> <span class="token operator">*</span>eth <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ethheader</span> <span class="token operator">*</span><span class="token punctuation">)</span>packet<span class="token punctuation">;</span>
-
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">ntohs</span><span class="token punctuation">(</span>eth<span class="token operator">-></span>ether_type<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0x0800</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 0x0800 is IP type</span>
-    <span class="token keyword">struct</span> <span class="token class-name">ipheader</span> <span class="token operator">*</span> ip <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ipheader</span> <span class="token operator">*</span><span class="token punctuation">)</span>
-                           <span class="token punctuation">(</span>packet <span class="token operator">+</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ethheader</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-
-      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"       From: %s\n"</span><span class="token punctuation">,</span> <span class="token function">inet_ntoa</span><span class="token punctuation">(</span>ip<span class="token operator">-></span>iph_sourceip<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
-      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"         To: %s\n"</span><span class="token punctuation">,</span> <span class="token function">inet_ntoa</span><span class="token punctuation">(</span>ip<span class="token operator">-></span>iph_destip<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
-
-      <span class="token comment">/* determine protocol */</span>
-      <span class="token keyword">switch</span><span class="token punctuation">(</span>ip<span class="token operator">-></span>iph_protocol<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>                                 
-        <span class="token keyword">case</span> IPPROTO_TCP<span class="token operator">:</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"   Protocol: TCP\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token keyword">case</span> IPPROTO_UDP<span class="token operator">:</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"   Protocol: UDP\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token keyword">case</span> IPPROTO_ICMP<span class="token operator">:</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"   Protocol: ICMP\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token keyword">default</span><span class="token operator">:</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"   Protocol: others\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Got a packet\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token class-name">pcap_t</span> <span class="token operator">*</span>handle<span class="token punctuation">;</span>
-	<span class="token keyword">char</span> errbuf<span class="token punctuation">[</span>PCAP_ERRBUF_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
-	<span class="token keyword">struct</span> <span class="token class-name">bpf_program</span> fp<span class="token punctuation">;</span>
-	<span class="token keyword">char</span> filter_exp<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"icmp"</span><span class="token punctuation">;</span>
-	bpf_u_int32 net<span class="token punctuation">;</span>
-	handle <span class="token operator">=</span> <span class="token function">pcap_open_live</span><span class="token punctuation">(</span><span class="token string">"ens33"</span><span class="token punctuation">,</span> BUFSIZ<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> errbuf<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">pcap_compile</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token operator">&amp;</span>fp<span class="token punctuation">,</span> filter_exp<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> net<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">pcap_setfilter</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token operator">&amp;</span>fp<span class="token punctuation">)</span> <span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token function">pcap_perror</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token string">"Error:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">exit</span><span class="token punctuation">(</span>EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	<span class="token function">pcap_loop</span><span class="token punctuation">(</span>handle<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> got_packet<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">pcap_close</span><span class="token punctuation">(</span>handle<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Close the handle</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>代码中运用到的函数说明如下：</p>
-<p><strong>pcap_open_live函数获得用于捕获网络数据包的数据包捕获描述字，pcap_compile函数将str参数指定的字符串编译到过滤程序中，pcap_setfilter函数指定一个过滤程序，pcap_loop函数捕获并处理数据包。</strong></p>
-<p>详细介绍：</p>
-<p><strong>函数名称</strong>：pcap_t *pcap_open_live(char *device, int snaplen, int promisc, int to_ms, char *ebuf)<br><strong>函数功能</strong>：获得用于<strong>捕获网络数据包的数据包捕获描述字</strong>。<br><strong>参数说明</strong>：device 参数为指定打开的网络设备名。snaplen参数定义捕获数据的最大字节数。promisc指定是否将网络接口置于混杂模式。to_ms参数指定超时时间（毫秒）。ebuf参数则仅在pcap_open_live()函数出错返回NULL时用于传递错误消息</p>
-<p><strong>函数名称</strong>：int pcap_compile(pcap_t *p, struct bpf_program *fp,char *str, int optimize, bpf_u_int32 netmask)<br><strong>函数功能</strong>：将str参数指定的字符串编译到过滤程序中。<br><strong>参数说明</strong>：fp是一个bpf_program结构的指针，在pcap_compile()函数中被赋值。optimize参数控制结果代码的优化。netmask参数指定本地网络的网络掩码。</p>
-<p><strong>函数名称</strong>：int pcap_setfilter(pcap_t *p, struct bpf_program *fp)<br><strong>函数功能</strong>：<strong>指定一个过滤程序</strong>。<br><strong>参数说明</strong>：fp参数是bpf_program结构指针，通常取自pcap_compile()函数调用。出错时返回-1；成功时返回0。</p>
-<p><strong>函数名称</strong>：int pcap_loop(pcap_t *p, int cnt,pcap_handler callback, u_char *user)<br><strong>函数功能</strong>：<strong>捕获并处理数据包</strong>。<br><strong>参数说明</strong>：cnt 参数指定函数返回前所处理数据包的最大值。cnt&#x3D;-1表示在一个缓冲区中处理所有的数据包。cnt&#x3D;0表示处理所有数据包，直到产生以下错误之一：读取到EOF；超时读取。callback参数指定一个带有三个参数的回调函数，这三个参数为：一个从pcap_dispatch()函数传递过来的 u_char指针，一个pcap_pkthdr结构的指针，和一个数据包大小的u_char指针。如果成功则返回读取到的字节数。读取到EOF时则返回零值。出错时则返回-1，此时可调用pcap_perror()或pcap_geterr()函数获取错误消息。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005205058296.png" alt="image-20221005205058296"></p>
-<h2 id="Task2-B-数据包欺骗"><a href="#Task2-B-数据包欺骗" class="headerlink" title="Task2.B 数据包欺骗"></a>Task2.B 数据包欺骗</h2><p>我们在这里伪造UDP和ICMP请求。我们在myheader.h头文件中定义Ethernet头、IP头、ICMP头、UDP头、TCP头、Psuedo TCP头。spoof.c文件中定义send_raw_ip_packet发送数据包函数，需要执行以下步骤：创建一个原始套接字、设置套接字规则、提供目的地所需的信息，并发出数据包。</p>
-<p>这里以UDP请求的伪造为例（ICMP伪造请求类似，也编写了相应代码并成功运行），<strong>task.c中的执行步骤分别为：填充UDP数据域、UDP头、IP头，并发送欺骗的数据包。</strong></p>
-<p><strong>伪造UDP请求</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">gcc -o spoof spoof.c task.c -lpcap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005213231037.png" alt="image-20221005213231037"></p>
-<p><strong>伪造ICMP请求</strong>：</p>
-<pre class="line-numbers language-none"><code class="language-none">gcc -o spoof2 spoof.c task2.c checksum.c -lpcap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005215915441.png" alt="image-20221005215915441"></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005215929948.png" alt="image-20221005215929948"></p>
-<h2 id="Task2-C-嗅探-amp-欺骗"><a href="#Task2-C-嗅探-amp-欺骗" class="headerlink" title="Task2.C 嗅探&amp;欺骗"></a>Task2.C 嗅探&amp;欺骗</h2><p>准备两个在同一个局域网的虚拟机，任务中一台虚拟机将同时嗅探和伪造包，实现一个机器ping任意IP x，另一个机器伪造ICMP回复请求，使得其有回复，而IP x所对应的机器可能根本不存在。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005221640676.png" alt="image-20221005221640676"></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221005221612075.png" alt="image-20221005221612075"></p>
+                                <h1 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h1><p>实验场景：虚拟机seedlab ubuntu20.04，及内置docker容器。</p>
+<p>实验原理：</p>
+<p>在计算机网络上，OpenSSL是一个开放源代码的软件库包，应用程序可以使用这个包来进行安全通信，避免窃听，同时确认另一端连接者的身份。这个包广泛被应用在互联网的网页服务器上。</p>
+<p>PKI基本结构由证书认证机构(certificate authority, CA)、证书持有者(certificate holder)、依赖方(relying party)三方构成。实验主要包含三大部分，示意图如下所示：</p>
+<p><strong>（1）证书的生成</strong>：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image002.gif" alt="img"></p>
+<p><strong>（2）证书的验证</strong>：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image004.gif" alt="img"></p>
+<p><strong>（3）中间人攻击</strong>：</p>
+<p>假设Alice希望通过HTTPS协议访问example.com。她需要从example.com服务器获取公钥；Alice将生成一个秘密，并使用服务器的公钥加密该秘密，然后将其发送到服务器。如果攻击者能够拦截Alice和服务器之间的通信，则攻击者可以用自己的公钥替换服务器的公钥。因此，Alice的秘密实际上是用攻击者的公钥加密的，因此攻击者将能够读取该秘密。攻击者可以使用服务器的公钥将机密转发给服务器。该秘密用于加密Alice和服务器之间的通信，因此攻击者可以解密加密的通信。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image006.jpg" alt="img"></p>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><p><strong>配置实验环境</strong></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006101307005.png" alt="image-20221006101307005"></p>
+<h2 id="Task1-生成CA"><a href="#Task1-生成CA" class="headerlink" title="Task1 生成CA"></a>Task1 生成CA</h2><p>将/usr/lib/ssl目录下的openssl.cnf文件复制到当前实验文件夹lab-pki中，并对其进行修改，将” #unique_subject = no”注释取消。然后在lab-pki中创建demoCA文件夹并在其中创建以下目录和文件：certs、crl、newcerts、index.txt(空文档)、serial(文档，内写有字符“1000”)。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006103459603.png" alt="image-20221006103459603"></p>
+<pre class="line-numbers language-none"><code class="language-none">openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -keyout ca.key -out ca.crt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006103805755.png" alt="image-20221006103805755"></p>
+<p>存储在两个文件中：ca.key 和 ca.crt。文件ca.key 包含 CA 的私钥，而 ca.crt 包含公钥证书。</p>
+<h2 id="Task2-为Web服务器生成证书请求-CSR"><a href="#Task2-为Web服务器生成证书请求-CSR" class="headerlink" title="Task2 为Web服务器生成证书请求(CSR)"></a>Task2 为Web服务器生成证书请求(CSR)</h2><pre class="line-numbers language-none"><code class="language-none">openssl req -newkey rsa:2048 -sha256 -keyout server.key -out server.csr -subj &quot;&#x2F;CN&#x3D;www.bank32.com&#x2F;O&#x3D;Bank32 Inc.&#x2F;C&#x3D;US&quot; -passout pass:dees<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>该命令将生成一对公钥和私钥，然后从公钥创建证书签名请求。</p>
+<p>我们查看CSR与私钥文件的内容：</p>
+<pre class="line-numbers language-none"><code class="language-none">openssl req -in server.csr -text -noout
+openssl rsa -in server.key -text -noout<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006104150515.png" alt="image-20221006104150515"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006104331494.png" alt="image-20221006104331494"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006104348337.png" alt="image-20221006104348337"></p>
+<p>我们可以在证书签名请求中添加两个备用名称：</p>
+<pre class="line-numbers language-none"><code class="language-none">openssl req -newkey rsa:2048 -sha256 -keyout server.key -out server.csr -subj &quot;&#x2F;CN&#x3D;www.bank32.com&#x2F;O&#x3D;Bank32 Inc.&#x2F;C&#x3D;US&quot; -passout pass:dees -addext &quot;subjectAltName &#x3D; DNS:www.bank32.com,DNS:www.bank32A.com,DNS:www.bank32B.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="Task3-为服务器生成证书"><a href="#Task3-为服务器生成证书" class="headerlink" title="Task3 为服务器生成证书"></a>Task3 为服务器生成证书</h2><pre class="line-numbers language-none"><code class="language-none">openssl ca -config openssl.cnf -policy policy_anything -md sha256 -days 3650 -in server.csr -out server.crt -batch -cert ca.crt -keyfile ca.key<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006105014276.png" alt="image-20221006105014276"></p>
+<p>证书签名后，使用以下命令打印证书的解码内容，并检查是否包含替代名称。</p>
+<pre class="line-numbers language-none"><code class="language-none">openssl x509 -in server.crt -text -noout<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在我们的容器中：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006110318157.png" alt="image-20221006110318157"></p>
+<p>通过docker容器和虚拟机之间的共享文件夹volumes，我们可以在SSLCertificateFile和SSLCertificateKeyFile后面写上的目录中放入我们之前生成的证书和密钥。即：server.crt，server.key</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006174207655.png" alt="image-20221006174207655"></p>
+<pre class="line-numbers language-none"><code class="language-none">a2enmod ssl &#x2F;&#x2F; 启用ssl模块
+a2ensite bank32_apache_ssl &#x2F;&#x2F; 启用此文件中描述的站点
+service apache2 restart &#x2F;&#x2F; 重启服务器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006174124010.png" alt="image-20221006174124010"></p>
+<blockquote>
+<p>共享文件夹使用：</p>
+<p><strong>虚拟机</strong></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006113338312.png" alt="image-20221006113338312"></p>
+<p><strong>docker容器</strong></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006113357164.png" alt="image-20221006113357164"></p>
+</blockquote>
+<p>将 <code>server.crt</code> 和 <code>server.key</code> 复制进 <code>certs</code> 中，并修改 <code>Dockerfile</code></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006113715270.png" alt="image-20221006113715270"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006174738988.png" alt="123"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006174226363.png" alt="image-20221006174226363"></p>
+<h2 id="Task4-发起中间人攻击"><a href="#Task4-发起中间人攻击" class="headerlink" title="Task4 发起中间人攻击"></a>Task4 发起中间人攻击</h2><p>在/etc/hosts文件中加入：10.9.0.80  www.csujwc.its.csu.edu.cn</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006204100866.png" alt="image-20221006204100866"></p>
+<p>将网站的html放至/var/www目录中：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006205550794.png" alt="image-20221006205550794"></p>
+<p>由于无法得到csujwc.its.csu.edu.cn的有效证书，所以我们将使用与我们服务器相同的证书。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006225909010.png" alt="image-20221006225909010"></p>
+<pre class="line-numbers language-none"><code class="language-none">service apache2 reload	&#x2F;&#x2F;重新配置
+a2enmod ssl &#x2F;&#x2F; 启用ssl模块
+a2ensite bank32_apache_ssl &#x2F;&#x2F; 启用此文件中描述的站点
+service apache2 restart &#x2F;&#x2F; 重启服务器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们没有发起实际的 DNS 缓存中毒攻击，而是简单地修改受害者机器的 /etc/hosts 文件，通过将主机名映射到<a target="_blank" rel="noopener" href="https://www.csujwc.its.csu.edu.cn/我们的恶意Web">https://www.csujwc.its.csu.edu.cn/我们的恶意Web</a> 服务器来模拟DNS 缓存定位攻击的结果。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006225831025.png" alt="image-20221006225831025"></p>
+<h2 id="Task5-使用受损CA发起中间人攻击"><a href="#Task5-使用受损CA发起中间人攻击" class="headerlink" title="Task5 使用受损CA发起中间人攻击"></a>Task5 使用受损CA发起中间人攻击</h2><p>在此任务中，我们假设在前面创建的根 CA 被攻击者破坏，并且其私钥被盗。因此，攻击者可以使用该CA 的私钥生成任意证书。在这项任务中，我们将看到这种妥协的后果。</p>
+<p>请设计一个实验，证明攻击者可以成功地对任何 HTTPS 网站发起 MITM 攻击。您可以使用在任务5 中创建的相同设置，但这一次，您需要证明 MITM 攻击成功，即当受害者尝试访问网站时，浏览器不会引起任何怀疑，但登陆 MITM 攻击者的假冒网站。</p>
+<p>以同样的步骤为www.csujwc.its.csu.edu.cn生成证书csu.crt：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006233908522.png" alt="image-20221006233908522"></p>
+<p>配置apache文件：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006233800236.png" alt="image-20221006233800236"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006233041547.png" alt="image-20221006233041547"></p>
+<p>可以看到：重启docker容器的Apache服务器，在虚拟机浏览器中访问网址<a target="_blank" rel="noopener" href="https://www.csujwc.its.csu.edu.cn/，即可正常浏览。">https://www.csujwc.its.csu.edu.cn/，即可正常浏览。</a></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221006234011517.png" alt="image-20221006234011517"></p>
 
                                     
                             </div>
@@ -648,7 +553,7 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/11/05/homework/networksecurity/wang-luo-an-quan-lab1-shi-yan-ji-lu-shu-ju-bao-xiu-tan-yu-qi-pian/">https://sxhthreo.github.io/2022/11/05/homework/networksecurity/wang-luo-an-quan-lab1-shi-yan-ji-lu-shu-ju-bao-xiu-tan-yu-qi-pian/</a>
+                    <a href="https://sxhthreo.github.io/2022/11/05/homework/security/wang-luo-an-quan-lab2-shi-yan-ji-lu-gong-yao-ji-chu-she-shi-pki/">https://sxhthreo.github.io/2022/11/05/homework/security/wang-luo-an-quan-lab2-shi-yan-ji-lu-gong-yao-ji-chu-she-shi-pki/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1074,13 +979,13 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/05/homework/algorithm/si-kao-ti-1104-zheng-ming/">
+                <a href="/2022/11/05/homework/security/wang-luo-an-quan-lab3-shi-yan-ji-lu-an-quan-chuan-shu-ceng-xie-yi-tls/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="算法课外思考题1104(证明)">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="网络安全lab3实验记录(安全传输层协议TLS)">
                         
-                        <span class="card-title">算法课外思考题1104(证明)</span>
+                        <span class="card-title">网络安全lab3实验记录(安全传输层协议TLS)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1108,12 +1013,12 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
                     </a>
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">网络安全</span>
                     </a>
                     
                 </div>
@@ -1127,13 +1032,13 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/02/homework/algorithm/si-kao-ti-1102-lu-fen-jie-yu-ju-zhen-de-ni/">
+                <a href="/2022/11/05/homework/algorithm/si-kao-ti-1104-zheng-ming/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="算法课外思考题1102(LU分解与矩阵的逆)">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="算法课外思考题1104(证明)">
                         
-                        <span class="card-title">算法课外思考题1102(LU分解与矩阵的逆)</span>
+                        <span class="card-title">算法课外思考题1104(证明)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1144,7 +1049,7 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-05
                             </span>
                         <span class="publish-author">
                             
@@ -1407,7 +1312,7 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022</span>
+                <span id="year">2022-2023</span>
             
             <span id="year">2022</span>
             <a href="/about" target="_blank">ShiQuLiZhi</a>
@@ -1416,7 +1321,7 @@ ls<span class="token punctuation">(</span>ip<span class="token punctuation">)</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">349k</span>&nbsp;字
+                class="white-color">378.4k</span>&nbsp;字
             
             
             

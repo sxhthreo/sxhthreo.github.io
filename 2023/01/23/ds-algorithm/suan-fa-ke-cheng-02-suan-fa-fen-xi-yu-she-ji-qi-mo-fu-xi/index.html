@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="网络安全第二次作业20221019, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="算法分析与设计期末复习, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>网络安全第二次作业20221019 | ShiQuLiZhi BLOG</title>
+    <title>算法分析与设计期末复习 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">网络安全第二次作业20221019</h1>
+                    <h1 class="description center-align post-title">算法分析与设计期末复习</h1>
                 </div>
             </div>
         </div>
@@ -370,15 +370,21 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">
-                                        信息安全
+                                        算法
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
                                     <span class="chip bg-color">
-                                        网络安全
+                                        理论知识
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">
+                                        程序设计
                                     </span>
                                 </a>
                                 
@@ -390,8 +396,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                                 
                         </div>
@@ -404,7 +410,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-10-19
+                            2023-01-23
                     </div>
                     
 
@@ -412,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-05
+                                    2023-01-23
                             </div>
                             
 
@@ -420,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            2.3k
+                                            35
                                     </div>
                                     
 
@@ -428,7 +434,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    8
+                                                    1
                                                         分
                                             </div>
                                             
@@ -455,63 +461,13 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <p><strong>1.列举利用网络层、传输层、应用层机制实现放大式拒绝服务攻击的方式。说明导致其放大攻击效果的原因。尝试提出相应的应对策略。</strong></p>
-<p>【解】</p>
-<p>（1）网络层：</p>
-<p>方式：利用ICMP协议进行Smurf 放大式DoS攻击。假冒受害者地址发送ping请求包给广播地址大量的应答包，广播域内的每台主机都会产生一个ping 应答给受害者，通过网关广播实现放大效果。</p>
-<p>应对策略：禁止外网对广播地址发包。</p>
-<p>（2）传输层：</p>
-<p>方式：利用TCP协议进行SYN泛洪攻击。</p>
-<p>①低速DDos攻击：早期的操作系统TCP实现采用了三次握手的缓存机制，能够保存的连接数有限；攻击方发送多个源地址随机的SYN报文，充满服务器的等待队列，使得服务器无法与其他主机建立合法的连接请求。</p>
-<p>②Massive flood泛洪攻击：让僵尸网络对特定目标发起泛洪攻击，20,000僵尸能够产生2Gb&#x2F;秒的SYNs包，从而在web 站点方阻塞了网络上传链路或路由器，且使用随机source IP ，攻击的SYNs包与真实SYNs看起来一样。</p>
-<p>应对策略：</p>
-<p>①对低速DDos攻击的应对措施：</p>
-<p>下策：增加等待队列的尺寸；降低过时阈值；</p>
-<p>使用Syncookies机制，利用密钥和数据包中的数据产生服务器SN，在三次握手过程中，服务端不再保存状态，服务器只有在验证AN中的SNs与本地计算一致才为TCP连接分配空间。</p>
-<p>②对Massive flood泛洪攻击的应对措施：</p>
-<p>使用Prolexic代理，只将已建立的TCP连接转发到站点，代理容量可以达到20Gb&#x2F;秒，可以处理$40*10^6; SYN&#x2F;秒$。</p>
-<p>（3）应用层：</p>
-<p>方式：利用DNS进行拒绝服务攻击。向受害机大量发送解析的请求，UDP请求包中应用Random source IP address，使整个DNS server无法工作，附带的危害是所有该服务器上对应域名网站都无法提供服务。</p>
-<p>应对策略：</p>
-<p>①开发合作域名解析系统；</p>
-<p>②DNS系统的P2P设计，DNS节点分担负载简单的DNS条目更新，向后兼容现有DNS；</p>
-<p>③设置防火墙策略，对不正当的DNS解析请求进行过滤。</p>
-<p><strong>2.说明Syncookies机制为什么既能防御SYN攻击，又能保证三次握手的顺利进行？</strong></p>
-<p>【解】Syncookies机制利用密钥和数据包中的数据产生服务器SN。在三次握手过程中，服务端不再保存状态。当客户端发出TCP握手请求时，服务器回应客户端SYN-ACK cookie而不保存状态，避免大量TCP请求占用等待队列造成服务器无法正常工作。Cookie的相关参数如下：</p>
-<p>T &#x3D; 5位计数器，每64秒递增一次；</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image004.png" alt="img">，共24bit，其中key是服务器启动时产生的随机数；</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image006.png" alt="img"></p>
-<p>合法客户端返回ACK包（AN&#x3D;SNs，SN&#x3D;SNc+1），服务器可以验证SNs的合法性，只有在验证AN中的SNs 与本地计算一致才为TCP连接分配空间。验证方法是：将数据包中的SAddr, SPort, DAddr, DPort, SNC与本地T,key一起计算MAC值，与AN比对，可以验证这次的应答是否来自于前面发送握手请求者，且该请求者确实收到了服务器应答包。从而保证了三次握手的顺利进行。</p>
-<p><strong>3.什么是BGP路由劫持？</strong></p>
-<p>【解】BGP协议用于域间路由，使用路径向量算法，尽力寻找一条能够到达目的网络且比较好的路由。BGP路由劫持指攻击者恶意改变互联网流量的路由，恶意攻击者往往通过伪造BGP消息中的起源AS号来实施路由劫持。如下图中的例子，AS2非法向外通告16.1.0.0&#x2F;16：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image008.jpg" alt="img"></p>
-<p>在AS3向外通告16.1.0.0&#x2F;16的基础上，AS2恶意伪造路由通告，即向外谎称自己是16.1.0.0&#x2F;16的起源AS；</p>
-<p>AS5收到的16.1.0.0&#x2F;16的真实路由长度为3，虚假路由长度为1，根据BGP最短AS路径优先的原则，AS5将选取该虚假路由；</p>
-<p>原本流向AS3的全部流量被劫持到AS2，该虚假路由经由AS5发送给AS7，AS7收到的16.1.0.0&#x2F;16的真实路由和虚假路由的AS路径长度一样，AS7会根据其他路由规则选择真实路由和虚假路由之一，如果选择了后者，那么原本流向AS3的流量同样会被劫持到AS2，从而实现BGP路由劫持。</p>
-<p><strong>4.邮件中继的作用是什么？恶意邮件中继发送垃圾邮件的基本方式？</strong></p>
-<p>【解】</p>
-<p>①邮件中继的作用：邮件中继指在不改变用户邮件地址（发件人）的前提下，将用户邮件通过多链路SMTP邮件转发服务器投递到收件人邮件服务器，主要是为了解决邮件外发退信问题，使得邮件可以正常转发到目的地。邮件的收发环境复杂，可能导致邮件退信的因素很多，需要依靠寄托于第三方的邮件中继转发服务进行解决。</p>
-<p>②基本方式：</p>
-<p><strong>I</strong> <strong>Open Relay</strong>：Open Relay是指由于邮件服务器不理会邮件发送者或邮件接受者的是否为系统所设定的用户，而对所有的入站邮件一律进行转发，导致了邮件中继转发了大量垃圾邮件，一般过程是：</p>
-<p>①批量电子邮件工具通过SMTP连接(端口25)；</p>
-<p>②发送收件人列表(通过RCPT TO命令)；</p>
-<p>③发送电子邮件主体，可以一次发送所有收件人；</p>
-<p>④传递消息。</p>
-<p><strong>II</strong> <strong>Open Proxies</strong>：Open Proxies默认允许以HTTP CONNECT METHOD 连接任意的一个TCP端口，当Proxy没有对使用者及相应的TCP端口做相应的限制时，恶意邮件发送者可以利用其Proxy来连接另外一台邮件服务器的25端口，并发送特定的SMTP指令就可以通过这个Proxy发送大量的垃圾邮件。</p>
-<p><strong>5.为什么DoS溯源很困难？如果能够修改路由器的机制，利用traceback 机制是否能够实现溯源，其局限性在哪里？</strong></p>
-<p>【解】Dos溯源现有的方式主要有以下三种：</p>
-<p>①入口过滤：ISP仅转发合法源IP的数据包；</p>
-<p>②traceback 追踪：它的目标是，有很多攻击包的情况下，确定到攻击源点的路径，问题则是如何改变路由器在数据包中记录相应的信息。traceback 能成功主要的假设有：大部分路由器没有被攻占；攻击者发送了很多数据包；从攻击者到受害者的路径保持相对稳定；</p>
-<p>③路径重构：从攻击包中抽取路径信息，构建以受害者为根的图。</p>
-<p>但上述三种方式存在明显的问题：</p>
-<p>①由于攻击者进行DoS攻击时能够伪造源IP地址，入口过滤不能过滤到攻击者发出的数据包；</p>
-<p>②我们在追踪过程中可以将路径写在网络数据包中，但路径可能较长，而且当前IP格式中没有额外字段，对数据包格式的更改是不现实的；</p>
-<p>③需要改变路由器的处理过程，且无法针对反射型攻击溯源。在反射型DDoS攻击中，由于攻击方并不直接攻击目标服务IP地址，而是利用互联网的某些特殊服务开放的服务器，将这些有开放服务的服务器作为反射源，通过伪造被攻击方的IP地址，向反射源发送构造的请求报文，因此反射源服务器在接收到请求报文后，会将数倍于请求报文的回复数据发送到被攻击方的IP地址。由于反射源收到的地址是攻击方伪造的被攻击方的IP地址，而被攻击方收到的地址则是反射源的地址，因此无法知道真正发起攻击的攻击方的IP地址，造成反射型DDoS攻击的溯源极其困难。</p>
-<p>综上，DoS溯源是很困难的。</p>
-<p>   若能够修改路由器的机制，我们可以通过修改路由器转发设置，在转发包时，在其中添加上一跳的路由IP和下一跳的路由IP信息，即可实现一些场景下的DoS溯源。局限性有以下几点：</p>
-<p>①会占用额外的包数据空间，浪费网络带宽，影响网络通信的速度和效率；</p>
-<p>②若网络中的节点较多，存在僵尸网络，溯源的难度大、效率低；</p>
-<p>③仍无法应对反射型DDoS攻击的溯源。</p>
+                                <h1 id="算法分析与设计期末复习"><a href="#算法分析与设计期末复习" class="headerlink" title="算法分析与设计期末复习"></a>算法分析与设计期末复习</h1><h1 id="一、贪心"><a href="#一、贪心" class="headerlink" title="一、贪心"></a>一、贪心</h1><h2 id="1-1-埃及分数"><a href="#1-1-埃及分数" class="headerlink" title="1.1 埃及分数"></a>1.1 埃及分数</h2><p>$7/8=1/2+1/3+1/24$</p>
+<p>对于分数 $A/B$ ( $A<B$ )，$B=A*C+D$，则 $B/A=C+D/A<C+1$，则 $A/B>1/(C+1)$</p>
+<p>则 $1/(C+1)$ 是包含于 $A/B$ 中最大的埃及分数。</p>
+<p>令 $E=C+1$，则 $A/B-1/E=((A<em>E)-B)/(B</em>E)$</p>
+<p><strong>算法</strong>：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123134304686.png" alt="image-20230123134304686"></p>
+<h2 id="1-2-活动选择问题"><a href="#1-2-活动选择问题" class="headerlink" title="1.2 活动选择问题"></a>1.2 活动选择问题</h2><p><strong>贪心算法</strong>：</p>
 
                                     
                             </div>
@@ -538,7 +494,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/10/19/homework/networksecurity/wang-luo-an-quan-di-er-ci-zuo-ye/">https://sxhthreo.github.io/2022/10/19/homework/networksecurity/wang-luo-an-quan-di-er-ci-zuo-ye/</a>
+                    <a href="https://sxhthreo.github.io/2023/01/23/ds-algorithm/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-qi-mo-fu-xi/">https://sxhthreo.github.io/2023/01/23/ds-algorithm/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-qi-mo-fu-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -576,15 +532,21 @@
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                                    <a href="/tags/%E7%AE%97%E6%B3%95/">
                                                         <span class="chip bg-color">
-                                                            信息安全
+                                                            算法
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                                                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
                                                         <span class="chip bg-color">
-                                                            网络安全
+                                                            理论知识
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                                        <span class="chip bg-color">
+                                                            程序设计
                                                         </span>
                                                     </a>
                                                     
@@ -960,17 +922,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/21/homework/algorithm/si-kao-ti-1021-xiang-si-du-yu-que-ding-shang-ban-lu-xian/">
+                <a href="/2023/01/23/ds-algorithm/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-qi-mo-fu-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="算法课外思考题1021(相似度与确定上班路线)">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="算法分析与设计期末复习">
                         
-                        <span class="card-title">算法课外思考题1021(相似度与确定上班路线)</span>
+                        <span class="card-title">算法分析与设计期末复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -980,26 +943,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">理论知识</span>
                     </a>
                     
                     <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
@@ -1017,13 +985,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/19/homework/algorithm/si-kao-ti-1019-xin-pian-she-ji/">
+                <a href="/2023/01/20/homework/security/ruan-jian-an-quan-shi-yan-bao-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="算法课外思考题1019(芯片设计)">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="软件安全实验报告">
                         
-                        <span class="card-title">算法课外思考题1019(芯片设计)</span>
+                        <span class="card-title">软件安全实验报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1034,7 +1002,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-20
                             </span>
                         <span class="publish-author">
                             
@@ -1051,12 +1019,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
                     </a>
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">软件安全</span>
                     </a>
                     
                 </div>
@@ -1297,7 +1265,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022</span>
+                <span id="year">2022-2023</span>
             
             <span id="year">2022</span>
             <a href="/about" target="_blank">ShiQuLiZhi</a>
@@ -1306,7 +1274,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">349k</span>&nbsp;字
+                class="white-color">378.4k</span>&nbsp;字
             
             
             

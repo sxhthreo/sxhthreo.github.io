@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    9
+                                                    8
                                                         分
                                             </div>
                                             
@@ -460,10 +460,10 @@
 <ul>
 <li>第一步是创建TLS上下文对象。对象中保存了我们对证书的认证与加密算法选择的偏好设置。代码中context部分.</li>
 <li>第二步是建立TCP握手协议,进行TCP连接,代码sock部分.</li>
-<li>第三步是调用第一步创建的上下文对象,对其使用wrap_socket()方法，表示让OpenSLL库负责控制我们的TCP链接。然后与通信对方交换必要的握手信息，并建立加密链接。代码中ssock &#x3D;context.wrap_socket…部分</li>
+<li>第三步是调用第一步创建的上下文对象,对其使用wrap_socket()方法，表示让OpenSLL库负责控制我们的TCP链接。然后与通信对方交换必要的握手信息，并建立加密链接。代码中ssock =context.wrap_socket…部分</li>
 <li>最后一步是使用wrap_socket()调用返回的ssl_sock对象，进行所有的后续通信。后续进行通信需要使用类似 ssock.方法名 格式进行使用.</li>
 </ul>
-<h1 id="Task1-配置TLS客户端"><a href="#Task1-配置TLS客户端" class="headerlink" title="Task1 配置TLS客户端"></a>Task1 配置TLS客户端</h1><h2 id="1-1-TLS握手协议"><a href="#1-1-TLS握手协议" class="headerlink" title="1.1 TLS握手协议"></a>1.1 TLS握手协议</h2><p>在lab3&#x2F;Labsetup文件夹中打开终端，将<code>handshake.py</code>设置为可执行，并执行命令：<code>./handshake.py www.baidu.com</code>，终端打印出TLS握手协议过程。</p>
+<h1 id="Task1-配置TLS客户端"><a href="#Task1-配置TLS客户端" class="headerlink" title="Task1 配置TLS客户端"></a>Task1 配置TLS客户端</h1><h2 id="1-1-TLS握手协议"><a href="#1-1-TLS握手协议" class="headerlink" title="1.1 TLS握手协议"></a>1.1 TLS握手协议</h2><p>在lab3/Labsetup文件夹中打开终端，将<code>handshake.py</code>设置为可执行，并执行命令：<code>./handshake.py www.baidu.com</code>，终端打印出TLS握手协议过程。</p>
 <p><code>handshake.py</code>中<strong>定义了要握手的域名主机地址、端口(https为443端口)、证书地址cadir、TLS协议目录等，并调用sock.connect函数进行TCP连接，ssl.wrap_socket函数接受一个已存在的socket作为参数并使用SSL层来包装它，并执行TLS握手，并打印相关主机信息</strong>。代码如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python3</span>
 
@@ -514,7 +514,6 @@ pprint<span class="token punctuation">.</span>pprint<span class="token punctuati
 <span class="token comment"># Close the TLS Connection</span>
 ssock<span class="token punctuation">.</span>shutdown<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>SHUT_RDWR<span class="token punctuation">)</span>
 ssock<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007162832371.png" alt="image-20221007162832371"></p>
 <p>ECDHE-RSA-AES128-GCM-SHA256,每个参数的意思为：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/20201224141915472.png" alt="img"></p>
@@ -523,28 +522,23 @@ ssock<span class="token punctuation">.</span>close<span class="token punctuation
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007163049397.png" alt="image-20221007163049397"></p>
 <p>获得证书的哈希值：</p>
 <pre class="line-numbers language-none"><code class="language-none">openssl x509 -in GlobalSign_Root_CA.pem -noout -subject_hash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>得到5ad8a5d6，并进行链接：</p>
 <pre class="line-numbers language-none"><code class="language-none">ln -s GlobalSign_Root_CA.pem 5ad8a5d6.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007163244458.png" alt="image-20221007163244458"></p>
 <p>我们修改<code>handshake.py</code>文件：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007163443912.png" alt="image-20221007163443912"></p>
 <p>可以成功进行TLS握手：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007163517209.png" alt="image-20221007163517209"></p>
-<h2 id="1-3-主机名检查"><a href="#1-3-主机名检查" class="headerlink" title="1.3 主机名检查"></a>1.3 主机名检查</h2><p>handshake.py文件中的cadir 更换回 ’&#x2F;etc&#x2F;ssl&#x2F;certs’。在任意位置打开终端，输入命令：</p>
+<h2 id="1-3-主机名检查"><a href="#1-3-主机名检查" class="headerlink" title="1.3 主机名检查"></a>1.3 主机名检查</h2><p>handshake.py文件中的cadir 更换回 ’/etc/ssl/certs’。在任意位置打开终端，输入命令：</p>
 <pre class="line-numbers language-none"><code class="language-none">dig www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>我们获得<a href="http://www.example.com的ip地址93.184.216.34：">www.example.com的ip地址93.184.216.34：</a></p>
+<p>我们获得www.example.com的ip地址93.184.216.34：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007164037183.png" alt="ip地址93.184.216.34"></p>
-<p>然后我们在&#x2F;etc文件夹中打开终端，输入命令：</p>
+<p>然后我们在/etc文件夹中打开终端，输入命令：</p>
 <pre class="line-numbers language-none"><code class="language-none">vim hosts<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>修改hosts文件，在其末尾加入93.184.216.34    <a target="_blank" rel="noopener" href="http://www.example2020.com这一条数据/">www.example2020.com这一条数据</a></p>
+<p>修改hosts文件，在其末尾加入93.184.216.34    www.example2020.com这一条数据</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007164254294.png" alt="image-20221007164254294"></p>
-<p>然后esc，输入:wq!保存退出hosts文件。将handshake.py文件中的context.check_hostname &#x3D; True一句True更改为False，即取消域名检查。再在lab3文件夹中执行命令：</p>
+<p>然后esc，输入:wq!保存退出hosts文件。将handshake.py文件中的context.check_hostname = True一句True更改为False，即取消域名检查。再在lab3文件夹中执行命令：</p>
 <pre class="line-numbers language-none"><code class="language-none">sudo .&#x2F;handshake.py www.example2020.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>发现连接成功：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007164737724.png" alt="image-20221007164737724"></p>
 <p>如果我们将handshake.py文件中的域名检查命令更改为真，再次执行命令，将发现连接失败，原因是<strong>域名不匹配</strong>。</p>
@@ -554,44 +548,40 @@ ssock<span class="token punctuation">.</span>close<span class="token punctuation
 <p>保存后执行，连接任意网站，即可获得服务器的response报文。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007165217410.png" alt="image-20221007165217410"></p>
 <h1 id="Task2-TLS服务器"><a href="#Task2-TLS服务器" class="headerlink" title="Task2 TLS服务器"></a>Task2 TLS服务器</h1><h2 id="2-1-实现一个简单的TLS服务器"><a href="#2-1-实现一个简单的TLS服务器" class="headerlink" title="2.1 实现一个简单的TLS服务器"></a>2.1 实现一个简单的TLS服务器</h2><p>在docker容器中运行server.py文件即可模拟TLS服务器，需要注意的是，我们还需要生成服务器对应的证书和密钥，使用PKI实验中的命令，我们得到了qzs.crt和qzs.key，本实验中使用的域名为：</p>
-<p><a target="_blank" rel="noopener" href="http://www.qzs2022.com/">www.qzs2022.com</a></p>
+<p>www.qzs2022.com</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007172959533.png" alt="image-20221007172959533"></p>
-<p>将这两个文件复制，放入lab3&#x2F;labsetup&#x2F;volumes&#x2F;server_certs中，将其对应的CA证书ca.crt放入lab-tls&#x2F;labsetup&#x2F;volumes&#x2F;client_certs中。</p>
+<p>将这两个文件复制，放入lab3/labsetup/volumes/server_certs中，将其对应的CA证书ca.crt放入lab-tls/labsetup/volumes/client_certs中。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007174223539.png" alt="image-20221007174223539"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007174212323.png" alt="image-20221007174212323"></p>
 <p><strong>使用openssl命令获取hash之后在client-certs中建立软链接</strong>：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007193312800.png" alt="image-20221007193312800"></p>
-<p>然后我们修改&#x2F;etc&#x2F;hosts文件，向其中添加docker容器ip和域名的映射关系。</p>
+<p>然后我们修改/etc/hosts文件，向其中添加docker容器ip和域名的映射关系。</p>
 <p><strong>我们将容器作为server，宿主机作为client，在client中添加下列地址映射：</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007180609364.png" alt="image-20221007180609364"></p>
 <p>在server端运行<code>.server.py</code>。<code>server.py</code>中<strong>定义了html页面、服务器证书、服务器私钥，TLS协议目录，利用socket通信机制，打开443端口并进行侦听，进入等待TLS连接请求状态；当有客户端发送连接请求时，包装现有套接字与SSL层协议，建立TLS连接。若连接失败，则报TLS连接异常。</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007200011472.png" alt="image-20221007200011472"></p>
-<p>在lab3&#x2F;labsetup&#x2F;volumes中打开终端输入命令：</p>
+<p>在lab3/labsetup/volumes中打开终端输入命令：</p>
 <pre class="line-numbers language-none"><code class="language-none">sudo .&#x2F;handshake.py www.qzs2022.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>即可获得连接成功的回显信息。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007193355489.png" alt="image-20221007193355489"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007193414910.png" alt="image-20221007193414910"></p>
 <blockquote>
 <p>注：服务器重启需要：</p>
 <pre class="line-numbers language-none"><code class="language-none">netstat -tunlp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>并kill进程：<code>kill -9 19</code>(19为PID)</p>
 </blockquote>
-<h2 id="2-2-使用浏览器测试服务器程序"><a href="#2-2-使用浏览器测试服务器程序" class="headerlink" title="2.2 使用浏览器测试服务器程序"></a>2.2 使用浏览器测试服务器程序</h2><p>在浏览器的about:preferences#privacy页面中找到证书选项，添加我们的CA证书ca.crt,然后访问我们的域名<a target="_blank" rel="noopener" href="https://www.qzs2022.com/%E5%8D%B3%E5%8F%AF%E7%9C%8B%E5%88%B0%E6%88%91%E4%BB%AC%E7%9A%84%E9%A1%B5%E9%9D%A2%E4%BF%A1%E6%81%AF%EF%BC%9A">https://www.qzs2022.com/即可看到我们的页面信息：</a></p>
+<h2 id="2-2-使用浏览器测试服务器程序"><a href="#2-2-使用浏览器测试服务器程序" class="headerlink" title="2.2 使用浏览器测试服务器程序"></a>2.2 使用浏览器测试服务器程序</h2><p>在浏览器的about:preferences#privacy页面中找到证书选项，添加我们的CA证书ca.crt,然后访问我们的域名<a target="_blank" rel="noopener" href="https://www.qzs2022.com/即可看到我们的页面信息：">https://www.qzs2022.com/即可看到我们的页面信息：</a></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007200118872.png" alt="image-20221007200118872"></p>
 <h2 id="2-3-具有多个名称的证书"><a href="#2-3-具有多个名称的证书" class="headerlink" title="2.3 具有多个名称的证书"></a>2.3 具有多个名称的证书</h2><p>首先创建<strong>server_openssl.cnf</strong>文件，内容如下：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007200613862.png" alt="image-20221007200613862"></p>
 <p>输入以下命令创建服务器签名申请和私钥：</p>
 <pre class="line-numbers language-none"><code class="language-none">openssl req -newkey rsa:2048 -config .&#x2F;server_openssl.cnf -batch -sha256 -keyout qzs1.key -out qzs1.csr<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>我们通过实验二生成的ca.crt创建证书：</p>
 <pre class="line-numbers language-none"><code class="language-none">openssl ca -config openssl.cnf -policy policy_anything -md sha256 -days 3650 -in qzs1.csr -out qzs1.crt -batch -cert ca.crt -keyfile ca.key<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007211451122.png" alt="image-20221007211451122"></p>
 <p>client端加入地址映射：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007210135874.png" alt="image-20221007210135874"></p>
-<p>将ca.crt放入lab3文件夹下的volume&#x2F;client-certs中，mycert.crt和mycert.key放入volume&#x2F;server-certs中然后服务器端重新运行server.py即可。</p>
+<p>将ca.crt放入lab3文件夹下的volume/client-certs中，mycert.crt和mycert.key放入volume/server-certs中然后服务器端重新运行server.py即可。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221007211351865.png" alt="image-20221007211351865"></p>
 <h1 id="Task3-一个简单的HTTPS代理"><a href="#Task3-一个简单的HTTPS代理" class="headerlink" title="Task3 一个简单的HTTPS代理"></a>Task3 一个简单的HTTPS代理</h1><p>TLS可以抵御中间人攻击，但前提是基础公钥基础设施是安全的。在本任务中，我们将演示在PKI基础设施受损（即某些受信任的CA受损或服务器的私钥被盗）的情况下，针对TLS服务器的中间人攻击。</p>
 <p>我们将实现一个名为<code>mHTTPSproxy</code>（m代表mini）的简单HTTPS代理。代理程序只是将任务1和任务2中的客户端和服务器程序集成在一起。其工作原理如图所示。我们将在代理容器上运行代理。</p>
@@ -599,26 +589,24 @@ ssock<span class="token punctuation">.</span>close<span class="token punctuation
 <p>proxy只是一个服务器程序，它从浏览器（客户端）接收HTTP请求，并向其返回HTTP响应。代理不生成任何HTTP响应；相反，它将HTTP请求转发到实际的web服务器，然后从web服务器获取HTTP响应。对于实际的web服务器，TLS代理只是一个客户端程序。得到响应后，代理将响应转发给浏览器，即真正的客户端。</p>
 <p>此任务的目的是使用此简单代理来了解当PKI基础设施受到破坏时，中间人攻击是如何工作的。</p>
 <h2 id="3-1-对自己的服务器进行中间人攻击"><a href="#3-1-对自己的服务器进行中间人攻击" class="headerlink" title="3.1 对自己的服务器进行中间人攻击"></a>3.1 对自己的服务器进行中间人攻击</h2><p>本任务中，<strong>使用docker容器(ip:10.9.0.143)作为Proxy代理，docker容器(ip:10.9.0.5)作为server端，主虚机作为客户端。</strong></p>
-<p>在主虚机的&#x2F;etc&#x2F;hosts加入地址映射：</p>
+<p>在主虚机的/etc/hosts加入地址映射：</p>
 <pre class="line-numbers language-none"><code class="language-none">10.9.0.143      www.qzs2022.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在Proxy容器中修改&#x2F;etc&#x2F;resolv.conf，将代理的nameserver修改为8.8.8.8以使其不受主虚机的域名解析影响。</p>
+<p>在Proxy容器中修改/etc/resolv.conf，将代理的nameserver修改为8.8.8.8以使其不受主虚机的域名解析影响。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008113750395.png" alt="image-20221008113750395"></p>
-<p>在Proxy容器的&#x2F;etc&#x2F;hosts加入地址映射，使得Proxy容器可以将<a href="http://www.qzs2022.com域名定位到10.9.0.5地址：">www.qzs2022.com域名定位到10.9.0.5地址：</a></p>
+<p>在Proxy容器的/etc/hosts加入地址映射，使得Proxy容器可以将www.qzs2022.com域名定位到10.9.0.5地址：</p>
 <pre class="line-numbers language-none"><code class="language-none">10.9.0.5   www.qzs2022.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008130821448.png" alt="image-20221008130821448"></p>
 <p>在proxy.py文件中配置服务器与客户端的证书、hostname，并在Proxy容器中运行：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008130932053.png" alt="image-20221008130932053"></p>
-<p>在docker容器(ip:10.9.0.5)中运行server.py，然后在主虚机的浏览器中访问域名<a href="http://www.qzs2022.com，得到以下页面：">www.qzs2022.com，得到以下页面：</a></p>
+<p>在docker容器(ip:10.9.0.5)中运行server.py，然后在主虚机的浏览器中访问域名www.qzs2022.com，得到以下页面：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008131144012.png" alt="image-20221008131144012"></p>
 <p>server端打印出以下信息：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008131300995.png" alt="image-20221008131300995"></p>
 <p>我们仍然能正常和服务端交流，但是所有信息都会经由<strong>代理</strong>进行转发并且显示出来：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008131315648.png" alt="image-20221008131315648"></p>
-<h2 id="3-2-对真实网站进行攻击"><a href="#3-2-对真实网站进行攻击" class="headerlink" title="3.2 对真实网站进行攻击"></a>3.2 对真实网站进行攻击</h2><p>本任务中，使用docker容器(ip:10.9.0.143)作为Proxy代理，主虚机作为客户端。首先在主虚机的&#x2F;etc&#x2F;hosts中将<code>10.9.0.143  csujwc.its.csu.edu.cn</code>加入地址映射。</p>
+<h2 id="3-2-对真实网站进行攻击"><a href="#3-2-对真实网站进行攻击" class="headerlink" title="3.2 对真实网站进行攻击"></a>3.2 对真实网站进行攻击</h2><p>本任务中，使用docker容器(ip:10.9.0.143)作为Proxy代理，主虚机作为客户端。首先在主虚机的/etc/hosts中将<code>10.9.0.143  csujwc.its.csu.edu.cn</code>加入地址映射。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008113521555.png" alt="image-20221008113521555"></p>
-<p>在Proxy容器中修改&#x2F;etc&#x2F;resolv.conf，将代理的nameserver修改为8.8.8.8以使其不受主虚机的域名解析影响。</p>
+<p>在Proxy容器中修改/etc/resolv.conf，将代理的nameserver修改为8.8.8.8以使其不受主虚机的域名解析影响。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221008113750395.png" alt="image-20221008113750395"></p>
 <p>我们利用任务二的方法为教务系统网址csujwc.its.csu.edu.cn生成证书。</p>
 <p>在Proxy容器中运行<code>./proxy.py</code>，然后在主虚机的浏览器访问教务系统网址：</p>
@@ -650,7 +638,7 @@ ssock<span class="token punctuation">.</span>close<span class="token punctuation
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/11/05/homework/networksecurity/wang-luo-an-quan-lab3-shi-yan-ji-lu-an-quan-chuan-shu-ceng-xie-yi-tls/">https://sxhthreo.github.io/2022/11/05/homework/networksecurity/wang-luo-an-quan-lab3-shi-yan-ji-lu-an-quan-chuan-shu-ceng-xie-yi-tls/</a>
+                    <a href="https://sxhthreo.github.io/2022/11/05/homework/security/wang-luo-an-quan-lab3-shi-yan-ji-lu-an-quan-chuan-shu-ceng-xie-yi-tls/">https://sxhthreo.github.io/2022/11/05/homework/security/wang-luo-an-quan-lab3-shi-yan-ji-lu-an-quan-chuan-shu-ceng-xie-yi-tls/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1129,7 +1117,7 @@ ssock<span class="token punctuation">.</span>close<span class="token punctuation
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/05/homework/networksecurity/wang-luo-an-quan-lab2-shi-yan-ji-lu-gong-yao-ji-chu-she-shi-pki/">
+                <a href="/2022/11/05/homework/security/wang-luo-an-quan-lab2-shi-yan-ji-lu-gong-yao-ji-chu-she-shi-pki/">
                     <div class="card-image">
                         
                         
@@ -1409,7 +1397,7 @@ ssock<span class="token punctuation">.</span>close<span class="token punctuation
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022</span>
+                <span id="year">2022-2023</span>
             
             <span id="year">2022</span>
             <a href="/about" target="_blank">ShiQuLiZhi</a>
@@ -1418,7 +1406,7 @@ ssock<span class="token punctuation">.</span>close<span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">349k</span>&nbsp;字
+                class="white-color">378.4k</span>&nbsp;字
             
             
             
