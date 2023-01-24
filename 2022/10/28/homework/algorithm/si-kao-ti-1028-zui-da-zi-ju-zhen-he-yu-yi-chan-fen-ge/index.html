@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-04
+                                    2023-01-24
                             </div>
                             
 
@@ -460,13 +460,14 @@
 <p>🚀欢迎访问我的作业合集：<a href="https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/">https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/</a></p>
 </blockquote>
 <h1 id="一、最大子矩阵和问题"><a href="#一、最大子矩阵和问题" class="headerlink" title="一、最大子矩阵和问题"></a>一、最大子矩阵和问题</h1><p>给定一个m行n列的整数矩阵A，试求矩阵A的一个子矩阵，使其各元素之和为最大。</p>
-<h2 id="1-1-前缀和-穷举法"><a href="#1-1-前缀和-穷举法" class="headerlink" title="1.1 前缀和+穷举法"></a>1.1 前缀和+穷举法</h2><h3 id="1-1-1-算法思路"><a href="#1-1-1-算法思路" class="headerlink" title="1.1.1 算法思路"></a>1.1.1 算法思路</h3><p>定义一个二维数组<code>s[][]</code>, <strong><code>s[i][j]</code>表示二维数组中，左上角<code>(1, 1)</code>到右下角<code>(i, j)</code>所包围的矩阵元素的和</strong>。然后我们推导二维前缀和的公式。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/20201214201734653.png" alt="img" style="zoom:67%;" /></p>
+<h2 id="1-1-前缀和-穷举法"><a href="#1-1-前缀和-穷举法" class="headerlink" title="1.1 前缀和+穷举法"></a>1.1 前缀和+穷举法</h2><h3 id="1-1-1-算法思路"><a href="#1-1-1-算法思路" class="headerlink" title="1.1.1 算法思路"></a>1.1.1 算法思路</h3><p>定义一个二维数组<code>s[][] </code>, <strong><code>s[i][j] </code>表示二维数组中，左上角<code>(1, 1)</code>到右下角<code>(i, j)</code>所包围的矩阵元素的和</strong>。然后我们推导二维前缀和的公式。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/20201214201734653.png" alt="img" style="zoom:67%;" />
+
 <p><strong>紫色面积</strong>是指<code>(1, 1)</code>左上角到<code>(i, j - 1)</code>右下角的矩形面积, <strong>绿色面积</strong>是指<code>(1, 1)</code>左上角到<code>(i - 1, j)</code>右下角的矩形面积。<strong>每一个颜色的矩形面积都代表了它所包围元素的和。</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221031170540540.png" alt="二维前缀和推导1"></p>
-<p><strong>从图中我们很容易看出</strong>，整个外围蓝色矩形面积<code>s[i][j]</code> = 绿色面积<code>s[i - 1][j]</code> + 紫色面积<code>s[i][j - 1]</code> - 重复加的红色的面积<code>s[i - 1][j - 1]</code> + 小方块的面积<code>a[i][j]</code>。</p>
+<p><strong>从图中我们很容易看出</strong>，整个外围蓝色矩形面积<code>s[i][j]</code> &#x3D; 绿色面积<code>s[i - 1][j]</code> + 紫色面积<code>s[i][j - 1]</code> - 重复加的红色的面积<code>s[i - 1][j - 1]</code> + 小方块的面积<code>a[i][j]</code>。</p>
 <ul>
-<li><p><code>s[i, j]</code> = 第<code>i</code>行<code>j</code>列格子左上部分所有元素的和</p>
+<li><p><code>s[i, j]</code> &#x3D; 第<code>i</code>行<code>j</code>列格子左上部分所有元素的和</p>
 </li>
 <li><p><code>s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + a[i][j]</code></p>
 </li>
@@ -478,7 +479,7 @@
 <p><code>s[x2, y2] - s[x1 - 1, y2] - s[x2, y1 - 1] + s[x1 - 1, y1 - 1]</code></p>
 </li>
 </ul>
-<p>​    我们可以采用<strong>穷举</strong>各个左上角及右下角坐标的方式，来获得最大的子矩阵和。</p>
+<p>​	我们可以采用<strong>穷举</strong>各个左上角及右下角坐标的方式，来获得最大的子矩阵和。</p>
 <h3 id="1-1-2-代码设计"><a href="#1-1-2-代码设计" class="headerlink" title="1.1.2 代码设计"></a>1.1.2 代码设计</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">presum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
@@ -511,10 +512,11 @@
 	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"最大的子矩阵和为"</span> <span class="token operator">&lt;&lt;</span> max <span class="token operator">&lt;&lt;</span> <span class="token string">",左上角坐标为("</span> <span class="token operator">&lt;&lt;</span> x1 <span class="token operator">&lt;&lt;</span> <span class="token string">","</span>
 		<span class="token operator">&lt;&lt;</span> y1 <span class="token operator">&lt;&lt;</span> <span class="token string">"),右下角坐标为("</span> <span class="token operator">&lt;&lt;</span> x2 <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> y2 <span class="token operator">&lt;&lt;</span> <span class="token string">")"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="1-1-3-算法复杂度分析"><a href="#1-1-3-算法复杂度分析" class="headerlink" title="1.1.3 算法复杂度分析"></a>1.1.3 算法复杂度分析</h3><p>穷举的时间复杂度为$O(n^4)$，处理各个左下角及右下角坐标所形成的子矩阵和的时间复杂度为$O(1)$，则算法的时间复杂度为$O(n^4)$，算法时间复杂度有待提升。</p>
 <p>需要注意的是，虽然前缀和手段在这里计算最大子矩阵和的时间复杂度较高，但当给定左上角和右下角坐标的情况下计算子矩阵的和的时间复杂度仅为$O(1)$，在部分场景中的时间效率很高。</p>
-<h2 id="1-2-动态规划算法"><a href="#1-2-动态规划算法" class="headerlink" title="1.2 动态规划算法"></a>1.2 动态规划算法</h2><h3 id="1-2-1-算法思路"><a href="#1-2-1-算法思路" class="headerlink" title="1.2.1 算法思路"></a>1.2.1 算法思路</h3><p>我们考虑一维的最大字段和问题：</p>
-<p>给出一个序列<code>a[0], a[1], a[2], ... , a[n]</code>，求出连续的字段使其总和最大。</p>
+<h2 id="1-2-动态规划算法"><a href="#1-2-动态规划算法" class="headerlink" title="1.2 动态规划算法"></a>1.2 动态规划算法</h2><h3 id="1-2-1-算法思路"><a href="#1-2-1-算法思路" class="headerlink" title="1.2.1 算法思路"></a>1.2.1 算法思路</h3><p>我们考虑一维的最大子段和问题：</p>
+<p>给出一个序列<code>a[0], a[1], a[2], ... , a[n]</code>，求出连续的子段使其总和最大。</p>
 <p>我们记<code>a[i]</code>表示第<code>i</code>个元素，<code>dp[i]</code>表示以<code>a[i]</code>结尾的最大子段和，有以下两种情况：</p>
 <ul>
 <li>若<code>dp[i-1] &gt; 0</code>，则 <code>dp[i] = dp[i-1] + a[i]</code></li>
@@ -579,6 +581,7 @@
 	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"最大的子矩阵和为"</span> <span class="token operator">&lt;&lt;</span> max <span class="token operator">&lt;&lt;</span> <span class="token string">",左上角坐标为("</span> <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> <span class="token string">","</span>
 		<span class="token operator">&lt;&lt;</span> l <span class="token operator">&lt;&lt;</span> <span class="token string">"),右下角坐标为("</span> <span class="token operator">&lt;&lt;</span> t <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> r <span class="token operator">&lt;&lt;</span> <span class="token string">")"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="1-2-3-算法复杂度分析"><a href="#1-2-3-算法复杂度分析" class="headerlink" title="1.2.3 算法复杂度分析"></a>1.2.3 算法复杂度分析</h3><p>动态规划算法中需要进行三重循环，其中需要分别遍历所有行(分别有起始行、终点行)、将两行范围内的每列加和、求最大字段和，时间复杂度为$O(n^3)$，较前缀和+穷举法的时间性能有所提升。</p>
 <h2 id="1-3-测试结果"><a href="#1-3-测试结果" class="headerlink" title="1.3 测试结果"></a>1.3 测试结果</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221101084007363.png" alt="测试结果"></p>
 <p>多次测试，算法运行结果均正确，符合题意。</p>
@@ -592,7 +595,7 @@
 <h1 id="二、遗产分割问题"><a href="#二、遗产分割问题" class="headerlink" title="二、遗产分割问题"></a>二、遗产分割问题</h1><p> John有两个孩子，在John病逝后，留下了一组价值不一定相同的魔卡，现在要求你设计一种策略，帮John的经管人将John的这些遗产分给他的两个孩子，使得他们获得的遗产差异最小（魔卡不能分拆）。</p>
 <h2 id="2-1-算法思路"><a href="#2-1-算法思路" class="headerlink" title="2.1 算法思路"></a>2.1 算法思路</h2><p>我们可以通过<strong>01背包问题</strong>的思想求解本题，只需求解其中一个孩子分配的遗产，就能推算出另一个孩子分配到的遗产。</p>
 <ul>
-<li>背包的体积为  $total / 2$ ( $total$ 表示所有魔卡的价值总和)</li>
+<li>背包的体积为  $total &#x2F; 2$ ( $total$ 表示所有魔卡的价值总和)</li>
 <li><strong>背包要放入的魔卡（集合里的元素）的价值和体积均为魔卡价值的数值</strong></li>
 <li>背包中每一个元素不可重复放入</li>
 </ul>
@@ -604,7 +607,7 @@
 <li>条件：(1)只从前 $i$ 个魔卡中选; (2)总魔卡价值$\leq j$</li>
 </ul>
 </li>
-<li><strong>属性</strong>：在最多只能拿 $total / 2$ 的价值的条件下获得的最大魔卡价值$Max$</li>
+<li><strong>属性</strong>：在最多只能拿 $total &#x2F; 2$ 的价值的条件下获得的最大魔卡价值$Max$</li>
 </ul>
 </li>
 <li><strong>状态计算</strong>：集合划分——$f(i,j)$<ul>
@@ -613,11 +616,12 @@
 </ul>
 </li>
 </ul>
-<p>故有：$f(i,j) = Max(f(i-1,j),f(i-1,j-w_i)+w_i)$</p>
+<p>故有：$f(i,j) &#x3D; Max(f(i-1,j),f(i-1,j-w_i)+w_i)$</p>
 <p>其中，01背包问题的状态表示数组可以优化为一维求解。</p>
-<p>通过动态规划求解出的结果就是其中一个孩子得到的魔卡总价值$f(total/2)$， 另一个孩子得到的魔卡总价值则是$total-f(total/2)$。</p>
-<p>每次更新 $f(j)$ 数组时，应记录对应选定的魔卡序号，则可以<strong>遍历</strong>价值从 $f(total/2)$ 到最小价值的<strong>记录数组</strong>依次输出其中一个孩子分配到的各个魔卡价值，并将这些价值置为 $0$ ，然后遍历所有非 $0$ 的价值则为另一个孩子分配到的各个魔卡价值。</p>
-<h2 id="2-2-算法图解"><a href="#2-2-算法图解" class="headerlink" title="2.2 算法图解"></a>2.2 算法图解</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221101232053532.png" alt="image-算法图解" style="zoom: 50%;" /></p>
+<p>通过动态规划求解出的结果就是其中一个孩子得到的魔卡总价值$f(total&#x2F;2)$， 另一个孩子得到的魔卡总价值则是$total-f(total&#x2F;2)$。</p>
+<p>每次更新 $f(j)$ 数组时，应记录对应选定的魔卡序号，则可以<strong>遍历</strong>价值从 $f(total&#x2F;2)$ 到最小价值的<strong>记录数组</strong>依次输出其中一个孩子分配到的各个魔卡价值，并将这些价值置为 $0$ ，然后遍历所有非 $0$ 的价值则为另一个孩子分配到的各个魔卡价值。</p>
+<h2 id="2-2-算法图解"><a href="#2-2-算法图解" class="headerlink" title="2.2 算法图解"></a>2.2 算法图解</h2><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221101232053532.png" alt="image-算法图解" style="zoom: 50%;" />
+
 <h2 id="2-3-代码设计"><a href="#2-3-代码设计" class="headerlink" title="2.3 代码设计"></a>2.3 代码设计</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">distribute</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> total<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     <span class="token comment">// 背包问题获得 total / 2 背包空间内的最大价值</span>
@@ -656,6 +660,7 @@
     <span class="token punctuation">&#125;</span>
     cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-4-测试结果"><a href="#2-4-测试结果" class="headerlink" title="2.4 测试结果"></a>2.4 测试结果</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221101220900278.png" alt="image-20221101220900278"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221101220918369.png" alt="image-20221101220918369"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221101220949277.png" alt="image-20221101220949277"></p>
@@ -716,6 +721,7 @@
 	
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>法2：动态规划算法</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;utility></span></span>
@@ -794,6 +800,7 @@ pair<span class="token operator">&lt;</span>pair<span class="token operator">&lt
 
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="算法题2"><a href="#算法题2" class="headerlink" title="算法题2"></a>算法题2</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;set></span></span>
@@ -855,6 +862,7 @@ pair<span class="token operator">&lt;</span>pair<span class="token operator">&lt
     <span class="token function">distribute</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> total<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                                     
                             </div>
@@ -1649,7 +1657,7 @@ pair<span class="token operator">&lt;</span>pair<span class="token operator">&lt
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">378.4k</span>&nbsp;字
+                class="white-color">384.6k</span>&nbsp;字
             
             
             

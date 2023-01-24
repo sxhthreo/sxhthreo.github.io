@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-24
+                                    2023-01-23
                             </div>
                             
 
@@ -1269,7 +1269,7 @@ int main(void)&#123;
 <p>访问$\left| V \right|$个顶点需要$O\left( \middle| V \middle| \right)$的时间。查找每个顶点的邻接点都需要$O\left( \middle| V \middle| \right)$的时间，而总共有$\left| V \right|$个顶点，其时间复杂度&#x3D;$O\left( \left| V \right|^{2} \right)$。</p>
 <p>邻接表存储的图：</p>
 <p>访问$\left| V \right|$个顶点需要$O\left( \middle| V \middle| \right)$的时间。查找每个顶点的邻接点都需要$O\left( \middle| E \middle| \right)$的时间，其时间复杂度&#x3D;$O\left( \left| V \right| + \left| E \right| \right)$。</p>
-<h2 id="7-4-最小生成树"><a href="#7-4-最小生成树" class="headerlink" title="7.4 最小生成树"></a>7.4 最小生成树</h2><p>对于带权连通无向图$G&#x3D;(V,E)$，生成树不同，每棵树的权（即树中所有边上的权值之和）也可能不同。设$R$为$G$的所有生成树的集合，若T为R中边的权值之和最小的生成树，则T称为G的<strong>最小生成树（MST）</strong>。</p>
+<h2 id="7-4-最小生成树"><a href="#7-4-最小生成树" class="headerlink" title="7.4 最小生成树"></a>7.4 最小生成树</h2><p>对于带权连通无向图 $G&#x3D;(V,E)$，生成树不同，每棵树的权（即树中所有边上的权值之和）也可能不同。设$R$为$G$的所有生成树的集合，若 $T$ 为 $R$ 中边的权值之和最小的生成树，则 $T$ 称为 $G$ 的<strong>最小生成树（MST）</strong>。</p>
 <blockquote>
 <p>生成树的一些概念：</p>
 <ul>
@@ -1283,10 +1283,10 @@ int main(void)&#123;
 <ul>
 <li>生成树的顶点个数与图的顶点个数相同</li>
 <li>生成树是图的极小连通子图</li>
-<li>一个有n个顶点的连通图的生成树有<strong>n-1条边</strong></li>
+<li>一个有 $n$ 个顶点的连通图的生成树有 <strong>$n-1$ 条边</strong></li>
 <li>生成树中任意两个顶点间的路径是唯一的</li>
 <li>在生成树中再加一条边必然形成回路</li>
-<li>含n个顶点n-1条边的图不一定是生成树</li>
+<li>含 $n$ 个顶点 $n-1$ 条边的图不一定是生成树</li>
 </ul>
 </blockquote>
 <p>最小生成树有以下<strong>重要性质</strong>：&#x3D;&#x3D;<strong>[注意红、蓝、紫的颜色标记]</strong>&#x3D;&#x3D;</p>
@@ -1318,29 +1318,30 @@ int main(void)&#123;
 <li><code>lowcost[v]</code></li>
 <li><code>adjvex[v]</code>记录<strong>是哪里来的结点</strong></li>
 </ul>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span><span class="token punctuation">&#123;</span>
-  VertexType adjvex<span class="token punctuation">;</span>
-  VRType lowcost<span class="token punctuation">;</span>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+    VertexType adjvex<span class="token punctuation">;</span>
+    VRType lowcost<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>closedge<span class="token punctuation">[</span>MAX_VERTEX_NUM<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
 <span class="token comment">//USING Matrix</span>
 <span class="token comment">//closedge[k].lowcost=0 	//red point notation</span>
-<span class="token keyword">void</span> <span class="token function">MiniSpanTree_Prim</span><span class="token punctuation">(</span>MGraph G<span class="token punctuation">,</span>VertexType u<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    k <span class="token operator">=</span> <span class="token function">LocateVex</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span>u<span class="token punctuation">)</span><span class="token punctuation">;</span>								<span class="token comment">//u为开始结点</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>j<span class="token operator">!=</span>k<span class="token punctuation">)</span>
-            closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> u<span class="token punctuation">,</span> G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> 
+<span class="token keyword">void</span> <span class="token function">MiniSpanTree_Prim</span><span class="token punctuation">(</span>MGraph G<span class="token punctuation">,</span> VertexType u<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    k <span class="token operator">=</span> <span class="token function">LocateVex</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>								<span class="token comment">//u为开始结点</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">!=</span> k<span class="token punctuation">)</span>
+            closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> u<span class="token punctuation">,</span> G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
     closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 						<span class="token comment">// U＝&#123;u&#125;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
-    	k <span class="token operator">=</span> <span class="token function">Minimum</span><span class="token punctuation">(</span>closedge<span class="token punctuation">)</span><span class="token punctuation">;</span>						<span class="token comment">//求出下一个结点</span>
-     	<span class="token function">printf</span><span class="token punctuation">(</span>closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>adjvex<span class="token punctuation">,</span> G<span class="token punctuation">.</span>vexs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//求出生成树的边</span>
-      	closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 					<span class="token comment">//加入red point set</span>
-     	<span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj <span class="token operator">&lt;</span> closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost<span class="token operator">&amp;&amp;</span> closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        k <span class="token operator">=</span> <span class="token function">Minimum</span><span class="token punctuation">(</span>closedge<span class="token punctuation">)</span><span class="token punctuation">;</span>						<span class="token comment">//求出下一个结点</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span>closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>adjvex<span class="token punctuation">,</span> G<span class="token punctuation">.</span>vexs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//求出生成树的边</span>
+        closedge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 					<span class="token comment">//加入red point set</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> G<span class="token punctuation">.</span>vexnum<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj <span class="token operator">&lt;</span> closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost <span class="token operator">&amp;&amp;</span> closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>lowcost <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
                 <span class="token comment">//新节点并入后重新表示蓝点的最短路径</span>
-      			closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> G<span class="token punctuation">.</span>vexs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+                closedge<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> G<span class="token punctuation">.</span>vexs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> G<span class="token punctuation">.</span>arcs<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>adj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220506231114501.png" alt="image-20220506231114501"></p>
 <h3 id="7-4-2-Kruskal算法"><a href="#7-4-2-Kruskal算法" class="headerlink" title="7.4.2 Kruskal算法"></a>7.4.2 Kruskal算法</h3><p>每次选择一条<strong>权值最小的边</strong>，使这条边的两头连通（原先已经连通的就不选），直到所有结点都连通。</p>
@@ -1351,7 +1352,7 @@ int main(void)&#123;
 </ul>
 <p>在该算法中运用到的是<strong>并查集</strong>（Union-Find Set，存在查找集合和合并集合），并查集使用<strong>树的双亲表示法</strong>。</p>
 <p>作为“双亲”，初始双亲指向自己；双亲可以<strong>直接指向根</strong>（通过经历的边寻找），并即是一个树的根&#x3D;另一个树的根（双亲）。</p>
-<p>在算法中，当<code>n-1</code>条边全部进入生成树中时则结束。算法的时间复杂度为$O\left( \left| E \right|{log}\left| E \right| \right)$，适合用于<strong>边稀疏图</strong>。</p>
+<p>在算法中，当<code>n-1</code>条边全部进入生成树中时则结束。算法的时间复杂度为 $O\left( \left| E \right|{log}\left| V \right| \right)$，适合用于<strong>边稀疏图</strong>。</p>
 <h2 id="7-5-最短路径-SP-问题"><a href="#7-5-最短路径-SP-问题" class="headerlink" title="7.5 最短路径(SP)问题"></a>7.5 最短路径(SP)问题</h2><h3 id="7-5-1-BFS算法"><a href="#7-5-1-BFS算法" class="headerlink" title="7.5.1 BFS算法"></a>7.5.1 BFS算法</h3><p>只适用于<strong>不带权图</strong>。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">infinity</span> <span class="token expression"><span class="token number">1000000</span></span></span>
 <span class="token comment">//求顶点u到其他顶点的最短路径</span>
@@ -2486,7 +2487,7 @@ vexnode  dig<span class="token punctuation">[</span>n<span class="token punctuat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">378.4k</span>&nbsp;字
+                class="white-color">384.6k</span>&nbsp;字
             
             
             
