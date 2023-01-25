@@ -1280,7 +1280,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li>随机存取存储程序机RASP(Random Access Stored Program Machine)</li>
 <li>图灵机(Turing Machine)</li>
 </ul>
-<h2 id="4-2-几类问题"><a href="#4-2-几类问题" class="headerlink" title="4.2 几类问题"></a>4.2 几类问题</h2><ul>
+<h2 id="4-2-P-amp-NP-amp-NP-Hard-amp-NPC问题"><a href="#4-2-P-amp-NP-amp-NP-Hard-amp-NPC问题" class="headerlink" title="4.2 P&amp;NP&amp;NP-Hard&amp;NPC问题"></a>4.2 P&amp;NP&amp;NP-Hard&amp;NPC问题</h2><ul>
 <li><p><strong>P</strong> ：多项式时间可解</p>
 </li>
 <li><p><strong>NP</strong>：多项式时间可验证</p>
@@ -2413,12 +2413,27 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+                                                                                                                            type="module"></script>
                                                                                                                         
 
 
 
 
-                </body>
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>
