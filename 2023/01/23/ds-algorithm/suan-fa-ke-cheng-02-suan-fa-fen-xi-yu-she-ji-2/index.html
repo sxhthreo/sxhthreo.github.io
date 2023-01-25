@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="算法分析与设计：贪心、动规、分支限界, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="算法分析与设计2：贪心、动规、分支限界、NP完备性理论, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法分析与设计：贪心、动规、分支限界 | ShiQuLiZhi BLOG</title>
+    <title>算法分析与设计2：贪心、动规、分支限界、NP完备性理论 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法分析与设计：贪心、动规、分支限界</h1>
+                    <h1 class="description center-align post-title">算法分析与设计2：贪心、动规、分支限界、NP完备性理论</h1>
                 </div>
             </div>
         </div>
@@ -418,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-01-24
+                                    2023-01-25
                             </div>
                             
 
@@ -426,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            6.1k
+                                            7.9k
                                     </div>
                                     
 
@@ -434,7 +434,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    25
+                                                    33
                                                         分
                                             </div>
                                             
@@ -1205,8 +1205,106 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230124233049772.png" alt="image-20230124233049772"></p>
 <p>使用 $\hat{C}(X)$ 的LC-检索可以使检索过程很快地定位到结点23。</p>
-<h2 id="3-4-0-x2F-1背包问题"><a href="#3-4-0-x2F-1背包问题" class="headerlink" title="3.4 0&#x2F;1背包问题"></a>3.4 0&#x2F;1背包问题</h2><p>设 $C&#x3D;30$，$N&#x3D;3$, $W&#x3D;(16,15,15)$, $P&#x3D;(45,25,25)$。</p>
-<h3 id="3-4-1-队列式分支限界"><a href="#3-4-1-队列式分支限界" class="headerlink" title="3.4.1 队列式分支限界"></a>3.4.1 队列式分支限界</h3><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230124233831612.png" alt="image-20230124233831612"></p>
+<h2 id="3-4-0-x2F-1背包问题"><a href="#3-4-0-x2F-1背包问题" class="headerlink" title="3.4 0&#x2F;1背包问题"></a>3.4 0&#x2F;1背包问题</h2><p>首先确定一个合理的限界函数，并根据限界函数确定目标函数的界 $[down,up]$，然后按照广度优先策略遍历问题的解空间树。在分支节点上，一次搜索该节点的所有孩子节点，分别估算这些孩子节点的目标函数的可能取值，如果某孩子节点的目标函数可能取得的值超出目标函数的界，则将其丢弃，因为从某个节点生成的解不会比目前已经得到的解更好；否则，将其加入待处理节点表(简称为$PT$)中。<strong>依次从表 $PT$ 中选取使目标函数的值取得极值的节点成为当前的扩展节点</strong>，重复上述过程，直到找到最优解。</p>
+<p>假设有4个物品，其重量分别为(4, 7, 5, 3)，价值分别为(40, 42, 25, 12)，背包容量W&#x3D;10。将给定物品按单位重量价值从大到小排序，结果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">物品</th>
+<th align="center">重量(w)</th>
+<th align="center">价值(v)</th>
+<th align="center">价值&#x2F;重量(v&#x2F;w)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">40</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">7</td>
+<td align="center">42</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">25</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">12</td>
+<td align="center">4</td>
+</tr>
+</tbody></table>
+<p>问题的解可表示为 $n$ 元向量 ${x_1, x_2, … x_n }$，$x_i\in {0,1}$，则可用子集树表示解空间, 在树中做广度优先搜索。</p>
+<ul>
+<li>约束条件：$\sum_{i&#x3D;1}^{n} w_{i} x_{i} \leq W$</li>
+<li>目标函数：$V&#x3D;\max \sum_{i&#x3D;1}^{n} v_{i} x_{i}$</li>
+</ul>
+<p>我们得到问题解的下界和上界：</p>
+<ul>
+<li>下界$V_{db} &#x3D;40; (1, 0, 0, 0)$——贪心思想；</li>
+<li>上界$V_{ub} &#x3D;0+(W-0)×(v_1&#x2F;w_1)&#x3D;0+(10-0)×10&#x3D;100$</li>
+</ul>
+<p>目标函数的界为 $[40, 100]$。</p>
+<p><strong>上限界函数</strong>：$u b&#x3D;v(前i个物品获得的价值)+(W-w) \times\left(v_{i+1} &#x2F; w_{i+1}\right)(剩余容量全部装入物品i+1,最多能够获得的价值)$</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125203719834.png" alt="image-20230125203719834"></p>
+<blockquote>
+<p><strong>注</strong>：</p>
+<p>为了对每个扩展结点保存该结点到根结点的路径，将部分解 $(x_1,…, x_i)$ 和该部分解的目标函数值都存储在待处理结点表 $PT$ 中，在搜索过程中表 $PT$ 的状态如下图所示：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125203845099.png" alt="image-20230125203845099"></p>
+</blockquote>
+<h2 id="3-5-多段图的最短路径问题"><a href="#3-5-多段图的最短路径问题" class="headerlink" title="3.5 多段图的最短路径问题"></a>3.5 多段图的最短路径问题</h2><p>设图 $G&#x3D;(V, E)$ 是一个带权有向连通图，如果把顶点集合 $V$ 划分成 $k$ 个互不相交的子集 $V_i(2≤k≤n, 1≤i≤k)$，使得 $E$ 中的任何一条边 $(u, v)$，必有 $u∈V_i$，$v∈V_{i+m}(1≤i＜k, 1＜i+m≤k)$，则称图 $G$ 为多段图，称 $s∈V_1$ 为源点，$t∈V_k$ 为终点。</p>
+<p>多段图的最短路径问题是求从源点到终点的最小代价路径。</p>
+<p>由于多段图将顶点划分为 $k$ 个互不相交的子集，所以，多段图划分为 $k$ 段，一旦某条路径的一些段被确定后，就可以并入这些信息并计算部分解的目标函数值的下界。一般情况下，对于一个正在生成的路径，假设已经确定了 $i$ 段（$1≤i≤k$），其路径为$(r_1, r_2,…, r_i, r_{i+1})$，此时，该部分解的目标函数值的计算方法即限界函数如下：                                                                                </p>
+<p>$l b&#x3D;\sum_{j&#x3D;1}^{i} c\left[r_{j}\right]\left[r_{j+1}\right]+\min <em>{\left\langle r</em>{i+1}, v_{p}&gt;\in E\right.}\left{c\left[r_{i+1}\right]\left[v_{p}\right]\right}+\sum_{j&#x3D;i+2}^{k} \text { 第 } j \text { 段的最短边 }$(走过路径长度+该节点到下一段的最小距离+剩余各段之间的最小距离之和)。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125204249909.png" alt="image-20230125204249909"></p>
+<p>对图中所示多段图应用贪心法求得近似解为 $0→2→5→8→9$，其路径代价为 $2+7+6+3&#x3D;18$，这可以作为多段图最短路径问题的上界。把每一段最小的代价相加，可以得到一个非常简单的下界，其路径长度为 $2+4+5+3&#x3D;14$。于是，得到了目标函数的界 $[14, 18]$。</p>
+<p>对于上图，具体的搜索过程如下：</p>
+<p>（1）在根结点0，根据限界函数计算目标函数的值为14；</p>
+<p>（2）在结点1，第1段选择边$&lt;0, 1&gt;$，目标函数值为 $lb&#x3D;4+8+5+3&#x3D;20$，超出目标函数的界，将结点1丢弃；在结点2，第1段选择边$&lt;0, 2&gt;$，目标函数值为 $lb&#x3D;2+7+5+3&#x3D;17$，将结点2加入待处理结点表 $PT$ 中；在结点3，第1段选择边$&lt;0, 3&gt;$，目标函数值为 $lb&#x3D;3+4+5+3&#x3D;15$，将结点3加入表 $PT$ 中；</p>
+<p>（3）在表 $PT$ 中选取目标函数值极小的结点3优先进行搜索；</p>
+<p>（4）在结点5，第2段选择边$&lt;3, 5&gt;$，目标函数值为 $lb&#x3D;3+4+6+3&#x3D;16$ ，将结点5加入表 $PT$ 中；在结点6，第2段选择边$&lt;3, 6&gt;$，目标函数值为 $lb&#x3D;3+7+5+3&#x3D;18$，将结点6加入表 $PT$ 中；</p>
+<p>（5）在表 $PT$ 中选取目标函数值极小的结点5优先进行搜索；</p>
+<p>（6）结点7，已确定路径是 $0→3→5→7$，可直接确定第4段的边 $&lt;7,9&gt;$，目标函数值为 $lb&#x3D;3+4+8+7&#x3D;22$，超界丢弃；在结点8，已确定路径是 $0→3→5→8$，可直接确定第4段的边 $&lt;8, 9&gt;$，目标函数值为 $lb&#x3D;3+4+6+3&#x3D;16$，为一个可行解；由于结点8是叶子结点，并且其目标函数值是 $PT$ 中最小的，所以它是最优解，搜索结束。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125205933848.png" alt="image-20230125205933848" style="zoom:50%;" />
+
+<h2 id="3-6-待续…"><a href="#3-6-待续…" class="headerlink" title="3.6 (待续…)"></a>3.6 (待续…)</h2><h1 id="四、NP完备性理论"><a href="#四、NP完备性理论" class="headerlink" title="四、NP完备性理论"></a>四、NP完备性理论</h1><h2 id="4-1-计算模型"><a href="#4-1-计算模型" class="headerlink" title="4.1 计算模型"></a>4.1 计算模型</h2><p>3个基本计算模型：</p>
+<ul>
+<li>随机存取机RAM(Random Access Machine)</li>
+<li>随机存取存储程序机RASP(Random Access Stored Program Machine)</li>
+<li>图灵机(Turing Machine)</li>
+</ul>
+<h2 id="4-2-几类问题"><a href="#4-2-几类问题" class="headerlink" title="4.2 几类问题"></a>4.2 几类问题</h2><ul>
+<li><p><strong>P</strong> ：多项式时间可解</p>
+</li>
+<li><p><strong>NP</strong>：多项式时间可验证</p>
+</li>
+<li><p><strong>NP-Hard</strong>： 所有NP问题可以约化到一个问题上，则此问题是NP-hard问题</p>
+</li>
+<li><p><strong>NPC</strong>：同时是NP问题和NP-Hard问题，即<strong>多项式时间可验证的NP-hard问题</strong></p>
+</li>
+</ul>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125213241960.png" alt="image-20230125213241960" style="zoom: 67%;" />
+
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125214553192.png" alt="image-20230125214553192" style="zoom:67%;" />
+
+<p><strong>性质</strong>：</p>
+<ul>
+<li><p>只要多项式时间可解，必定多项式时间可验证，即P问题一定是NP问题</p>
+</li>
+<li><p>是否有属于NP-Hard但不属于NP-Complete的问题呢？答案是肯定的。例如停机问题，也即给出一个程 序和输入，判定它的运行是否会终止。停机问题是不可判的，那它当然也不是NP问题。但对于SAT这样 的NP问题，却可以多项式归约到停机问题。因为我们可以构造程序A，该程序对输入的公式穷举其变量 的所有赋值，如果存在赋值使其为真，则停机，否则进入无限循环。这样，判断公式是否可满足便转化 为判断以公式为输入的程序A是否停机。所以，停机问题是NP-Hard而不是NP-Complete。</p>
+</li>
+<li><p>SAT问题和逻辑电路是一一对应的，是NP-Hard问题，<strong>也是NPC问题</strong></p>
+</li>
+<li><p>NP-Hard仅仅是NP问题的约化问题，其本身不一定具有NP问题的多项式时间可验证性。但是当NP-Hard具有可验证时，其就是一个NPC问题了；如果其不具又可验证性，则其只能称之为是NP-Hard问题；如果其多项式时间可解，则它也自然就是一个NPC问题了，而且当NPC问题也是多项式时间可解时，可以证明所有NP问题多项式时间可解。</p>
+</li>
+</ul>
 
                                     
                             </div>
@@ -1670,9 +1768,9 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="算法分析与设计：贪心、动规、分支限界">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="算法分析与设计2：贪心、动规、分支限界、NP完备性理论">
                         
-                        <span class="card-title">算法分析与设计：贪心、动规、分支限界</span>
+                        <span class="card-title">算法分析与设计2：贪心、动规、分支限界、NP完备性理论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -2013,7 +2111,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">384.6k</span>&nbsp;字
+                class="white-color">386.4k</span>&nbsp;字
             
             
             
@@ -2315,27 +2413,12 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>
