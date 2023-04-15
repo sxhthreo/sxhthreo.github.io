@@ -418,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-01-27
+                                    2023-02-23
                             </div>
                             
 
@@ -426,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            5.9k
+                                            8k
                                     </div>
                                     
 
@@ -434,7 +434,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    24
+                                                    33
                                                         分
                                             </div>
                                             
@@ -462,39 +462,42 @@
                         <div class="card-content article-card-content">
                             <div id="articleContent">
                                 <h1 id="一、贪心"><a href="#一、贪心" class="headerlink" title="一、贪心"></a>一、贪心</h1><p>自顶向下解决问题，使问题规模减小。</p>
-<h2 id="1-1-埃及分数"><a href="#1-1-埃及分数" class="headerlink" title="1.1 埃及分数"></a>1.1 埃及分数</h2><p>$7/8=1/2+1/3+1/24$</p>
-<p>对于分数 $A/B$ ( $A<B$ )，$B=A*C+D$，则 $B/A=C+D/A<C+1$，则 $A/B>1/(C+1)$</p>
-<p>则 $1/(C+1)$ 是包含于 $A/B$ 中最大的埃及分数。</p>
-<p>令 $E=C+1$，则 $A/B-1/E=((A<em>E)-B)/(B</em>E)$</p>
+<h2 id="1-1-埃及分数"><a href="#1-1-埃及分数" class="headerlink" title="1.1 埃及分数"></a>1.1 埃及分数</h2><p>$7&#x2F;8&#x3D;1&#x2F;2+1&#x2F;3+1&#x2F;24$</p>
+<p>对于分数 $A&#x2F;B$ ( $A&lt;B$ )，$B&#x3D;A*C+D$，则 $B&#x2F;A&#x3D;C+D&#x2F;A&lt;C+1$，则 $A&#x2F;B&gt;1&#x2F;(C+1)$</p>
+<p>则 $1&#x2F;(C+1)$ 是包含于 $A&#x2F;B$ 中最大的埃及分数。</p>
+<p>令 $E&#x3D;C+1$，则 $A&#x2F;B-1&#x2F;E&#x3D;((A<em>E)-B)&#x2F;(B</em>E)$</p>
 <p><strong>算法</strong>：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123134304686.png" alt="image-20230123134304686"></p>
 <h2 id="1-2-活动选择问题"><a href="#1-2-活动选择问题" class="headerlink" title="1.2 活动选择问题"></a>1.2 活动选择问题</h2><p><strong>贪心算法</strong>：选择结束时间最早的活动（假设活动1为最早结束的活动）</p>
 <p>假设 $A\subseteq S$ 是最优解，将活动按照<strong>结束时间</strong>进行排序，在 $A$ 中的第一个活动是 $k$：</p>
 <ul>
-<li>若 $k=1$，则 $A$ 以贪心选择开始</li>
+<li>若 $k&#x3D;1$，则 $A$ 以贪心选择开始</li>
 <li>若 $k\neq 1$，则存在一种方法 $B$ 以贪心解开始（活动1）<ul>
-<li>令 $B=A-\{k\} \cup\{1\}$，$f_m=min\{f_k:a_k\in S_{ij}\}(其中a_m为S_{ij}中最早结束的活动)$，则有 $f_1\leq f_k$</li>
+<li>令 $B&#x3D;A-{k} \cup{1}$，$f_m&#x3D;min{f_k:a_k\in S_{ij}}(其中a_m为S_{ij}中最早结束的活动)$，则有 $f_1\leq f_k$</li>
 <li>$B$ 中的活动是不相交的(相容的)</li>
 <li>$B$ 中活动的数量与 $A$ 相同，因此 $B$ 是最优的。</li>
 </ul>
 </li>
 </ul>
 <p>将活动按照最早结束时间排序，然后执行以下算法：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123205033900.png" alt="image-20230123205033900" style="zoom:67%;" /></p>
-<p><a href="file://D:\learn\source\_posts\Homework\Algorithm\思考题1116(任务调度">思考题1116：任务调度</a>.md)</p>
-<h2 id="1-3-背包问题"><a href="#1-3-背包问题" class="headerlink" title="1.3 背包问题"></a>1.3 背包问题</h2><p>每件物品 $i$ 都有一定的重量 $w_i$ 和效益值 $b_i$ (所有的 $w_i$、 $b_i$ 和最大容量$W$ 都是整数值)，按照 $v_i/w_i$ 排序来装入物品可以使所装物品的总价值最大。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123205033900.png" alt="image-20230123205033900" style="zoom:67%;" />
+
+<p><a href="file://D:\learn\source_posts\Homework\Algorithm\思考题1116(任务调度).md">思考题1116：任务调度</a></p>
+<h2 id="1-3-背包问题"><a href="#1-3-背包问题" class="headerlink" title="1.3 背包问题"></a>1.3 背包问题</h2><p>每件物品 $i$ 都有一定的重量 $w_i$ 和效益值 $b_i$ (所有的 $w_i$、 $b_i$ 和最大容量$W$ 都是整数值)，按照 $v_i&#x2F;w_i$ 排序来装入物品可以使所装物品的总价值最大。</p>
 <h2 id="1-4-最佳合并模式算法-Optimal-Merge-Patterns"><a href="#1-4-最佳合并模式算法-Optimal-Merge-Patterns" class="headerlink" title="1.4 最佳合并模式算法(Optimal Merge Patterns)"></a>1.4 最佳合并模式算法(Optimal Merge Patterns)</h2><h3 id="1-4-1-算法"><a href="#1-4-1-算法" class="headerlink" title="1.4.1 算法"></a>1.4.1 算法</h3><p>二叉合并树：外部节点表示实体，内部节点表示这些实体的合并的二叉树。</p>
-<p>假设节点 $i$ 对成本的贡献为 $p_i$，从根节点到该节点的路径长度为 $L_i$，则 $L=\sum_{i=1}^{n} p_{i} L_{i}$</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123212257236.png" alt="image-20230123212257236" style="zoom:67%;" /></p>
+<p>假设节点 $i$ 对成本的贡献为 $p_i$，从根节点到该节点的路径长度为 $L_i$，则 $L&#x3D;\sum_{i&#x3D;1}^{n} p_{i} L_{i}$</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123212257236.png" alt="image-20230123212257236" style="zoom:67%;" />
+
 <p>算法：</p>
 <ul>
 <li><p>将 $list$ 及其长度插入到小根堆中</p>
 </li>
 <li><p>重复从堆中移除两个最小长度的列表 $(p_i,p_j)$。</p>
 </li>
-<li><p>合并长度为 $(p_i,p_j)$ 的列表，形成一个长度为 $p_{ij} = p_i+ p_j$ 的新列表</p>
+<li><p>合并长度为 $(p_i,p_j)$ 的列表，形成一个长度为 $p_{ij} &#x3D; p_i+ p_j$ 的新列表</p>
 </li>
-<li>将 $p_{ij}$ 及其插入堆中，直到所有符号合并成一个最终的列表</li>
+<li><p>将 $p_{ij}$ 及其插入堆中，直到所有符号合并成一个最终的列表</p>
+</li>
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123212711903.png" alt="image-20230123212711903"></p>
 <h3 id="1-4-2-应用：哈夫曼编码"><a href="#1-4-2-应用：哈夫曼编码" class="headerlink" title="1.4.2 应用：哈夫曼编码"></a>1.4.2 应用：哈夫曼编码</h3><p>$WPL$：<strong>带权路径长度</strong></p>
@@ -504,7 +507,7 @@
 <li><p>连接“0”表示左分支，连接“1”表示右分支</p>
 </li>
 </ul>
-<h2 id="1-5-最小生成树-MST"><a href="#1-5-最小生成树-MST" class="headerlink" title="1.5 最小生成树(MST)"></a>1.5 最小生成树(MST)</h2><p>对于带权连通无向图 $G=(V,E)$，生成树不同，每棵树的权（即树中所有边上的权值之和）也可能不同。设 $R$ 为 $G$ 的所有生成树的集合，若 $T$ 为 $R$ 中边的权值之和最小的生成树，则 $T$ 称为 $G$ 的<strong>最小生成树（MST）</strong>。</p>
+<h2 id="1-5-最小生成树-MST"><a href="#1-5-最小生成树-MST" class="headerlink" title="1.5 最小生成树(MST)"></a>1.5 最小生成树(MST)</h2><p>对于带权连通无向图 $G&#x3D;(V,E)$，生成树不同，每棵树的权（即树中所有边上的权值之和）也可能不同。设 $R$ 为 $G$ 的所有生成树的集合，若 $T$ 为 $R$ 中边的权值之和最小的生成树，则 $T$ 称为 $G$ 的<strong>最小生成树（MST）</strong>。</p>
 <blockquote>
 <p>生成树的一些概念：</p>
 <ul>
@@ -524,28 +527,29 @@
 <li>含 $n$ 个顶点 $n-1$ 条边的图不一定是生成树</li>
 </ul>
 </blockquote>
-<p>最小生成树有以下<strong>重要性质</strong>：==<strong>[注意红、蓝、紫的颜色标记]</strong>==</p>
-<p>假设 $(u,v)$ 具有<strong>最小权</strong>，其中 $u\in U[red],v\in V-U[blue]$，则必定 $\exists MST\; contains\; (u,v)[purple]$。</p>
+<p>最小生成树有以下<strong>重要性质</strong>：&#x3D;&#x3D;<strong>[注意红、蓝、紫的颜色标记]</strong>&#x3D;&#x3D;</p>
+<p>假设 $(u,v)$ 具有<strong>最小权</strong>，其中 $u\in U[red],v\in V-U[blue]$，则必定 $\exists MST; contains; (u,v)[purple]$。</p>
 <p>下面的算法将用到这一性质。</p>
 <h4 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h4><p>从某一个顶点开始构建生成树；每次将<strong>代价最小的新顶点</strong>纳入生成树，直到所有顶点都纳入为止。算法的步骤如下：</p>
 <ul>
-<li><p>Step 1: $x\in V$, $Let\;A = {x}, B = V - {x}$</p>
+<li><p>Step 1: $x\in V$, $Let;A &#x3D; {x}, B &#x3D; V - {x}$</p>
 </li>
 <li><p>Step 2: Select $(u, v)\in E$, $u\in A, v\in B$  such that $(u, v)$ has <strong>the smallest weight</strong> between A and B</p>
 </li>
-<li><p>Step 3: $(u, v)$ is in the tree. $A = A\cup \{v\}, B = B - \{v\}$</p>
+<li><p>Step 3: $(u, v)$ is in the tree. $A &#x3D; A\cup {v}, B &#x3D; B - {v}$</p>
 </li>
-<li><p>Step 4: If $B =\varnothing$, stop; otherwise, go to Step 2.</p>
+<li><p>Step 4: If $B &#x3D;\varnothing$, stop; otherwise, go to Step 2.</p>
 </li>
 </ul>
-<p>其时间复杂度为 $O\left( n^{2} \right)$（其中 $n=\left| V \right|$），适合用于<strong>边稠密图</strong>。</p>
+<p>其时间复杂度为 $O\left( n^{2} \right)$（其中 $n&#x3D;\left| V \right|$），适合用于<strong>边稠密图</strong>。</p>
 <p><code>Red</code>、<code>Blue</code>点可用以下方式标记：</p>
 <ul>
 <li><code>Color Mark</code>  <code>O(n)</code></li>
 <li><code>set</code> 集合        <code>O(n)</code></li>
 <li><code>BitString</code> 位串</li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220211161514407.png" alt="image-20220211161514407" style="zoom: 80%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220211161514407.png" alt="image-20220211161514407" style="zoom: 80%;" />
+
 <p><strong>代码实现</strong>：</p>
 <p>有两个需要注意的变量：</p>
 <ul>
@@ -576,28 +580,31 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220506231114501.png" alt="image-20220506231114501"></p>
 <h4 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h4><p>每次选择一条<strong>权值最小的边</strong>，使这条边的两头连通（原先已经连通的就不选），直到所有结点都连通。</p>
 <p>在这个算法中需要关注的问题是：</p>
 <ul>
 <li>一个点能否遍历到另一个点</li>
-<li>两端点是否在<strong>连通分量</strong>（集合）中（该算法使用）———-&gt;<strong>避圈法</strong></li>
+<li>两端点是否在<strong>连通分量</strong>（集合）中（该算法使用）——-&gt;<strong>避圈法</strong></li>
 </ul>
 <p>在该算法中运用到的是<strong>并查集</strong>（Union-Find Set，存在查找集合和合并集合），并查集使用<strong>树的双亲表示法</strong>。</p>
-<p>作为“双亲”，初始双亲指向自己；双亲可以<strong>直接指向根</strong>（通过经历的边寻找），并即是<strong>一个树的根=另一个树的根（双亲）</strong>。</p>
+<p>作为“双亲”，初始双亲指向自己；双亲可以<strong>直接指向根</strong>（通过经历的边寻找），并即是<strong>一个树的根&#x3D;另一个树的根（双亲）</strong>。</p>
 <p>在算法中，当 <code>n - 1</code> 条边全部进入生成树中时则结束。算法的时间复杂度为$O\left( \left| E \right|{log}\left| V \right| \right)$，适合用于<strong>边稀疏图</strong>。</p>
 <p>算法流程是：</p>
 <ul>
 <li><strong>将所有边按权重从小到大排序</strong>(调用<code>sort</code>函数，是该算法的瓶颈)</li>
-<li>枚举每条边<code>a - b</code>，权重是<code>c</code>，如果<code>a - b</code>不连通，将这条边加入集合中去—-&gt;<strong>并查集</strong></li>
+<li>枚举每条边<code>a - b</code>，权重是<code>c</code>，如果<code>a - b</code>不连通，将这条边加入集合中去—&gt;<strong>并查集</strong></li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123232214699.png" alt="image-20230123232214699" style="zoom:50%;" /></p>
-<p><a href="file://D:\learn\source\_posts\Homework\Algorithm\思考题1118(团伙数量">思考题1118：团伙数量</a>.md)</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123232214699.png" alt="image-20230123232214699" style="zoom:50%;" />
+
+<p><a href="file://D:\learn\source_posts\Homework\Algorithm\思考题1118(团伙数量).md">思考题1118：团伙数量</a></p>
 <h2 id="1-6-最小环基问题"><a href="#1-6-最小环基问题" class="headerlink" title="1.6 最小环基问题"></a>1.6 最小环基问题</h2><p>The minimal cycle basis problem</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123234025151.png" alt="image-20230123234025151" style="zoom:50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230123234025151.png" alt="image-20230123234025151" style="zoom:50%;" />
+
 <p>寻找最小循环基的贪婪算法：</p>
 <ul>
-<li><p>确定最小环基的大小，记为 $k= |E| - |V| + 1$。</p>
+<li><p>确定最小环基的大小，记为 $k&#x3D; |E| - |V| + 1$。</p>
 </li>
 <li><p>找到所有的环。按权重对所有环排序。</p>
 </li>
@@ -606,7 +613,7 @@
 <li><p>如果环基有 $k$ 个环，停止。</p>
 </li>
 </ul>
-<h2 id="1-7-旅行商问题"><a href="#1-7-旅行商问题" class="headerlink" title="1.7 旅行商问题"></a>1.7 旅行商问题</h2><p>设一个由 $N$ 个城市 $v_1,v_2,…,v_n$ 组成的网络，$c_{i,j}$ 为从 $v_i$ 到 $v_j$ 的代价不妨设 $c_{i,j}$ = $c_{j,i}$ ，且 $c_{i,i}=\infty$。一推销员要从某城市出发经过每城市一次且仅一次后返回出发地问如何选择路线使代价最小。</p>
+<h2 id="1-7-旅行商问题"><a href="#1-7-旅行商问题" class="headerlink" title="1.7 旅行商问题"></a>1.7 旅行商问题</h2><p>设一个由 $N$ 个城市 $v_1,v_2,…,v_n$ 组成的网络，$c_{i,j}$ 为从 $v_i$ 到 $v_j$ 的代价不妨设 $c_{i,j}$ &#x3D; $c_{j,i}$ ，且 $c_{i,i}&#x3D;\infty$。一推销员要从某城市出发经过每城市一次且仅一次后返回出发地问如何选择路线使代价最小。</p>
 <p>算法策略：</p>
 <ul>
 <li><strong>最近邻点策略</strong>：从任意城市出发，每次在没有到过的城市中选择最近的一个，直到经过了所有的城市，最后回到出发城市。</li>
@@ -614,7 +621,7 @@
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230124133054265.png" alt="image-20230124133054265"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230124133113250.png" alt="image-20230124133113250"></p>
-<h2 id="1-8-二部图的着色"><a href="#1-8-二部图的着色" class="headerlink" title="1.8 二部图的着色"></a>1.8 二部图的着色</h2><p>详见<a href="file://D:\learn\source\_posts\AlgorithmLearning\[算法03]搜索与图论.md">算法笔记-搜索与图论</a>。</p>
+<h2 id="1-8-二部图的着色"><a href="#1-8-二部图的着色" class="headerlink" title="1.8 二部图的着色"></a>1.8 二部图的着色</h2><p>详见<a href="file://D:\learn\source_posts\AlgorithmLearning[算法03]搜索与图论.md">算法笔记-搜索与图论</a>。</p>
 <h1 id="二、动态规划"><a href="#二、动态规划" class="headerlink" title="二、动态规划"></a>二、动态规划</h1><p>自底向上解决问题，决策依赖于当前状态。</p>
 <h2 id="2-1-动态规划基本问题"><a href="#2-1-动态规划基本问题" class="headerlink" title="2.1 动态规划基本问题"></a>2.1 动态规划基本问题</h2><p><strong>动态规划的基本要素</strong>：</p>
 <ul>
@@ -626,9 +633,10 @@
 <li>划分阶段：子问题（时间、空间）</li>
 <li>选择状态</li>
 <li>确定决策并写出状态转移方程</li>
-<li><p>写出规划方程（包括边界条件）</p>
-<p><strong>解决方法分类</strong>：</p>
-</li>
+<li>写出规划方程（包括边界条件）</li>
+</ul>
+<p> <strong>解决方法分类</strong>：</p>
+<ul>
 <li><p>自顶向下（递归）</p>
 </li>
 <li><p>自顶向下+备忘录</p>
@@ -644,8 +652,8 @@
 <li><p>自底向上（DP）</p>
 </li>
 </ul>
-<h2 id="2-2-0-1背包"><a href="#2-2-0-1背包" class="headerlink" title="2.2 0/1背包"></a>2.2 0/1背包</h2><p>有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能使用一次。</p>
-<p><strong>第 $i$ 件物品的体积是 $v_{i}$，价值是 $w_{i}$</strong>。</p>
+<h2 id="2-2-0-x2F-1背包"><a href="#2-2-0-x2F-1背包" class="headerlink" title="2.2 0&#x2F;1背包"></a>2.2 0&#x2F;1背包</h2><p>有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能使用一次。</p>
+<p>**第 $i$ 件物品的体积是 $v_{i}$，价值是 $w_{i}$**。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</p>
 <p>输出最大价值。</p>
 <h3 id="2-2-1-公式推导与笔算"><a href="#2-2-1-公式推导与笔算" class="headerlink" title="2.2.1 公式推导与笔算"></a>2.2.1 公式推导与笔算</h3><ul>
@@ -664,93 +672,89 @@
 </ul>
 </li>
 </ul>
-<p>故有：$f(i,j) = Max(f(i-1,j),f(i-1,j-v_i)+w_i)$</p>
-<p>==<strong>[笔算题]</strong>==用动态规划法求如下0/1背包问题的最优解：有5个物品，其容量分别为(3,2,1,4,5)，价值分别为(25,20,15,40,50)，背包容量为6，写出求解过程（设计和填写表格）。</p>
+<p>故有：$f(i,j) &#x3D; Max(f(i-1,j),f(i-1,j-v_i)+w_i)$</p>
+<p>&#x3D;&#x3D;<strong>[笔算题]</strong>&#x3D;&#x3D;用动态规划法求如下0&#x2F;1背包问题的最优解：有5个物品，其容量分别为(3,2,1,4,5)，价值分别为(25,20,15,40,50)，背包容量为6，写出求解过程（设计和填写表格）。</p>
 <hr>
 <p>设计一个二维表 $V(i,j)$ 表示将前 $i$ 个物品装进容量为 $j$ 的背包所能获得的最大价值。根据以下递归式填表：</p>
 <ul>
-<li>若 $w_i&gt;j$，则 $V(i,j)=V(i-1,j)$</li>
-<li>若 $w_i\leq j$，则 $V(i,j)=max\{V(i-1,j),V(i-1,j-w_i)+v_i\}$</li>
+<li>若 $w_i&gt;j$，则 $V(i,j)&#x3D;V(i-1,j)$</li>
+<li>若 $w_i\leq j$，则 $V(i,j)&#x3D;max{V(i-1,j),V(i-1,j-w_i)+v_i}$</li>
 </ul>
 <p>找<strong>上一行同位置点</strong>及<strong>上一行减去容量位置点+当前物品价值</strong>的最大值</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">j=0</th>
-<th style="text-align:center">j=1</th>
-<th style="text-align:center">j=2</th>
-<th style="text-align:center">j=3</th>
-<th style="text-align:center">j=4</th>
-<th style="text-align:center">j=5</th>
-<th style="text-align:center">j=6</th>
+<th align="center"></th>
+<th align="center">j&#x3D;0</th>
+<th align="center">j&#x3D;1</th>
+<th align="center">j&#x3D;2</th>
+<th align="center">j&#x3D;3</th>
+<th align="center">j&#x3D;4</th>
+<th align="center">j&#x3D;5</th>
+<th align="center">j&#x3D;6</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">i=0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">i&#x3D;0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">i=1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">25</td>
-<td style="text-align:center">25</td>
-<td style="text-align:center">25</td>
-<td style="text-align:center">25</td>
+<td align="center">i&#x3D;1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">25</td>
+<td align="center">25</td>
+<td align="center">25</td>
+<td align="center">25</td>
 </tr>
 <tr>
-<td style="text-align:center">i=2</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">20</td>
-<td style="text-align:center">25</td>
-<td style="text-align:center">25</td>
-<td style="text-align:center">45</td>
-<td style="text-align:center">45</td>
+<td align="center">i&#x3D;2</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">20</td>
+<td align="center">25</td>
+<td align="center">25</td>
+<td align="center">45</td>
+<td align="center">45</td>
 </tr>
 <tr>
-<td style="text-align:center">i=3</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">15</td>
-<td style="text-align:center">20</td>
-<td style="text-align:center">35</td>
-<td style="text-align:center">40</td>
-<td style="text-align:center">45</td>
-<td style="text-align:center">60</td>
+<td align="center">i&#x3D;3</td>
+<td align="center">0</td>
+<td align="center">15</td>
+<td align="center">20</td>
+<td align="center">35</td>
+<td align="center">40</td>
+<td align="center">45</td>
+<td align="center">60</td>
 </tr>
 <tr>
-<td style="text-align:center">i=4</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">15</td>
-<td style="text-align:center">20</td>
-<td style="text-align:center">35</td>
-<td style="text-align:center">40</td>
-<td style="text-align:center">55</td>
-<td style="text-align:center">60</td>
+<td align="center">i&#x3D;4</td>
+<td align="center">0</td>
+<td align="center">15</td>
+<td align="center">20</td>
+<td align="center">35</td>
+<td align="center">40</td>
+<td align="center">55</td>
+<td align="center">60</td>
 </tr>
 <tr>
-<td style="text-align:center">i=5</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">15</td>
-<td style="text-align:center">20</td>
-<td style="text-align:center">35</td>
-<td style="text-align:center">40</td>
-<td style="text-align:center">55</td>
-<td style="text-align:center">65</td>
+<td align="center">i&#x3D;5</td>
+<td align="center">0</td>
+<td align="center">15</td>
+<td align="center">20</td>
+<td align="center">35</td>
+<td align="center">40</td>
+<td align="center">55</td>
+<td align="center">65</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>$V(5,6)$ 即为问题的最优解，最大价值为65，经过回溯得到物品组合为第3和第5个物品装入背包。</p>
 <h3 id="2-2-2-代码与优化"><a href="#2-2-2-代码与优化" class="headerlink" title="2.2.2 代码与优化"></a>2.2.2 代码与优化</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2/">例：01背包问题</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
@@ -777,6 +781,7 @@
     cout <span class="token operator">&lt;&lt;</span> f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/116859/">优化为一维的方法</a>：<strong>需逆序</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
@@ -803,19 +808,20 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><strong>注</strong>：(1式)</p>
 <p><code>f[i][j] = max(f[i][j], f[i - 1][j - v[i]] + w[i]);</code></p>
 <p>若改为一维(<strong>滚动数组</strong>)，且<code>j</code>从<code>v[i]</code>开始递增，则算到第<code>i</code>层时，<code>f[j - v[i]]</code>已经被更新为第<code>i</code>层的，不符合二维情况，故<code>j</code>应递减遍历。</p>
 </blockquote>
-<h2 id="2-3-矩阵连乘问题"><a href="#2-3-矩阵连乘问题" class="headerlink" title="2.3 矩阵连乘问题"></a>2.3 矩阵连乘问题</h2><p>在科学计算中经常要计算矩阵的乘积。矩阵 $A$ 和 $B$ 可乘的条件是矩阵 $A$ 的列数等于矩阵 $B$ 的行数。若 $A$ 是一个 $p×q$ 的矩阵，$B$ 是一个 $q×r$ 的矩阵，则其乘积 $C=AB$ 是一个 $p×r$ 的矩阵。</p>
+<h2 id="2-3-矩阵连乘问题"><a href="#2-3-矩阵连乘问题" class="headerlink" title="2.3 矩阵连乘问题"></a>2.3 矩阵连乘问题</h2><p>在科学计算中经常要计算矩阵的乘积。矩阵 $A$ 和 $B$ 可乘的条件是矩阵 $A$ 的列数等于矩阵 $B$ 的行数。若 $A$ 是一个 $p×q$ 的矩阵，$B$ 是一个 $q×r$ 的矩阵，则其乘积 $C&#x3D;AB$ 是一个 $p×r$ 的矩阵。</p>
 <p>其标准计算公式为：</p>
-<p>$C_{i j}=\sum_{k=1}^{q} A_{i k} B_{k j} \quad \text { 其中 } 1 \leq i \leq p, \quad 1 \leq j \leq r$</p>
-<p>由该公式知计算 $C=AB$ 总共需要 $pqr$ 次的数乘。</p>
-<p>现在的问题是，给定 $n$ 个矩阵 ${A_1,A_2,…,A_n}$。其中 $A_i$ 与 $A_{i+1}$ 是可乘的，$i=1,2,…,n-1$。要求计算出这 $n$ 个矩阵的连乘积$A_1A_2…A_n$。</p>
+<p>$C_{i j}&#x3D;\sum_{k&#x3D;1}^{q} A_{i k} B_{k j} \quad \text { 其中 } 1 \leq i \leq p, \quad 1 \leq j \leq r$</p>
+<p>由该公式知计算 $C&#x3D;AB$ 总共需要 $pqr$ 次的数乘。</p>
+<p>现在的问题是，给定 $n$ 个矩阵 ${A_1,A_2,…,A_n}$。其中 $A_i$ 与 $A_{i+1}$ 是可乘的，$i&#x3D;1,2,…,n-1$。要求计算出这 $n$ 个矩阵的连乘积$A_1A_2…A_n$。</p>
 <hr>
-<p>我们设二维数组 $m[N][N]$ 表示当前矩阵的连乘次数，一维数组 $p[N]$ 表示各矩阵的维度（其中 $p[0]$ 表示第一个矩阵的行数，$p<a href="i&gt;0">i</a>$ 表示第 $i$ 个矩阵的列数），则有以下递归公式：</p>
-<p>$m[i][j]=\left\{\begin{array}{cc}<br>0 &amp; i=j \\<br>\min \limits_{i \leq k&lt;j}\left\{m[i][k]+m[k+1][j]+p_{i-1} p_{k} p_{j}\right\} &amp; i&lt;j<br>\end{array}\right.$ </p>
+<p>我们设二维数组 $m[N][N]$ 表示当前矩阵的连乘次数，一维数组 $p[N]$ 表示各矩阵的维度（其中 $p[0]$ 表示第一个矩阵的行数，$p<a href="i%3E0">i</a>$ 表示第 $i$ 个矩阵的列数），则有以下递归公式：</p>
+<p>$m[i][j]&#x3D;\left{\begin{array}{cc}<br>0 &amp; i&#x3D;j \<br>\min \limits_{i \leq k&lt;j}\left{m[i][k]+m[k+1][j]+p_{i-1} p_{k} p_{j}\right} &amp; i&lt;j<br>\end{array}\right.$ </p>
 <p>我们先将 $m$ 数组的对角线初始化为0，然后依次计算第 $i$ 个矩阵与第 $i + r - 1$ 个矩阵到最后一个矩阵连乘的最优解情况；依次在 $r − 1$ 个分隔位置中依次检测最优分隔点：对于每个分隔点，变换一次分隔位置，再进行逐一测试，如果有更优的分隔点，就替换掉当前的分隔点。</p>
 <p>由此，我们输出 $m[1][n]$，即得到最少的连乘计算次数；记录间隔位置，则可以输出计算连乘的顺序，即最佳添加括号的方式。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">MatrixChain</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
@@ -857,11 +863,13 @@
 	<span class="token function">print</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
 	cout <span class="token operator">&lt;&lt;</span> <span class="token string">")"</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-4-最长公共子序列问题-LCS问题"><a href="#2-4-最长公共子序列问题-LCS问题" class="headerlink" title="2.4 最长公共子序列问题(LCS问题)"></a>2.4 最长公共子序列问题(<code>LCS</code>问题)</h2><h3 id="2-4-1-公式推导与笔算"><a href="#2-4-1-公式推导与笔算" class="headerlink" title="2.4.1 公式推导与笔算"></a>2.4.1 公式推导与笔算</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/899/">例：最长公共子序列</a></p>
 <p>给定两个长度分别为 $N$ 和 $M$ 的字符串 $A$ 和 $B$，求既是 $A$ 的子序列又是 $B$ 的子序列的字符串长度最长是多少。</p>
 <pre class="line-numbers language-none"><code class="language-none">4 5
 acbd
 abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>输出为3。</p>
 <p><strong>DP问题</strong>：</p>
 <ul>
@@ -886,74 +894,70 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <p>$f(i-1,j)$和$f(i,j-1)$包含00情况$f(i-1,j-1)$，则可以不计算$f(i-1,j-1)$.</p>
 </blockquote>
 </li>
-<li><p>规划方程：$c[i, j]=\left\{\begin{array}{ll}<br>c[i-1, j-1]+1 &amp; \text { if } x[i]=y[j] \\<br>\max (c[i, j-1], c[i-1, j]) &amp; \text { otherwise }<br>\end{array}\right.$</p>
+<li><p>规划方程：$c[i, j]&#x3D;\left{\begin{array}{ll}<br>c[i-1, j-1]+1 &amp; \text { if } x[i]&#x3D;y[j] \<br>\max (c[i, j-1], c[i-1, j]) &amp; \text { otherwise }<br>\end{array}\right.$</p>
 </li>
 </ul>
 </li>
 </ul>
-<p>==<strong>[笔算题]</strong>==计算ABCB与BDCAB的最长公共子序列的长度。</p>
-<div class="table-container">
+<p>&#x3D;&#x3D;<strong>[笔算题]</strong>&#x3D;&#x3D;计算ABCB与BDCAB的最长公共子序列的长度。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">i/j</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1B</th>
-<th style="text-align:center">2D</th>
-<th style="text-align:center">3C</th>
-<th style="text-align:center">4A</th>
-<th style="text-align:center">5B</th>
+<th align="center">i&#x2F;j</th>
+<th align="center">0</th>
+<th align="center">1B</th>
+<th align="center">2D</th>
+<th align="center">3C</th>
+<th align="center">4A</th>
+<th align="center">5B</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td style="text-align:center">1A</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
+<td align="center">1A</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:center">2B</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
+<td align="center">2B</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">3C</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
+<td align="center">3C</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td style="text-align:center">4B</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
+<td align="center">4B</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">3</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>故长度为3。</p>
 <h3 id="2-4-2-代码实现"><a href="#2-4-2-代码实现" class="headerlink" title="2.4.2 代码实现"></a>2.4.2 代码实现</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
@@ -984,10 +988,12 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-5-最长上升子序列问题-LIS问题"><a href="#2-5-最长上升子序列问题-LIS问题" class="headerlink" title="2.5 最长上升子序列问题(LIS问题)"></a>2.5 最长上升子序列问题(<code>LIS</code>问题)</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/897/">例：最长上升子序列</a>(Longest Increasing Subsequence)</p>
 <p>给定一个长度为 $N$ 的数列，求数值严格单调递增的子序列的长度最长是多少。</p>
 <pre class="line-numbers language-none"><code class="language-none">7
 3 1 2 1 8 5 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>答案是4($[1,2,5,6]$)。</p>
 <p><strong>DP问题</strong>：</p>
 <ul>
@@ -1004,7 +1010,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 </li>
 <li><p><strong>以上一个数的位置进行划分</strong>(0表示没有上一个数，序列长度为1)</p>
 </li>
-<li><p>若$a_j&lt;a_i$，则$f[i] = max(f[j] + 1),j=0,1,2,…,i-1$</p>
+<li><p>若$a_j&lt;a_i$，则$f[i] &#x3D; max(f[j] + 1),j&#x3D;0,1,2,…,i-1$</p>
 </li>
 </ul>
 </li>
@@ -1039,6 +1045,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>时间复杂度为$O(n^2)$</p>
 </blockquote>
@@ -1058,12 +1065,13 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li><strong>属性</strong>：$Min$</li>
 </ul>
 </li>
-<li><strong>状态计算</strong>：<ul>
+<li><p><strong>状态计算</strong>：</p>
+<ul>
 <li>以对 $a$ 中的第 $i$ 个字母操作不同进行集合划分——$f(i,j)$</li>
 <li><strong>考虑最后一步操作</strong>，有三种操作方式，取最小值即可：<ul>
 <li><strong>删</strong>（未删除前 $a$ 中前 $i-1$ 已经和 $b$ 的前 $j$ 个已经相同）：$f(i-1,j)+1$</li>
 <li><strong>增</strong>（未添加前 $a$ 的前 $i$ 个已经和 $b$ 的前 $j-1$ 个已经相同）：$f(i,j-1)+1$</li>
-<li><strong>改</strong>：$f(i-1,j-1)+1\;or\;0$</li>
+<li><strong>改</strong>：$f(i-1,j-1)+1;or;0$</li>
 </ul>
 </li>
 </ul>
@@ -1104,20 +1112,21 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-7-最大子段和问题"><a href="#2-7-最大子段和问题" class="headerlink" title="2.7 最大子段和问题"></a>2.7 最大子段和问题</h2><p>我们记<code>a[i]</code>表示第<code>i</code>个元素，<code>dp[i]</code>表示以<code>a[i]</code>结尾的最大子段和，有以下两种情况：</p>
 <ul>
 <li>若<code>dp[i-1] &gt; 0</code>，则 <code>dp[i] = dp[i-1] + a[i]</code></li>
 <li>若<code>dp[i-1] &lt; 0</code>，则 <code>dp[i] = a[i]</code></li>
 </ul>
 <p>则有<code>dp[i] = max&#123;a[i], dp[i-1] + a[i]&#125;</code></p>
-<p><a href="file://D:\learn\source\_posts\Homework\Algorithm\思考题1028(最大子矩阵和与遗产分割">思考题1028：最大子矩阵和问题</a>.md)</p>
+<p><a href="file://D:\learn\source_posts\Homework\Algorithm\思考题1028(最大子矩阵和与遗产分割).md">思考题1028：最大子矩阵和问题</a></p>
 <h1 id="三、分支限界"><a href="#三、分支限界" class="headerlink" title="三、分支限界"></a>三、分支限界</h1><h2 id="3-1-分支搜索"><a href="#3-1-分支搜索" class="headerlink" title="3.1 分支搜索"></a>3.1 分支搜索</h2><p>分支搜索法是一种在问题解空间上进行搜索尝试的算法。</p>
 <p>在生成的结点中，抛弃那些不满足约束条件的结点，其余结点加入活结点表。然后从表中选择一个结点作为下一个<strong>E-结点</strong>。</p>
 <p>选择下一个E-结点方式的不同导致几种分支搜索方式：</p>
 <ul>
 <li><strong>FIFO搜索</strong> </li>
 <li><strong>LIFO搜索</strong> </li>
-<li><strong>优先队列式搜索</strong> </li>
+<li><strong>优先队列式搜索</strong></li>
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230124220659036.png" alt="image-20230124220659036"></p>
 <p><strong>FIFO搜索</strong>：</p>
@@ -1142,7 +1151,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li><p>根据这些优先级，从当前活结点表中优先选择一个优先级最高（最有利）的结点作为扩展结点，使搜索朝着解空间树上有最优解的分支推进，以便尽快地找出一个最优解。</p>
 </li>
 </ul>
-<h2 id="3-2-分支限界法基本思想"><a href="#3-2-分支限界法基本思想" class="headerlink" title="3.2 分支限界法基本思想"></a>3.2 分支限界法基本思想</h2><p>分支限界法常以<strong>广度优先</strong>或以<strong>最小耗费（最大效益）优先</strong>的方式搜索问题的解空间树。</p>
+<h2 id="3-2-分支限界法基本思想"><a href="#3-2-分支限界法基本思想" class="headerlink" title="3.2 分支限界法基本思想"></a>3.2 分支限界法基本思想</h2><h3 id="3-2-1-概述"><a href="#3-2-1-概述" class="headerlink" title="3.2.1 概述"></a>3.2.1 概述</h3><p>分支限界法常以<strong>广度优先</strong>或以<strong>最小耗费（最大效益）优先</strong>的方式搜索问题的解空间树。</p>
 <p>在分支限界法中，每一个活结点只有一次机会成为扩展结点；活结点一旦成为扩展结点，就一次性产生其所有儿子结点。</p>
 <p>在这些儿子结点中，导致不可行解或导致非最优解的儿子结点被舍弃，其余儿子结点被加入活结点表中；从活结点表中取下一结点成为当前扩展结点，并重复上述结点扩展过程，该过程一直持续到找到所求的解或活结点表为空时为止。</p>
 <p>两个重要机制：</p>
@@ -1150,35 +1159,31 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li><strong>产生分支</strong>（<strong>解空间树</strong>）</li>
 <li><strong>产生一个界限，能够终止许多分支</strong>（<strong>剪枝</strong>）</li>
 </ul>
-<div class="table-container">
-<table>
+<h3 id="3-2-2-回溯法与分支限界法的比较"><a href="#3-2-2-回溯法与分支限界法的比较" class="headerlink" title="3.2.2 回溯法与分支限界法的比较"></a>3.2.2 回溯法与分支限界法的比较</h3><table>
 <thead>
 <tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">对解空间树的搜索方式</th>
-<th style="text-align:center">存储结点的常用数据结构</th>
-<th style="text-align:center">结点存储特性</th>
-<th style="text-align:center">求解目标</th>
+<th align="center">方法</th>
+<th align="center">对解空间树的搜索方式</th>
+<th align="center">存储结点的常用数据结构</th>
+<th align="center">结点存储特性</th>
+<th align="center">求解目标</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">回溯法</td>
-<td style="text-align:center">深度优先搜索</td>
-<td style="text-align:center">栈</td>
-<td style="text-align:center">活结点的所有可行子结点被遍历后才被从栈中弹出</td>
-<td style="text-align:center">找出满足约束条件的所有解</td>
+<tbody><tr>
+<td align="center">回溯法</td>
+<td align="center">深度优先搜索</td>
+<td align="center">栈</td>
+<td align="center">活结点的所有可行子结点被遍历后才被从栈中弹出</td>
+<td align="center">找出满足约束条件的所有解</td>
 </tr>
 <tr>
-<td style="text-align:center">分支限界法</td>
-<td style="text-align:center">广度优先或最小消耗优先搜索</td>
-<td style="text-align:center">队列、优先队列</td>
-<td style="text-align:center">每个结点只有一次成为扩展结点的机会</td>
-<td style="text-align:center">找出满足约束条件的一个解或特定意义下的最优解</td>
+<td align="center">分支限界法</td>
+<td align="center">广度优先或最小消耗优先搜索</td>
+<td align="center">队列、优先队列</td>
+<td align="center">每个结点只有一次成为扩展结点的机会</td>
+<td align="center">找出满足约束条件的一个解或特定意义下的最优解</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="3-3-结点成本函数"><a href="#3-3-结点成本函数" class="headerlink" title="3.3 结点成本函数"></a>3.3 结点成本函数</h2><p>$C(·)$ 是“有智力”的排序函数，依据成本排序，优先选择成本最小的活结点作为下一个扩展的E结点，$C(·)$ 又称为“<strong>结点成本函数</strong>”。</p>
 <p>结点成本函数 $C(X)$ 的定义：</p>
 <ul>
@@ -1198,86 +1203,85 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 </li>
 </ul>
 <p><strong>15-谜问题</strong>状态空间树的构造：</p>
-<p>定义成本估计函数 $\hat{c}(X)=f(X)+\hat{g}(X)$</p>
+<p>定义成本估计函数 $\hat{c}(X)&#x3D;f(X)+\hat{g}(X)$</p>
 <ul>
 <li>$f(X)$ 是由根到结点 $X$ 的路径长度</li>
 <li>$\hat{g}(X)$ 是以 $X$ 为根的子树中由 $X$ 到目标状态的一条最短路径长度的估计值，至少应是能把状态 $X$ 转换成目标状态所需的最小移动数，我们令其为<strong>不在其目标位置的非空白牌数目</strong></li>
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230124233049772.png" alt="image-20230124233049772"></p>
 <p>使用 $\hat{C}(X)$ 的LC-检索可以使检索过程很快地定位到结点23。</p>
-<h2 id="3-4-0-1背包问题"><a href="#3-4-0-1背包问题" class="headerlink" title="3.4 0/1背包问题"></a>3.4 0/1背包问题</h2><p>首先确定一个合理的限界函数，并根据限界函数确定目标函数的界 $[down,up]$，然后按照广度优先策略遍历问题的解空间树。在分支节点上，一次搜索该节点的所有孩子节点，分别估算这些孩子节点的目标函数的可能取值，如果某孩子节点的目标函数可能取得的值超出目标函数的界，则将其丢弃，因为从某个节点生成的解不会比目前已经得到的解更好；否则，将其加入待处理节点表(简称为$PT$)中。<strong>依次从表 $PT$ 中选取使目标函数的值取得极值的节点成为当前的扩展节点</strong>，重复上述过程，直到找到最优解。</p>
-<p>假设有4个物品，其重量分别为(4, 7, 5, 3)，价值分别为(40, 42, 25, 12)，背包容量W=10。将给定物品按单位重量价值从大到小排序，结果如下：</p>
-<div class="table-container">
+<h2 id="3-4-0-x2F-1背包问题"><a href="#3-4-0-x2F-1背包问题" class="headerlink" title="3.4 0&#x2F;1背包问题"></a>3.4 0&#x2F;1背包问题</h2><p>首先确定一个合理的限界函数，并根据限界函数确定目标函数的界 $[down,up]$，然后按照广度优先策略遍历问题的解空间树。在分支节点上，一次搜索该节点的所有孩子节点，分别估算这些孩子节点的目标函数的可能取值，如果某孩子节点的目标函数可能取得的值超出目标函数的界，则将其丢弃，因为从某个节点生成的解不会比目前已经得到的解更好；否则，将其加入待处理节点表(简称为$PT$)中。<strong>依次从表 $PT$ 中选取使目标函数的值取得极值的节点成为当前的扩展节点</strong>，重复上述过程，直到找到最优解。</p>
+<p>假设有4个物品，其重量分别为(4, 7, 5, 3)，价值分别为(40, 42, 25, 12)，背包容量W&#x3D;10。将给定物品按单位重量价值从大到小排序，结果如下：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">物品</th>
-<th style="text-align:center">重量(w)</th>
-<th style="text-align:center">价值(v)</th>
-<th style="text-align:center">价值/重量(v/w)</th>
+<th align="center">物品</th>
+<th align="center">重量(w)</th>
+<th align="center">价值(v)</th>
+<th align="center">价值&#x2F;重量(v&#x2F;w)</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">40</td>
-<td style="text-align:center">10</td>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">40</td>
+<td align="center">10</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">42</td>
-<td style="text-align:center">6</td>
+<td align="center">2</td>
+<td align="center">7</td>
+<td align="center">42</td>
+<td align="center">6</td>
 </tr>
 <tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">25</td>
-<td style="text-align:center">5</td>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">25</td>
+<td align="center">5</td>
 </tr>
 <tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">12</td>
-<td style="text-align:center">4</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">12</td>
+<td align="center">4</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>问题的解可表示为 $n$ 元向量 $\{x_1, x_2, … x_n \}$，$x_i\in \{0,1\}$，则可用子集树表示解空间, 在树中做广度优先搜索。</p>
+</tbody></table>
+<p>问题的解可表示为 $n$ 元向量 ${x_1, x_2, … x_n }$，$x_i\in {0,1}$，则可用子集树表示解空间, 在树中做广度优先搜索。</p>
 <ul>
-<li>约束条件：$\sum_{i=1}^{n} w_{i} x_{i} \leq W$</li>
-<li>目标函数：$V=\max \sum_{i=1}^{n} v_{i} x_{i}$</li>
+<li>约束条件：$\sum_{i&#x3D;1}^{n} w_{i} x_{i} \leq W$</li>
+<li>目标函数：$V&#x3D;\max \sum_{i&#x3D;1}^{n} v_{i} x_{i}$</li>
 </ul>
 <p>我们得到问题解的下界和上界：</p>
 <ul>
-<li>下界$V_{db} =40\; (1, 0, 0, 0)$——贪心思想；</li>
-<li>上界$V_{ub} =0+(W-0)×(v_1/w_1)=0+(10-0)×10=100$</li>
+<li>下界$V_{db} &#x3D;40; (1, 0, 0, 0)$——贪心思想；</li>
+<li>上界$V_{ub} &#x3D;0+(W-0)×(v_1&#x2F;w_1)&#x3D;0+(10-0)×10&#x3D;100$</li>
 </ul>
 <p>目标函数的界为 $[40, 100]$。</p>
-<p><strong>上限界函数</strong>：$u b=v(前i个物品获得的价值)+(W-w) \times\left(v_{i+1} / w_{i+1}\right)(剩余容量全部装入物品i+1,最多能够获得的价值)$</p>
+<p><strong>上限界函数</strong>：$u b&#x3D;v(前i个物品获得的价值)+(W-w) \times\left(v_{i+1} &#x2F; w_{i+1}\right)(剩余容量全部装入物品i+1,最多能够获得的价值)$</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125203719834.png" alt="image-20230125203719834"></p>
 <blockquote>
 <p><strong>注</strong>：</p>
 <p>为了对每个扩展结点保存该结点到根结点的路径，将部分解 $(x_1,…, x_i)$ 和该部分解的目标函数值都存储在待处理结点表 $PT$ 中，在搜索过程中表 $PT$ 的状态如下图所示：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125203845099.png" alt="image-20230125203845099"></p>
 </blockquote>
-<h2 id="3-5-多段图的最短路径问题"><a href="#3-5-多段图的最短路径问题" class="headerlink" title="3.5 多段图的最短路径问题"></a>3.5 多段图的最短路径问题</h2><p>设图 $G=(V, E)$ 是一个带权有向连通图，如果把顶点集合 $V$ 划分成 $k$ 个互不相交的子集 $V_i(2≤k≤n, 1≤i≤k)$，使得 $E$ 中的任何一条边 $(u, v)$，必有 $u∈V_i$，$v∈V_{i+m}(1≤i＜k, 1＜i+m≤k)$，则称图 $G$ 为多段图，称 $s∈V_1$ 为源点，$t∈V_k$ 为终点。</p>
+<h2 id="3-5-多段图的最短路径问题"><a href="#3-5-多段图的最短路径问题" class="headerlink" title="3.5 多段图的最短路径问题"></a>3.5 多段图的最短路径问题</h2><p>设图 $G&#x3D;(V, E)$ 是一个带权有向连通图，如果把顶点集合 $V$ 划分成 $k$ 个互不相交的子集 $V_i(2≤k≤n, 1≤i≤k)$，使得 $E$ 中的任何一条边 $(u, v)$，必有 $u∈V_i$，$v∈V_{i+m}(1≤i＜k, 1＜i+m≤k)$，则称图 $G$ 为多段图，称 $s∈V_1$ 为源点，$t∈V_k$ 为终点。</p>
 <p>多段图的最短路径问题是求从源点到终点的最小代价路径。</p>
 <p>由于多段图将顶点划分为 $k$ 个互不相交的子集，所以，多段图划分为 $k$ 段，一旦某条路径的一些段被确定后，就可以并入这些信息并计算部分解的目标函数值的下界。一般情况下，对于一个正在生成的路径，假设已经确定了 $i$ 段（$1≤i≤k$），其路径为$(r_1, r_2,…, r_i, r_{i+1})$，此时，该部分解的目标函数值的计算方法即限界函数如下：                                                                                </p>
-<p>$l b=\sum_{j=1}^{i} c\left[r_{j}\right]\left[r_{j+1}\right]+\min _{\left\langle r_{i+1}, v_{p}&gt;\in E\right.}\left\{c\left[r_{i+1}\right]\left[v_{p}\right]\right\}+\sum_{j=i+2}^{k} \text { 第 } j \text { 段的最短边 }$(走过路径长度+该节点到下一段的最小距离+剩余各段之间的最小距离之和)。</p>
+<p>$l b&#x3D;\sum_{j&#x3D;1}^{i} c\left[r_{j}\right]\left[r_{j+1}\right]+\min <em>{\left\langle r</em>{i+1}, v_{p}&gt;\in E\right.}\left{c\left[r_{i+1}\right]\left[v_{p}\right]\right}+\sum_{j&#x3D;i+2}^{k} \text { 第 } j \text { 段的最短边 }$(走过路径长度+该节点到下一段的最小距离+剩余各段之间的最小距离之和)。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125204249909.png" alt="image-20230125204249909"></p>
-<p>对图中所示多段图应用贪心法求得近似解为 $0→2→5→8→9$，其路径代价为 $2+7+6+3=18$，这可以作为多段图最短路径问题的上界。把每一段最小的代价相加，可以得到一个非常简单的下界，其路径长度为 $2+4+5+3=14$。于是，得到了目标函数的界 $[14, 18]$。</p>
+<p>对图中所示多段图应用贪心法求得近似解为 $0→2→5→8→9$，其路径代价为 $2+7+6+3&#x3D;18$，这可以作为多段图最短路径问题的上界。把每一段最小的代价相加，可以得到一个非常简单的下界，其路径长度为 $2+4+5+3&#x3D;14$。于是，得到了目标函数的界 $[14, 18]$。</p>
 <p>对于上图，具体的搜索过程如下：</p>
 <p>（1）在根结点0，根据限界函数计算目标函数的值为14；</p>
-<p>（2）在结点1，第1段选择边$<0, 1>$，目标函数值为 $lb=4+8+5+3=20$，超出目标函数的界，将结点1丢弃；在结点2，第1段选择边$<0, 2>$，目标函数值为 $lb=2+7+5+3=17$，将结点2加入待处理结点表 $PT$ 中；在结点3，第1段选择边$<0, 3>$，目标函数值为 $lb=3+4+5+3=15$，将结点3加入表 $PT$ 中；</p>
+<p>（2）在结点1，第1段选择边$&lt;0, 1&gt;$，目标函数值为 $lb&#x3D;4+8+5+3&#x3D;20$，超出目标函数的界，将结点1丢弃；在结点2，第1段选择边$&lt;0, 2&gt;$，目标函数值为 $lb&#x3D;2+7+5+3&#x3D;17$，将结点2加入待处理结点表 $PT$ 中；在结点3，第1段选择边$&lt;0, 3&gt;$，目标函数值为 $lb&#x3D;3+4+5+3&#x3D;15$，将结点3加入表 $PT$ 中；</p>
 <p>（3）在表 $PT$ 中选取目标函数值极小的结点3优先进行搜索；</p>
-<p>（4）在结点5，第2段选择边$<3, 5>$，目标函数值为 $lb=3+4+6+3=16$ ，将结点5加入表 $PT$ 中；在结点6，第2段选择边$<3, 6>$，目标函数值为 $lb=3+7+5+3=18$，将结点6加入表 $PT$ 中；</p>
+<p>（4）在结点5，第2段选择边$&lt;3, 5&gt;$，目标函数值为 $lb&#x3D;3+4+6+3&#x3D;16$ ，将结点5加入表 $PT$ 中；在结点6，第2段选择边$&lt;3, 6&gt;$，目标函数值为 $lb&#x3D;3+7+5+3&#x3D;18$，将结点6加入表 $PT$ 中；</p>
 <p>（5）在表 $PT$ 中选取目标函数值极小的结点5优先进行搜索；</p>
-<p>（6）结点7，已确定路径是 $0→3→5→7$，可直接确定第4段的边 $<7,9>$，目标函数值为 $lb=3+4+8+7=22$，超界丢弃；在结点8，已确定路径是 $0→3→5→8$，可直接确定第4段的边 $<8, 9>$，目标函数值为 $lb=3+4+6+3=16$，为一个可行解；由于结点8是叶子结点，并且其目标函数值是 $PT$ 中最小的，所以它是最优解，搜索结束。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125205933848.png" alt="image-20230125205933848" style="zoom:50%;" /></p>
-<h2 id="3-6-待续…"><a href="#3-6-待续…" class="headerlink" title="3.6 (待续…)"></a>3.6 (待续…)</h2><h1 id="四、NP完备性理论"><a href="#四、NP完备性理论" class="headerlink" title="四、NP完备性理论"></a>四、NP完备性理论</h1><h2 id="4-1-计算模型"><a href="#4-1-计算模型" class="headerlink" title="4.1 计算模型"></a>4.1 计算模型</h2><p>3个基本计算模型：</p>
+<p>（6）结点7，已确定路径是 $0→3→5→7$，可直接确定第4段的边 $&lt;7,9&gt;$，目标函数值为 $lb&#x3D;3+4+8+7&#x3D;22$，超界丢弃；在结点8，已确定路径是 $0→3→5→8$，可直接确定第4段的边 $&lt;8, 9&gt;$，目标函数值为 $lb&#x3D;3+4+6+3&#x3D;16$，为一个可行解；由于结点8是叶子结点，并且其目标函数值是 $PT$ 中最小的，所以它是最优解，搜索结束。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125205933848.png" alt="image-20230125205933848" style="zoom:50%;" />
+
+
+
+<h1 id="四、NP完备性理论"><a href="#四、NP完备性理论" class="headerlink" title="四、NP完备性理论"></a>四、NP完备性理论</h1><h2 id="4-1-计算模型"><a href="#4-1-计算模型" class="headerlink" title="4.1 计算模型"></a>4.1 计算模型</h2><p>3个基本计算模型：</p>
 <ul>
 <li>随机存取机RAM(Random Access Machine)</li>
 <li>随机存取存储程序机RASP(Random Access Stored Program Machine)</li>
@@ -1288,21 +1292,25 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 </li>
 <li><p><strong>NP</strong>：多项式时间可验证</p>
 </li>
-<li><p><strong>NP-Hard</strong>： 所有NP问题可以约化到一个问题上，则此问题是NP-hard问题</p>
+<li><p><strong>NP-Hard</strong>： 所有NP问题可以用多项式时间约化到一个问题上，则此问题是NP-hard问题</p>
 </li>
 <li><p><strong>NPC</strong>：同时是NP问题和NP-Hard问题，即<strong>多项式时间可验证的NP-hard问题</strong></p>
 </li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125213241960.png" alt="image-20230125213241960" style="zoom: 67%;" /></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125214553192.png" alt="image-20230125214553192" style="zoom:67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125213241960.png" alt="image-20230125213241960" style="zoom: 67%;" />
+
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230125214553192.png" alt="image-20230125214553192" style="zoom:67%;" />
+
 <p><strong>性质</strong>：</p>
 <ul>
 <li><p>只要多项式时间可解，必定多项式时间可验证，即P问题一定是NP问题</p>
 </li>
-<li><p>是否有属于NP-Hard但不属于NP-Complete的问题呢？答案是肯定的。例如停机问题，也即给出一个程 序和输入，判定它的运行是否会终止。停机问题是不可判的，那它当然也不是NP问题。但对于SAT这样 的NP问题，却可以多项式归约到停机问题。因为我们可以构造程序A，该程序对输入的公式穷举其变量 的所有赋值，如果存在赋值使其为真，则停机，否则进入无限循环。这样，判断公式是否可满足便转化 为判断以公式为输入的程序A是否停机。所以，停机问题是NP-Hard而不是NP-Complete。</p>
+<li><p>是否有属于NP-Hard但不属于NP-Complete的问题呢？答案是肯定的。例如停机问题，也即给出一个程序和输入，判定它的运行是否会终止。停机问题是不可判的，那它当然也不是NP问题。但对于SAT这样的NP问题，却可以多项式归约到停机问题。因为我们可以构造程序A，该程序对输入的公式穷举其变量的所有赋值，如果存在赋值使其为真，则停机，否则进入无限循环。这样，判断公式是否可满足便转化为判断以公式为输入的程序A是否停机。所以，停机问题是NP-Hard而不是NP-Complete。</p>
 </li>
-<li>SAT问题和逻辑电路是一一对应的，是NP-Hard问题，<strong>也是NPC问题</strong></li>
-<li>NP-Hard仅仅是NP问题的约化问题，其本身不一定具有NP问题的多项式时间可验证性。但是当NP-Hard具有可验证时，其就是一个NPC问题了；如果其不具又可验证性，则其只能称之为是NP-Hard问题；如果其多项式时间可解，则它也自然就是一个NPC问题了，而且当NPC问题也是多项式时间可解时，可以证明所有NP问题多项式时间可解。</li>
+<li><p>SAT问题和逻辑电路是一一对应的，是NP-Hard问题，<strong>也是NPC问题</strong></p>
+</li>
+<li><p>NP-Hard仅仅是NP问题的约化问题，其本身不一定具有NP问题的多项式时间可验证性。但是当NP-Hard具有可验证时，其就是一个NPC问题了；如果其不具又可验证性，则其只能称之为是NP-Hard问题；如果其多项式时间可解，则它也自然就是一个NPC问题了，而且当NPC问题也是多项式时间可解时，可以证明所有NP问题多项式时间可解。</p>
+</li>
 </ul>
 
                                     
@@ -1758,18 +1766,17 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/01/23/ds-algorithm/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-2/">
+                <a href="/2023/02/07/ds-algorithm/suan-fa-ke-cheng-03-suan-fa-ke-cheng-qi-mo-fu-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="算法分析与设计2：贪心、动规、分支限界、NP完备性理论">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="算法课程期末复习">
                         
-                        <span class="card-title">算法分析与设计2：贪心、动规、分支限界、NP完备性理论</span>
+                        <span class="card-title">算法课程期末复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1779,9 +1786,9 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1794,7 +1801,6 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -2110,7 +2116,7 @@ abedc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">385.1k</span>&nbsp;字
+                class="white-color">389.9k</span>&nbsp;字
             
             
             

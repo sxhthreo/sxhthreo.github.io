@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="算法课外思考题1118(团伙数量), ShiQuLiZhi BLOG">
+    <meta name="keywords" content="算法课程期末复习, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法课外思考题1118(团伙数量) | ShiQuLiZhi BLOG</title>
+    <title>算法课程期末复习 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法课外思考题1118(团伙数量)</h1>
+                    <h1 class="description center-align post-title">算法课程期末复习</h1>
                 </div>
             </div>
         </div>
@@ -376,6 +376,12 @@
                                     </span>
                                 </a>
                                 
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">
+                                        理论知识
+                                    </span>
+                                </a>
+                                
                                 <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
                                     <span class="chip bg-color">
                                         程序设计
@@ -390,8 +396,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                                 
                         </div>
@@ -404,7 +410,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-11-20
+                            2023-02-07
                     </div>
                     
 
@@ -412,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-20
+                                    2023-02-09
                             </div>
                             
 
@@ -420,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            1k
+                                            724
                                     </div>
                                     
 
@@ -428,7 +434,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    4
+                                                    3
                                                         分
                                             </div>
                                             
@@ -455,121 +461,52 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <blockquote>
-<p>💡Author：信安2002钱泽枢(<em><a href="https://sxhthreo.github.io/">ShiQuLiZhi</a></em>)</p>
-<p>🚀欢迎访问我的作业合集：<a href="https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/">https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/</a></p>
-</blockquote>
-<h1 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h1><p>在某个城市里住着n个人，任何两个认识的人不是朋友就是敌人，而且满足：</p>
-<ol>
-<li>我朋友的朋友是我的朋友；</li>
-<li>我敌人的敌人是我的朋友；</li>
-</ol>
-<p>已知关于n个人的m条信息（即某2个人是朋友或者敌人），假设所有是朋友的人一定属于同一个团伙，请计算该城市最多有多少团伙？</p>
-<h1 id="二、算法思路"><a href="#二、算法思路" class="headerlink" title="二、算法思路"></a>二、算法思路</h1><p>本题我们可以考虑<strong>并查集</strong>求解。</p>
-<p><strong>并查集的操作有</strong>：</p>
-<ul>
-<li>将两个集合合并</li>
-<li>询问两个元素是否在一个集合之中</li>
+                                <h1 id="一、必记模板"><a href="#一、必记模板" class="headerlink" title="一、必记模板"></a>一、必记模板</h1><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><ul>
+<li>$O$：上界，$\leq$</li>
+<li>$\Omega$：下界，$\geq$</li>
+<li>$\theta$：确界，$&#x3D;$</li>
 </ul>
-<p>并查集在近乎<code>O(1)</code>时间内<strong>快速支持两个操作</strong>。</p>
-<p><strong>基本原理</strong>：每个集合用一棵树来表示，树根的编号就是整个集合的编号。每个节点存储它的父节点，<code>p[x]</code>表示<code>x</code>的父节点。</p>
-<ul>
-<li>判断树根的方法：<code>if(p[x] == x)</code></li>
-<li>求<code>x</code>的集合编号的方法：<code>while(p[x] != x) x = p[x];</code></li>
-<li>合并两个集合的方法：<code>p[x]</code>是<code>x</code>的集合编号，<code>p[y]</code>是<code>y</code>的集合编号，<code>p[x] = y</code></li>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="1-最长公共子序列问题"><a href="#1-最长公共子序列问题" class="headerlink" title="1.最长公共子序列问题"></a>1.最长公共子序列问题</h3><ul>
+<li>算法</li>
 </ul>
-<p>若两个人是<strong>朋友</strong>，则直接合并两集合即可；若两个人是<strong>敌人</strong>，我们考虑以下合并策略：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">// a + n 是反集</span>
-p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>b <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> b<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>在这里，<code>a</code> 和 <code>a + n</code> 其实是一个点，但是是两种不同的关系，连到 <code>a</code> 上的都是 <code>a</code> 的朋友，连到 <code>a + n</code> 上的都是 <code>a</code> 的敌人关系；</p>
-<p>若 <code>c</code> 也是 <code>a</code> 的敌人，那么 <code>c</code> 也会连到 <code>a + n</code> 上，此时 <code>b</code> 和 <code>c </code>就是朋友了，因为他们有共同的敌人<code>a</code>。</p>
-<p>最后我们遍历所有集合，找到所有树根，即是最多的团伙数。</p>
-<h1 id="三、算法设计"><a href="#三、算法设计" class="headerlink" title="三、算法设计"></a>三、算法设计</h1><p>在输入中，我们将每个人的信息进行以下格式的约定： <code>F p q</code> 或是 <code>E p q</code>，其中 $F$ 表示 $p$ 和 $q$ 是朋友，$E$ 表示 $p$ 和 $q$ 是敌人。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">!=</span> x<span class="token punctuation">)</span> p<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+<ul>
+<li>应用：芯片设计，找出两序列中数字相等且不相交的端口的最大连接数</li>
+</ul>
+<h3 id="2-最大子段和问题"><a href="#2-最大子段和问题" class="headerlink" title="2.最大子段和问题"></a>2.最大子段和问题</h3><p>给出一个序列<code>a[0], a[1], a[2], ... , a[n]</code>，求出连续的子段使其总和最大。</p>
+<p>我们记<code>a[i]</code>表示第<code>i</code>个元素，<code>dp[i]</code>表示以<code>a[i]</code>结尾的最大子段和，有以下两种情况：</p>
+<ul>
+<li>若<code>dp[i-1] &gt; 0</code>，则 <code>dp[i] = dp[i-1] + a[i]</code></li>
+<li>若<code>dp[i-1] &lt; 0</code>，则 <code>dp[i] = a[i]</code></li>
+</ul>
+<p>则有<code>dp[i] = max&#123;a[i], dp[i-1] + a[i]&#125;</code></p>
+<ul>
+<li>应用：最大子矩阵和，遍历所有行(分别有起始行、终点行)，并将行间范围内的每列加和，然后就能转化为最大字段和问题</li>
+</ul>
+<h3 id="3-0-x2F-1背包问题"><a href="#3-0-x2F-1背包问题" class="headerlink" title="3.0&#x2F;1背包问题"></a>3.0&#x2F;1背包问题</h3><p><strong>状态计算</strong>：集合划分——$f(i,j)$</p>
+<ul>
+<li>不含 $i$：$f(i-1,j)$</li>
+<li>含 $i$：$f(i-1,j-v_i)+w_i$</li>
+</ul>
+<p>$f(i,j) &#x3D; Max(f(i-1,j),f(i-1,j-v_i)+w_i)$</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> m<span class="token punctuation">;</span> j <span class="token operator">>=</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> j <span class="token operator">--</span> <span class="token punctuation">)</span>
+            f<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>j <span class="token operator">-</span> v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">int</span> <span class="token function">getsum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">2</span> <span class="token operator">*</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>m<span class="token operator">--</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">char</span> op<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
-        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s%d%d"</span><span class="token punctuation">,</span> op<span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>	        <span class="token comment">// 当需要读取一个字母时,使用字符串进行读取</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>op <span class="token operator">==</span> <span class="token char">'F'</span><span class="token punctuation">)</span> p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 是朋友</span>
-        <span class="token keyword">else</span>
-        <span class="token punctuation">&#123;</span>
-            p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>b <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> i<span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            sum <span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="四、运行测试"><a href="#四、运行测试" class="headerlink" title="四、运行测试"></a>四、运行测试</h1><p>本题是Acwing在线题库的784题：👉<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/786/">784. 强盗团伙</a>👈</p>
-<p>提交结果如下：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221120114055736.png" alt="image-20221120114055736"></p>
-<h1 id="五、总结与讨论"><a href="#五、总结与讨论" class="headerlink" title="五、总结与讨论"></a>五、总结与讨论</h1><p>本算法的时间性能取决于处理 $m$ 条信息的时间，时间复杂度是 $O(n)$ 的。</p>
-<p>并查集是一种树形的数据结构，用于处理**不相交集的合并(union)及查询(find)**问题；通过并查集的思想，我们可以快速支持对合并集合和查询两个元素是否在一个集合内的操作。</p>
-<p>在初始化并查集时我们初始化两倍于数据范围大小的并查集，超出数据范围部分称为<strong>反集</strong>，用来储存<strong>性质与并查集维护集合相反的集合</strong>，从而顺利实现两个人是敌人时集合的合并策略。</p>
-<h1 id="附：源代码"><a href="#附：源代码" class="headerlink" title="附：源代码"></a>附：源代码</h1><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">2010</span><span class="token punctuation">,</span> M <span class="token operator">=</span> <span class="token number">5010</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">!=</span> x<span class="token punctuation">)</span> p<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">int</span> <span class="token function">getsum</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">2</span> <span class="token operator">*</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>m<span class="token operator">--</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">char</span> op<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
-        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s%d%d"</span><span class="token punctuation">,</span> op<span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>	        <span class="token comment">// 当需要读取一个字母时,使用字符串进行读取</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>op <span class="token operator">==</span> <span class="token char">'F'</span><span class="token punctuation">)</span> p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 是朋友</span>
-        <span class="token keyword">else</span>
-        <span class="token punctuation">&#123;</span>
-            p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            p<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>b <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> i<span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            sum <span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> <span class="token function">getsum</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<ul>
+<li>应用：遗产分割问题，分割遗产使得其差异最小，背包要放入的魔卡（集合里的元素）的价值和体积均为魔卡价值的数值</li>
+</ul>
+<h2 id="递归式树"><a href="#递归式树" class="headerlink" title="递归式树"></a>递归式树</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230209220914603.png" alt="image-20230209220914603"></p>
+<p>考察递归式 $T(n)&#x3D;T(n&#x2F;3)+T(2n&#x2F;3)+O(n)$。</p>
+<p>将渐近项 $O(n)$ 替换为代数式 $cn$，递归式变为 $T(n)&#x3D;T(n&#x2F;3)+T(2n&#x2F;3)+cn$：</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230209221102993.png" alt="image-20230209221102993"></p>
+<p>由于每个结点的左右孩子的规模不一样，这意味着每个结点的左右子树的高度不一样，右子树比左子树要高，因此这棵树并不是一棵满二叉树。从根结点到叶结点的最长简单路径是 $n → (2&#x2F;3)^2n → … → 1$。</p>
+<p>假设树的高度为 $h$，那么有 $(2&#x2F;3)^h*n &#x3D; 1$，得到 $h&#x3D;{\rm log}_{3&#x2F;2}n$。</p>
+<p>在上图中，我们只画出了递归树的顶部几层，可以看到每层的代价都为 $cn$。然而由于递归树并不是一棵满二叉树，所以并不是每层的代价都为 $cn$。随着递归树的层级越往下降，缺失的结点会越来多，这些存在缺失结点的层级的代价小于 $cn$。只有递归树靠顶部的那些不存在缺失结点的层级，它们的代价等于 $cn$。</p>
+<p>由于我们只需要通过递归树获得一个猜测解，我们不考虑这些缺失结点的影响，于是我们得到解为 $T(n)&#x3D;O(cn*{\rm log}_{3&#x2F;2}n)&#x3D;O(n{\rm lg}n)$。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230209224249440.png" alt="image-20230209224249440"></p>
 
                                     
                             </div>
@@ -596,7 +533,7 @@ p<span class="token punctuation">[</span><span class="token function">find</span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/11/20/homework/algorithm/si-kao-ti-1118-tuan-huo-shu-liang/">https://sxhthreo.github.io/2022/11/20/homework/algorithm/si-kao-ti-1118-tuan-huo-shu-liang/</a>
+                    <a href="https://sxhthreo.github.io/2023/02/07/ds-algorithm/suan-fa-ke-cheng-03-suan-fa-ke-cheng-qi-mo-fu-xi/">https://sxhthreo.github.io/2023/02/07/ds-algorithm/suan-fa-ke-cheng-03-suan-fa-ke-cheng-qi-mo-fu-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -637,6 +574,12 @@ p<span class="token punctuation">[</span><span class="token function">find</span
                                                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                                                         <span class="chip bg-color">
                                                             算法
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                                        <span class="chip bg-color">
+                                                            理论知识
                                                         </span>
                                                     </a>
                                                     
@@ -1018,17 +961,18 @@ p<span class="token punctuation">[</span><span class="token function">find</span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/11/27/homework/algorithm/suan-fa-fen-xi-yu-she-ji-shi-yan-bao-gao/">
+                <a href="/2023/02/07/ds-algorithm/suan-fa-ke-cheng-03-suan-fa-ke-cheng-qi-mo-fu-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="算法分析与设计实验报告">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="算法课程期末复习">
                         
-                        <span class="card-title">算法分析与设计实验报告</span>
+                        <span class="card-title">算法课程期末复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1038,26 +982,31 @@ p<span class="token punctuation">[</span><span class="token function">find</span
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">理论知识</span>
                     </a>
                     
                     <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
@@ -1075,13 +1024,13 @@ p<span class="token punctuation">[</span><span class="token function">find</span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/20/homework/algorithm/si-kao-ti-1116-ren-wu-diao-du/">
+                <a href="/2023/01/23/ds-algorithm/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="算法课外思考题1116(任务调度)">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="算法分析与设计2：贪心、动规、分支限界、NP完备性理论">
                         
-                        <span class="card-title">算法课外思考题1116(任务调度)</span>
+                        <span class="card-title">算法分析与设计2：贪心、动规、分支限界、NP完备性理论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1092,14 +1041,14 @@ p<span class="token punctuation">[</span><span class="token function">find</span
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    数据结构与算法课程
                                 </a>
                             
                             
@@ -1111,6 +1060,10 @@ p<span class="token punctuation">[</span><span class="token function">find</span
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">理论知识</span>
                     </a>
                     
                     <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">

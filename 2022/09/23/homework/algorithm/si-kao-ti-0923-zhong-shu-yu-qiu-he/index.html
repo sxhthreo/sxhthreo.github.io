@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-04
+                                    2023-02-22
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            4k
+                                            4.1k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    18
+                                                    19
                                                         分
                                             </div>
                                             
@@ -473,12 +473,14 @@
 <h2 id="1-3-算法图解"><a href="#1-3-算法图解" class="headerlink" title="1.3 算法图解"></a>1.3 算法图解</h2><ul>
 <li><strong>分治算法</strong>：</li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="分治算法" style="zoom: 50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt="分治算法" style="zoom: 50%;" />
+
 <ul>
 <li><strong>排序+取中间序号元素</strong>思路较简单，算法示意图略</li>
 <li><strong>哈希</strong>：</li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220927082950661.png" alt="哈希" style="zoom: 50%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220927082950661.png" alt="哈希" style="zoom: 50%;" />
+
 <h2 id="1-4-代码设计"><a href="#1-4-代码设计" class="headerlink" title="1.4 代码设计"></a>1.4 代码设计</h2><p><strong>方法1</strong>：<strong>分治算法</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">Count</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> element<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -512,6 +514,7 @@
 		<span class="token keyword">return</span> r_element<span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>方法2</strong>：<strong>排序+取中间序号元素</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -537,8 +540,9 @@
     <span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> q<span class="token punctuation">[</span>n <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                <span class="token comment">//中间位置的一定是众数</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>方法3</strong>：<strong>哈希</strong></p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">Modal_number</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">Modal_number</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> counts<span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>         <span class="token comment">//n为数组长度</span>
@@ -553,6 +557,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>或直接<strong>一次扫描优化</strong>，即：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">Modal_number</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -568,15 +573,18 @@
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> target<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-5-测试结果"><a href="#1-5-测试结果" class="headerlink" title="1.5 测试结果"></a>1.5 测试结果</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220925101711534.png" alt="image-20220925101711534"></p>
 <p>多次测试，算法运行结果均正确，符合题意。</p>
 <h2 id="1-6-总结与讨论"><a href="#1-6-总结与讨论" class="headerlink" title="1.6 总结与讨论"></a>1.6 总结与讨论</h2><p>讨论三种算法的时间复杂度：</p>
 <ul>
-<li><strong>分治算法</strong>：$T(n)=2T(n/2)+O(n)$，由主定理法可知，$T(n)=O(nlogn)$；</li>
-<li><strong>排序+取中间序号元素</strong>：该算法的时间复杂度依赖于排序算法的时间复杂度，取中间序号元素可以在$O(1)$时间内完成。我们采用归并排序、快速排序等排序算法，则$T(n)=O(nlogn)$；</li>
-<li><strong>哈希</strong>：算法只需<strong>遍历序列</strong>即可得到众数，则$T(n)=O(n)$。</li>
+<li><strong>分治算法</strong>：$T(n)&#x3D;2T(n&#x2F;2)+O(n)$，由主定理法可知，$T(n)&#x3D;O(nlogn)$；</li>
+<li><strong>排序+取中间序号元素</strong>：该算法的时间复杂度依赖于排序算法的时间复杂度，取中间序号元素可以在$O(1)$时间内完成。我们采用归并排序、快速排序等排序算法，则$T(n)&#x3D;O(nlogn)$；</li>
+<li><strong>哈希</strong>：算法只需<strong>遍历序列</strong>即可得到众数，则$T(n)&#x3D;O(n)$。</li>
 </ul>
 <p>由此可见，分治算法和排序后取中间序号元素算法时间复杂度都在$O(nlogn)$时间内完成；而使用哈希表获取众数时，代码简洁，时间复杂度仅为$O(n)$，且适用性广泛，可用于获取序列中出现次数最多的数。</p>
+<h2 id="补充：摩尔投票法"><a href="#补充：摩尔投票法" class="headerlink" title="补充：摩尔投票法"></a>补充：摩尔投票法</h2><p><strong>摩尔投票的前提是一定存在众数，如果不存在众数算法得出来的不是真实答案。</strong></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230222235447824.png" alt="image-20230222235447824"></p>
 <h2 id="2-1-问题描述"><a href="#2-1-问题描述" class="headerlink" title="2.1 问题描述"></a>2.1 问题描述</h2><p>给定一系列的实数集合S以及实数x，给出策略判定S中是否有两个实数的和等于x，并做算法分析。</p>
 <h2 id="2-2-算法思路"><a href="#2-2-算法思路" class="headerlink" title="2.2 算法思路"></a>2.2 算法思路</h2><p>以下考虑三种算法进行求解：</p>
 <ul>
@@ -590,7 +598,7 @@
 <blockquote>
 <p><strong>注</strong>：双指针算法不会把解过滤掉。设下标为<code>i</code>和<code>j</code>的位置是解。</p>
 <p>如果左指针先到达下标<code>i</code>的位置，此时右指针还在下标<code>j</code>的右侧，$sum&gt;target$，因此一定是<strong>右指针左移</strong>，左指针不可能移到<code>i</code>的右侧。</p>
-<p>如果右指针先到达下标<code>j</code>的位置，此时左指针还在下标 ii 的左侧，$sum&lt;target$，因此一定是<strong>左指针右移</strong>，右指针不可能移到$j$的左侧。</p>
+<p>如果右指针先到达下标<code>j</code>的位置，此时左指针还在下标<code>i</code>的左侧，$sum&lt;target$，因此一定是<strong>左指针右移</strong>，右指针不可能移到<code>j</code>的左侧。</p>
 <p>由此可见，在整个移动过程中，左指针不可能移到<code>i</code>的右侧，右指针不可能移到<code>j</code>的左侧，因此不会把可能的解过滤掉。</p>
 </blockquote>
 <h2 id="2-3-算法图解"><a href="#2-3-算法图解" class="headerlink" title="2.3 算法图解"></a>2.3 算法图解</h2><ul>
@@ -663,6 +671,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token punctuation">&#123;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>方法2</strong>：<strong>排序+双指针算法</strong></p>
 <p>归并排序算法的函数同方法1。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token function">GetSum</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span>
@@ -687,6 +696,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token punctuation">&#123;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>方法3</strong>：<strong>哈希</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token function">GetSum</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -702,6 +712,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token punctuation">&#123;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-5-测试结果"><a href="#2-5-测试结果" class="headerlink" title="2.5 测试结果"></a>2.5 测试结果</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220927192803291.png" alt="image-20220927192803291"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220927192854608.png" alt="image-20220927192854608"></p>
 <p>多次测试，算法运行结果均正确，符合题意。</p>
@@ -709,7 +720,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 <ul>
 <li><strong>排序+二分查找</strong>：算法时间复杂度依赖于排序和二分查找的时间复杂度。排序算法时间复杂度在$O(nlogn)$时间内完成；遍历序列并进行二分查找，对单个序列的二分查找的时间复杂度是$O(logn)$，对所有元素遍历并进行二分查找最坏的时间复杂度是$O(nlogn)$，则算法的时间复杂度是$O(nlogn)$；</li>
 <li><strong>排序+双指针算法</strong>：算法时间复杂度依赖于排序和双指针算法的时间复杂度。排序算法时间复杂度在$O(nlogn)$时间内完成；双指针算法仅需遍历一次序列即可，时间复杂度是$O(n)$的，则算法的时间复杂度是$O(nlogn)$；</li>
-<li><strong>哈希</strong>：算法只需<strong>遍历序列</strong>即可得到，则$T(n)=O(n)$。</li>
+<li><strong>哈希</strong>：算法只需<strong>遍历序列</strong>即可得到，则$T(n)&#x3D;O(n)$。</li>
 </ul>
 <p>由此可见，前两种算法的时间复杂度都在$O(nlogn)$时间内完成。其中，排序后通过具有分治思想的二分查找算法来求解问题时，时间复杂度较双指针算法略高；而使用哈希表获取加和为$x$的一组数时，代码简洁，无需事先排序，时间复杂度仅为$O(n)$，具有较高的时间性能。</p>
 <h2 id="附：源代码"><a href="#附：源代码" class="headerlink" title="附：源代码"></a>附：源代码</h2><p><strong>算法题1</strong>：</p>
@@ -763,6 +774,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"众数为"</span> <span class="token operator">&lt;&lt;</span> <span class="token function">Modal_number</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>方法2：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -805,6 +817,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"众数为"</span> <span class="token operator">&lt;&lt;</span> <span class="token function">Modal_number</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>方法3：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;unordered_map></span></span>
@@ -838,6 +851,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"众数为"</span> <span class="token operator">&lt;&lt;</span> <span class="token function">Modal_number</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>算法题2</strong>：</p>
 <p>方法1：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
@@ -923,6 +937,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>方法2：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;utility></span></span>
@@ -995,6 +1010,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>方法3：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;utility></span></span>
@@ -1040,6 +1056,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 	<span class="token punctuation">&#125;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                                     
                             </div>
@@ -1834,7 +1851,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">385.1k</span>&nbsp;字
+                class="white-color">389.9k</span>&nbsp;字
             
             
             

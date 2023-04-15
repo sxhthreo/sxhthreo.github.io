@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-20
+                                    2023-02-22
                             </div>
                             
 
@@ -477,7 +477,7 @@
 <p>定义以下场景为一个<strong>逆序</strong>：对任务 $i,j$，任务 $i$ 优先于任务 $j$ 调度，但 $d_i&gt;d_j$。</p>
 <p>假设存在一个相邻的逆序(任务 $i,j$)，交换这两个逆序的任务对其他任务没有影响。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221120102340601.png" alt="任务ij"></p>
-<p>设<strong>交换前</strong>任务 $i$ 的开始时间为 $s$，则在交换前，$j$ 的任务延迟大于 $i$，延迟时间为 $t_{max1}&#x3D;s+t_i+t_j-d_j$</p>
+<p>设<strong>交换前</strong>任务 $i$ 的开始时间为 $s$，则在交换前，$j$ 的任务延迟大于 $i$，延迟时间为 $t_{max1}&#x3D;max{s+t_i+t_j-d_j,s+t_i-d_i}&#x3D;s+t_i+t_j-d_j$</p>
 <p>交换后，延迟时间的最大值为 $t_{max2}&#x3D;max{s+t_j+t_i-d_i,s+t_j-d_j}$</p>
 <p>由$d_i&gt;d_j$，则$t_{max1}\geq t_{max2}$，则交换后最大延迟减小。</p>
 <p>不断交换逆序对，可以使得整个任务的最大延迟不变或减小，当没有逆序对时，即是最优解。</p>
@@ -485,8 +485,8 @@
 <h1 id="三、算法设计"><a href="#三、算法设计" class="headerlink" title="三、算法设计"></a>三、算法设计</h1><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">management</span>
 <span class="token punctuation">&#123;</span>
 	<span class="token keyword">int</span> id<span class="token punctuation">;</span>
-	<span class="token keyword">int</span> t<span class="token punctuation">;</span>		<span class="token comment">// 截止时间</span>
-	<span class="token keyword">int</span> d<span class="token punctuation">;</span>		<span class="token comment">// 加工时间</span>
+	<span class="token keyword">int</span> t<span class="token punctuation">;</span>		<span class="token comment">// 加工时间</span>
+	<span class="token keyword">int</span> d<span class="token punctuation">;</span>		<span class="token comment">// 截止时间</span>
 	<span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">const</span> management<span class="token operator">&amp;</span> W<span class="token punctuation">)</span><span class="token keyword">const</span>
 	<span class="token punctuation">&#123;</span>
 		<span class="token keyword">return</span> d <span class="token operator">&lt;</span> W<span class="token punctuation">.</span>d<span class="token punctuation">;</span>
@@ -1353,7 +1353,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">385.1k</span>&nbsp;字
+                class="white-color">389.9k</span>&nbsp;字
             
             
             

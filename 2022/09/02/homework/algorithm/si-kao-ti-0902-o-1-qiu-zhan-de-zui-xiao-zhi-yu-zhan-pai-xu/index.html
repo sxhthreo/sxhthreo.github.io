@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-04
+                                    2023-02-06
                             </div>
                             
 
@@ -532,11 +532,12 @@
     cout <span class="token operator">&lt;&lt;</span> <span class="token string">"最小值为:"</span> <span class="token operator">&lt;&lt;</span> stack<span class="token punctuation">.</span><span class="token function">getMin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-3-运行截图"><a href="#1-3-运行截图" class="headerlink" title="1.3 运行截图"></a>1.3 运行截图</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220904215020215.png" alt="image-20220904215020215"></p>
 <p>多次测试，本程序符合题目预期。</p>
 <h1 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h1><p>请给出策略如最多使用一个辅助栈，实现关键字系列的排序（默认正序），并进行相应的算法分析。</p>
 <h2 id="2-1-算法分析"><a href="#2-1-算法分析" class="headerlink" title="2.1 算法分析"></a>2.1 算法分析</h2><p>本题我采用的是顺序存储栈(链式存储同理)。通过<code>addElement</code>函数将关键字读入，然后调用<code>sort</code>函数进行排序。栈<code>S</code>是原栈，<code>Sorted</code>是辅助栈，存放排好次序的元素序列。当<code>S</code>中仍存在元素时，对<code>S</code>中的元素进行弹出，并通过循环，每当当前弹出的元素比排好序的辅助栈的栈顶元素大时，需要将排好序的辅助栈的元素弹出，进入原栈，待辅助栈中的元素有序时，将剩下的元素出原栈并进入辅助栈(其中将用<code>count</code>记录有多少元素弹出)。经过以上循环，<code>S</code>中的元素会有序存放在<code>Sorted</code>栈中。</p>
-<h2 id="2-2-代码实现"><a href="#2-2-代码实现" class="headerlink" title="2.2 代码实现"></a>2.2 代码实现</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//设计一个基于栈的排序方法(这里升序,降序同理)</span>
+<h2 id="2-2-代码实现"><a href="#2-2-代码实现" class="headerlink" title="2.2 代码实现"></a>2.2 代码实现</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 设计一个基于栈的排序方法(这里升序,降序同理)</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MaxSize</span> <span class="token expression"><span class="token number">10</span></span></span>
@@ -652,6 +653,7 @@
     stack<span class="token punctuation">.</span><span class="token function">PrintStack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-3-运行截图"><a href="#2-3-运行截图" class="headerlink" title="2.3 运行截图"></a>2.3 运行截图</h2><p>输入以下元素：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">stack<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 stack<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -660,6 +662,7 @@ stack<span class="token punctuation">.</span><span class="token function">addEle
 stack<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 stack<span class="token punctuation">.</span><span class="token function">addElement</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 stack<span class="token punctuation">.</span><span class="token function">removeElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//弹出0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>运行截图如下：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220904215154864.png" alt="image-20220904215154864"></p>
 <p>多次测试，本程序符合题目预期。</p>
@@ -1461,7 +1464,7 @@ stack<span class="token punctuation">.</span><span class="token function">remove
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">385.1k</span>&nbsp;字
+                class="white-color">389.9k</span>&nbsp;字
             
             
             

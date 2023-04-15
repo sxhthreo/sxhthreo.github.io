@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-11-04
+                                    2023-02-06
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            3.9k
+                                            4k
                                     </div>
                                     
 
@@ -467,7 +467,7 @@
 <li>运行时间主要依赖于待分解整数<code>N</code>的大小，并不十分依赖于找到的因子<code>p</code>的大小，如<strong>连分数法</strong>、<strong>数域筛法</strong></li>
 <li>运行时间主要依赖于找到的<code>N</code>的因子<code>p</code>的大小，如<strong>试除法</strong>、<strong>Pollard’s Rho算法</strong>、<strong>Pollard’s P-1算法</strong>、<strong>椭圆曲线算法</strong>等</li>
 </ul>
-<h1 id="2-试除法与费马分解法"><a href="#2-试除法与费马分解法" class="headerlink" title="2 试除法与费马分解法"></a>2 试除法与费马分解法</h1><p><strong>试除法</strong>是最简单而最直接的方法，即用直到<code>sqrt(n)</code>的每一个素数去除<code>n</code>。该方法在$n&lt;10^{20}$基本可行，且如果<code>n</code>有小的因子会比较有效。我们可以得到以下的利用试除法分解质因数($n = p_{1}^{\alpha_{1}}…p_{k}^{\alpha_{k}}$)算法：</p>
+<h1 id="2-试除法与费马分解法"><a href="#2-试除法与费马分解法" class="headerlink" title="2 试除法与费马分解法"></a>2 试除法与费马分解法</h1><p><strong>试除法</strong>是最简单而最直接的方法，即用直到<code>sqrt(n)</code>的每一个素数去除<code>n</code>。该方法在$n&lt;10^{20}$基本可行，且如果<code>n</code>有小的因子会比较有效。我们可以得到以下的利用试除法分解质因数($n &#x3D; p_{1}^{\alpha_{1}}…p_{k}^{\alpha_{k}}$)算法：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">divide</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
@@ -480,10 +480,11 @@
     <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>	<span class="token comment">//单独处理,唯一一个大于sqrt(n)的质因子</span>
     cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我们可以看到：若<code>x % i = 0</code>成立，则已经将在<code>i = 2 ~ (n - 1)</code>中的所有质因子除尽，<code>i</code>不包含其中的所有质因子，故<code>i</code>一定是质数，且<code>n</code>中最多只包含一个大于<code>sqrt(n)</code>的质因子。当<code>n = 2^k</code>时，时间复杂度为<code>O(log n)</code>，而最坏时间复杂度为<code>O(sqrt(n))</code>，平均情况是介于两者之间。</p>
+
+<p>我们可以看到：由于 $n$ 不包含任何从 $2$ 到 $i-1$ 之间的质因子（已经被除干净了），若<code>x % i = 0</code>成立，<code>i</code>不包含其中的所有质因子，故<code>i</code>一定是质数，且<code>n</code>中最多只包含一个大于<code>sqrt(n)</code>的质因子。当<code>n = 2^k</code>时，时间复杂度为<code>O(log n)</code>，而最坏时间复杂度为<code>O(sqrt(n))</code>，平均情况是介于两者之间。</p>
 <hr>
 <p>若两个因子相差不大，我们可以采用<strong>费马分解法</strong>求解两个因子<code>p</code>和<code>q</code>。构造平方差：</p>
-<p>$n=p*q=\frac{1}{4}(p+q)^{2}-\frac{1}{4}(p-q)^{2}$</p>
+<p>$n&#x3D;p*q&#x3D;\frac{1}{4}(p+q)^{2}-\frac{1}{4}(p-q)^{2}$</p>
 <p>由于<code>p</code>和<code>q</code>相差不大，则<code>p-q</code>相对于<code>n</code>和$(p+q)^{2}$来说可以忽略不计，则有$2\sqrt {n}\approx p+q$。也就是说，通过不断尝试，即可将<code>p</code>和<code>q</code>计算出来。Python代码如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fermat</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     a <span class="token operator">=</span> isqrt<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token comment"># int(ceil(n**0.5))</span>
@@ -498,50 +499,52 @@
     p<span class="token operator">=</span>a<span class="token operator">+</span>b
     q<span class="token operator">=</span>a<span class="token operator">-</span>b
     <span class="token keyword">return</span> p<span class="token punctuation">,</span> q<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="3-通用整数因式分解方法"><a href="#3-通用整数因式分解方法" class="headerlink" title="3 通用整数因式分解方法"></a>3 通用整数因式分解方法</h1><p>是指用此方法分解任何给定大小的整数所用时间与分解任何同样大小的整数所用时间相同。这种方法的理论依据是：</p>
-<p>若有两个整数<code>x</code>和<code>y</code>满足：$x^2\equiv y^2(\mod N),0&lt;x&lt;y&lt;N,x\neq y,x+y\neq N$<strong>(1)</strong>，因为<code>N|(x+y)(x-y)</code>，<code>N</code>不是<code>(x+y),(x-y)</code>的因子，则<code>gcd(x-y,N)</code>和<code>gcd(x+y,N)</code>可能为<code>N</code>的非平凡因子。<strong>(1)式</strong>常称为<strong>勒让德同余</strong>。</p>
+<p>若有两个整数<code>x</code>和<code>y</code>满足：$x^2\equiv y^2(\mod N),0&lt;x&lt;y&lt;N,x\neq y,x+y\neq N$<strong>(1)<strong>，因为<code>N|(x+y)(x-y)</code>，<code>N</code>不是<code>(x+y),(x-y)</code>的因子，则<code>gcd(x-y,N)</code>和<code>gcd(x+y,N)</code>可能为<code>N</code>的非平凡因子。</strong>(1)式</strong>常称为<strong>勒让德同余</strong>。</p>
 <p>用勒让德同余来分解因子只需执行以下两步：</p>
 <ul>
 <li>找同余式$x^2\equiv y^2(\mod N)$的一个非平凡解</li>
 <li>用<strong>欧几里得算法</strong>计算<code>N</code>的因子：<code>(d,d&#39;)=(gcd(x-y,N),gcd(x+y,N))</code></li>
 </ul>
-<h2 id="3-1-连分数法"><a href="#3-1-连分数法" class="headerlink" title="3.1 连分数法"></a>3.1 连分数法</h2><p>若<code>W</code>很小，且$x^{2}\equiv W(\mod N)$，则对某个<code>k</code>和<code>d</code>，有$x^{2}\equiv W+kNd^2$，因而$(\frac{x}{d})^2-kN=\frac {W}{d^2}$也会很小。换句话说，有理数$\frac{x}{d}$逼近$\sqrt {KN}$。而实数的连分数展开式可以给出该实数很好的有理数逼近。</p>
+<h2 id="3-1-连分数法"><a href="#3-1-连分数法" class="headerlink" title="3.1 连分数法"></a>3.1 连分数法</h2><p>若<code>W</code>很小，且$x^{2}\equiv W(\mod N)$，则对某个<code>k</code>和<code>d</code>，有$x^{2}\equiv W+kNd^2$，因而$(\frac{x}{d})^2-kN&#x3D;\frac {W}{d^2}$也会很小。换句话说，有理数$\frac{x}{d}$逼近$\sqrt {KN}$。而实数的连分数展开式可以给出该实数很好的有理数逼近。</p>
 <blockquote>
 <p><strong>连分数</strong>：</p>
-<p>连分数（continued fraction）是特殊<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/繁分数/4223452?fromModule=lemma_inlink">繁分数</a>。如果a0，a1，a2，…an，…都是整数，则将分别称为无限连分数和有限连分数。可简记为a0 ，a1，a2，…，an，…和a0，a1，a2，…，an。一般一个有限连分数表示一个有理数，一个无限连分数表示一个无理数。如果a0，a1，a2，…，an，…都是实数，可将上述形式连分数分别叫无限连分数和有限连分数 。</p>
+<p>连分数（continued fraction）是特殊<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%B9%81%E5%88%86%E6%95%B0/4223452?fromModule=lemma_inlink">繁分数</a>。如果a0，a1，a2，…an，…都是整数，则将分别称为无限连分数和有限连分数。可简记为a0，a1，a2，…，an，…和a0，a1，a2，…，an。一般一个有限连分数表示一个有理数，一个无限连分数表示一个无理数。如果a0，a1，a2，…，an，…都是实数，可将上述形式连分数分别叫无限连分数和有限连分数。</p>
 </blockquote>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220912141947849.png" alt="连分数法"></p>
 <h2 id="3-2-二次筛法"><a href="#3-2-二次筛法" class="headerlink" title="3.2 二次筛法"></a>3.2 二次筛法</h2><p>二次筛法的算法流程如下：</p>
 <p>(1)选定一组因子基：$p_{1},p_{2},…,p_{m}$</p>
-<p>(2)通过在因子基上分解诸整数$Q(x)=x^2-N,x=\lfloor \sqrt N\rfloor +1,\lfloor \sqrt N\rfloor +2,…$来寻找<code>s</code>和<code>t</code>使得$s^2\equiv t^2(\mod N),s\neq t(\mod N)$，从而分解<code>N</code></p>
+<p>(2)通过在因子基上分解诸整数$Q(x)&#x3D;x^2-N,x&#x3D;\lfloor \sqrt N\rfloor +1,\lfloor \sqrt N\rfloor +2,…$来寻找<code>s</code>和<code>t</code>使得$s^2\equiv t^2(\mod N),s\neq t(\mod N)$，从而分解<code>N</code></p>
 <p>因子基的选择应满足：当<code>p</code>是奇素数时，存在整数<code>x</code>使$p|Q(x)$。若不存在，则不选其为因子基。</p>
 <p>以<code>N=4033</code>为例讲解二次筛法的算法执行步骤：</p>
-<p>(1)选择因子基$FB=\{2,3,7,13,17,19\}$(5和11不能除尽$Q(x)$中的任何数，故不选)</p>
+<p>(1)选择因子基$FB&#x3D;{2,3,7,13,17,19}$(5和11不能除尽$Q(x)$中的任何数，故不选)</p>
 <p>(2)通过对从<code>x=64</code>到<code>73</code>的$Q(x)$除因子基中的素数来进行筛选。如果剩余下的数相当小，则它已经分解成功。<strong>完整的分解记在<code>left</code>列</strong>中：</p>
-<p>$\begin{array}{lccccccccc}<br>x &amp; Q(x)=x^{2}-N &amp; 2 &amp; 3 &amp; 7 &amp; 13 &amp; 17 &amp; 19 &amp; \text { 剩余的数 } &amp; \text { left } \\<br>64 &amp; 63 &amp; - &amp; 21 &amp; 3 &amp; - &amp; - &amp; - &amp; 3 &amp; 3^{2} \times 7 \\<br>65 &amp; 192 &amp; 96 &amp; 32 &amp; - &amp; - &amp; - &amp; - &amp; 32 &amp; 2^{6} \times 3 \\<br>66 &amp; 323 &amp; - &amp; - &amp; - &amp; - &amp; 19 &amp; 1 &amp; 1 &amp; 17 \times 19 \\<br>67 &amp; 456 &amp; 228 &amp; 76 &amp; - &amp; - &amp; - &amp; 4 &amp; 4 &amp; 2^{3} \times 3 \times 19 \\<br>68 &amp; 591 &amp; - &amp; 197 &amp; - &amp; - &amp; - &amp; - &amp; 197 &amp; - \\<br>69 &amp; 728 &amp; 364 &amp; - &amp; 52 &amp; 4 &amp; - &amp; - &amp; 4 &amp; 2^{3} \times 7 \times 13 \\<br>70 &amp; 867 &amp; - &amp; 289 &amp; - &amp; - &amp; 17 &amp; - &amp; 17 &amp; 3 \times 17^{2} \\<br>71 &amp; 1008 &amp; 504 &amp; 168 &amp; 24 &amp; - &amp; - &amp; - &amp; 24 &amp; 2^{4} \times 32 \times 7 \\<br>72 &amp; 1151 &amp; - &amp; - &amp; - &amp; - &amp; - &amp; - &amp; 1151 &amp; -<br>\end{array}$</p>
+<p>$\begin{array}{lccccccccc}<br>x &amp; Q(x)&#x3D;x^{2}-N &amp; 2 &amp; 3 &amp; 7 &amp; 13 &amp; 17 &amp; 19 &amp; \text { 剩余的数 } &amp; \text { left } \<br>64 &amp; 63 &amp; - &amp; 21 &amp; 3 &amp; - &amp; - &amp; - &amp; 3 &amp; 3^{2} \times 7 \<br>65 &amp; 192 &amp; 96 &amp; 32 &amp; - &amp; - &amp; - &amp; - &amp; 32 &amp; 2^{6} \times 3 \<br>66 &amp; 323 &amp; - &amp; - &amp; - &amp; - &amp; 19 &amp; 1 &amp; 1 &amp; 17 \times 19 \<br>67 &amp; 456 &amp; 228 &amp; 76 &amp; - &amp; - &amp; - &amp; 4 &amp; 4 &amp; 2^{3} \times 3 \times 19 \<br>68 &amp; 591 &amp; - &amp; 197 &amp; - &amp; - &amp; - &amp; - &amp; 197 &amp; - \<br>69 &amp; 728 &amp; 364 &amp; - &amp; 52 &amp; 4 &amp; - &amp; - &amp; 4 &amp; 2^{3} \times 7 \times 13 \<br>70 &amp; 867 &amp; - &amp; 289 &amp; - &amp; - &amp; 17 &amp; - &amp; 17 &amp; 3 \times 17^{2} \<br>71 &amp; 1008 &amp; 504 &amp; 168 &amp; 24 &amp; - &amp; - &amp; - &amp; 24 &amp; 2^{4} \times 32 \times 7 \<br>72 &amp; 1151 &amp; - &amp; - &amp; - &amp; - &amp; - &amp; - &amp; 1151 &amp; -<br>\end{array}$</p>
 <p>(3)对所有这样的分解，其方次的奇偶性记在<code>0/1</code>矩阵中：</p>
-<p>$\begin{array}{ccccccc}<br>Q(x) &amp; 2 &amp; 3 &amp; 7 &amp; 13 &amp; 17 &amp; 19 \\<br>64 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\<br>65 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\<br>66 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\<br>67 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\<br>69 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\<br>70 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\<br>71 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0<br>\end{array}$</p>
+<p>$\begin{array}{ccccccc}<br>Q(x) &amp; 2 &amp; 3 &amp; 7 &amp; 13 &amp; 17 &amp; 19 \<br>64 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \<br>65 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \<br>66 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \<br>67 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \<br>69 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \<br>70 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \<br>71 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0<br>\end{array}$</p>
 <p>(4)寻找使它们所含的方次都是偶数的相应行，即可得到所求<code>s</code>和<code>t</code>，如上述矩阵的65和70、64和71所在行都满足行和为0，则有：</p>
-<p>$\begin{array}{l}<br>(65 \times 70)^{2}-\left(2^{3} \times 3 \times 17\right)^{2}=(4550+408)(4550-408)=4958 \times 4142 \\<br>(64 \times 71)^{2}-\left(2^{3} \times 3^{2} \times 7\right)^{2}=(4544+252)(4544-252)=4796 \times 4292<br>\end{array}$</p>
+<p>$\begin{array}{l}<br>(65 \times 70)^{2}-\left(2^{3} \times 3 \times 17\right)^{2}&#x3D;(4550+408)(4550-408)&#x3D;4958 \times 4142 \<br>(64 \times 71)^{2}-\left(2^{3} \times 3^{2} \times 7\right)^{2}&#x3D;(4544+252)(4544-252)&#x3D;4796 \times 4292<br>\end{array}$</p>
 <p>两者都可导出4033的分解：</p>
-<p>4958和4292与4033共有因子37，而4142和4796与4033共有因子109(最大公因数在大数范围内是可以在给定时间内得到的)，则：$4033=37\times 109$</p>
+<p>4958和4292与4033共有因子37，而4142和4796与4033共有因子109(最大公因数在大数范围内是可以在给定时间内得到的)，则：$4033&#x3D;37\times 109$</p>
 <p>筛法不仅可以对表达式$x^2-N$进行，也可以处理更一般的形如$(ax+b)^2-N$的二次多项式。改进算法称为多重多项式二次筛法(MPQS)。</p>
-<p>在合理的假设下，用$QS/MPQS$方法分解整数<code>N</code>的时间复杂度为：$O(\exp ((1+o(1)) \sqrt{\log N \log \log N}))=O\left(N^{(1+o(1)) \log \log N / \log N}\right)$</p>
+<p>在合理的假设下，用$QS&#x2F;MPQS$方法分解整数<code>N</code>的时间复杂度为：$O(\exp ((1+o(1)) \sqrt{\log N \log \log N}))&#x3D;O\left(N^{(1+o(1)) \log \log N &#x2F; \log N}\right)$</p>
 <h1 id="4-专门用途的因式分解方法"><a href="#4-专门用途的因式分解方法" class="headerlink" title="4 专门用途的因式分解方法"></a>4 专门用途的因式分解方法</h1><p>“专门”是指因子分解方法的成功依赖于待分解数的一些特殊性质。一般指待分解数的因子都很小;或要求带分解数或它的因子有特殊的数学形式。专门的方法并不总能成功，但在使用CFRAC、MPQS或NFS这些通用方法之前尝试一下它们是有帮助的。</p>
 <h2 id="4-1-Pollard’s-Rho算法"><a href="#4-1-Pollard’s-Rho算法" class="headerlink" title="4.1 Pollard’s Rho算法"></a>4.1 Pollard’s Rho算法</h2><p>引理：<strong>生日悖论</strong>：</p>
 <p>我们来考虑这样一种情况:在$[1,1000]$里面取一个数,取到我们想要的数(比如说,42),成功的概率是多少呢?显然是$\frac{1}{1000}$.</p>
-<p>若随意在$[1,1000]$里面取两个数，我们取两个数的差值绝对值。也就是说，在$[1,1000]$里面任意选取两个数$i , j$,问$|i-j|=42$的概率是多大?答案会扩大到$\frac{1}{500}$左右,也就是将近扩大一倍。我们可以用下列的方式直观理解：$i$在$[1,1000]$里面取出一个正整数的概率是$100\%$,而取出$j$满足$|i-j|=42$的概率差不多就是原来的一倍：$j$取$i-42$和$i+42$都是可以的.</p>
+<p>若随意在$[1,1000]$里面取两个数，我们取两个数的差值绝对值。也就是说，在$[1,1000]$里面任意选取两个数$i , j$,问$|i-j|&#x3D;42$的概率是多大?答案会扩大到$\frac{1}{500}$左右,也就是将近扩大一倍。我们可以用下列的方式直观理解：$i$在$[1,1000]$里面取出一个正整数的概率是$100%$,而取出$j$满足$|i-j|&#x3D;42$的概率差不多就是原来的一倍：$j$取$i-42$和$i+42$都是可以的.</p>
 <p>这给了我们一点启发：这种”<strong>组合随机采样</strong>“的方法是不是可以大大提高准确率呢?</p>
-<p>这个便是<strong>生日悖论</strong>的模型了。假如说一个班上有<code>k</code>个人,如果找到一个人的生日是4月2日,这个概率的确会相当低.但是如果单纯想找到两个生日相同的人,这个概率是不是会高一点呢? 可以暴力证明:如果是<code>k</code>个人生日互不相同,则概率为：$p=\frac{365}{365}\cdot\frac{364}{365}\cdot\frac{363}{365}\cdot\dots\cdot\frac{365-k+1}{365}$ ,故生日有重复的现象的概率是：$\text{P}(k)=1-\prod\limits_{i=1}^{k}{\frac{365-i+1}{365}}$。我们随便取一个概率：当$P(k) \geqslant \frac{1}{2}$时,解得$k \gtrsim 23$.这意味着一个有 23 个人组成的班级中，两个人在同一天生日的概率至少有$50\%$!当<code>k</code>取到 60 时，$\text{P}(k) \approx 0.9999$。这个数学模型和我们日常的经验严重不符，这也是”生日悖论”这个名字的由来。</p>
+<p>这个便是<strong>生日悖论</strong>的模型了。假如说一个班上有<code>k</code>个人,如果找到一个人的生日是4月2日,这个概率的确会相当低.但是如果单纯想找到两个生日相同的人,这个概率是不是会高一点呢? 可以暴力证明:如果是<code>k</code>个人生日互不相同,则概率为：$p&#x3D;\frac{365}{365}\cdot\frac{364}{365}\cdot\frac{363}{365}\cdot\dots\cdot\frac{365-k+1}{365}$ ,故生日有重复的现象的概率是：$\text{P}(k)&#x3D;1-\prod\limits_{i&#x3D;1}^{k}{\frac{365-i+1}{365}}$。我们随便取一个概率：当$P(k) \geqslant \frac{1}{2}$时,解得$k \gtrsim 23$.这意味着一个有 23 个人组成的班级中，两个人在同一天生日的概率至少有$50%$!当<code>k</code>取到 60 时，$\text{P}(k) \approx 0.9999$。这个数学模型和我们日常的经验严重不符，这也是”生日悖论”这个名字的由来。</p>
 <p>该算法的流程如下：</p>
-<p>给定整数<code>n</code>，设初始值$x=2,y=x^{2}+1$。</p>
-<p>(1)计算$g=gcd(x-y,n)$；</p>
+<p>给定整数<code>n</code>，设初始值$x&#x3D;2,y&#x3D;x^{2}+1$。</p>
+<p>(1)计算$g&#x3D;gcd(x-y,n)$；</p>
 <p>(2)若$1&lt;g&lt;n$，则停止，<code>g</code>为<code>n</code>的一个因子；</p>
-<p>(3)若$g=1,x^{2}+1 \rightarrow x,(y^{2}+1)^{2}+1\% n\rightarrow y$，返回(1)</p>
-<p>(4)若$g=n$，失败，需要对算法重新进行初始化。有一种方法是，考虑生成一个伪随机序列，用组合的方式生成因数来计算<code>gcd</code>，函数为$y=x^{2}+c(mod N)$，其中<code>c</code>是我们用<code>rand</code>生成的一个函数，函数的大致图像如图：</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubHVvZ3UuY29tLmNuL3VwbG9hZC9pbWFnZV9ob3N0aW5nL2ZwcjRzYmdhLnBuZw?x-oss-process=image/format,png" alt="img" style="zoom: 67%;" /></p>
+<p>(3)若$g&#x3D;1,x^{2}+1 \rightarrow x,(y^{2}+1)^{2}+1% n\rightarrow y$，返回(1)</p>
+<p>(4)若$g&#x3D;n$，失败，需要对算法重新进行初始化。有一种方法是，考虑生成一个伪随机序列，用组合的方式生成因数来计算<code>gcd</code>，函数为$y&#x3D;x^{2}+c(mod N)$，其中<code>c</code>是我们用<code>rand</code>生成的一个函数，函数的大致图像如图：</p>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4ubHVvZ3UuY29tLmNuL3VwbG9hZC9pbWFnZV9ob3N0aW5nL2ZwcjRzYmdhLnBuZw?x-oss-process=image/format,png" alt="img" style="zoom: 67%;" />
+
 <p>可以看出，虽然它生成的数较为随机，但还是存在循环节，所以才叫伪随机数，生成数列的轨迹很像希腊字母$\rho$，所以这个算法也叫pollard_rho算法。</p>
-<p>有一种基于<code>floyd</code>算法优化的pollard_rho算法：由于pollard的数列存在循环节，为了判环，我们类比<code>floyd</code>算法，用龟兔赛跑的思想，假设兔子速度是乌龟速度的一倍，过了时间<code>i</code>后，$t=i,r=2i$，此时两者得到的数列值$x_t=x_i,x_r=x_{2i}$。若相遇，则路径长是环长的整数倍，我们将跳出查找，重新调整参数<code>c</code>。伪代码表示如下：</p>
+<p>有一种基于<code>floyd</code>算法优化的pollard_rho算法：由于pollard的数列存在循环节，为了判环，我们类比<code>floyd</code>算法，用龟兔赛跑的思想，假设兔子速度是乌龟速度的一倍，过了时间<code>i</code>后，$t&#x3D;i,r&#x3D;2i$，此时两者得到的数列值$x_t&#x3D;x_i,x_r&#x3D;x_{2i}$。若相遇，则路径长是环长的整数倍，我们将跳出查找，重新调整参数<code>c</code>。伪代码表示如下：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pollard_rho</span><span class="token punctuation">(</span><span class="token keyword">int</span> N<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> c<span class="token operator">=</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token punctuation">(</span>N<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -555,24 +558,25 @@
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> N<span class="token punctuation">;</span>							<span class="token comment">//没有找到,重新调整参数c</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>经过理论推导可以得到该算法的时间复杂度为$O(n^{1/4})$。</p>
+
+<p>经过理论推导可以得到该算法的时间复杂度为$O(n^{1&#x2F;4})$。</p>
 <h2 id="4-2-Pollard’s-P-1算法"><a href="#4-2-Pollard’s-P-1算法" class="headerlink" title="4.2 Pollard’s P-1算法"></a>4.2 Pollard’s P-1算法</h2><p>选择随机整数<code>b</code>，<code>1 &lt; b &lt; n</code>：</p>
-<p>(1)计算<code>g=gcd(b,n)</code>，若<code>g&gt;1</code>，找到真因子，停止；否则，令$p_{i}={2,3,5,7,…}$</p>
-<p>(2)令<code>i=0</code>，$q=p_{i},r=\lfloor log_{q} n\rfloor,b=b^{q^r}\mod n$，计算$g=gcd(b-1,n)$：</p>
+<p>(1)计算<code>g=gcd(b,n)</code>，若<code>g&gt;1</code>，找到真因子，停止；否则，令$p_{i}&#x3D;{2,3,5,7,…}$</p>
+<p>(2)令<code>i=0</code>，$q&#x3D;p_{i},r&#x3D;\lfloor log_{q} n\rfloor,b&#x3D;b^{q^r}\mod n$，计算$g&#x3D;gcd(b-1,n)$：</p>
 <ul>
 <li><code>g=1</code>：<code>i++</code>，继续</li>
 <li><code>g=n</code>：失败，结束</li>
 <li><code>1 &lt; g &lt; n</code>：<code>g</code>为因子，结束</li>
 </ul>
-<p><strong>[例]</strong>计算9991的因式分解。</p>
+<p>**[例]**计算9991的因式分解。</p>
 <p>(1)取初值<code>b = 3</code>，计算<code>g = gcd(3,9991) = 1</code>;</p>
-<p>(2)$q = 2,r = floor(log_{2}^{9991})=13$</p>
-<p>$b^{q^{r}}\mod n=3^{2^{13}}\mod 9991=229$</p>
-<p>$g=gcd(229-1,9991)=1$，则取$q=3$，继续；</p>
-<p>(3)$q=3,r=floor(log_{3}9991)=8$</p>
-<p>$b^{q^{r}}\mod n=3^{3^{8}}\mod 9991=3202$</p>
-<p>$g=gcd(3202-1,9991)=97$，则$n=9991$的其中一个因子97。</p>
-<p>故$9991=97*103$。</p>
+<p>(2)$q &#x3D; 2,r &#x3D; floor(log_{2}^{9991})&#x3D;13$</p>
+<p>$b^{q^{r}}\mod n&#x3D;3^{2^{13}}\mod 9991&#x3D;229$</p>
+<p>$g&#x3D;gcd(229-1,9991)&#x3D;1$，则取$q&#x3D;3$，继续；</p>
+<p>(3)$q&#x3D;3,r&#x3D;floor(log_{3}9991)&#x3D;8$</p>
+<p>$b^{q^{r}}\mod n&#x3D;3^{3^{8}}\mod 9991&#x3D;3202$</p>
+<p>$g&#x3D;gcd(3202-1,9991)&#x3D;97$，则$n&#x3D;9991$的其中一个因子97。</p>
+<p>故$9991&#x3D;97*103$。</p>
 <p>有定义：如果一个整数的所有素因子都不大于<code>B</code>，则称这个整数是<code>B-Smooth</code>数。如：<code>12=2*2*3</code>，则12是<code>3-Smooth</code>数。</p>
 <p>若$p_{1},p_{2},…,p_{n}$是随机在小于<code>B</code>的范围内选取，则能成功分解的概率较大。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
@@ -621,19 +625,23 @@
 	<span class="token keyword">long</span> <span class="token keyword">long</span> val <span class="token operator">=</span> <span class="token number">767</span><span class="token punctuation">;</span>
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%ld"</span><span class="token punctuation">,</span> <span class="token function">pollardp_1</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="4-3-椭圆曲线算法"><a href="#4-3-椭圆曲线算法" class="headerlink" title="4.3 椭圆曲线算法"></a>4.3 椭圆曲线算法</h2><p>Lenstra于1987年设计的椭圆曲线算法(ECM)实际上是Pollard p-1算法的一般化，该算法牵涉到定义在模p椭圆曲线上的群，成功率依赖于<strong>接近<code>p</code>的一个整数只有小的素因子</strong>。</p>
 <p>算法执行过程如下：</p>
 <p>随机选取阶为<code>g</code>的群<code>G</code>，<code>g</code>接近于<code>p</code>，则可在群<code>G</code>上而不是群$Z_p$上执行与Pollard p-1算法类似的计算。</p>
 <p>若<code>g</code>的所有素因子均小于界<code>B</code>，则可找到<code>N</code>的一个素因子;否则选取不同的群<code>G</code>(通常是不同的阶<code>g</code>)，重复上述步骤直到找到因子为止。</p>
 <h1 id="5-数域筛法"><a href="#5-数域筛法" class="headerlink" title="5 数域筛法"></a>5 数域筛法</h1><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220912173915147.png" alt="image-20220912173915147"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220912173925310.png" alt="image-20220912173925310"></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220912173938534.png" alt="image-20220912173938534" style="zoom: 80%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220912173938534.png" alt="image-20220912173938534" style="zoom: 80%;" />
+
+
+
 <h1 id="6-谈谈RSA算法"><a href="#6-谈谈RSA算法" class="headerlink" title="6 谈谈RSA算法"></a>6 谈谈RSA算法</h1><p><code>RSA</code>算法的过程如下：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220911171303028.png" alt="image-20220911171303028"></p>
 <p>虽然大数的因式分解在目前仍是一个难题，但针对<code>RSA</code>算法，也有一些人为因素使得攻击者得到明文，如密钥使用不当，共用模数等，这些是在使用该算法时需要避免的问题：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220911171331434.png" alt="image-20220911171331434"></p>
-<h1 id="7-结语"><a href="#7-结语" class="headerlink" title="7 结语"></a>7 结语</h1><p>​    大数的因式分解是密码学领域的三大难题之一(还有两大是离散对数问题与椭圆曲线离散对数问题)，目前还没有通用方法能够解出大于给定位数的任意数的因式分解。本文阐述的因式分解方法各有各的优点，其中第四模块的因式分解方法主要用于满足给定特征的数字的因式分解，虽然这类方法可能有条件限制，但可以分解更大位数的数字，而第三模块的因式分解方法普适性更强，但时间复杂度也更高，在数字位数过大时可能需要执行很长时间。</p>
-<p>​    本次调研，既丰富了我的知识面，又对密码学课程中学过的一些数论知识有所巩固，收获很大。</p>
+<h1 id="7-结语"><a href="#7-结语" class="headerlink" title="7 结语"></a>7 结语</h1><p>​	大数的因式分解是密码学领域的三大难题之一(还有两大是离散对数问题与椭圆曲线离散对数问题)，目前还没有通用方法能够解出大于给定位数的任意数的因式分解。本文阐述的因式分解方法各有各的优点，其中第四模块的因式分解方法主要用于满足给定特征的数字的因式分解，虽然这类方法可能有条件限制，但可以分解更大位数的数字，而第三模块的因式分解方法普适性更强，但时间复杂度也更高，在数字位数过大时可能需要执行很长时间。</p>
+<p>​	本次调研，既丰富了我的知识面，又对密码学课程中学过的一些数论知识有所巩固，收获很大。</p>
 
                                     
                             </div>
@@ -1428,7 +1436,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">385.1k</span>&nbsp;字
+                class="white-color">389.9k</span>&nbsp;字
             
             
             
