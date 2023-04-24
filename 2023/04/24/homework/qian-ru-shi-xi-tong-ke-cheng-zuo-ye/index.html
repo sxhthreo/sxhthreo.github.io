@@ -404,7 +404,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-11-20
+                            2023-04-24
                     </div>
                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    23
+                                                    22
                                                         分
                                             </div>
                                             
@@ -459,7 +459,7 @@
 <li><strong>列举目前市面上常用的嵌入式操作系统名字（越多越好）</strong></li>
 </ol>
 <p>Android、uClinux、WinCE、PalmOS、Symbian、eCos、uCOS-II、VxWorks、pSOS、Nucleus、ThreadX 、Rtems 、QNX、INTEGRITY、OSE、C ExecuTIve</p>
-<ol start="2">
+<ol>
 <li><strong>列举基于模型的系统工程 与 传统开发流程的优势（至少4点）</strong></li>
 </ol>
 <p><strong>（一）基于模型的系统工程</strong>（MBSE）是建模方法的形式化应用，以使建模方法支持系统要求、设计、分析、验证和确认等活动，这些活动从概念性设计阶段开始，持续贯穿到设计开发以及后来的所有寿命周期阶段。</p>
@@ -474,7 +474,7 @@
 <p>（2）遵循用户至上原则；</p>
 <p>（3）每一阶段的工作成果是下一阶段的依据，便于系统开发的管理和控制；</p>
 <p>（4）文档规范化，按工程标准建立标准化的文档资料。</p>
-<ol start="3">
+<ol>
 <li>列举RISC-V相对ARM构架的优势和缺陷，各三条。</li>
 </ol>
 <p><strong>优势</strong>：</p>
@@ -485,22 +485,24 @@
 <p>（1）由于RISC-V诞生时间太短，相关的编译器、开发工具和软件开发环境（IDE）以及其它生态要素还在发展；</p>
 <p>（2）RISC-V 定义了一个很小的、带有扩展的 ISA，导致ISA 碎片化；</p>
 <p>（3）RISC-V 尚未实现部分性能的提升，如超标量执行等。</p>
-<ol start="4">
+<ol>
 <li>查询自己手机的处理器型号、性能和参数，并描述其ARM版本（或源自的版本），以及指令集的版本。</li>
 </ol>
 <p><strong>处理器</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230424233851772.png" alt="image-20230424233851772"></p>
 <p><strong>型号</strong>：HUAWEI Kirin 990 5G</p>
-<p><strong>性能</strong>：作为华为首款旗舰5G SoC，Kirin 990 5G采用先进的7nm+ EUV工艺制程，将5G Modem集成到SoC芯片中，面积更小，功耗更低；率先支持NSA&#x2F;SA双架构和TDD&#x2F;FDD全频段，是领先的全网通5G SoC。麒麟990 5G NR理论下行峰值速率可达2.3Gbps，NR理论上行峰值速率达1.25Gbps，提供5G极速体验。</p>
+<p><strong>性能</strong>：作为华为首款旗舰5G SoC，Kirin 990 5G采用先进的7nm+ EUV工艺制程，将5G Modem集成到SoC芯片中，面积更小，功耗更低；率先支持NSA/SA双架构和TDD/FDD全频段，是领先的全网通5G SoC。麒麟990 5G NR理论下行峰值速率可达2.3Gbps，NR理论上行峰值速率达1.25Gbps，提供5G极速体验。</p>
 <p><strong>参数见下表</strong>：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>网络制式</th>
-<th>2G&#x2F;3G&#x2F;4G&#x2F;5G</th>
+<th>2G/3G/4G/5G</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CPU制程</td>
 <td>7nm+EUV</td>
 </tr>
@@ -520,7 +522,9 @@
 <td>通用闪存（UFS）</td>
 <td>UFS  3.0 , UFS 2.1</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>ARM版本</strong>：16 Core Mali G76 GPU</p>
 <p><strong>指令集版本</strong>：采用的是RISC精简指令集RISC-V</p>
 <h1 id="第二次作业"><a href="#第二次作业" class="headerlink" title="第二次作业"></a>第二次作业</h1><p><strong>1.深入调研并介绍IIC总线的结构、通信原理、特点（速度、同步性、双工性等）等。从理解的角度分析IIC总线的优缺点（相对SPI和CAN）。</strong></p>
@@ -533,7 +537,7 @@
 <p>在IIC总线通信时，主设备控制SCL线的时钟信号，而SDA线上的数据则在时钟信号的控制下进行传输。传输时，主设备在SCL线上产生时钟脉冲，同时在SDA线上发送数据位。从设备在时钟脉冲的控制下读取SDA线上的数据位，并在下一个时钟脉冲的前沿将其应答给主设备。如果数据传输成功，则从设备返回应答信号。</p>
 <p><strong>③特点</strong></p>
 <p>（1）速度</p>
-<p>IIC总线的速度取决于SCL线上的时钟频率。在标准模式下，时钟频率为100 kHz，最大数据传输速率为100 kbit&#x2F;s。在快速模式下，时钟频率为400 kHz，最大数据传输速率为400 kbit&#x2F;s。在高速模式下，时钟频率可以达到3.4 MHz，最大数据传输速率为3.4 Mbit&#x2F;s。</p>
+<p>IIC总线的速度取决于SCL线上的时钟频率。在标准模式下，时钟频率为100 kHz，最大数据传输速率为100 kbit/s。在快速模式下，时钟频率为400 kHz，最大数据传输速率为400 kbit/s。在高速模式下，时钟频率可以达到3.4 MHz，最大数据传输速率为3.4 Mbit/s。</p>
 <p>（2）同步性</p>
 <p>IIC总线是同步通信协议，即数据传输的时序由时钟信号控制。主设备通过控制时钟信号来确保通信的同步性，从而保证数据的准确传输。</p>
 <p>（3）双工性</p>
@@ -555,30 +559,30 @@
 <p>（3）双工性差</p>
 <p>IIC总线的双工性较差，在同一时间内，IIC总线只能进行读或写操作，不能同时进行；而SPI总线和CAN总线都具有良好的双工性，可以同时进行读和写操作。</p>
 <p>由于IIC、SPI、CAN总线各有各的特点和优势，我们可以根据具体的应用场景来选择最适合的通信总线。若需要简单的线路和多主机支持，可以选择IIC总线；若需要高速数据传输和良好的同步性，可以选择SPI总线；若需要长距离通信和实时性要求较高的应用，则可以选择CAN总线。</p>
-<ol start="2">
+<ol>
 <li><strong>结合课堂内容，设异常触发指令的地址为0xFFFF0100，计算一下各个异常模式时，PC、LR、PRI*、Return Code的具体取值，写明分析过程。</strong></li>
 </ol>
 <p><strong>（1）Reset模式</strong></p>
-<p>  在Reset模式下，处理器会执行一系列初始化操作，包括将寄存器清零和设置中断向量表等。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108, <strong>LR****、PRI*、Return Code</strong>均为N&#x2F;A（不确定）。</p>
+<p>  在Reset模式下，处理器会执行一系列初始化操作，包括将寄存器清零和设置中断向量表等。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108, <strong>LR**</strong>、PRI*、Return Code**均为N/A（不确定）。</p>
 <p><strong>（2）Undefined Instruction模式</strong></p>
-<p>当处理器遇到一条无法识别的指令时，它会进入Undefined Instruction异常模式。在这个模式下，处理器会暂停执行，并且会向操作系统发出一个异常信号，以便系统处理这个异常。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4&#x3D;0xFFFF0104，<strong>PRI*<strong>值为下一条指令地址，为0xFFFF0104。当执行 MOVS PC, R14_und 指令时，将恢复PC（从R14_und）和CPSR（从SPSR_und）的值，并返回到未定义指令后的下一条指令，则</strong>Return Code</strong>为0xFFFF0104。</p>
+<p>当处理器遇到一条无法识别的指令时，它会进入Undefined Instruction异常模式。在这个模式下，处理器会暂停执行，并且会向操作系统发出一个异常信号，以便系统处理这个异常。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4=0xFFFF0104，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行 MOVS PC, R14_und 指令时，将恢复PC（从R14_und）和CPSR（从SPSR_und）的值，并返回到未定义指令后的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
 <p><strong>（3）Software Interrupt模式</strong></p>
-<p>当执行软件中断指令时，处理器会进入Software Interrupt异常模式。该模式用于处理与处理器相关的软件中断请求。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4&#x3D;0xFFFF0104，<strong>PRI*<strong>值为下一条指令地址，为0xFFFF0104。当执行 MOVS PC, R14_svc 指令时，将恢复PC（从R14_svc）和CPSR（从SPSR_svc）的值，并返回到SWI的下一条指令，则</strong>Return Code</strong>为0xFFFF0104。</p>
+<p>当执行软件中断指令时，处理器会进入Software Interrupt异常模式。该模式用于处理与处理器相关的软件中断请求。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4=0xFFFF0104，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行 MOVS PC, R14_svc 指令时，将恢复PC（从R14_svc）和CPSR（从SPSR_svc）的值，并返回到SWI的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
 <p><strong>（4）Prefetch Abort模式</strong></p>
-<p>当处理器试图执行从内存中读取的非法指令或数据时，会触发Prefetch Abort异常。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4&#x3D;0xFFFF0104，<strong>PRI*<strong>值为当前指令地址，为0xFFFF0100。当执行SUBS PC,R4_abt,#4后，将重新执行被中止的指令，则</strong>Return Code</strong>为0xFFFF0100。</p>
+<p>当处理器试图执行从内存中读取的非法指令或数据时，会触发Prefetch Abort异常。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4=0xFFFF0104，<strong>PRI*</strong>值为当前指令地址，为0xFFFF0100。当执行SUBS PC,R4_abt,#4后，将重新执行被中止的指令，则<strong>Return Code</strong>为0xFFFF0100。</p>
 <p><strong>（5）Data Abort模式</strong></p>
-<p>  当处理器试图执行或存储非法数据时，会触发Data Abort异常。这可能是因为数据不在可寻址的内存空间中，或者由于硬件错误而导致读取或写入失败。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4&#x3D;0xFFFF0108，<strong>PRI*<strong>值为当前指令地址，为0xFFFF0100。当执行SUBS PC,R4_abt,#8后，将重新执行被中止的指令，则</strong>Return Code</strong>为0xFFFF0100。</p>
+<p>  当处理器试图执行或存储非法数据时，会触发Data Abort异常。这可能是因为数据不在可寻址的内存空间中，或者由于硬件错误而导致读取或写入失败。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4=0xFFFF0108，<strong>PRI*</strong>值为当前指令地址，为0xFFFF0100。当执行SUBS PC,R4_abt,#8后，将重新执行被中止的指令，则<strong>Return Code</strong>为0xFFFF0100。</p>
 <p><strong>（6）Interrupt模式</strong></p>
-<p>当处理器接收到来自外部设备的中断信号时，会进入Interrupt异常模式。在该模式下，处理器会执行特定的中断服务例程，以响应外部中断请求。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4&#x3D;0xFFFF0108，<strong>PRI*<strong>值为下一条指令地址，为0xFFFF0104。当执行SUBS PC,R14_irq,#4后，将返回到异常指令后的下一条指令，则</strong>Return Code</strong>为0xFFFF0104。</p>
+<p>当处理器接收到来自外部设备的中断信号时，会进入Interrupt异常模式。在该模式下，处理器会执行特定的中断服务例程，以响应外部中断请求。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4=0xFFFF0108，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行SUBS PC,R14_irq,#4后，将返回到异常指令后的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
 <p><strong>（7）Fast Interrupt模式</strong></p>
-<p>当Fast Interrupt信号被触发时，处理器会立即跳转到Fast Interrupt异常模式，并且禁用中断响应。在该模式下，处理器会执行特定的中断服务例程，以尽快响应高优先级的中断请求。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4&#x3D;0xFFFF0108，<strong>PRI*<strong>值为下一条指令地址，为0xFFFF0104。当执行SUBS PC,R14_fiq,#4后，将返回到异常指令后的下一条指令，则</strong>Return Code</strong>为0xFFFF0104。</p>
+<p>当Fast Interrupt信号被触发时，处理器会立即跳转到Fast Interrupt异常模式，并且禁用中断响应。在该模式下，处理器会执行特定的中断服务例程，以尽快响应高优先级的中断请求。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4=0xFFFF0108，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行SUBS PC,R14_fiq,#4后，将返回到异常指令后的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
 <h1 id="第三次作业"><a href="#第三次作业" class="headerlink" title="第三次作业"></a>第三次作业</h1><ol>
 <li><strong>SUB R3，R2，R1，LSR R0</strong></li>
 </ol>
 <p><strong>上面汇编指令中，R0，R1，R2，R3分别在32位的指令长度的位数范围？</strong></p>
 <p>R0代表寄存器移位位数，对应指令8-11位；R1对应指令0-3位；</p>
 <p>R2对应指令16-19位；R3代表指令12-15位。</p>
-<ol start="2">
+<ol>
 <li><strong>读程序，给每一行增加注释，并说明执行过程中R0,R1,R2的值如何变化？</strong></li>
 </ol>
 <pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">AREA StrCopy, CODE, READONLY ; 定义代码区域，不可修改，只可读
@@ -611,8 +615,7 @@ LOOP1
 STOP
   B STOP          ; 无条件跳转到STOP标记处，即进入死循环
 END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>程序最终运行结果为：R0&#x3D;0xC3, R1&#x3D;0x86, R2&#x3D;0x106.</p>
+<p>程序最终运行结果为：R0=0xC3, R1=0x86, R2=0x106.</p>
 <h1 id="第四次作业"><a href="#第四次作业" class="headerlink" title="第四次作业"></a>第四次作业</h1><p><strong>任务一: 安装ARM编译环境</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230424234227363.png" alt="image-20230424234227363"></p>
 <p>对项目代码进行编译，显示0 Errors, 0 Warnings，说明环境配置正常，编译通过：</p>
@@ -649,17 +652,16 @@ Reset_Handler              	;&#x2F;* code start *&#x2F;
 stop
 	b   stop         		;&#x2F;* end the code £¬cycling*&#x2F;
 END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h1 id="第五次作业"><a href="#第五次作业" class="headerlink" title="第五次作业"></a>第五次作业</h1><p><strong>一. 阅读发布的Um_s3c2410.pdf开发手册，回答如下问题</strong></p>
 <ol>
-<li><strong>对于I&#x2F;O端口操作需求，假设GPB0端口连接了一个按键，我需要读按键的值。</strong></li>
+<li><strong>对于I/O端口操作需求，假设GPB0端口连接了一个按键，我需要读按键的值。</strong></li>
 </ol>
 <p><strong>1）至少需要操作哪两个寄存器，对应的地址是多少？提示：搜索“GPB0”，找到寄存器名和地址。</strong></p>
 <p>①GPBCON寄存器，寄存器的地址为0x56000010；</p>
 <p>②GPBDAT寄存器，寄存器的地址为0x56000014。</p>
-<p><strong>2）需要操作这两个寄存器的哪几个bit位，如何操作？提示：例如 传感器GP[0:1]&#x3D;00，按键值&#x3D;GP</strong><em>[</em>]**</p>
-<p>①寄存器GPBCON[1:0]&#x3D;01；</p>
-<p>②按键值&#x3D;GPBDAT[0]。</p>
+<p><strong>2）需要操作这两个寄存器的哪几个bit位，如何操作？提示：例如 传感器GP[0:1]=00，按键值=GP*</strong>[<em>]*</em></p>
+<p>①寄存器GPBCON[1:0]=01；</p>
+<p>②按键值=GPBDAT[0]。</p>
 <p><strong>2.解释下列寄存器的含义以及地址</strong></p>
 <p>1）ADCCON</p>
 <p>含义：ADC控制寄存器，用于控制模数转换器的工作模式和采样率。</p>
@@ -678,18 +680,13 @@ END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <p>地址：0x48000028</p>
 <p><strong>二. 以实验包中“STM32F746_Experiment_v1.1\02_GPIO”例程为例子，描述STM32系列嵌入式系统的启动过程。</strong></p>
 <p><strong>参考资料如下：</strong></p>
-<ol>
-<li><strong>STM32F74xx中文参考手册(1).pdf （STM32F746_Experiment_v1.1目录下）</strong></li>
-<li><strong>上课讲课的PPT</strong></li>
-<li><strong>自行网上搜索。例如：<a target="_blank" rel="noopener" href="https://blog.csdn.net/luobeihai/article/details/117595762">https://blog.csdn.net/luobeihai/article/details/117595762</a></strong></li>
-</ol>
+<p>1) <strong>STM32F74xx中文参考手册(1).pdf （STM32F746_Experiment_v1.1目录下）</strong><br>2) <strong>上课讲课的PPT</strong><br>3) <strong>自行网上搜索。例如：<a target="_blank" rel="noopener" href="https://blog.csdn.net/luobeihai/article/details/117595762">https://blog.csdn.net/luobeihai/article/details/117595762</a></strong></p>
 <p><strong>①设置栈和堆的信息</strong></p>
 <p><strong>（1）栈</strong></p>
 <pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">Stack_Size   EQU   0x00000400
 	AREA  STACK, NOINIT, READWRITE, ALIGN&#x3D;3
 	Stack_Mem    SPACE  Stack_Size
 __initial_sp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>开辟栈的大小为 0X00000400（1KB），栈的作用是用于局部变量、函数调用、函数形参等的开销；标号__initial_sp 紧挨着 SPACE 语句放置，表示栈的结束地址，即栈顶地址。</p>
 <p><strong>（2）堆</strong></p>
 <pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">Heap_Size    EQU   0x00000200
@@ -699,8 +696,7 @@ Heap_Mem    SPACE  Heap_Size
 __heap_limit
      PRESERVE8
      THUMB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>开辟堆的大小为 0X00000200（512 字节），__heap_base 表示堆的起始地址， __heap_limit 表示堆的结束地址。堆主要用来动态内存的分配。</p>
+<p>开辟堆的大小为 0X00000200（512 字节），<strong>heap_base 表示堆的起始地址， </strong>heap_limit 表示堆的结束地址。堆主要用来动态内存的分配。</p>
 <p><strong>②定义中断向量表</strong></p>
 <pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__Vectors    DCD   __initial_sp    ; Top of Stack
         DCD   Reset_Handler        ; Reset Handler
@@ -710,7 +706,6 @@ __heap_limit
         DCD   BusFault_Handler     ; Bus Fault Handler
         DCD   UsageFault_Handler   ; Usage Fault Handler        
 		......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>ARM 规定向量表的起始位置存放的是栈顶指针 MSP 的地址值，紧接着存放的是复位中断入口函数的地址。当刚上电的时候，硬件会根据向量表的地址找到向量表的具体位置（对于向量表的地址是可以通过 NVIC 中的一个重定位寄存器来设置的，复位时该寄存器的值为0），然后会根据向量表中的这两个数据，设置 SP、PC 的值，这时 CPU 就会从复位中断的入口函数开始取指令运行程序。</p>
 <p><strong>③调用SystemInit函数，设置系统时钟</strong></p>
 <pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">Reset_Handler  PROC
@@ -722,7 +717,6 @@ __heap_limit
        LDR   R0, &#x3D;__main
        BX   R0
 ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p> 硬件设置好了 SP、PC 的值后，这时CPU 会从 Reset_Handler 处开始取指令运行，首先会调用 SystemInit 函数来初始化系统时钟，该函数是官方固件库提供的一个库函数，在 system_stm32f7xx.c 文件中定义如下：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">SystemInit</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
@@ -761,7 +755,6 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
  	SCB<span class="token operator">-></span>VTOR <span class="token operator">=</span> FLASH_BASE <span class="token operator">|</span> VECT_TAB_OFFSET<span class="token punctuation">;</span> <span class="token comment">/* Vector Table Relocation in Internal FLASH */</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>该函数完成以下功能：</p>
 <ul>
 <li><p><strong>FPU 设置部分</strong>：如果芯片支持 FPU（浮点运算器），则设置 CP10 和 CP11 为完全访问权限。</p>
@@ -796,7 +789,6 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
   _main_scatterload
 
 	0x08000134:  f000f81a  ....  BL    __scatterload ; 0x800016c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>接下来就跳转到了 __scatterload 函数，从函数名可以看出这是一个分散加载函数，该函数主要实现的功能就是数据段的重定位和清除 bss 段，初始化栈空间。该函数的反汇编源码如下：</p>
 <pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__scatterload
   __scatterload_rt2
@@ -811,16 +803,14 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
     0x08000180:  42ac    .B   CMP   r4,r5
     0x08000182:  d3f6    ..   BCC   0x8000172 ; __scatterload + 6
     0x08000184:  f7ffffd8  ....  BL    __main_after_scatterload ; 0x8000138<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>⑤调用main函数</strong></p>
-<p>从上面的汇编代码可以看出，__scatterload 函数最后调用了 __main_after_scatterload 函数，这个函数实现的功能就是跳转到了用户的 main 函数，进入到用户程序。__main_after_scatterload 函数的代码如下：</p>
+<p>从上面的汇编代码可以看出，<strong>scatterload 函数最后调用了 </strong>main_after_scatterload 函数，这个函数实现的功能就是跳转到了用户的 main 函数，进入到用户程序。__main_after_scatterload 函数的代码如下：</p>
 <pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__main_after_scatterload
   _main_clock
   _main_cpp_init
   _main_init
     0x08000138:  4800    .H   LDR   r0,[pc,#0] ; [0x800013c] &#x3D; 0x80004c1
     0x0800013a:  4700    .G   BX    r0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>可以看出，代码最后跳转到了 r0 寄存器所指示的地址中去了，实际上这个地址就是用户的 main 函数地址。由此完成 STM32 的启动过程，接下来运行的是用户程序的代码。</p>
 
                                     
@@ -848,7 +838,7 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/11/20/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/">https://sxhthreo.github.io/2022/11/20/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/</a>
+                    <a href="https://sxhthreo.github.io/2023/04/24/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/">https://sxhthreo.github.io/2023/04/24/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1270,17 +1260,18 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/11/20/homework/algorithm/si-kao-ti-1118-tuan-huo-shu-liang/">
+                <a href="/2023/04/24/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="算法课外思考题1118(团伙数量)">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="嵌入式系统课程作业">
                         
-                        <span class="card-title">算法课外思考题1118(团伙数量)</span>
+                        <span class="card-title">嵌入式系统课程作业</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1290,9 +1281,9 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1305,6 +1296,7 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1327,13 +1319,13 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/20/homework/algorithm/si-kao-ti-1116-ren-wu-diao-du/">
+                <a href="/2023/04/15/reading/reading01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="算法课外思考题1116(任务调度)">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Understanding Fileless Attacks on Linux-based IoT Devices with HoneyCloud(基于linux的物联网设备的无文件攻击)">
                         
-                        <span class="card-title">算法课外思考题1116(任务调度)</span>
+                        <span class="card-title">Understanding Fileless Attacks on Linux-based IoT Devices with HoneyCloud(基于linux的物联网设备的无文件攻击)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1344,14 +1336,14 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
                                 </a>
                             
                             
@@ -1361,12 +1353,12 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">论文阅读</span>
                     </a>
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
+                    <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">物联网安全</span>
                     </a>
                     
                 </div>
