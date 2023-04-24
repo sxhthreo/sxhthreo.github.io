@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-24
+                                    2023-04-24
                             </div>
                             
 
@@ -1537,16 +1537,16 @@ S<span class="token punctuation">[</span><span class="token number">0</span><spa
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">Index_KMP</span><span class="token punctuation">(</span><span class="token punctuation">(</span>SString S<span class="token punctuation">,</span>SString T<span class="token punctuation">,</span><span class="token keyword">int</span> next<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>S<span class="token punctuation">.</span>length<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>T<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> S<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> j <span class="token operator">&lt;=</span> T<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
     <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">==</span><span class="token number">0</span><span class="token operator">||</span>S<span class="token punctuation">.</span>ch<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>T<span class="token punctuation">.</span>ch<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> S<span class="token punctuation">.</span>ch<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> T<span class="token punctuation">.</span>ch<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
         <span class="token punctuation">&#123;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">;</span>		<span class="token comment">//继续比较后继字符</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">;</span>		    <span class="token comment">//继续比较后继字符</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">else</span>
-            j<span class="token operator">=</span>next<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">//模式串向右移动,i保持不变</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">></span>T<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> i<span class="token operator">-</span>T<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+            j <span class="token operator">=</span> next<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">//模式串向右移动,i保持不变</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">></span> T<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> i <span class="token operator">-</span> T<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
         <span class="token keyword">else</span>
             <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
@@ -2491,7 +2491,7 @@ i <span class="token operator">=</span> <span class="token number">1</span><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">389.7k</span>&nbsp;字
+                class="white-color">423.8k</span>&nbsp;字
             
             
             
