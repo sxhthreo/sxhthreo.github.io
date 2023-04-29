@@ -382,9 +382,9 @@
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
                                     <span class="chip bg-color">
-                                        前端
+                                        Web技术
                                     </span>
                                 </a>
                                 
@@ -418,7 +418,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-26
+                                    2023-04-29
                             </div>
                             
 
@@ -426,7 +426,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            8.7k
+                                            7.8k
                                     </div>
                                     
 
@@ -434,7 +434,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    39
+                                                    35
                                                         分
                                             </div>
                                             
@@ -466,18 +466,17 @@
 </ol>
 <ul>
 <li>建议：<ul>
-<li>测试类名：被测试的类名Test        CalculatorTest</li>
-<li>包名：xxx.xxx.xx.test        cn.itcast.test</li>
+<li>测试类名：被测试的类名Test		CalculatorTest</li>
+<li>包名：xxx.xxx.xx.test		cn.itcast.test</li>
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="2">
 <li>定义测试方法：可以独立运行</li>
 </ol>
 <ul>
-<li><p>建议：</p>
-<ul>
-<li><p>方法名：test测试的方法名        testAdd()  </p>
+<li>建议：<ul>
+<li><p>方法名：test测试的方法名		testAdd()  </p>
 </li>
 <li><p>返回值：void</p>
 </li>
@@ -486,7 +485,7 @@
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="2">
 <li>给方法加@Test</li>
 <li>导入<strong>junit</strong>依赖环境</li>
 </ol>
@@ -511,12 +510,14 @@
         <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>@Before：修饰的方法会在测试方法之前被自动执行</li>
 <li>@After：修饰的方法会在测试方法执行之后自动被执行</li>
 </ul>
 <h1 id="2-反射"><a href="#2-反射" class="headerlink" title="2 反射"></a>2 反射</h1><ul>
-<li>框架：半成品软件。可以在框架的基础上进行软件开发，简化编码</li>
+<li><p>框架：半成品软件。可以在框架的基础上进行软件开发，简化编码</p>
+</li>
 <li><p>反射：将类的各个组成部分封装为其他对象，这就是反射机制</p>
 <ul>
 <li>好处：<ol>
@@ -528,7 +529,7 @@
 </li>
 <li><p>获取Class对象的方式：</p>
 <ol>
-<li><strong>Class.forName(“全类名”)</strong>：将字节码文件加载进内存，返回Class对象<ul>
+<li>**Class.forName(“全类名”)**：将字节码文件加载进内存，返回Class对象<ul>
 <li>多用于配置文件，将类名定义在配置文件中。读取文件，加载类</li>
 </ul>
 </li>
@@ -536,7 +537,7 @@
 <li>多用于参数的传递</li>
 </ul>
 </li>
-<li><strong>对象.getClass()</strong>：getClass()方法在Object类中定义着。<ul>
+<li>**对象.getClass()**：getClass()方法在Object类中定义着。<ul>
 <li>多用于对象的获取字节码的方式</li>
 </ul>
 </li>
@@ -547,21 +548,23 @@
 </li>
 </ul>
 <h1 id="模块二-JavaScript"><a href="#模块二-JavaScript" class="headerlink" title="模块二 JavaScript"></a>模块二 JavaScript</h1><h1 id="1-JavaScript简介"><a href="#1-JavaScript简介" class="headerlink" title="1 JavaScript简介"></a>1 JavaScript简介</h1><ul>
-<li>JavaScript是一门客户端脚本语言<ul>
+<li><p>JavaScript是一门客户端脚本语言</p>
+<ul>
 <li>运行在客户端浏览器中的。每一个浏览器都有JavaScript的解析引擎</li>
 <li>脚本语言：不需要编译，直接就可以被浏览器解析执行了</li>
 </ul>
 </li>
-<li>功能：可以来增强用户和html页面的交互过程，可以来控制html元素，让页面有一些动态的效果，增强用户的体验。</li>
+<li><p>功能：可以来增强用户和html页面的交互过程，可以来控制html元素，让页面有一些动态的效果，增强用户的体验。</p>
+</li>
 <li><p>JavaScript发展史：</p>
 <ol>
-<li>1992年，Nombase公司，开发出第一门客户端脚本语言，专门用于表单的校验。命名为 ： C—    ，后来更名为：ScriptEase</li>
+<li>1992年，Nombase公司，开发出第一门客户端脚本语言，专门用于表单的校验。命名为 ： C–	，后来更名为：ScriptEase</li>
 <li>1995年，Netscape(网景)公司，开发了一门客户端脚本语言：LiveScript。后来，请来SUN公司的专家，修改LiveScript，命名为JavaScript</li>
 <li>1996年，微软抄袭JavaScript开发出JScript语言</li>
 <li>1997年，ECMA(欧洲计算机制造商协会)，制定出客户端脚本语言的标准：ECMAScript，就是统一了所有客户端脚本语言的编码方式。</li>
 </ol>
 </li>
-<li><p>JavaScript = ECMAScript + JavaScript自己特有的东西(BOM+DOM)</p>
+<li><p>JavaScript &#x3D; ECMAScript + JavaScript自己特有的东西(BOM+DOM)</p>
 </li>
 </ul>
 <h1 id="2-ECMAScript基础语法"><a href="#2-ECMAScript基础语法" class="headerlink" title="2 ECMAScript基础语法"></a>2 ECMAScript基础语法</h1><p>ECMAScript：客户端脚本语言的标准</p>
@@ -590,7 +593,7 @@
 <li><p>原始数据类型(基本数据类型)：</p>
 <ol>
 <li>number：数字。 整数/小数/NaN(not a number 一个不是数字的数字类型)</li>
-<li>string：字符串。 字符串  “abc” “a” ‘abc’</li>
+<li>string：字符串。 字符串  "abc" "a" 'abc'</li>
 <li>boolean: true和false</li>
 <li>null：一个对象为空的占位符</li>
 <li>undefined：未定义。如果一个变量没有给初始化值，则会被默认赋值为undefined</li>
@@ -600,8 +603,10 @@
 </li>
 </ol>
 <h2 id="2-4-变量"><a href="#2-4-变量" class="headerlink" title="2.4 变量"></a>2.4 变量</h2><ul>
-<li>变量：一小块存储数据的内存空间</li>
-<li>Java语言是强类型语言，而JavaScript是弱类型语言。<ul>
+<li><p>变量：一小块存储数据的内存空间</p>
+</li>
+<li><p>Java语言是强类型语言，而JavaScript是弱类型语言。</p>
+<ul>
 <li>强类型：在开辟变量存储空间时，定义了空间将来存储的数据的数据类型。只能存储固定类型的数据</li>
 <li>弱类型：在开辟变量存储空间时，不定义空间将来的存储数据类型，可以存放任意类型的数据。</li>
 </ul>
@@ -618,11 +623,12 @@
 </li>
 </ul>
 <h2 id="2-5-运算符"><a href="#2-5-运算符" class="headerlink" title="2.5 运算符"></a>2.5 运算符</h2><ol>
-<li><p>一元运算符：只有一个运算数的运算符<br>++，— ， +(正号)  </p>
+<li>一元运算符：只有一个运算数的运算符<br>++，-- ， +(正号)</li>
+</ol>
 <ul>
-<li>++ —: 自增(自减)</li>
-<li>++(—) 在前，先自增(自减)，再运算</li>
-<li>++(—) 在后，先运算，再自增(自减)</li>
+<li>++ --: 自增(自减)</li>
+<li>++(--) 在前，先自增(自减)，再运算</li>
+<li>++(--) 在后，先运算，再自增(自减)</li>
 <li>+(-)：正负号</li>
 <li>注意：在JS中，如果运算数不是运算符所要求的类型，那么js引擎会自动的将运算数进行类型转换<ul>
 <li>其他类型转number：<ul>
@@ -633,53 +639,48 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p>算数运算符</p>
-<p><code>+ - * / %</code> …</p>
-</li>
-<li><p>赋值运算符</p>
-<p><code>= += -+</code>…</p>
-</li>
-<li><p>比较运算符</p>
+<ol start="2">
+<li>算数运算符</li>
+</ol>
+<p>  <code>+ - * / %</code> ...</p>
+<ol start="3">
+<li>赋值运算符</li>
+</ol>
+<p>  <code>= += -+</code>...</p>
+<ol start="4">
+<li>比较运算符</li>
+</ol>
 <blockquote>
-<p>&lt; &gt;= &lt;= == ===(全等于)</p>
+<p>< >= <= == ===(全等于)</p>
 <ul>
-<li>比较方式<pre><code>1. 类型相同：直接比较
-    * 字符串：按照字典顺序比较。按位逐一比较，直到得出大小为止。
-2. 类型不同：先进行类型转换，再比较
-    * ===：全等于。在比较之前，先判断类型，如果类型不一样，则直接返回false
-</code></pre></li>
+<li>比较方式<br>1. 类型相同：直接比较<br>    * 字符串：按照字典顺序比较。按位逐一比较，直到得出大小为止。<br>2. 类型不同：先进行类型转换，再比较<br>    * ===：全等于。在比较之前，先判断类型，如果类型不一样，则直接返回false</li>
 </ul>
 </blockquote>
-</li>
-<li><p>逻辑运算符</p>
-<pre><code>&amp;&amp; || !
-</code></pre><ul>
-<li>其他类型转boolean：<pre><code>1. number：0或NaN为假，其他为真
-2. string：除了空字符串(&quot;&quot;)，其他都是true
-3. null&amp;undefined:都是false
-       对象：所有对象都为true
-</code></pre></li>
+<ol start="5">
+<li><p>逻辑运算符<br>&& || !</p>
+<ul>
+<li>其他类型转boolean：<br>1. number：0或NaN为假，其他为真<br>2. string：除了空字符串("")，其他都是true<br>3. null&undefined:都是false<br>       对象：所有对象都为true</li>
 </ul>
 </li>
 <li><p>三元运算符</p>
-<p>​    ? : 表达式<br>​            var a = 3;<br>​            var b = 4;<br>​    var c = a &gt; b ? 1:0;</p>
+<p>​	? : 表达式<br>​			var a = 3;<br>​	        var b = 4;<br>​	var c = a > b ? 1:0;</p>
 <p>语法：</p>
 <p>表达式? 值1:值2;</p>
 <p>判断表达式的值，如果是true则取值1，如果是false则取值2；</p>
 </li>
 </ol>
 <h2 id="2-6-流程控制语句"><a href="#2-6-流程控制语句" class="headerlink" title="2.6 流程控制语句"></a>2.6 流程控制语句</h2><ol>
-<li><p>if…else…</p>
+<li><p>if...else...</p>
 </li>
 <li><p>switch:</p>
 <pre><code>在java中，switch语句可以接受的数据类型： byte int shor char,枚举(1.5) ,String(1.7)
-
+ 
 在JS中,switch语句可以接受任意的原始数据类型
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>while</p>
 </li>
-<li><p>do…while</p>
+<li><p>do...while</p>
 </li>
 <li><p>for</p>
 </li>
@@ -726,13 +727,12 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="3-基本对象"><a href="#3-基本对象" class="headerlink" title="3 基本对象"></a>3 基本对象</h1><h2 id="3-1-Function：函数-方法-对象"><a href="#3-1-Function：函数-方法-对象" class="headerlink" title="3.1 Function：函数(方法)对象"></a>3.1 Function：函数(方法)对象</h2><p><strong>创建</strong></p>
 <ul>
 <li>var fun = new Function(形式参数列表,方法体);</li>
-<li>function 方法名称(形式参数列表){<pre><code>//方法体
-</code></pre>}</li>
-<li>var 方法名 = function(形式参数列表){<pre><code>//方法体
-</code></pre>}</li>
+<li>function 方法名称(形式参数列表){<br>//方法体<br>}</li>
+<li>var 方法名 = function(形式参数列表){<br>//方法体<br>}</li>
 </ul>
 <p><strong>属性</strong></p>
 <p>length：代表形参的个数。</p>
@@ -767,7 +767,7 @@
 <p>var date = new Date();</p>
 <p><strong>方法</strong></p>
 <ul>
-<li><strong>toLocaleString()</strong>：返回当前date对象对应的时间<strong>本地字符串格式</strong>（中国）</li>
+<li><strong>toLocaleString()<strong>：返回当前date对象对应的时间</strong>本地字符串格式</strong>（中国）</li>
 <li>getTime()：获取毫秒值。返回当前如期对象描述的时间到1970年1月1日零点的毫秒值差</li>
 </ul>
 <h2 id="3-4-Math：数学对象"><a href="#3-4-Math：数学对象" class="headerlink" title="3.4 Math：数学对象"></a>3.4 Math：数学对象</h2><p><strong>创建</strong></p>
@@ -802,7 +802,7 @@
 </li>
 <li><p>+：出现1次或多次</p>
 </li>
-<li><p>{m,n}：表示【 <strong>m&lt;= 数量 &lt;= n</strong>】</p>
+<li><p>{m,n}：表示【 <strong>m<= 数量 <= n</strong>】</p>
 <ul>
 <li><p>m如果缺省：{,n}:最多n次</p>
 </li>
@@ -818,7 +818,7 @@
 </ul>
 <h3 id="3-5-2-正则对象"><a href="#3-5-2-正则对象" class="headerlink" title="3.5.2 正则对象"></a>3.5.2 正则对象</h3><p><strong>创建</strong></p>
 <ul>
-<li><p>var reg = new RegExp(“正则表达式”);</p>
+<li><p>var reg = new RegExp("正则表达式");</p>
 <blockquote>
 <p>注：使用该方法时<code>\w</code>需用<code>\\w</code>（使之取消转义含义）</p>
 </blockquote>
@@ -827,10 +827,10 @@
 </li>
 </ul>
 <p><strong>方法</strong></p>
-<p><strong>test(参数)</strong>：验证指定的字符串是否符合正则定义的规范，返回<code>true</code>或<code>false</code>。表单校验需要依赖正则表达式。</p>
+<p>**test(参数)**：验证指定的字符串是否符合正则定义的规范，返回<code>true</code>或<code>false</code>。表单校验需要依赖正则表达式。</p>
 <p><code>var flag = reg2.test(username);</code></p>
 <h2 id="3-6-Global：全局对象"><a href="#3-6-Global：全局对象" class="headerlink" title="3.6 Global：全局对象"></a>3.6 Global：全局对象</h2><p><strong>特点</strong></p>
-<p><code>Global</code>中封装的方法不需要对象就可以直接调用。    方法名();</p>
+<p><code>Global</code>中封装的方法不需要对象就可以直接调用。	方法名();</p>
 <p><strong>方法</strong></p>
 <ul>
 <li><p>encodeURI()：<strong>url编码</strong></p>
@@ -855,7 +855,7 @@
 <h1 id="4-DOM基础与事件"><a href="#4-DOM基础与事件" class="headerlink" title="4 DOM基础与事件"></a>4 DOM基础与事件</h1><h2 id="4-1-DOM简介"><a href="#4-1-DOM简介" class="headerlink" title="4.1 DOM简介"></a>4.1 DOM简介</h2><p><strong>文档对象模型</strong>（Document Object Model，简称DOM）：</p>
 <p>功能：控制<code>html</code>文档的内容。</p>
 <p>代码：获取页面标签(元素)对象：Element</p>
-<p>​            <strong>document.getElementById(“id值”)</strong>：通过元素的id获取元素对象</p>
+<p>​			**document.getElementById("id值")**：通过元素的id获取元素对象</p>
 <p><strong>操作Element对象</strong>：</p>
 <ol>
 <li><p><strong>修改属性值</strong>：</p>
@@ -877,7 +877,7 @@
 <p><strong>绑定事件的方法</strong>：</p>
 <ol>
 <li>直接在<code>html</code>标签上，指定事件的属性(操作)，属性值就是<code>js</code>代码<ul>
-<li>事件：<code>onclick</code>—- 单击事件</li>
+<li>事件：<code>onclick</code>--- 单击事件</li>
 </ul>
 </li>
 <li><strong>通过<code>js</code>获取元素对象，指定事件属性，设置一个函数</strong>[耦合度低]</li>
@@ -902,78 +902,77 @@
         light2<span class="token punctuation">.</span>onclick <span class="token operator">=</span> fun2<span class="token punctuation">;</span>
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="4-3-常见的事件"><a href="#4-3-常见的事件" class="headerlink" title="4.3 常见的事件"></a>4.3 常见的事件</h2><ol>
 <li><p><strong>点击事件</strong>：</p>
 <ul>
-<li>onclick：单击事件</li>
+<li><p>onclick：单击事件</p>
+<ul>
+<li>ondblclick：双击事件</li>
 </ul>
 </li>
-</ol>
-<pre><code> - ondblclick：双击事件
-</code></pre><ol>
-<li><strong>焦点事件</strong>：<ul>
+</ul>
+</li>
+<li><p><strong>焦点事件</strong>：</p>
+<ul>
 <li>onblur：失去焦点</li>
 <li>onfocus:元素获得焦点</li>
 </ul>
 </li>
-<li><strong>加载事件</strong>：<ul>
+<li><p><strong>加载事件</strong>：</p>
+<ul>
 <li>onload：一张页面或一幅图像完成加载。</li>
 </ul>
 </li>
-</ol>
-<ol>
 <li><p><strong>鼠标事件</strong>：</p>
 <ul>
-<li>onmousedown    鼠标按钮被按下<ul>
-<li>定义方法时，定义一个形参，接受<code>event</code>对象；</li>
-<li><code>event</code>对象的<code>button</code>属性可以获取鼠标按钮键被点击了。</li>
-</ul>
+<li>onmousedown	鼠标按钮被按下<ul>
+<li><p>定义方法时，定义一个形参，接受<code>event</code>对象；</p>
+</li>
+<li><p><code>event</code>对象的<code>button</code>属性可以获取鼠标按钮键被点击了。</p>
+</li>
+<li><p>onmouseup	     鼠标按键被松开</p>
+</li>
+<li><p>onmousemove	鼠标被移动</p>
+</li>
+<li><p>onmouseover	  鼠标移到某元素之上</p>
+</li>
+<li><p>onmouseout    	鼠标从某元素移开</p>
 </li>
 </ul>
 </li>
-</ol>
-<pre><code> - onmouseup         鼠标按键被松开
-
-
- - onmousemove    鼠标被移动
-
-
- - onmouseover      鼠标移到某元素之上
-
-
- - onmouseout        鼠标从某元素移开
-</code></pre><ol>
+</ul>
+</li>
 <li><p><strong>键盘事件</strong>：</p>
 <ul>
-<li>onkeydown    某个键盘按键被按下。    </li>
-<li>onkeyup         某个键盘按键被松开。</li>
-<li>onkeypress    某个键盘按键被按下并松开。</li>
+<li>onkeydown	某个键盘按键被按下。	</li>
+<li>onkeyup		 某个键盘按键被松开。</li>
+<li>onkeypress	某个键盘按键被按下并松开。</li>
 </ul>
 </li>
 <li><p><strong>选择和改变</strong>：</p>
 <ul>
-<li><p>onchange      域的内容被改变。</p>
+<li><p>onchange	  域的内容被改变。</p>
 </li>
-<li><p>onselect         文本被选中。</p>
+<li><p>onselect	     文本被选中。</p>
 </li>
 </ul>
 </li>
-</ol>
-<ol>
 <li><p><strong>表单事件</strong>：</p>
 <ul>
-<li><strong>onsubmit       确认按钮被点击。</strong>【用于表单校验】</li>
+<li><strong>onsubmit	   确认按钮被点击。</strong>【用于表单校验】</li>
 </ul>
-</li>
-</ol>
-   <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"form"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onsubmit</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"form"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onsubmit</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token comment">//校验用户名格式是否正确</span>
     <span class="token keyword">var</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 	<span class="token comment">//...</span>
     <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre><code> - onreset           重置按钮被点击。
-</code></pre>   <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+
+<ul>
+<li>onreset	       重置按钮被点击。</li>
+</ul>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
       <span class="token comment">//2.加载完成事件 onload</span>
@@ -988,7 +987,8 @@
           <span class="token punctuation">&#125;</span>
       <span class="token punctuation">&#125;</span>
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
 <h2 id="4-4-案例：电灯开关"><a href="#4-4-案例：电灯开关" class="headerlink" title="4.4 案例：电灯开关"></a>4.4 案例：电灯开关</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -1030,6 +1030,7 @@
         </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="5-BOM"><a href="#5-BOM" class="headerlink" title="5 BOM"></a>5 BOM</h1><h2 id="5-1-BOM的概念与组成"><a href="#5-1-BOM的概念与组成" class="headerlink" title="5.1 BOM的概念与组成"></a>5.1 BOM的概念与组成</h2><p>概念：Browser Object Model <strong>浏览器对象模型</strong>，将浏览器的各个组成部分封装成对象。</p>
 <p>组成：</p>
 <ul>
@@ -1045,28 +1046,28 @@
 </ul>
 <h3 id="5-2-2-方法"><a href="#5-2-2-方法" class="headerlink" title="5.2.2 方法"></a>5.2.2 方法</h3><p>1.与<strong>弹出框</strong>有关的方法：</p>
 <ul>
-<li><p>alert()    显示带有一段消息和一个确认按钮的警告框。</p>
+<li><p>alert()	显示带有一段消息和一个确认按钮的警告框。</p>
 </li>
-<li><p><strong>confirm()</strong>    显示带有一段消息以及确认按钮和取消按钮的对话框。[<strong>防止误操作</strong>]</p>
+<li><p><strong>confirm()</strong>	显示带有一段消息以及确认按钮和取消按钮的对话框。[<strong>防止误操作</strong>]</p>
 <ul>
 <li>如果用户点击确定按钮，则方法返回<code>true</code></li>
 <li>如果用户点击取消按钮，则方法返回<code>false</code></li>
 </ul>
 </li>
-<li><p>prompt()    显示可提示用户输入的对话框。</p>
+<li><p>prompt()	显示可提示用户输入的对话框。</p>
 <p>返回值：获取用户输入的值</p>
 </li>
 </ul>
 <p>2.与<strong>打开关闭</strong>有关的方法：</p>
 <ul>
-<li><p>open()    打开一个新的浏览器窗口    <strong>返回新的Window对象</strong>[里面可以加入网址]</p>
+<li><p>open()	打开一个新的浏览器窗口    <strong>返回新的Window对象</strong>[里面可以加入网址]</p>
 </li>
-<li><p>close()    关闭浏览器窗口                    谁调用我 ，我关谁</p>
+<li><p>close()	关闭浏览器窗口			    	谁调用我 ，我关谁</p>
 </li>
 </ul>
 <p>3.与<strong>定时器</strong>有关的方式：</p>
 <ul>
-<li><p>setTimeout()    在指定的毫秒数后调用函数或计算表达式。</p>
+<li><p>setTimeout()	在指定的毫秒数后调用函数或计算表达式。</p>
 <p>参数：</p>
 <ul>
 <li>js代码或者方法对象</li>
@@ -1074,11 +1075,11 @@
 </ul>
 <p>返回值：唯一标识，用于取消定时器</p>
 </li>
-<li><p>clearTimeout()    取消由 setTimeout() 方法设置的 timeout，参数可以是 setTimeout() 的返回值[唯一标识]。</p>
+<li><p>clearTimeout()	取消由 setTimeout() 方法设置的 timeout，参数可以是 setTimeout() 的返回值[唯一标识]。</p>
 </li>
-<li><p><strong>setInterval()</strong>       <strong>循环定时器</strong>，按照指定的周期（以毫秒计）来调用函数或计算表达式。</p>
+<li><p><strong>setInterval()</strong>	   <strong>循环定时器</strong>，按照指定的周期（以毫秒计）来调用函数或计算表达式。</p>
 </li>
-<li><p>clearInterval()      取消由 setInterval() 设置的 timeout。</p>
+<li><p>clearInterval()	  取消由 setInterval() 设置的 timeout。</p>
 </li>
 </ul>
 <h3 id="5-2-3-属性"><a href="#5-2-3-属性" class="headerlink" title="5.2.3 属性"></a>5.2.3 属性</h3><ol>
@@ -1134,24 +1135,25 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-4-Location：地址栏对象"><a href="#5-4-Location：地址栏对象" class="headerlink" title="5.4 Location：地址栏对象"></a>5.4 Location：地址栏对象</h2><h3 id="5-4-1-内容"><a href="#5-4-1-内容" class="headerlink" title="5.4.1 内容"></a>5.4.1 内容</h3><p><strong>创建(获取)</strong>：</p>
+
+<h2 id="5-4-Location：地址栏对象"><a href="#5-4-Location：地址栏对象" class="headerlink" title="5.4 Location：地址栏对象"></a>5.4 Location：地址栏对象</h2><h3 id="5-4-1-内容"><a href="#5-4-1-内容" class="headerlink" title="5.4.1 内容"></a>5.4.1 内容</h3><p>**创建(获取)**：</p>
 <ul>
 <li>window.location</li>
 <li>location</li>
 </ul>
 <p><strong>方法</strong>：</p>
-<p>reload()    重新加载当前文档。刷新</p>
+<p>reload()	重新加载当前文档。刷新</p>
 <p><strong>属性</strong>：</p>
-<p>href    设置或返回完整的 URL。</p>
+<p>href	设置或返回完整的 URL。</p>
 <h3 id="5-4-2-案例：自动跳转首页"><a href="#5-4-2-案例：自动跳转首页" class="headerlink" title="5.4.2 案例：自动跳转首页"></a>5.4.2 案例：自动跳转首页</h3><p>分析：</p>
 <ol>
 <li><p>显示页面效果<code>&lt;p&gt;</code></p>
 </li>
 <li><p>倒计时读秒效果实现</p>
-<p>2.1 定义一个方法，获取span标签，修改span标签体内容，时间—</p>
+<p>2.1 定义一个方法，获取span标签，修改span标签体内容，时间--</p>
 <p>2.2 定义一个定时器，1秒执行一次该方法</p>
 </li>
-<li><p>3.在方法中判断时间如果&lt;= 0 ，则跳转到首页</p>
+<li><p>3.在方法中判断时间如果<= 0 ，则跳转到首页</p>
 </li>
 </ol>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -1200,7 +1202,8 @@
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-5-History：历史记录对象"><a href="#5-5-History：历史记录对象" class="headerlink" title="5.5 History：历史记录对象"></a>5.5 History：历史记录对象</h2><p><strong>创建(获取)</strong>：</p>
+
+<h2 id="5-5-History：历史记录对象"><a href="#5-5-History：历史记录对象" class="headerlink" title="5.5 History：历史记录对象"></a>5.5 History：历史记录对象</h2><p>**创建(获取)**：</p>
 <ul>
 <li><p>window.history</p>
 </li>
@@ -1209,11 +1212,11 @@
 </ul>
 <p><strong>方法</strong>：</p>
 <ul>
-<li><p>back()        加载 history 列表中的前一个 URL。</p>
+<li><p>back()	    加载 history 列表中的前一个 URL。</p>
 </li>
 <li><p>forward()  加载 history 列表中的下一个 URL。</p>
 </li>
-<li><p>go(参数)    加载 history 列表中的某个具体页面。</p>
+<li><p>go(参数)	加载 history 列表中的某个具体页面。</p>
 <p>参数：</p>
 <ul>
 <li>正数：前进几个历史记录</li>
@@ -1222,7 +1225,7 @@
 </li>
 </ul>
 <p><strong>属性</strong>：</p>
-<p>length    返回当前窗口历史列表中的 URL 数量。</p>
+<p>length	返回当前窗口历史列表中的 URL 数量。</p>
 <h1 id="6-DOM"><a href="#6-DOM" class="headerlink" title="6 DOM"></a>6 DOM</h1><h2 id="6-1-DOM的概念与DOM标准"><a href="#6-1-DOM的概念与DOM标准" class="headerlink" title="6.1 DOM的概念与DOM标准"></a>6.1 DOM的概念与DOM标准</h2><p>Document Object Model <strong>文档对象模型</strong></p>
 <p>将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行CRUD[增删改查]的动态操作。</p>
 <p><strong>W3C DOM 标准被分为 3 个不同的部分：</strong></p>
@@ -1250,26 +1253,26 @@
 <li>HTML DOM - 针对 HTML 文档的标准模型</li>
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220730205546072.png" alt="image-20220730205546072"></p>
-<h2 id="6-2-核心DOM模型"><a href="#6-2-核心DOM模型" class="headerlink" title="6.2 核心DOM模型"></a>6.2 核心DOM模型</h2><h3 id="6-2-1-Document：文档对象"><a href="#6-2-1-Document：文档对象" class="headerlink" title="6.2.1 Document：文档对象"></a>6.2.1 Document：文档对象</h3><p><strong>创建(获取)</strong>：在html dom模型中可以使用window对象来获取    window.document/document</p>
+<h2 id="6-2-核心DOM模型"><a href="#6-2-核心DOM模型" class="headerlink" title="6.2 核心DOM模型"></a>6.2 核心DOM模型</h2><h3 id="6-2-1-Document：文档对象"><a href="#6-2-1-Document：文档对象" class="headerlink" title="6.2.1 Document：文档对象"></a>6.2.1 Document：文档对象</h3><p>**创建(获取)**：在html dom模型中可以使用window对象来获取	window.document/document</p>
 <p><strong>方法</strong>：</p>
 <ol>
-<li><p><strong>获取Element对象</strong>：</p>
+<li><strong>获取Element对象</strong>：</li>
+</ol>
 <ul>
 <li>getElementById()：根据id属性值获取元素对象。id属性值一般唯一</li>
 <li>getElementsByTagName()：根据元素名称获取元素对象们。返回值是一个数组</li>
 <li>getElementsByClassName()：根据Class属性值获取元素对象们。返回值是一个数组</li>
 <li>getElementsByName()：根据name属性值获取元素对象们。返回值是一个数组</li>
 </ul>
-</li>
-<li><p><strong>创建其他DOM对象</strong>：</p>
+<ol start="2">
+<li><strong>创建其他DOM对象</strong>：</li>
+</ol>
 <ul>
 <li>createAttribute(name)</li>
 <li>createComment()</li>
 <li>createElement()</li>
 <li>createTextNode()</li>
 </ul>
-</li>
-</ol>
 <h3 id="6-2-2-Element：元素对象"><a href="#6-2-2-Element：元素对象" class="headerlink" title="6.2.2 Element：元素对象"></a>6.2.2 Element：元素对象</h3><p><strong>获取/创建</strong>：通过<code>document</code>来获取和创建</p>
 <p><strong>方法</strong>：</p>
 <ol>
@@ -1277,8 +1280,7 @@
 </li>
 <li><p>setAttribute()：设置属性，如：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> element_a <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementByTagName</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-element_a<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">,</span><span class="token string">"https://www.baidu.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
+element_a<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">,</span><span class="token string">"https://www.baidu.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="6-2-3-Node：节点对象"><a href="#6-2-3-Node：节点对象" class="headerlink" title="6.2.3 Node：节点对象"></a>6.2.3 Node：节点对象</h3><p><code>Node</code>是其他5个的父对象。</p>
 <p><strong>特点</strong>：所有dom对象都可以被认为是一个节点</p>
@@ -1370,6 +1372,7 @@ element_a<span class="token punctuation">.</span><span class="token function">se
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="6-3-案例：动态表格"><a href="#6-3-案例：动态表格" class="headerlink" title="6.3 案例：动态表格"></a>6.3 案例：动态表格</h2><ul>
 <li>添加：</li>
 </ul>
@@ -1386,7 +1389,7 @@ element_a<span class="token punctuation">.</span><span class="token function">se
 </ul>
 <ol>
 <li><p>确定点击的是哪一个超链接</p>
-<p><code>&lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;delTr(this);&quot; &gt;删除&lt;/a&gt;</code></p>
+<p><code> &lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;delTr(this);&quot; &gt;删除&lt;/a&gt;</code></p>
 </li>
 <li><p>怎么删除？</p>
 <p>removeChild()：通过父节点删除子节点</p>
@@ -1511,6 +1514,7 @@ element_a<span class="token punctuation">.</span><span class="token function">se
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>下一节有相关代码优化。</p>
 <h2 id="6-4-HTML-DOM"><a href="#6-4-HTML-DOM" class="headerlink" title="6.4 HTML DOM"></a>6.4 HTML DOM</h2><p>1.<strong>标签体的设置和获取</strong>：<code>innerHTML</code></p>
 <p>上一节添加学生信息相关代码可改为：</p>
@@ -1524,6 +1528,7 @@ table<span class="token punctuation">.</span>innerHTML <span class="token operat
 	<span class="token string">"        &lt;td>"</span> <span class="token operator">+</span> gender <span class="token operator">+</span> <span class="token string">"&lt;/td>\n"</span> <span class="token operator">+</span>
 	<span class="token string">"        &lt;td>&lt;a href=\"javascript:void(0);\" onclick=\"delTr(this);\" >删除&lt;/a>&lt;/td>\n"</span> <span class="token operator">+</span>
 	<span class="token string">"    &lt;/tr>"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>2.使用<code>html</code>元素对象的属性</p>
 <p>3.<strong>控制元素样式</strong>：</p>
 <ul>
@@ -1534,6 +1539,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 div1<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token string">"200px"</span><span class="token punctuation">;</span>
 <span class="token comment">//font-size --> fontSize</span>
 div1<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token string">"20px"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>提前定义好类选择器的样式，通过元素的<code>className</code>属性来设置其<code>class</code>属性值。</li>
 </ul>
@@ -1590,6 +1596,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="模块三-Bootstrap"><a href="#模块三-Bootstrap" class="headerlink" title="模块三 Bootstrap"></a>模块三 Bootstrap</h1><h1 id="1-Bootstrap简介"><a href="#1-Bootstrap简介" class="headerlink" title="1 Bootstrap简介"></a>1 Bootstrap简介</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p>概念： <code>Bootstrap</code>，一个前端开发的框架，来自 <code>Twitter</code>，是目前很受欢迎的前端框架。<code>Bootstrap</code> 是基于 <code>HTML</code>、<code>CSS</code>、<code>JavaScript</code> 的，它简洁灵活，使得 <code>Web</code> 开发更加快捷。</p>
 <p>框架：一个半成品软件，开发人员可以在框架基础上，在进行开发，简化编码。</p>
 <p>好处：</p>
@@ -1619,6 +1626,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>js/bootstrap.min.js<span class="token punctuation">"</span></span> <span class="token attr-name">integrity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd<span class="token punctuation">"</span></span> <span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>anonymous<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="2-响应式布局"><a href="#2-响应式布局" class="headerlink" title="2 响应式布局"></a>2 响应式布局</h1><p>同一套页面可以兼容不同分辨率的设备。</p>
 <p>实现：依赖于<strong>栅格系统</strong>：将一行平均分成<strong>12个格子</strong>，可以指定元素占几个格子</p>
 <p>步骤：</p>
@@ -1627,12 +1635,10 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 </ol>
 <p>容器分类：</p>
 <ul>
-<li>container：两边留白<ul>
+<li>container：两边留白</li>
 <li>container-fluid：每一种设备都是100%宽度</li>
 </ul>
-</li>
-</ul>
-<ol>
+<ol start="2">
 <li><p>定义行。相当于之前的tr   样式：<strong>row</strong></p>
 </li>
 <li><p>定义元素。指定该元素在不同的设备上，所占的格子数目。样式：<strong>col-设备代号-格子数目</strong></p>
@@ -1640,7 +1646,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 </ol>
 <p>设备代号：</p>
 <ul>
-<li>xs：超小屏幕 手机 (&lt;768px)：col-xs-12</li>
+<li>xs：超小屏幕 手机 (<768px)：col-xs-12</li>
 <li>sm：小屏幕 平板 (≥768px)</li>
 <li>md：中等屏幕 桌面显示器 (≥992px)</li>
 <li>lg：大屏幕 大桌面显示器 (≥1200px)</li>
@@ -1692,6 +1698,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220731152512402.png" alt="image-20220731152512402"></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220731152522197.png" alt="image-20220731152522197"></p>
 <h1 id="3-CSS样式和JS插件"><a href="#3-CSS样式和JS插件" class="headerlink" title="3 CSS样式和JS插件"></a>3 CSS样式和JS插件</h1><p>更多内容参考：<a target="_blank" rel="noopener" href="https://v3.bootcss.com/css/#images">https://v3.bootcss.com/css/#images</a></p>
@@ -1701,8 +1708,8 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 <li><code>class=&quot;img-responsive&quot;</code>：图片在任意尺寸都占100%</li>
 <li>图片形状<ul>
 <li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-rounded&quot;&gt;</code>：方形</li>
-<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-circle&quot;&gt;</code>： 圆形</li>
-<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt;</code>：相框</li>
+<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-circle&quot;&gt; </code>： 圆形</li>
+<li><code>&lt;img src=&quot;...&quot; alt=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt; </code>：相框</li>
 </ul>
 </li>
 </ul>
@@ -1714,7 +1721,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 </ul>
 </li>
 <li>表单<ul>
-<li>给表单项添加：<code>class=&quot;form-control&quot;</code></li>
+<li>给表单项添加：<code>class=&quot;form-control&quot; </code></li>
 </ul>
 </li>
 </ul>
@@ -1999,6 +2006,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
                                     
                             </div>
                             <hr />
@@ -2074,9 +2082,9 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
                                                         <span class="chip bg-color">
-                                                            前端
+                                                            Web技术
                                                         </span>
                                                     </a>
                                                     
@@ -2490,16 +2498,12 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                        <span class="chip bg-color">后端</span>
-                    </a>
-                    
-                    <a href="/tags/JDBC/">
-                        <span class="chip bg-color">JDBC</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                         <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
                     </a>
                     
                 </div>
@@ -2547,8 +2551,8 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/XML/">
-                        <span class="chip bg-color">XML</span>
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
                     </a>
                     
                 </div>
@@ -2798,7 +2802,7 @@ div1<span class="token punctuation">.</span>style<span class="token punctuation"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">425.3k</span>&nbsp;字
+                class="white-color">427k</span>&nbsp;字
             
             
             

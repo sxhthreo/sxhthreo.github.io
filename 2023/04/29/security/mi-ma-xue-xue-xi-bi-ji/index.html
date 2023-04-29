@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="网络安全作业, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="密码学学习笔记, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>网络安全作业 | ShiQuLiZhi BLOG</title>
+    <title>密码学学习笔记 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">网络安全作业</h1>
+                    <h1 class="description center-align post-title">密码学学习笔记</h1>
                 </div>
             </div>
         </div>
@@ -376,9 +376,9 @@
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                                <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
                                     <span class="chip bg-color">
-                                        网络安全
+                                        密码学
                                     </span>
                                 </a>
                                 
@@ -404,7 +404,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-10-02
+                            2023-04-29
                     </div>
                     
 
@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-04-25
+                                    2023-04-30
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            6.2k
+                                            1.2k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    21
+                                                    5
                                                         分
                                             </div>
                                             
@@ -455,160 +455,125 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="第一次作业"><a href="#第一次作业" class="headerlink" title="第一次作业"></a>第一次作业</h1><p><strong>1. 在Linux系统的口令方案中引入盐值大大增加了口令猜测的难度（难度是原来的4096倍）。但是盐值以明文的形式和经过加密的口令一起存放在口令文件中，攻击者无需猜测就可以得到盐值和加密的口令。那么，为什么可以断言使用盐值能够提高口令的安全性？</strong></p>
-<p>【解】盐值是与分配用户口令的事件相关的伪随机数或随机数。使用盐值，可以防止重复的口令在口令文件中可见，并增加离线字典攻击难度。由于盐值起到的是干扰作用，引入盐值，加密口令的长度将变长，加密口令的破解依赖于单向算法的抵抗力，由此猜测难度更大；即使口令被破解，攻击者无法得到口令文件中重复的口令，且攻击者不可能发现用户是否在多个系统中使用了相同的口令，提高了口令的安全性。</p>
-<p><strong>2. 当用户远程用网银支付相应款项时，一用户采用专业版支付，使用了专门的客户端软件和U盾、同时输入用户密码，一用户使用的是大众版的支付的方式，要求输入用户账号密码，同时加上手机验证码；分析说明这两种远程安全认证的基本原理，如何防范窃听、重放攻击、暴力破解攻击的？</strong></p>
-<p>【解】</p>
-<p>（1）专业版支付：</p>
-<p>①要求输入用户账号和密码，能够验证用户的身份；使用专门的客户端软件，提高远程传输的安全性；使用U盾，即“小型的密码器”，U盾中有自己的微型智能卡处理器、内存、I/O端口等，在读卡器和用户之间执行认证协议。协议可以是静态、动态的口令生成或质询响应协议，质询响应方式即用户先发送身份信息，远程系统给出质询随机数，用户将身份验证信息输入到设备中，设备计算后传递给系统；主机将来自用户的值与自己的计算值进行比较，若相同，则匹配用户身份验证。</p>
-<p>②专业版支付中使用专门的客户端软件和U盾，传递的信息都是经过计算后得出的结果，窃听无法获知字符串背后的含义，有效防范窃听；由远程系统给出质询随机数，有效消除了攻击方进行重放攻击的可能性；随机数不可提前预知，且动态变化，暴力破解是非常困难且没有用处的，从而防范暴力破解攻击。</p>
-<p>（2）大众版支付：要求输入用户账号和密码，能够验证用户的身份；通过手机验证码这一攻击方不可预测但在用户接收端可以通过验证的一次性口令的方式，来确保用户的真实性；验证码会定时更新，以防止重放攻击；验证码不可预知，且动态变化，暴力破解验证码是非常困难且没有用处的，从而防范暴力破解攻击。</p>
-<p><strong>3.一次性口令在网络应用中的好处是什么?挑战应答（质询-响应方式）是否需要时间同步机制? 它是如何实现一次性口令的？举一例说明网络应用中的一次性口令。</strong></p>
-<p>【解】</p>
-<p>（1）一次性口令方便使用，且有效防止偷听并重用口令，并防止暴力破解攻击；一次性口令生成简单，且能确认用户端口令的真实性。</p>
-<p>（2）不需要；质询-响应方式有专门的计算设备，没有与时间相关联的步骤，不需要时间同步，且不会因时间不同步发生重放攻击；</p>
-<p>（3）实现一次性口令的方法：质询-响应设备是专门的计算设备，用户发送身份信息，远程系统给出质询随机数，用户将身份验证信息输入到设备中，设备计算后，将计算后的值f(r,h(P))传递给系统；主机将来自用户的值与自己的计算值进行比较，若相同，则匹配用户身份验证。</p>
-<p>（4）网页中注册、登录用户，银行相关业务需要提供手机验证码。当用户发起注册/登录/进入系统等事件时，服务器将会发送验证码到用户的手机中，用户将验证码输入并验证身份。</p>
-<p><strong>4.公开密钥与对称密钥的区别？应用场景的区别</strong></p>
-<p>【解】各自特点：</p>
-<p>（1）公开密钥机制中，公钥和私钥不同，且很难以公钥推导出私钥；密钥管理简单，加密速度慢；</p>
-<p>（2）对称密码机制中，加密和解密密钥相同或相互推导出；加密速度快，密钥管理复杂。</p>
-<p>应用场景的区别：</p>
-<p>公开密钥可以用于以下几种场景：</p>
-<p>（1）机密/解密：发送者用接收者的公钥加密消息；</p>
-<p>（2）数字签名：发送者用自己的私钥“签名”消息。把加密算法用于消息或者消息函数的一小块数据，完成对消息的签名；</p>
-<p>（3）密钥交换：双方联合操作交换会话密钥。</p>
-<p>对于对称密钥：</p>
-<p>（1）加密和解密效率高，系统开销小，适合进行大数据量的加解密。例如，美国政府使用AES算法来加密信息；</p>
-<p>（2）基于对称加密，可以用作会话密钥，用于一次性通话。</p>
-<p><strong>5.典型的对称密钥算法和公开密钥算法</strong></p>
-<p>对称密码算法：</p>
-<p>（1）DES：需要经过初始置换IP，16轮迭代的乘积变换，逆初始变换IP-1三个步骤；</p>
-<p>（2）IDEA：4位数据分成4个16位子分组X1,X2,X3,X4;共进行8轮操作,每轮与6个16位子密钥异或,相加,相乘;在每轮之间,第2个和第3个子分组交换;最终输出变换序列。</p>
-<p>（3）AES：算法经过字节替换、行移位运算、列混合运算、轮密相加等步骤；</p>
-<p>（4）RC4：以字节流的方式依次加密明文中的每一个字节；</p>
-<p>公开密钥算法：</p>
-<p>（1）RSA：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image002.jpg" alt="img"></p>
-<p>（2）Elgamal：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image004.jpg" alt="img"></p>
-<p>（3）ECC：选取EP(a,b)和生成元G,公开；将明文消息m通过编码嵌入到曲线上的点Pm：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image006.jpg" alt="img"></p>
-<p>（4）DSA数字签名算法：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image008.jpg" alt="img"></p>
-<p><strong>6. HMAC的作用？HMAC与CMAC的区别</strong></p>
-<p>【解】HMAC的作用是产生消息认证码，验证消息的内容有无被篡改，验证信源是否可信，验证消息的时效性；区别：HMAC是基于Hash的MAC，而CMAC是基于分组密码的MAC，两者的实现方式不同；由于哈希函数的特性，HMAC的实现速度比CMAC更快。</p>
-<p><strong>7.Ipsec两种工作模式，在安全性上有什么不同？</strong></p>
-<p>【解】（1）传输模式中，Ipsec头部被插在IP头后面，要保护的内容仅是IP数据报的载荷，为上层协议提供保护，安全性较隧道模式低，用于在两个主机之间进行端到端通信；</p>
-<p>（2）隧道模式中，整个IP包被封装加密，形成新的IP头部，加密发生在外部主机与安全网关之间，或发生在两个安全网关之间，为IP协议提供安全保护，安全性较高。</p>
-<p><strong>8.请对IKE密钥协商机制的安全性进行分析</strong></p>
-<p>【解】（1）用Cookie机制防止拥塞攻击：要求各方在初始消息中发送一个伪随机数Cookie，此消息要得到对方的确认，此确认必须在Diffie-Hellman密钥交换的第一条消息中重复（要是伪造地址，就收不到确认，因此无法在密钥交换的第一条消息中重复）；</p>
-<p>（2）使用时间戳阻止重放攻击：用随机数，本地产生伪随机数</p>
-<p>（3）认证Diffie-Hellman交换，防止中间人攻击：</p>
-<p>①数字签名—双方都用私钥加密散列值（用户ID、时间戳等）；</p>
-<p>②公钥加密-用发送者的私钥对参数进行加密；</p>
-<p>③对称密钥加密—通过带外机制得到密钥，并用该密钥对交换参数进行对称加密。</p>
-<p>有效防止中间人攻击。</p>
-<p><strong>9.为什么说现有路由协议无法区别虚假的路由信息？</strong></p>
-<p>【解】现有路由协议对源IP缺乏认证，数据包源IP地址易被伪造，生成任意源IP地址的数据包是容易的；客户端被信任嵌入正确的源IP，原始套接字容易覆盖；任何人可以发送任意源IP的数据包，协议无法区别IP地址是否是伪造的，应答会被发往被假冒的IP地址。</p>
-<p><strong>10. 给出一个场景说明局域网中ARP欺骗导致的后果。</strong></p>
-<p>【解】ARP欺骗可导致伪造网关、欺骗网关、欺骗其他主机、数据窃取、洪泛攻击等多种后果。以欺骗其他主机为例，说明局域网中ARP欺骗导致的后果：</p>
-<p>如图，攻击者B伪造ARP报文（senderIP地址是主机C的，senderMAC地址不是主机C的），发送给主机A，主机A就把主机C的ip地址和伪造的mac地址缓存到主机A的ARP缓存表内，导致主机A无法给主机C发送消息。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image010.png" alt="上图的主机C的ip地址错了，应该是1.1.1.1"></p>
-<p><strong>11. DNS服务的作用是什么？什么是DNS缓存中毒?列举2种可能的防御策略？</strong></p>
-<p>【解】</p>
-<p>（1）DNS服务的作用是将域名与IP地址相互映射；</p>
-<p>（2）DNS缓存中毒利用虚假Internet地址替换掉域名系统表中的地址，虚假的应答返回给本地域名解析器，受害机器访问攻击者的网站，将执行相关Javascript代码，遭受恶意攻击；</p>
-<p>（3）防御策略：</p>
-<p>①源端口随机化，DNS服务器只有当端口号、QueryID、域名同时匹配才接受对方的消息，攻击者同时猜中端口号、QueryID的概率大大降低；</p>
-<p>②域名负责方部署多台权威DNS，降低自己域名被投毒的概率；实现加密和身份验证的安全方法，如DNSsec。 </p>
-<p><strong>12. SSL的协议交互过程的几个阶段，分别完成主要功能有哪些？</strong></p>
-<p>【解】</p>
-<p>（1）SSL会话通过握手协议创建，SSL握手协议主要有四个阶段，完成以下功能：</p>
-<p>①建立安全能力，客户端发起建立连接请求；</p>
-<p>②服务器认证和密钥交换；</p>
-<p>③客户端认证和密钥交换；</p>
-<p>④变更密钥套件和结束握手。</p>
-<p>（2）双方每隔一段时间改变加密规范，使用SSL修改密码规格协议，协议由单个消息组成，只包含一个值为1的单个字节，作用是设置当前状态为未决状态，使用握手协议更新用于当前连接的密码组。</p>
-<p>（3）如果在通信过程中某一方发现任何异常，就需要给对方发送一条警示消息通告，该过程使用SSL告警协议，警示信息包含Fatal错误和Warning消息两种级别。</p>
-<p><strong>13. 在浏览器和Web服务器通信过程中，由于版本和实现不同，各种Web服务器、浏览器支持的加密方式可能会有所不同，SSL中是如何完成存在差异情况下的通信的？</strong></p>
-<p>【解】在SSL 通信中，公开密钥技术和数字证书可以实现客户端和服务器端的身份鉴别，而混合密码体制的使用提供了会话和数据传输的加密性保护。由于版本和实现不同，各种Web服务器、浏览器支持的加密方式可能会有所不同，双方使用非对称密码体制协商出本次将要使用的会话密钥，选择一种对称加密算法，并定义了共享的、可以用来形成报文鉴别码MAC的密钥，保证了通信的完整性和机密性。</p>
-<p><strong>14. IPSec的传送模式和隧道模式的区别？</strong></p>
-<p>【解】</p>
-<p>（1）传输模式中，IPSec头部被插在IP头后面，提供加密和可选择的认证；</p>
-<p>（2）隧道模式中，整个IP包被封装加密，形成新的IP头部，沿途路由器不检查内部的IP报头，加密发生在外部主机与安全网关之间，或发生在两个安全网关之间。</p>
-<p>区别：</p>
-<p>（1）头部：传输模式在AH、ESP处理前后IP头部保持不变，而隧道模式在AH、ESP处理之后再封装了一个新IP头；</p>
-<p>（2）路由：在路由过程中，传输模式仅加密IP数据报的载荷，隧道模式可以完全地对原始IP数据报进行验证和加密，在隧道模式下可以隐藏内部IP地址，协议类型和端口；</p>
-<p>（3）用途：传输模式为上层协议提供保护，用于在两个主机之间进行端到端通信；隧道模式适用于隧道结束在某个非目的地(安全网关,防火墙)，还原成原来数据包在本地网(局域网)传输，即Site-to-Site(站点到站点，网关到网关)之间的通信，为IP协议提供安全保护。</p>
-<p><strong>15.某个VPN网关需要实现IPSec，请给出网关内的基本组成部分（包括存储和处理）</strong></p>
-<p>【解】</p>
-<p>（1）存储：</p>
-<p>①安全关联数据库SAD：为进出数据报维持一个活动的SA列表，每个SA包含SPI，目的IP地址，安全协议标志AH或ESP，同时需要保存具体协议所规定的参数，包括序列号计数器、序列号溢出标记位、反重放窗口、AH信息、ESP信息、SA生存期、IPSec协议模式、路径MTU等；</p>
-<p>②安全策略数据库SPD：SPD中包含一个策略条目的有序表，通过使用一个或多个选择符来确定每一个条目，选择符可以是五元组（目的/源地址，协议，目的/源端口号），或其中几个。条目中包含策略、SA规范、IPSec协议、操作模式、算法、对外出处理等。</p>
-<p>（2）处理：</p>
-<p>①安全关联SA：安全通信信道的一套安全参数，包括加密算法与模式加密密钥加密参数（如初始化向量），鉴别协议和密钥，关联的生命期（长时间会话时，尽可能频繁选择新的加密密钥），关联对应端地址（受保护数据敏感级别）；安全关联由安全参数索引、IP目的地址、安全协议标识三个参数唯一确定；</p>
-<p>②安全参数索引SPI：SPI是为了唯一标识SA而生成的一个32位整数，包含在AH头标和ESP头标中，其值1～255被IANA留作将来使用，0被保留，目前有效的值为256～232-1；有了SPI，相同源、目的节点的数据流可以建立多个SA；</p>
-<p>③建立密钥管理机制，典型的两个应用之间通信需要4个密钥，用于完整性和机密性的发送对和接收对。</p>
-<p>④网关应实现基本的通信机制，通过协议，在传输层上实现网络互连。</p>
-<h1 id="第二次作业"><a href="#第二次作业" class="headerlink" title="第二次作业"></a>第二次作业</h1><p><strong>1.列举利用网络层、传输层、应用层机制实现放大式拒绝服务攻击的方式。说明导致其放大攻击效果的原因。尝试提出相应的应对策略。</strong></p>
-<p>【解】</p>
-<p>（1）网络层：</p>
-<p>方式：利用ICMP协议进行Smurf 放大式DoS攻击。假冒受害者地址发送ping请求包给广播地址大量的应答包，广播域内的每台主机都会产生一个ping 应答给受害者，通过网关广播实现放大效果。</p>
-<p>应对策略：禁止外网对广播地址发包。</p>
-<p>（2）传输层：</p>
-<p>方式：利用TCP协议进行SYN泛洪攻击。</p>
-<p>①低速DDos攻击：早期的操作系统TCP实现采用了三次握手的缓存机制，能够保存的连接数有限；攻击方发送多个源地址随机的SYN报文，充满服务器的等待队列，使得服务器无法与其他主机建立合法的连接请求。</p>
-<p>②Massive flood泛洪攻击：让僵尸网络对特定目标发起泛洪攻击，20,000僵尸能够产生2Gb/秒的SYNs包，从而在web 站点方阻塞了网络上传链路或路由器，且使用随机source IP ，攻击的SYNs包与真实SYNs看起来一样。</p>
-<p>应对策略：</p>
-<p>①对低速DDos攻击的应对措施：</p>
-<p>下策：增加等待队列的尺寸；降低过时阈值；</p>
-<p>使用Syncookies机制，利用密钥和数据包中的数据产生服务器SN，在三次握手过程中，服务端不再保存状态，服务器只有在验证AN中的SNs与本地计算一致才为TCP连接分配空间。</p>
-<p>②对Massive flood泛洪攻击的应对措施：</p>
-<p>使用Prolexic代理，只将已建立的TCP连接转发到站点，代理容量可以达到20Gb/秒，可以处理$40*10^6\; SYN/秒$。</p>
-<p>（3）应用层：</p>
-<p>方式：利用DNS进行拒绝服务攻击。向受害机大量发送解析的请求，UDP请求包中应用Random source IP address，使整个DNS server无法工作，附带的危害是所有该服务器上对应域名网站都无法提供服务。</p>
-<p>应对策略：</p>
-<p>①开发合作域名解析系统；</p>
-<p>②DNS系统的P2P设计，DNS节点分担负载简单的DNS条目更新，向后兼容现有DNS；</p>
-<p>③设置防火墙策略，对不正当的DNS解析请求进行过滤。</p>
-<p><strong>2.说明Syncookies机制为什么既能防御SYN攻击，又能保证三次握手的顺利进行？</strong></p>
-<p>【解】Syncookies机制利用密钥和数据包中的数据产生服务器SN。在三次握手过程中，服务端不再保存状态。当客户端发出TCP握手请求时，服务器回应客户端SYN-ACK cookie而不保存状态，避免大量TCP请求占用等待队列造成服务器无法正常工作。Cookie的相关参数如下：</p>
-<p>T = 5位计数器，每64秒递增一次；</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image004.png" alt="img">，共24bit，其中key是服务器启动时产生的随机数；</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image006.png" alt="img"></p>
-<p>合法客户端返回ACK包（AN=SNs，SN=SNc+1），服务器可以验证SNs的合法性，只有在验证AN中的SNs 与本地计算一致才为TCP连接分配空间。验证方法是：将数据包中的SAddr, SPort, DAddr, DPort, SNC与本地T,key一起计算MAC值，与AN比对，可以验证这次的应答是否来自于前面发送握手请求者，且该请求者确实收到了服务器应答包。从而保证了三次握手的顺利进行。</p>
-<p><strong>3.什么是BGP路由劫持？</strong></p>
-<p>【解】BGP协议用于域间路由，使用路径向量算法，尽力寻找一条能够到达目的网络且比较好的路由。BGP路由劫持指攻击者恶意改变互联网流量的路由，恶意攻击者往往通过伪造BGP消息中的起源AS号来实施路由劫持。如下图中的例子，AS2非法向外通告16.1.0.0/16：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image008.jpg" alt="img"></p>
-<p>在AS3向外通告16.1.0.0/16的基础上，AS2恶意伪造路由通告，即向外谎称自己是16.1.0.0/16的起源AS；</p>
-<p>AS5收到的16.1.0.0/16的真实路由长度为3，虚假路由长度为1，根据BGP最短AS路径优先的原则，AS5将选取该虚假路由；</p>
-<p>原本流向AS3的全部流量被劫持到AS2，该虚假路由经由AS5发送给AS7，AS7收到的16.1.0.0/16的真实路由和虚假路由的AS路径长度一样，AS7会根据其他路由规则选择真实路由和虚假路由之一，如果选择了后者，那么原本流向AS3的流量同样会被劫持到AS2，从而实现BGP路由劫持。</p>
-<p><strong>4.邮件中继的作用是什么？恶意邮件中继发送垃圾邮件的基本方式？</strong></p>
-<p>【解】</p>
-<p>①邮件中继的作用：邮件中继指在不改变用户邮件地址（发件人）的前提下，将用户邮件通过多链路SMTP邮件转发服务器投递到收件人邮件服务器，主要是为了解决邮件外发退信问题，使得邮件可以正常转发到目的地。邮件的收发环境复杂，可能导致邮件退信的因素很多，需要依靠寄托于第三方的邮件中继转发服务进行解决。</p>
-<p>②基本方式：</p>
-<p><strong>I</strong> <strong>Open Relay</strong>：Open Relay是指由于邮件服务器不理会邮件发送者或邮件接受者的是否为系统所设定的用户，而对所有的入站邮件一律进行转发，导致了邮件中继转发了大量垃圾邮件，一般过程是：</p>
-<p>①批量电子邮件工具通过SMTP连接(端口25)；</p>
-<p>②发送收件人列表(通过RCPT TO命令)；</p>
-<p>③发送电子邮件主体，可以一次发送所有收件人；</p>
-<p>④传递消息。</p>
-<p><strong>II</strong> <strong>Open Proxies</strong>：Open Proxies默认允许以HTTP CONNECT METHOD 连接任意的一个TCP端口，当Proxy没有对使用者及相应的TCP端口做相应的限制时，恶意邮件发送者可以利用其Proxy来连接另外一台邮件服务器的25端口，并发送特定的SMTP指令就可以通过这个Proxy发送大量的垃圾邮件。</p>
-<p><strong>5.为什么DoS溯源很困难？如果能够修改路由器的机制，利用traceback 机制是否能够实现溯源，其局限性在哪里？</strong></p>
-<p>【解】Dos溯源现有的方式主要有以下三种：</p>
-<p>①入口过滤：ISP仅转发合法源IP的数据包；</p>
-<p>②traceback 追踪：它的目标是，有很多攻击包的情况下，确定到攻击源点的路径，问题则是如何改变路由器在数据包中记录相应的信息。traceback 能成功主要的假设有：大部分路由器没有被攻占；攻击者发送了很多数据包；从攻击者到受害者的路径保持相对稳定；</p>
-<p>③路径重构：从攻击包中抽取路径信息，构建以受害者为根的图。</p>
-<p>但上述三种方式存在明显的问题：</p>
-<p>①由于攻击者进行DoS攻击时能够伪造源IP地址，入口过滤不能过滤到攻击者发出的数据包；</p>
-<p>②我们在追踪过程中可以将路径写在网络数据包中，但路径可能较长，而且当前IP格式中没有额外字段，对数据包格式的更改是不现实的；</p>
-<p>③需要改变路由器的处理过程，且无法针对反射型攻击溯源。在反射型DDoS攻击中，由于攻击方并不直接攻击目标服务IP地址，而是利用互联网的某些特殊服务开放的服务器，将这些有开放服务的服务器作为反射源，通过伪造被攻击方的IP地址，向反射源发送构造的请求报文，因此反射源服务器在接收到请求报文后，会将数倍于请求报文的回复数据发送到被攻击方的IP地址。由于反射源收到的地址是攻击方伪造的被攻击方的IP地址，而被攻击方收到的地址则是反射源的地址，因此无法知道真正发起攻击的攻击方的IP地址，造成反射型DDoS攻击的溯源极其困难。</p>
-<p>综上，DoS溯源是很困难的。</p>
-<p>   若能够修改路由器的机制，我们可以通过修改路由器转发设置，在转发包时，在其中添加上一跳的路由IP和下一跳的路由IP信息，即可实现一些场景下的DoS溯源。局限性有以下几点：</p>
-<p>①会占用额外的包数据空间，浪费网络带宽，影响网络通信的速度和效率；</p>
-<p>②若网络中的节点较多，存在僵尸网络，溯源的难度大、效率低；</p>
-<p>③仍无法应对反射型DDoS攻击的溯源。</p>
+                                <h1 id="Chapter1-密码学概述"><a href="#Chapter1-密码学概述" class="headerlink" title="Chapter1 密码学概述"></a>Chapter1 密码学概述</h1><h2 id="1-1-安全服务"><a href="#1-1-安全服务" class="headerlink" title="1.1 安全服务"></a>1.1 安全服务</h2><ul>
+<li><strong>保密性服务</strong>：加密</li>
+<li><strong>认证鉴别服务</strong>：密钥，数字签名</li>
+<li><strong>访问控制服务</strong>：密钥，权限管理</li>
+<li><strong>完整性服务</strong>：加密，数字摘要</li>
+<li><strong>抗否认性服务</strong>：数字签名</li>
+</ul>
+<h2 id="1-2-基本攻击类型"><a href="#1-2-基本攻击类型" class="headerlink" title="1.2 基本攻击类型"></a>1.2 基本攻击类型</h2><ul>
+<li><strong>唯密文攻击</strong></li>
+<li><strong>已知明文攻击</strong>：攻击者知道一些明文密文对</li>
+<li><strong>选择明文攻击</strong>：攻击者可以选择明文密文对</li>
+<li><strong>针对密钥的攻击</strong>：主要是针对公钥密码系统</li>
+</ul>
+<h2 id="1-3-密码算法分类"><a href="#1-3-密码算法分类" class="headerlink" title="1.3 密码算法分类"></a>1.3 密码算法分类</h2><p><strong>对称密码机制</strong>：（DES,AES,SM4,RC4）</p>
+<ul>
+<li>密钥：加密和解密密钥相同或相互推导出</li>
+<li>特点：加密速度快,密钥管理复杂</li>
+</ul>
+<p><strong>公钥密码机制</strong>：（RSA,ECC,SM2,DH）</p>
+<ul>
+<li>密钥：公钥和私钥不同且很难从公钥推导出私钥</li>
+<li>特点：密钥管理简单，加密速度慢</li>
+</ul>
+<blockquote>
+<p><strong>密钥管理简单的原因</strong>：</p>
+<p>只需要将公钥分发给需要加密通信的人，而私钥则仅由接收者持有，不需要在通信中共享私钥，可以避免对密钥进行传输和管理</p>
+</blockquote>
+<h2 id="1-4-古典密码算法"><a href="#1-4-古典密码算法" class="headerlink" title="1.4 古典密码算法"></a>1.4 古典密码算法</h2><h3 id="1-4-1-代替密码"><a href="#1-4-1-代替密码" class="headerlink" title="1.4.1 代替密码"></a>1.4.1 代替密码</h3><ul>
+<li><strong>移位密码</strong></li>
+<li><strong>仿射密码</strong><ul>
+<li>加密算法：$y&#x3D;E_{a,b}(x)&#x3D;(ax+b)%26$</li>
+<li>解密算法：$x &#x3D; D_{a,b}(y)&#x3D;(a^{-1}y-a^{-1}b)%26$</li>
+</ul>
+</li>
+<li><strong><code>Vignere</code> 密码</strong><ul>
+<li>将明文消息中的每个字母移动 $k_i$ 位， $k_i$ 为密钥，是长度为 $m$ 的序列 $k &#x3D; (k_0,k_1,…,k_{m-1})$</li>
+<li>$y_i &#x3D; (x_i+k_{i%m}%26)$，密钥空间为 $26^m$</li>
+<li>存在周期性弱点。破译方法：<strong>重合指数攻击</strong>，通过重合指数找到密钥长度，获取移位密码</li>
+<li><code>OTP </code>密码原理相似，是一种多表代替算法，密钥空间为 $26^n$</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-2-换位密码"><a href="#1-4-2-换位密码" class="headerlink" title="1.4.2 换位密码"></a>1.4.2 换位密码</h3><ul>
+<li><strong>列换位密码</strong></li>
+<li><strong>矩阵换位密码</strong><ul>
+<li><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429230434345.png" alt="image-20230429230434345" style="zoom: 67%;" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-5-密码学相关数学知识"><a href="#1-5-密码学相关数学知识" class="headerlink" title="1.5 密码学相关数学知识"></a>1.5 密码学相关数学知识</h2><h3 id="1-5-1-Euclid算法"><a href="#1-5-1-Euclid算法" class="headerlink" title="1.5.1 Euclid算法"></a>1.5.1 Euclid算法</h3><p><code>x</code> 和 <code>y</code> 为不同时为 $0$ 的整数，则 <code>x</code> 和 <code>y</code> 的最大公因子 <code>(x,y)</code> 是以 <code>ax+by</code> 表示的最小正整数：</p>
+<p>计算 $(100,23)$ 的过程：<br>$100-4×23&#x3D;8$<br>$23-2×8&#x3D;7$<br>$8-1×7&#x3D;1$<br>$7-7×1&#x3D;0$</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429223555862.png" alt="image-20230429223555862"></p>
+<blockquote>
+<p><strong>乘法逆元</strong>：</p>
+<p>$-13×23%100&#x3D;1$</p>
+<p><strong>(*)</strong>$23^{-1}%100 &#x3D; -13 &#x3D; 87$</p>
+<p>$3×100%23&#x3D;1$</p>
+<p><strong>(*)</strong>$100^{-1}%23&#x3D;8^{-1}%23 &#x3D; 3$</p>
+</blockquote>
+<h3 id="1-5-2-欧拉函数"><a href="#1-5-2-欧拉函数" class="headerlink" title="1.5.2 欧拉函数"></a>1.5.2 欧拉函数</h3><p>对于正整数 $n$，与其互素的小于等于 $n$ 的正整数的个数表示为 $\varphi(n)$，有以下定理：</p>
+<ul>
+<li>若正整数 $m,n$ 满足 $(m,n)&#x3D;1$，则有 $\varphi(mn) &#x3D; \varphi(m)\varphi(n)$；特别地，当p为素数时,$\varphi(p)&#x3D;p-1$</li>
+<li>正整数 $n&#x3D;p_{1}^{e_{1}} p_{2}^{e_{2}} \ldots p_{m}^{e_{m}}$ 的欧拉函数 $\varphi(n)$ 值为 $\varphi(n)&#x3D;\left(p_{1}-1\right) p_{1}^{e_{1}-1}\left(p_{2}-1\right) p_{2}^{e_{2}-1} \ldots\left(p_{m}-1\right) p_{m}^{e_{m}-1}$</li>
+<li>欧拉定理：对 $n&gt;1$，如果 $(x,n)&#x3D;1$，则有 $x^{\varphi(n)}\equiv 1 (mod;n)$</li>
+</ul>
+<p><strong>应用</strong>：由于$2^{\varphi(89)}&#x3D;1,2^{1000};mod;89&#x3D;(2^{88})^{11}*2^{32};mod;89&#x3D;2^{32};mod;89$，可以采用<strong>快速指数算法</strong>计算答案为 $64$.</p>
+<blockquote>
+<p><strong>快速指数算法</strong></p>
+<p>计算 $x^e$，设置三元组 $(X,E,Y)$，其初始值为 $(X,E,Y)&#x3D;(x,e,1)$</p>
+<ul>
+<li>若 $E$ 是奇数，则 $Y&#x3D;X*Y,E&#x3D;E-1$</li>
+<li>若 $E$ 为偶数，则 $X&#x3D;X*X,E&#x3D;E&#x2F;2$</li>
+<li>当 $E&#x3D;0$ 时，$Y$ 的值即为 $x^e$</li>
+</ul>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429232000262.png" alt="image-20230429232000262" style="zoom: 67%;" />
+</blockquote>
+<h1 id="Chapter2-现代密码算法"><a href="#Chapter2-现代密码算法" class="headerlink" title="Chapter2 现代密码算法"></a>Chapter2 现代密码算法</h1><h2 id="2-1-对称密码算法"><a href="#2-1-对称密码算法" class="headerlink" title="2.1 对称密码算法"></a>2.1 对称密码算法</h2><h3 id="2-1-1-DES算法"><a href="#2-1-1-DES算法" class="headerlink" title="2.1.1 DES算法"></a>2.1.1 DES算法</h3><p><code>DES</code> 算法是一种<strong>对称密码算法</strong>，分组加密，包括三个步骤：</p>
+<ul>
+<li>初始置换 $IP$</li>
+<li>$16$ 轮迭代的乘积变换</li>
+<li>逆初始变换 $IP^{-1}$</li>
+</ul>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429234131698.png" alt="image-20230429234131698" style="zoom:67%;" />
 
+<h3 id="2-1-2-IDEA算法"><a href="#2-1-2-IDEA算法" class="headerlink" title="2.1.2 IDEA算法"></a>2.1.2 IDEA算法</h3><p>分组长度为 $64$ 位，分 $4$ 子组进行操作，密钥长度为 $128$ 位，使用异或、模 $216$ 加、模 $216+1$ 乘三个混合运算，在 $16$ 位子分组上进行。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429234604543.png" alt="image-20230429234604543" style="zoom:80%;" />
+
+<h3 id="2-1-3-AES算法"><a href="#2-1-3-AES算法" class="headerlink" title="2.1.3 AES算法"></a>2.1.3 AES算法</h3><p>128比特的明文分组被分成4×4的字节矩阵</p>
+<ul>
+<li><p><strong>字节替换SubBytes</strong>：非线性置换,独立作用于状态中的每一个字节</p>
+</li>
+<li><p><strong>行移位运算ShiftRows</strong>：字节的循环移位运算,第1行至第4行字节分别向左移动0~3列</p>
+</li>
+<li><p><strong>列混合运算MixColumns</strong>：由一个线性变换对状态的每一列进行变换</p>
+<pre class="line-numbers language-none"><code class="language-none">02 03 01 01
+01 02 03 01
+01 01 02 03
+03 01 01 02<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>轮密钥加AddRoundKey</strong>：与相应的密钥进行异或.</p>
+</li>
+</ul>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230430000206090.png" alt="image-20230430000206090"></p>
+<h2 id="2-2-序列密码算法"><a href="#2-2-序列密码算法" class="headerlink" title="2.2 序列密码算法"></a>2.2 序列密码算法</h2><ul>
+<li><strong>RC4</strong>：基于字节流</li>
+<li><strong>LFSR</strong>：基于位流</li>
+</ul>
+<p>序列密码算法的密钥流不能重复使用，防止重合指数攻击、插入攻击。</p>
+<h2 id="2-3-数字摘要算法"><a href="#2-3-数字摘要算法" class="headerlink" title="2.3 数字摘要算法"></a>2.3 数字摘要算法</h2><ul>
+<li><p><strong>MD5</strong></p>
+</li>
+<li><p><strong>SHA</strong></p>
+</li>
+</ul>
+<p>附加填充比特 $\rightarrow$ 附加长度 $\rightarrow$ 初始化缓冲区 $\rightarrow$ $64(4<em>16)$ 次(MD5)&#x2F; $80(4</em>20)$ 次(SHA)迭代 $\rightarrow$ 输出</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230430001522814.png" alt="image-20230430001522814"></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230430001706090.png" alt="image-20230430001706090" style="zoom: 67%;" />
+
+<h2 id="2-4-公钥密码算法"><a href="#2-4-公钥密码算法" class="headerlink" title="2.4 公钥密码算法"></a>2.4 公钥密码算法</h2>
                                     
                             </div>
                             <hr />
@@ -634,7 +599,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2022/10/02/security/wang-an-04-wang-luo-an-quan-zuo-ye/">https://sxhthreo.github.io/2022/10/02/security/wang-an-04-wang-luo-an-quan-zuo-ye/</a>
+                    <a href="https://sxhthreo.github.io/2023/04/29/security/mi-ma-xue-xue-xi-bi-ji/">https://sxhthreo.github.io/2023/04/29/security/mi-ma-xue-xue-xi-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -678,9 +643,9 @@
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                                                    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
                                                         <span class="chip bg-color">
-                                                            网络安全
+                                                            密码学
                                                         </span>
                                                     </a>
                                                     
@@ -1060,13 +1025,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/10/07/homework/algorithm/si-kao-ti-1007-er-fen-cha-zhao-bi-jiao-yu-xuan-zhuan-you-xu-xu-lie/">
+                <a href="/2023/04/29/security/wang-an-01-wang-luo-an-quan-xue-xi-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="算法课外思考题1007(二分查找比较与旋转有序序列)">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="网络安全学习笔记">
                         
-                        <span class="card-title">算法课外思考题1007(二分查找比较与旋转有序序列)</span>
+                        <span class="card-title">网络安全学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1077,61 +1042,8 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-29
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/10/01/security/wang-an-01-wang-luo-an-quan-di-yi-ci-shi-yan-ji-lu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="网络安全第一次实验">
-                        
-                        <span class="card-title">网络安全第一次实验</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1153,6 +1065,59 @@
                     
                     <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
                         <span class="chip bg-color">网络安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/04/24/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="嵌入式系统课程作业">
+                        
+                        <span class="card-title">嵌入式系统课程作业</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
+                                    作业
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">程序设计</span>
                     </a>
                     
                 </div>
@@ -1402,7 +1367,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">425.3k</span>&nbsp;字
+                class="white-color">427k</span>&nbsp;字
             
             
             

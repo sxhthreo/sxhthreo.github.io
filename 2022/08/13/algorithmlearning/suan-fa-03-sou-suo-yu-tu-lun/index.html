@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            7.4k
+                                            8k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    36
+                                                    39
                                                         分
                                             </div>
                                             
@@ -455,34 +455,30 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="一、DFS和BFS"><a href="#一、DFS和BFS" class="headerlink" title="一、DFS和BFS"></a>一、DFS和BFS</h1><div class="table-container">
-<table>
+                                <h1 id="一、DFS和BFS"><a href="#一、DFS和BFS" class="headerlink" title="一、DFS和BFS"></a>一、DFS和BFS</h1><table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">数据结构</th>
-<th style="text-align:center">空间</th>
-<th style="text-align:center">备注</th>
+<th align="center"></th>
+<th align="center">数据结构</th>
+<th align="center">空间</th>
+<th align="center">备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">DFS</td>
-<td style="text-align:center">stack</td>
-<td style="text-align:center">$O(h)$（树的高度相关，记录路径）</td>
-<td style="text-align:center">算法思路奇怪或对空间要求较高</td>
+<tbody><tr>
+<td align="center">DFS</td>
+<td align="center">stack</td>
+<td align="center">$O(h)$（树的高度相关，记录路径）</td>
+<td align="center">算法思路奇怪或对空间要求较高</td>
 </tr>
 <tr>
-<td style="text-align:center">BFS</td>
-<td style="text-align:center">queue</td>
-<td style="text-align:center">$O(2^{h})$（树的层相关，记录一层）</td>
-<td style="text-align:center">具有<strong>最短路径</strong>的性质，用于最小步数、最少操作几次等问题</td>
+<td align="center">BFS</td>
+<td align="center">queue</td>
+<td align="center">$O(2^{h})$（树的层相关，记录一层）</td>
+<td align="center">具有<strong>最短路径</strong>的性质，用于最小步数、最少操作几次等问题</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="1-1-DFS"><a href="#1-1-DFS" class="headerlink" title="1.1 DFS"></a>1.1 DFS</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/">例1：排列数字</a></p>
-<p><strong>回溯/剪枝、恢复现场</strong></p>
+<p><strong>回溯&#x2F;剪枝、恢复现场</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220727164858902.png" alt="image-20220727164858902"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -520,12 +516,14 @@
 	<span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/845/">例2：n-皇后问题</a></p>
 <ul>
 <li>第一种搜索顺序：<strong>按行枚举</strong></li>
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220727211718696.png" alt="image-20220727211718696"></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230127170825892.png" alt="image-20230127170825892" style="zoom: 67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230127170825892.png" alt="image-20230127170825892" style="zoom: 67%;" />
+
 <blockquote>
 <p>注：</p>
 <p><code>y - x</code>可能是负数，所以后面的算法中添加了偏移量<code>n</code>，使其一直为正数。</p>
@@ -570,6 +568,7 @@
 	<span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>第二种搜索顺序：<strong>一个一个格子进行搜索</strong></li>
 </ul>
@@ -617,6 +616,146 @@
 	<span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/167/">例3：小猫爬山</a></p>
+<p>翰翰和达达饲养了 $N$ 只小猫，这天，小猫们要去爬山。经历了千辛万苦，小猫们终于爬上了山顶，但是疲倦的它们再也不想徒步走下山了。翰翰和达达只好花钱让它们坐索道下山。</p>
+<p>索道上的缆车最大承重量为 $W$，而 $N$ 只小猫的重量分别是 $C_1,C_2,C_N$。</p>
+<p>当然，每辆缆车上的小猫的重量之和不能超过 $W$。</p>
+<p>每租用一辆缆车，翰翰和达达就要付 11 美元，所以他们想知道，最少需要付多少美元才能把这 $N$ 只小猫都运送下山？</p>
+<p><strong>剪枝原则</strong>：</p>
+<ol>
+<li>优化搜索顺序：大部分情况下，我们应该优先搜索分支较少的节点</li>
+<li>排除等效冗余</li>
+<li>可行性剪枝</li>
+<li>最优性剪枝</li>
+<li>记忆化搜索（DP）</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+<span class="token keyword">int</span> w<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> sum<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans <span class="token operator">=</span> N<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">// 最优性剪枝</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">>=</span> ans<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>u <span class="token operator">==</span> n<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        ans <span class="token operator">=</span> k<span class="token punctuation">;</span>	<span class="token comment">// k一定小于ans</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> w<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> m<span class="token punctuation">)</span> 	<span class="token comment">// 可行性剪枝</span>
+        <span class="token punctuation">&#123;</span>
+            sum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> w<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>u <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-=</span> w<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span> 		<span class="token comment">// 恢复现场</span>
+        <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 新开一辆车</span>
+    sum<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">dfs</span><span class="token punctuation">(</span>u <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sum<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 	<span class="token comment">// 恢复现场</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    cin <span class="token operator">>></span> n <span class="token operator">>></span> m<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> cin <span class="token operator">>></span> w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 优化搜索顺序, w从大到小排序</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> w <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reverse</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> w <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1211/">例4：带分数</a></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> backup<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">long</span> <span class="token keyword">long</span> b <span class="token operator">=</span> n <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token keyword">long</span><span class="token punctuation">)</span>c <span class="token operator">-</span> a <span class="token operator">*</span> c<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>a <span class="token operator">||</span> <span class="token operator">!</span>b <span class="token operator">||</span> <span class="token operator">!</span>c<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token function">memcpy</span><span class="token punctuation">(</span>backup<span class="token punctuation">,</span> st<span class="token punctuation">,</span> <span class="token keyword">sizeof</span> st<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> x <span class="token operator">=</span> b <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>     <span class="token comment">// 取个位</span>
+        b <span class="token operator">/=</span> <span class="token number">10</span><span class="token punctuation">;</span>    <span class="token comment">// 个位删掉</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>x <span class="token operator">||</span> backup<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        backup<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">9</span><span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>backup<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">dfs_c</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>u <span class="token operator">></span> <span class="token number">9</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">check</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span> ans <span class="token operator">++</span> <span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">9</span><span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            st<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token function">dfs_c</span><span class="token punctuation">(</span>u <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> c <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            st<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">dfs_a</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">>=</span> n<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token function">dfs_c</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> a<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">9</span><span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            st<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token function">dfs_a</span><span class="token punctuation">(</span>u <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> a <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            st<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    <span class="token function">dfs_a</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-2-BFS"><a href="#1-2-BFS" class="headerlink" title="1.2 BFS"></a>1.2 BFS</h2><p>当所有边的权重都为1时，才可以使用 <code>BFS</code> 求解最短路径问题。</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/846/">例1：走迷宫</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
@@ -669,6 +808,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 	cout <span class="token operator">&lt;&lt;</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>若需要<strong>输出路径</strong>，则可以在 <code>d[x][y] = d[t.first][t.second] + 1;</code> 后添加一句代码用于存储当前元素的前一个元素 <code>Prev[x][y] = t;</code>【记录路径】，然后在函数返回前输出路径：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> x <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> y <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token keyword">while</span><span class="token punctuation">(</span>x <span class="token operator">||</span> y<span class="token punctuation">)</span>
@@ -677,25 +817,30 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
     <span class="token keyword">auto</span> t <span class="token operator">=</span> Prev<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
     x <span class="token operator">=</span> t<span class="token punctuation">.</span>first<span class="token punctuation">,</span> y <span class="token operator">=</span> t<span class="token punctuation">.</span>second<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/847/">例2：八数码</a></p>
 <p>在一个 $3×3$ 的网格中，$1∼8$ 这 $8$ 个数字和一个 <code>x</code> 恰好不重不漏地分布在这 $3×3$ 的网格中。</p>
 <p>例如：</p>
 <pre class="line-numbers language-none"><code class="language-none">1 2 3
 x 4 6
 7 5 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>在游戏过程中，可以把 <code>x</code> 与其上、下、左、右四个方向之一的数字交换（如果存在）。</p>
 <p>我们的目的是通过交换，使得网格变为如下排列（称为正确排列）：</p>
 <pre class="line-numbers language-none"><code class="language-none">1 2 3
 4 5 6
 7 8 x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>例如，示例中图形就可以通过让 <code>x</code> 先后与右、下、右三个方向的数字交换成功得到正确排列。</p>
 <p>交换过程如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">1 2 3   1 2 3   1 2 3   1 2 3
 x 4 6   4 x 6   4 5 6   4 5 6
 7 5 8   7 5 8   7 x 8   7 8 x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>给定一个初始网格，求出得到正确排列至少需要进行多少次交换。</p>
 <p>思路：<strong>将每个状态看成图中的一个结点</strong>，用<strong>字符串</strong>保存状态</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/485.png" alt="img" style="zoom:67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/485.png" alt="img" style="zoom:67%;" />
+
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unordered_map></span></span>
@@ -758,10 +903,11 @@ x 4 6   4 x 6   4 5 6   4 5 6
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1235/">例3：全球变暖</a></p>
 <ul>
 <li><strong>多少个连通块</strong>：<ul>
-<li>遍历：BFS(<strong><code>Flood-Fill</code> 算法</strong>)/DFS</li>
+<li>遍历：BFS(<strong><code>Flood-Fill</code> 算法</strong>)&#x2F;DFS</li>
 <li>并查集</li>
 </ul>
 </li>
@@ -839,12 +985,14 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-3-图的存储方式与遍历"><a href="#1-3-图的存储方式与遍历" class="headerlink" title="1.3 图的存储方式与遍历"></a>1.3 图的存储方式与遍历</h2><p>树是<strong>无环连通图</strong>，是一种特殊的图。图分为有向图和无向图。</p>
 <ul>
 <li>邻接矩阵</li>
 <li><strong>邻接表</strong>：每个节点开了一个单链表，存储该节点可以到达的节点，<strong>每次在头节点位置插入</strong></li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230127172459723.png" alt="图的存储" style="zoom:67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230127172459723.png" alt="图的存储" style="zoom:67%;" />
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/848/">例1：树的重心</a></p>
 <p>给定一棵树，树中包含 $n$ 个结点（编号 $1∼n$）和 $n − 1$ 条无向边。</p>
 <p>请你找到树的重心，并输出将重心删除后，剩余各个连通块中点数的最大值。</p>
@@ -916,6 +1064,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 	cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/849/">例2：图中点的层次</a></p>
 <p>给定一个 $n$ 个点、$m$ 条边的有向图，图中可能存在重边和自环，所有边的长度都是 $1$，点的编号为 $1\sim n$。</p>
 <p>求出 $1$ 号点到 $n$ 号点的最短距离，若从 $1$ 号点无法走到 $n$ 号点，输出 $−1$。</p>
@@ -971,6 +1120,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 	cout <span class="token operator">&lt;&lt;</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="1-4-有向图的拓扑序列"><a href="#1-4-有向图的拓扑序列" class="headerlink" title="1.4 有向图的拓扑序列"></a>1.4 有向图的拓扑序列</h2><p>若一个由图中所有点构成的序列<code>A</code>满足：对于图中的每条边 <code>(x,y)</code>，<code>x</code>在<code>A</code>中都出现在<code>y</code>之前，则称<code>A</code>是该图的一个拓扑序列。</p>
 <p>若有环，所有点的入度都非 $0$，找不到突破口，故非拓扑序列。</p>
 <p><strong>有向无环图称为拓扑图。</strong></p>
@@ -983,6 +1133,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 		<span class="token keyword">if</span> d<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token operator">:</span>
 			queue <span class="token operator">&lt;</span><span class="token operator">-</span> j<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/850/">例：有向图的拓扑序列</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -1049,16 +1200,17 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="二、最短路径问题"><a href="#二、最短路径问题" class="headerlink" title="二、最短路径问题"></a>二、最短路径问题</h1><p>[<strong>注意算法的时间复杂度</strong>]</p>
 <p><strong>单源最短路径</strong></p>
 <ul>
 <li>所有边权都是正数<ul>
-<li>朴素<code>Dijkstra</code>算法    $O(n^2)$  边稠密图   <code>m~n^2</code>(一个等级)</li>
-<li>堆优化版的<code>Dijkstra</code>算法    $O(mlogn)$   边稀疏图   <code>m~n</code></li>
+<li>朴素<code>Dijkstra</code>算法	$O(n^2)$  边稠密图   <code>m~n^2</code>(一个等级)</li>
+<li>堆优化版的<code>Dijkstra</code>算法	$O(mlogn)$   边稀疏图   <code>m~n</code></li>
 </ul>
 </li>
-<li>==存在负权边==<ul>
-<li><code>Bellman-Ford</code>算法    $O(nm)$   求不超过 $k$ 条边</li>
+<li>&#x3D;&#x3D;存在负权边&#x3D;&#x3D;<ul>
+<li><code>Bellman-Ford</code>算法	$O(nm)$   求不超过 $k$ 条边</li>
 <li><code>SPFA</code>算法    一般 $O(m)$，最坏 $O(nm)$</li>
 </ul>
 </li>
@@ -1126,10 +1278,11 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-2-堆优化版的Dijkstra算法"><a href="#2-2-堆优化版的Dijkstra算法" class="headerlink" title="2.2 堆优化版的Dijkstra算法"></a>2.2 堆优化版的Dijkstra算法</h2><p><strong>用堆来找不在 $S$ 中的、距离最近的点。</strong>堆有两种实现形式：</p>
 <ul>
 <li>手写堆（n个数）</li>
-<li><strong>优先队列</strong>（m个数）—-&gt; 每次更新距离将距离最近的点放入堆中，可能有冗余备份</li>
+<li><strong>优先队列</strong>（m个数）—&gt; 每次更新距离将距离最近的点放入堆中，可能有冗余备份</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">例：Dijkstra求最短路 II</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -1201,13 +1354,15 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-3-Bellman-Ford算法"><a href="#2-3-Bellman-Ford算法" class="headerlink" title="2.3 Bellman-Ford算法"></a>2.3 Bellman-Ford算法</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> n次
     备份数组  <span class="token comment">// 不超过k条边时, 保证不发生串联</span>
 	<span class="token keyword">for</span> 所有边	a<span class="token punctuation">,</span>b<span class="token punctuation">,</span><span class="token function">w</span> <span class="token punctuation">(</span>存在一条从a到b的边<span class="token punctuation">,</span>权重为w<span class="token punctuation">)</span>
 		dist<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dist<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">,</span> dist<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">+</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">// 松弛操作</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>迭代完成后，有<strong>三角不等式</strong>：<code>dist[b] &lt;= dist[a] + w</code>。</p>
-<p><code>k</code>次—-&gt;<strong>经过不超过<code>k</code>条边的最短路径的距离</strong></p>
-<p><code>n</code>次—-&gt;存在一条最短路径，上面有<code>n</code>条边，则路径上一定存在<strong>负环</strong></p>
+<p><code>k</code>次—&gt;<strong>经过不超过<code>k</code>条边的最短路径的距离</strong></p>
+<p><code>n</code>次—&gt;存在一条最短路径，上面有<code>n</code>条边，则路径上一定存在<strong>负环</strong></p>
 <p>算法时间复杂度为 $O(nm)$，$n$ 表示点数，$m$ 表示边数。</p>
 <p>注意在模板题中需要对下面的模板稍作修改，加上备份数组，详情见模板题。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>       	<span class="token comment">// n表示点数，m表示边数</span>
@@ -1238,6 +1393,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
     <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0x3f3f3f3f</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/855/">例：有边数限制的最短路</a></p>
 <blockquote>
 <p>注：</p>
@@ -1295,12 +1451,14 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-4-SPFA算法"><a href="#2-4-SPFA算法" class="headerlink" title="2.4 SPFA算法"></a>2.4 SPFA算法</h2><p>考虑到<code>dist[e.b] = min(dist[e.b], last[e.a] + e.c);</code>一式<strong>只有当<code>a</code>变化的时候<code>dist[e.b]</code>才会发生改变</strong>，故有：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span> queue 不空
 	<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> t <span class="token operator">&lt;</span><span class="token operator">-</span> q<span class="token punctuation">.</span>front<span class="token punctuation">;</span>
 	q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> 更新t的所有出边<span class="token operator">:</span> t <span class="token operator">-</span>w<span class="token operator">-></span> b<span class="token punctuation">;</span>		<span class="token comment">//待更新的点的集合</span>
 	queue <span class="token operator">&lt;</span><span class="token operator">-</span> b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>即：我更新过谁，我后面的人才会变小。</p>
 <h3 id="2-4-1-SPFA算法求最短路径"><a href="#2-4-1-SPFA算法求最短路径" class="headerlink" title="2.4.1 SPFA算法求最短路径"></a>2.4.1 SPFA算法求最短路径</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/853/">例：spfa求最短路</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -1376,6 +1534,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>注：</p>
 <p>网格图容易卡<code>SPFA</code>算法。</p>
@@ -1457,6 +1616,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-5-Floyd算法"><a href="#2-5-Floyd算法" class="headerlink" title="2.5 Floyd算法"></a>2.5 Floyd算法</h2><p><code>Floyd</code>算法基于动态规划，状态表示<code>d[k, i, j]</code>的含义是从<code>i</code>点，只经过<code>1</code>到<code>k</code>这些中间点，到达<code>j</code>点的最短路径，利用<code>d[k, i, j] = d[k - 1, i, k] + d[k - 1, k, j]</code>方程进行状态更新。</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/856/">例：Floyd求最短路</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -1508,13 +1668,15 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="三、最小生成树问题"><a href="#三、最小生成树问题" class="headerlink" title="三、最小生成树问题"></a>三、最小生成树问题</h1><p>对于带权连通无向图 $G=(V,E)$，生成树不同，每棵树的权（即树中所有边上的权值之和）也可能不同。设 $R$ 为 $G$ 的所有生成树的集合，若 $T$ 为 $R$ 中边的权值之和最小的生成树，则 $T$ 称为 $G$ 的<strong>最小生成树（MST）</strong>。</p>
+
+<h1 id="三、最小生成树问题"><a href="#三、最小生成树问题" class="headerlink" title="三、最小生成树问题"></a>三、最小生成树问题</h1><p>对于带权连通无向图 $G&#x3D;(V,E)$，生成树不同，每棵树的权（即树中所有边上的权值之和）也可能不同。设 $R$ 为 $G$ 的所有生成树的集合，若 $T$ 为 $R$ 中边的权值之和最小的生成树，则 $T$ 称为 $G$ 的<strong>最小生成树（MST）</strong>。</p>
 <h2 id="3-1-Prim算法"><a href="#3-1-Prim算法" class="headerlink" title="3.1 Prim算法"></a>3.1 Prim算法</h2><p><strong>朴素版Prim</strong>：算法时间复杂度为 $O(n^{2})$，适用于<strong>稠密图</strong>。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">-</span> <span class="token operator">+</span>∞					<span class="token comment">// dist数组表示该点到集合的距离, 而非起点距离</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
     t <span class="token operator">&lt;</span><span class="token operator">-</span> 找到集合外距离最近的点
     用 t 更新其他点到集合的距离		<span class="token comment">// 与迪杰斯特拉算法不一样</span>
     st<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/860/">例：Prim算法求最小生成树</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/34197/">详细解释</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -1579,6 +1741,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>注：</p>
 <p>[1]如果一个节点本身出现负环，<code>dist[j] = min(dist[j], g[t][j])</code>更新后，会影响<code>res</code>结果，需后执行。即<code>g[t][j]</code>, 当<code>t == j,</code> 更新了<code>g[t][t]</code>，会影响<code>res</code>结果。</p>
@@ -1588,7 +1751,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 <h2 id="3-2-Kruskal算法"><a href="#3-2-Kruskal算法" class="headerlink" title="3.2 Kruskal算法"></a>3.2 Kruskal算法</h2><p>算法时间复杂度为 $O(mlogn)$，适用于<strong>稀疏图</strong>。</p>
 <ul>
 <li><strong>将所有边按权重从小到大排序</strong>(调用 <code>sort</code> 函数，是该算法的瓶颈)</li>
-<li>枚举每条边<code>a - b</code>，权重是<code>c</code>，如果<code>a - b</code>不连通，将这条边加入集合中去—-&gt;<strong>并查集</strong></li>
+<li>枚举每条边<code>a - b</code>，权重是<code>c</code>，如果<code>a - b</code>不连通，将这条边加入集合中去—&gt;<strong>并查集</strong></li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/861/">例：Kruskal算法求最小生成树</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -1661,14 +1824,17 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="四、二分图"><a href="#四、二分图" class="headerlink" title="四、二分图"></a>四、二分图</h1><p>将所有点分成两个集合，使得所有边只出现在集合之间，就是二分图；</p>
 <p>二分图中一定不含有奇数环，可能包含长度为偶数的环， 不一定是连通图。</p>
 <p>一个图是二分图，当且仅当图中<strong>不含有奇数环</strong>。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221027124302652.png" alt="二分图示意图" style="zoom:67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20221027124302652.png" alt="二分图示意图" style="zoom:67%;" />
+
 <h2 id="4-1-二分图的判别-染色法"><a href="#4-1-二分图的判别-染色法" class="headerlink" title="4.1 二分图的判别:染色法"></a>4.1 二分图的判别:染色法</h2><p>算法时间复杂度为 $O(n+m)$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> i未染色
         <span class="token function">dfs</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>		<span class="token comment">// 1代表染成1号颜色</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/862/">例：染色法判定二分图</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -1734,10 +1900,11 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>变式：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/259/">关押罪犯</a></p>
 </blockquote>
-<h2 id="4-2-二分图的最大匹配-匈牙利算法"><a href="#4-2-二分图的最大匹配-匈牙利算法" class="headerlink" title="4.2 二分图的最大匹配:匈牙利算法"></a>4.2 二分图的最大匹配:匈牙利算法</h2><p>二分图的匹配：给定一个二分图 $G$，在 $G$ 的一个子图中，$M$ 的边集 $\{E\}$ 中的<strong>任意两条边都不依附于同一个顶点</strong>，则称$M$是一个匹配。</p>
+<h2 id="4-2-二分图的最大匹配-匈牙利算法"><a href="#4-2-二分图的最大匹配-匈牙利算法" class="headerlink" title="4.2 二分图的最大匹配:匈牙利算法"></a>4.2 二分图的最大匹配:匈牙利算法</h2><p>二分图的匹配：给定一个二分图 $G$，在 $G$ 的一个子图中，$M$ 的边集 ${E}$ 中的<strong>任意两条边都不依附于同一个顶点</strong>，则称$M$是一个匹配。</p>
 <p>二分图的最大匹配：所有匹配中包含边数最多的一组匹配被称为二分图的最大匹配，其边数即为最大匹配数。</p>
 <p>匈牙利算法的时间复杂度为 $O(mn)$，实际运行时间一般远小于 $O(mn)$。</p>
 <p>其算法原理可理解为<strong>“男女匹配”算法</strong>，<strong>匈牙利算法的核心</strong>就是<strong>不停的寻找增广路径来扩充匹配集合M</strong>。</p>
@@ -1815,6 +1982,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>变式：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/374/">棋盘覆盖</a></p>
 </blockquote>
@@ -2616,7 +2784,7 @@ PII q<span class="token punctuation">[</span>N <span class="token operator">*</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">425.3k</span>&nbsp;字
+                class="white-color">427k</span>&nbsp;字
             
             
             

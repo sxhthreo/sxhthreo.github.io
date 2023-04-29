@@ -370,9 +370,9 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/XML/">
+                                <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
                                     <span class="chip bg-color">
-                                        XML
+                                        Web技术
                                     </span>
                                 </a>
                                 
@@ -406,7 +406,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-26
+                                    2023-04-29
                             </div>
                             
 
@@ -484,6 +484,7 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gender</span><span class="token punctuation">></span></span>female<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gender</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>users</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-2-组成部分"><a href="#2-2-组成部分" class="headerlink" title="2.2 组成部分"></a>2.2 组成部分</h2><p><strong>文档声明</strong></p>
 <ol>
 <li>格式：<code>&lt;?xml 属性列表 ?&gt;</code></li>
@@ -510,15 +511,16 @@
 <li>名称可以包含字母、数字以及其他的字符 </li>
 <li>名称不能以数字或者标点符号开始 </li>
 <li>名称不能以字母 <code>xml</code>（或者 <code>XML</code>、<code>Xml</code> 等等）开始 </li>
-<li>名称不能包含空格 </li>
+<li>名称不能包含空格</li>
 </ul>
 <p><strong>属性</strong>：id属性值唯一</p>
 <p><strong>文本</strong>：<code>CDATA</code>区：在该区域中的数据会被原样展示</p>
-<p>​            格式： <code>&lt;![CDATA[ 数据 ]]&gt;</code></p>
+<p>​			格式： <code> &lt;![CDATA[ 数据 ]]&gt;</code></p>
 <h2 id="2-3-约束"><a href="#2-3-约束" class="headerlink" title="2.3 约束"></a>2.3 约束</h2><h3 id="2-3-1-约束概述"><a href="#2-3-1-约束概述" class="headerlink" title="2.3.1 约束概述"></a>2.3.1 约束概述</h3><p>规定<code>xml</code>文档的书写规则。作为<strong>框架</strong>的使用者(程序员)，需要：</p>
 <pre><code> 1. 能够在`xml`中引入约束文档
  2. 能够简单的读懂约束文档
-</code></pre><p>分类：</p>
+</code></pre>
+<p>分类：</p>
 <ul>
 <li><code>DTD</code>：一种简单的约束技术</li>
 <li><code>Schema</code>：一种复杂的约束技术</li>
@@ -530,6 +532,7 @@
 &lt;!ELEMENT age (#PCDATA)&gt;
 &lt;!ELEMENT sex (#PCDATA)&gt;
 &lt;!ATTLIST student number ID #REQUIRED&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>引入<code>dtd</code>文档到<code>xml</code>文档中</p>
 <ul>
 <li>内部<code>dtd</code>：将约束规则定义在<code>xml</code>文档中</li>
@@ -557,6 +560,7 @@
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>student</span><span class="token punctuation">></span></span>
 	
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>students</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="2-3-3-Schema"><a href="#2-3-3-Schema" class="headerlink" title="2.3.3 Schema"></a>2.3.3 Schema</h3><p><code>Schema</code>文档：</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">xsd:</span>schema</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.itcast.cn/xml<span class="token punctuation">"</span></span>
@@ -594,20 +598,22 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">xsd:</span>restriction</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">xsd:</span>simpleType</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">xsd:</span>schema</span><span class="token punctuation">></span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>引入<code>Schema</code>文档到<code>xml</code>文档中</p>
 <ol>
 <li>填写<code>xml</code>文档的根元素</li>
 <li>引入<code>xsi</code>前缀 <code>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</code></li>
 <li>引入<code>xsd</code>文件命名空间 <code>xsi:schemaLocation=&quot;http://www.itcast.cn/xml  student.xsd&quot;</code></li>
-<li>为每一个<code>xsd</code>约束声明一个前缀,作为标识  <code>xmlns=&quot;http://www.itcast.cn/xml&quot;</code></li>
+<li>为每一个<code>xsd</code>约束声明一个前缀,作为标识  <code>xmlns=&quot;http://www.itcast.cn/xml&quot; </code></li>
 </ol>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>students</span>   <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
 			<span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.itcast.cn/xml<span class="token punctuation">"</span></span>
 			<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.itcast.cn/xml  student.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="三、解析"><a href="#三、解析" class="headerlink" title="三、解析"></a>三、解析</h1><h2 id="3-1-概述"><a href="#3-1-概述" class="headerlink" title="3.1 概述"></a>3.1 概述</h2><p><strong>操作<code>xml</code>文档，将文档中的数据读取到内存中。</strong></p>
 <p>操作<code>xml</code>文档：</p>
 <ol>
-<li><strong>解析(读取)</strong>：将文档中的数据读取到内存中</li>
+<li>**解析(读取)**：将文档中的数据读取到内存中</li>
 <li><strong>写入</strong>：将内存中的数据保存到<code>xml</code>文档中。持久化的存储</li>
 </ol>
 <p>解析<code>xml</code>的方式：</p>
@@ -633,11 +639,13 @@
 <li><code>Jsoup</code>：<code>jsoup</code> 是一款<code>Java</code>的<code>HTML</code>解析器，可直接解析某个<code>URL</code>地址、<code>HTML</code>文本内容。它提供了一套非常省力的<code>API</code>，可通过<code>DOM</code>，<code>CSS</code>以及类似于<code>jQuery</code>的操作方法来取出和操作数据</li>
 <li><code>PULL</code>：<code>Android</code>操作系统内置的解析器，<code>sax</code>方式的</li>
 </ol>
-<h1 id="四、Jsoup"><a href="#四、Jsoup" class="headerlink" title="四、Jsoup"></a>四、Jsoup</h1><p>​    <code>Jsoup</code> 是一款<code>Java</code>的<code>HTML</code>解析器，可直接解析某个<code>URL</code>地址、<code>HTML</code>文本内容。它提供了一套非常省力的<code>API</code>，可通过<code>DOM</code>，<code>CSS</code>以及类似于<code>jQuery</code>的操作方法来取出和操作数据。</p>
+<h1 id="四、Jsoup"><a href="#四、Jsoup" class="headerlink" title="四、Jsoup"></a>四、Jsoup</h1><p>​	<code>Jsoup</code> 是一款<code>Java</code>的<code>HTML</code>解析器，可直接解析某个<code>URL</code>地址、<code>HTML</code>文本内容。它提供了一套非常省力的<code>API</code>，可通过<code>DOM</code>，<code>CSS</code>以及类似于<code>jQuery</code>的操作方法来取出和操作数据。</p>
 <h2 id="4-1-获取对象的步骤"><a href="#4-1-获取对象的步骤" class="headerlink" title="4.1 获取对象的步骤"></a>4.1 获取对象的步骤</h2><ol>
-<li><strong>导入jar包</strong></li>
-<li><strong>获取Document对象</strong></li>
-<li><p><strong>获取对应的标签Element对象</strong>        </p>
+<li><p><strong>导入jar包</strong></p>
+</li>
+<li><p><strong>获取Document对象</strong></p>
+</li>
+<li><p><strong>获取对应的标签Element对象</strong>		</p>
 </li>
 <li><p><strong>获取数据</strong></p>
 </li>
@@ -663,6 +671,7 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="4-2-对象的使用"><a href="#4-2-对象的使用" class="headerlink" title="4.2 对象的使用"></a>4.2 对象的使用</h2><h3 id="4-2-1-Jsoup：工具类"><a href="#4-2-1-Jsoup：工具类" class="headerlink" title="4.2.1 Jsoup：工具类"></a>4.2.1 Jsoup：工具类</h3><p>工具类，可以解析<code>html</code>或<code>xml</code>文档，返回<code>Document</code>。</p>
 <p><code>parse</code>：解析<code>html</code>或<code>xml</code>文档，返回<code>Document</code></p>
 <ul>
@@ -715,6 +724,7 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="4-2-2-Document：文档对象"><a href="#4-2-2-Document：文档对象" class="headerlink" title="4.2.2 Document：文档对象"></a>4.2.2 Document：文档对象</h3><p>代表内存中的<code>dom</code>树。主要用于<strong>获取<code>Element</code>对象</strong>。</p>
 <ul>
 <li>getElementById(String id)：根据<code>id</code>属性值获取唯一的<code>element</code>对象</li>
@@ -732,20 +742,20 @@
 <li>getElementsByAttribute(String key)：根据属性名称获取元素对象集合</li>
 <li>getElementsByAttributeValue(String key, String value)：根据对应的属性名和属性值获取元素对象集合</li>
 </ul>
-<ol>
-<li><strong>获取属性值</strong><pre><code>* String attr(String key)：根据属性名称获取属性值(属性名称不区分大小写)
-</code></pre></li>
-<li><strong>获取文本内容</strong><ul>
+<ol start="2">
+<li><strong>获取属性值</strong><br>* String attr(String key)：根据属性名称获取属性值(属性名称不区分大小写)</li>
+<li><strong>获取文本内容</strong></li>
+</ol>
+<ul>
 <li>String text()：获取文本内容</li>
 <li>String html()：获取标签体的所有内容(<strong>包括子标签的字符串内容</strong>)</li>
 </ul>
-</li>
-</ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//获取文本内容</span>
 <span class="token class-name">String</span> text <span class="token operator">=</span> ele_name<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">String</span> html <span class="token operator">=</span> ele_name<span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220807202741313.png" alt="image-20220807202741313"></p>
 <h3 id="4-2-5-Node：节点对象"><a href="#4-2-5-Node：节点对象" class="headerlink" title="4.2.5 Node：节点对象"></a>4.2.5 Node：节点对象</h3><p><code>Node</code>是<code>Document</code>和<code>Element</code>的父类。</p>
 <h2 id="4-3-快捷查询方式"><a href="#4-3-快捷查询方式" class="headerlink" title="4.3 快捷查询方式"></a>4.3 快捷查询方式</h2><h3 id="4-3-1-selector：选择器"><a href="#4-3-1-selector：选择器" class="headerlink" title="4.3.1 selector：选择器"></a>4.3.1 selector：选择器</h3><p>使用的方法：Elements select(String cssQuery)</p>
@@ -791,6 +801,7 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>elements3<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="4-3-2-XPath"><a href="#4-3-2-XPath" class="headerlink" title="4.3.2 XPath"></a>4.3.2 XPath</h3><p><code>XPath</code>即为<code>XML</code>路径语言，它是一种用来确定<code>XML</code>（标准通用标记语言的子集）文档中某部分位置的语言。</p>
 <ul>
 <li><p>使用<code>Jsoup</code>的<code>Xpath</code>需要额外导入<code>jar</code>包</p>
@@ -799,87 +810,79 @@
 </li>
 </ul>
 <p><strong>选取节点</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">表达式</th>
-<th style="text-align:center">描述</th>
+<th align="center">表达式</th>
+<th align="center">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">nodename</td>
-<td style="text-align:center">选取此节点的所有子节点</td>
+<tbody><tr>
+<td align="center">nodename</td>
+<td align="center">选取此节点的所有子节点</td>
 </tr>
 <tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">从根节点选取</td>
+<td align="center">&#x2F;</td>
+<td align="center">从根节点选取</td>
 </tr>
 <tr>
-<td style="text-align:center">//</td>
-<td style="text-align:center">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置</td>
+<td align="center">&#x2F;&#x2F;</td>
+<td align="center">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置</td>
 </tr>
 <tr>
-<td style="text-align:center">.</td>
-<td style="text-align:center">选取当前节点</td>
+<td align="center">.</td>
+<td align="center">选取当前节点</td>
 </tr>
 <tr>
-<td style="text-align:center">..</td>
-<td style="text-align:center">选取当前节点的父节点</td>
+<td align="center">..</td>
+<td align="center">选取当前节点的父节点</td>
 </tr>
 <tr>
-<td style="text-align:center">@</td>
-<td style="text-align:center">选取属性</td>
+<td align="center">@</td>
+<td align="center">选取属性</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p><strong>谓语（Predicates）</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">路径表达式</th>
-<th style="text-align:center">结果</th>
+<th align="center">路径表达式</th>
+<th align="center">结果</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">/bookstore/book[1]</td>
-<td style="text-align:center">选取属于 bookstore 子元素的第一个 book 元素</td>
+<tbody><tr>
+<td align="center">&#x2F;bookstore&#x2F;book[1]</td>
+<td align="center">选取属于 bookstore 子元素的第一个 book 元素</td>
 </tr>
 <tr>
-<td style="text-align:center">/bookstore/book[last()]</td>
-<td style="text-align:center">选取属于 bookstore 子元素的最后一个 book 元素</td>
+<td align="center">&#x2F;bookstore&#x2F;book[last()]</td>
+<td align="center">选取属于 bookstore 子元素的最后一个 book 元素</td>
 </tr>
 <tr>
-<td style="text-align:center">/bookstore/book[last()-1]</td>
-<td style="text-align:center">选取属于 bookstore 子元素的倒数第二个 book 元素</td>
+<td align="center">&#x2F;bookstore&#x2F;book[last()-1]</td>
+<td align="center">选取属于 bookstore 子元素的倒数第二个 book 元素</td>
 </tr>
 <tr>
-<td style="text-align:center">/bookstore/book[position()&lt;3]</td>
-<td style="text-align:center">选取最前面的两个属于 bookstore 元素的子元素的 book 元素</td>
+<td align="center">&#x2F;bookstore&#x2F;book[position()&lt;3]</td>
+<td align="center">选取最前面的两个属于 bookstore 元素的子元素的 book 元素</td>
 </tr>
 <tr>
-<td style="text-align:center">//title[@lang]</td>
-<td style="text-align:center">选取所有拥有名为 lang 的属性的 title 元素</td>
+<td align="center">&#x2F;&#x2F;title[@lang]</td>
+<td align="center">选取所有拥有名为 lang 的属性的 title 元素</td>
 </tr>
 <tr>
-<td style="text-align:center">//title[@lang=’eng’]</td>
-<td style="text-align:center">选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性</td>
+<td align="center">&#x2F;&#x2F;title[@lang&#x3D;’eng’]</td>
+<td align="center">选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性</td>
 </tr>
 <tr>
-<td style="text-align:center">/bookstore/book[price&gt;35.00]</td>
-<td style="text-align:center">选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00</td>
+<td align="center">&#x2F;bookstore&#x2F;book[price&gt;35.00]</td>
+<td align="center">选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00</td>
 </tr>
 <tr>
-<td style="text-align:center">/bookstore/book[price&gt;35.00]/title</td>
-<td style="text-align:center">选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00</td>
+<td align="center">&#x2F;bookstore&#x2F;book[price&gt;35.00]&#x2F;title</td>
+<td align="center">选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>wanghaomiao<span class="token punctuation">.</span>xpath<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">XpathSyntaxErrorException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>wanghaomiao<span class="token punctuation">.</span>xpath<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span><span class="token class-name">JXDocument</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>wanghaomiao<span class="token punctuation">.</span>xpath<span class="token punctuation">.</span>model<span class="token punctuation">.</span></span><span class="token class-name">JXNode</span></span><span class="token punctuation">;</span>
@@ -935,6 +938,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                                     
                             </div>
@@ -999,9 +1003,9 @@
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/XML/">
+                                                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
                                                         <span class="chip bg-color">
-                                                            XML
+                                                            Web技术
                                                         </span>
                                                     </a>
                                                     
@@ -1423,8 +1427,8 @@
                         <span class="chip bg-color">JavaSE</span>
                     </a>
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
                     </a>
                     
                 </div>
@@ -1472,12 +1476,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                        <span class="chip bg-color">后端</span>
-                    </a>
-                    
-                    <a href="/tags/JavaWeb/">
-                        <span class="chip bg-color">JavaWeb</span>
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
                     </a>
                     
                 </div>
@@ -1727,7 +1727,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">425.3k</span>&nbsp;字
+                class="white-color">427k</span>&nbsp;字
             
             
             

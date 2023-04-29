@@ -370,15 +370,9 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                                <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
                                     <span class="chip bg-color">
-                                        后端
-                                    </span>
-                                </a>
-                                
-                                <a href="/tags/JavaWeb/">
-                                    <span class="chip bg-color">
-                                        JavaWeb
+                                        Web技术
                                     </span>
                                 </a>
                                 
@@ -412,7 +406,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-26
+                                    2023-04-29
                             </div>
                             
 
@@ -456,8 +450,8 @@
                         <div class="card-content article-card-content">
                             <div id="articleContent">
                                 <h1 id="一、web相关概念回顾"><a href="#一、web相关概念回顾" class="headerlink" title="一、web相关概念回顾"></a>一、web相关概念回顾</h1><h2 id="1-1-软件架构"><a href="#1-1-软件架构" class="headerlink" title="1.1 软件架构"></a>1.1 软件架构</h2><ol>
-<li>C/S：客户端/服务器端</li>
-<li><strong>B/S：浏览器/服务器端</strong></li>
+<li>C&#x2F;S：客户端&#x2F;服务器端</li>
+<li><strong>B&#x2F;S：浏览器&#x2F;服务器端</strong></li>
 </ol>
 <h2 id="1-2-资源分类"><a href="#1-2-资源分类" class="headerlink" title="1.2 资源分类"></a>1.2 资源分类</h2><ol>
 <li><p><strong>静态资源</strong>：所有用户访问后，得到的结果都是一样的，称为静态资源。静态资源可以直接被浏览器解析。</p>
@@ -470,13 +464,12 @@
 <h2 id="1-3-网络通信三要素"><a href="#1-3-网络通信三要素" class="headerlink" title="1.3 网络通信三要素"></a>1.3 网络通信三要素</h2><ol>
 <li><strong>IP</strong>：电子设备(计算机)在网络中的唯一标识。</li>
 <li><strong>端口</strong>：应用程序在计算机中的唯一标识。 0~65536</li>
-<li><p><strong>传输协议</strong>：规定了数据传输的规则。有关的<strong>基础协议</strong>有：</p>
+<li><strong>传输协议</strong>：规定了数据传输的规则。有关的<strong>基础协议</strong>有：</li>
+</ol>
 <ul>
 <li><code>tcp</code>：安全协议，三次握手，速度稍慢</li>
 <li><code>udp</code>：不安全协议，速度快</li>
 </ul>
-</li>
-</ol>
 <h2 id="1-4-web服务器软件"><a href="#1-4-web服务器软件" class="headerlink" title="1.4 web服务器软件"></a>1.4 web服务器软件</h2><h3 id="1-4-1-概念"><a href="#1-4-1-概念" class="headerlink" title="1.4.1 概念"></a>1.4.1 概念</h3><ul>
 <li>服务器：安装了服务器软件的计算机</li>
 <li>服务器软件：接收用户的请求，处理请求，做出响应</li>
@@ -501,13 +494,13 @@
 <p>（3）卸载：删除目录就行了</p>
 <h2 id="2-2-启动与关闭"><a href="#2-2-启动与关闭" class="headerlink" title="2.2 启动与关闭"></a>2.2 启动与关闭</h2><p>（1）启动：</p>
 <ol>
-<li>bin/startup.bat ,双击运行该文件即可</li>
-<li>访问：浏览器输入：<ul>
-<li><a target="_blank" rel="noopener" href="http://localhost:8080">http://localhost:8080</a> 回车访问自己</li>
-<li><a target="_blank" rel="noopener" href="http://别人的ip:8080">http://别人的ip:8080</a> 访问别人</li>
-</ul>
-</li>
+<li>bin&#x2F;startup.bat ,双击运行该文件即可</li>
+<li>访问：浏览器输入：</li>
 </ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a> 回车访问自己</li>
+<li>http:&#x2F;&#x2F;别人的ip:8080 访问别人</li>
+</ul>
 <p>（2）关闭：</p>
 <ol>
 <li>正常关闭：<ul>
@@ -515,14 +508,14 @@
 <li><code>ctrl+c</code></li>
 </ul>
 </li>
-<li>强制关闭：<ul>
+<li>强制关闭：</li>
+</ol>
+<ul>
 <li>点击启动窗口的×</li>
 </ul>
-</li>
-</ol>
 <h2 id="2-3-配置"><a href="#2-3-配置" class="headerlink" title="2.3 配置"></a>2.3 配置</h2><p>（1）直接将项目放到<code>webapps</code>目录下即可。</p>
 <ul>
-<li><code>/hello</code>：项目的访问路径—&gt;虚拟目录</li>
+<li><code>/hello</code>：项目的访问路径–&gt;虚拟目录</li>
 </ul>
 <p><strong>简化部署</strong>：将项目打成一个<code>war</code>包，再将<code>war</code>包放置到<code>webapps</code>目录下，<code>war</code>包会自动解压缩。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220808105253349.png" alt="image-20220808105253349"></p>
@@ -551,30 +544,34 @@
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220808123517632.png" alt="image-20220808123517632"></p>
 <p>【注】</p>
 <ol>
-<li><p>IDEA会为每一个<code>tomcat</code>部署的项目单独建立一份配置文件</p>
+<li>IDEA会为每一个<code>tomcat</code>部署的项目单独建立一份配置文件</li>
+</ol>
 <ul>
 <li>查看控制台的<code>log</code>：Using CATALINA_BASE:   “C:\Users\fqy.IntelliJIdea2018.1\system\tomcat_itcast”</li>
 </ul>
-</li>
-<li><p>工作空间项目和<code>tomcat</code>部署的<code>web</code>项目：</p>
+<ol start="2">
+<li>工作空间项目和<code>tomcat</code>部署的<code>web</code>项目：</li>
+</ol>
 <ul>
 <li><code>tomcat</code>真正访问的是“<code>tomcat</code>部署的<code>web</code>项目”，”<code>tomcat</code>部署的<code>web</code>项目”对应着”工作空间项目” 的<code>web</code>目录下的所有资源</li>
 <li><code>WEB-INF</code>目录下的资源不能被浏览器直接访问</li>
 </ul>
-</li>
+<ol start="3">
 <li>断点调试：使用”小虫子”启动<code>debug</code></li>
 </ol>
 <p><strong>参考文章</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44797182/article/details/124745744?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165993233916781818736284%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=165993233916781818736284&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-124745744-null-null.142^v39^pc_rank_v37,185^v2^control&amp;utm_term=idea%20%E6%96%B0%E5%BB%BAjavaweb&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_44797182/article/details/124745744?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165993233916781818736284%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=165993233916781818736284&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-124745744-null-null.142^v39^pc_rank_v37,185^v2^control&amp;utm_term=idea%20%E6%96%B0%E5%BB%BAjavaweb&amp;spm=1018.2226.3001.4187</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44797182/article/details/124745744?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165993233916781818736284%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=165993233916781818736284&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-124745744-null-null.142%5Ev39%5Epc_rank_v37,185%5Ev2%5Econtrol&amp;utm_term=idea%20%E6%96%B0%E5%BB%BAjavaweb&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/weixin_44797182/article/details/124745744?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165993233916781818736284%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=165993233916781818736284&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-124745744-null-null.142^v39^pc_rank_v37,185^v2^control&amp;utm_term=idea%20%E6%96%B0%E5%BB%BAjavaweb&amp;spm=1018.2226.3001.4187</a></p>
 <h1 id="三、Servlet"><a href="#三、Servlet" class="headerlink" title="三、Servlet"></a>三、Servlet</h1><h2 id="3-1-概念"><a href="#3-1-概念" class="headerlink" title="3.1 概念"></a>3.1 概念</h2><p>server applet，<strong>运行在服务器端的小程序</strong></p>
 <p><code>Servlet</code>就是一个<strong>接口</strong>，<strong>定义了<code>Java</code>类被浏览器访问到(<code>tomcat</code>识别)的规则</strong>。将来我们自定义一个类，实现<code>Servlet</code>接口，复写方法。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220808171520362.png" alt="image-20220808171520362"></p>
 <h2 id="3-2-配置步骤"><a href="#3-2-配置步骤" class="headerlink" title="3.2 配置步骤"></a>3.2 配置步骤</h2><ol>
 <li>创建<code>JavaEE</code>项目</li>
-<li>定义一个类，实现<code>Servlet</code>接口<ul>
+<li>定义一个类，实现<code>Servlet</code>接口</li>
+</ol>
+<ul>
 <li>public class ServletDemo1 implements Servlet</li>
 </ul>
-</li>
+<ol start="3">
 <li>实现接口中的抽象方法</li>
 <li>配置<code>Servlet</code></li>
 </ol>
@@ -593,6 +590,7 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/demo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>当访问<code>http://localhost:8899/web/demo1</code>时，执行：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220808173023676.png" alt="image-20220808173023676"></p>
 <h2 id="3-3-Servlet执行原理"><a href="#3-3-Servlet执行原理" class="headerlink" title="3.3 Servlet执行原理"></a>3.3 Servlet执行原理</h2><ol>
@@ -640,13 +638,13 @@
 </ul>
 </li>
 </ol>
-<h2 id="3-6-Servlet体系结构"><a href="#3-6-Servlet体系结构" class="headerlink" title="3.6 Servlet体系结构"></a>3.6 Servlet体系结构</h2><p><code>Servlet</code> — 接口</p>
-<p><code>GenericServlet</code> — 抽象类</p>
+<h2 id="3-6-Servlet体系结构"><a href="#3-6-Servlet体系结构" class="headerlink" title="3.6 Servlet体系结构"></a>3.6 Servlet体系结构</h2><p><code>Servlet</code> – 接口</p>
+<p><code>GenericServlet</code> – 抽象类</p>
 <ul>
 <li>将<code>Servlet</code>接口中其他的方法做了<strong>默认空实现</strong>，只将<code>service()</code>方法作为抽象</li>
 <li>将来定义<code>Servlet</code>类时，可以继承<code>GenericServlet</code>，实现<code>service()</code>方法即可</li>
 </ul>
-<p><strong><code>HttpServlet</code> — 抽象类，对<code>http</code>协议的一种封装，简化操作</strong>【经常使用】</p>
+<p><strong><code>HttpServlet</code> – 抽象类，对<code>http</code>协议的一种封装，简化操作</strong>【经常使用】</p>
 <ul>
 <li>定义类继承<code>HttpServlet</code></li>
 <li>复写<code>doGet/doPost</code>方法</li>
@@ -672,6 +670,7 @@
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"doPost..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="3-7-Servlet相关配置"><a href="#3-7-Servlet相关配置" class="headerlink" title="3.7 Servlet相关配置"></a>3.7 Servlet相关配置</h2><p><code>urlpartten</code>：<code>Servlet</code>访问路径</p>
 <p>【注】</p>
 <ul>
@@ -683,7 +682,7 @@
 </li>
 <li><p><code>/xxx/xxx</code>：<strong>多层路径，目录结构</strong></p>
 </li>
-<li><p><code>*.do</code>：<strong>扩展名匹配</strong>—-&gt;浏览器输入<code>localhost/demo4.do</code>，可以访问到（前面不能输入<code>/</code>）</p>
+<li><p><code>*.do</code>：<strong>扩展名匹配</strong>—&gt;浏览器输入<code>localhost/demo4.do</code>，可以访问到（前面不能输入<code>/</code>）</p>
 </li>
 </ul>
 </li>
@@ -694,7 +693,7 @@
 <ol>
 <li>基于<code>TCP/IP</code>的高级协议</li>
 <li>默认端口号：<code>80</code></li>
-<li>基于请求/响应模型的：一次请求对应一次响应</li>
+<li>基于请求&#x2F;响应模型的：一次请求对应一次响应</li>
 <li>无状态的：每次请求之间相互独立，不能交互数据</li>
 </ol>
 <p>历史版本：</p>
@@ -705,16 +704,16 @@
 </li>
 </ul>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220808221413750.png" alt="image-20220808221413750"></p>
-<h2 id="4-2-请求消息数据格式"><a href="#4-2-请求消息数据格式" class="headerlink" title="4.2 请求消息数据格式"></a>4.2 请求消息数据格式</h2><h3 id="4-2-1-请求行"><a href="#4-2-1-请求行" class="headerlink" title="4.2.1 请求行"></a>4.2.1 请求行</h3><p>格式：<strong>请求方式 请求url 请求协议/版本</strong></p>
-<p><strong>GET /login.html    HTTP/1.1</strong></p>
+<h2 id="4-2-请求消息数据格式"><a href="#4-2-请求消息数据格式" class="headerlink" title="4.2 请求消息数据格式"></a>4.2 请求消息数据格式</h2><h3 id="4-2-1-请求行"><a href="#4-2-1-请求行" class="headerlink" title="4.2.1 请求行"></a>4.2.1 请求行</h3><p>格式：<strong>请求方式 请求url 请求协议&#x2F;版本</strong></p>
+<p><strong>GET &#x2F;login.html	HTTP&#x2F;1.1</strong></p>
 <p><code>HTTP</code>协议有<code>7</code>种请求方式，常用的有<code>2</code>种：</p>
-<p>[1]<strong><code>GET</code></strong>：</p>
+<p>[1]**<code>GET</code>**：</p>
 <ol>
 <li>请求参数在请求行中，在<code>url</code>后</li>
 <li>请求的<code>url</code>长度有限制的</li>
 <li>不太安全</li>
 </ol>
-<p>[2]<strong><code>POST</code></strong>：</p>
+<p>[2]**<code>POST</code>**：</p>
 <ol>
 <li><strong>请求参数在请求体中</strong>【参数位置与<code>GET</code>不一样】</li>
 <li>请求的<code>url</code>长度没有限制的</li>
@@ -724,11 +723,11 @@
 <p>格式：<strong>请求头名称: 请求头值</strong></p>
 <p>常见的请求头：</p>
 <ol>
-<li><strong><code>User-Agent</code></strong>：浏览器告诉服务器，我访问你使用的浏览器版本信息</li>
+<li>**<code>User-Agent</code>**：浏览器告诉服务器，我访问你使用的浏览器版本信息</li>
 </ol>
-<p>​        可以在服务器端获取该头的信息，解决<strong>浏览器的兼容性问题</strong></p>
-<ol>
-<li><strong><code>Referer</code></strong>：<a target="_blank" rel="noopener" href="http://localhost/login.html">http://localhost/login.html</a></li>
+<p>​		可以在服务器端获取该头的信息，解决<strong>浏览器的兼容性问题</strong></p>
+<ol start="2">
+<li>**<code>Referer</code>**：<a target="_blank" rel="noopener" href="http://localhost/login.html">http://localhost/login.html</a></li>
 </ol>
 <ul>
 <li>告诉服务器，我(当前请求)从哪里来？</li>
@@ -748,53 +747,66 @@ Connection: keep-alive	[复用]
 Upgrade-Insecure-Requests: 1
 
 username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h1 id="五、Request"><a href="#五、Request" class="headerlink" title="五、Request"></a>五、Request</h1><h2 id="5-1-request对象和response对象的原理"><a href="#5-1-request对象和response对象的原理" class="headerlink" title="5.1 request对象和response对象的原理"></a>5.1 request对象和response对象的原理</h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220808230901807.png" alt="image-20220808230901807"></p>
 <p>【注】</p>
 <ol>
 <li><code>request</code>和<code>response</code>对象是由服务器创建的。我们来使用它们</li>
 <li><code>request</code>对象是来<strong>获取请求消息</strong>，<code>response</code>对象是来<strong>设置响应消息</strong></li>
 </ol>
-<h2 id="5-2-request对象继承体系结构"><a href="#5-2-request对象继承体系结构" class="headerlink" title="5.2 request对象继承体系结构"></a>5.2 request对象继承体系结构</h2><p>ServletRequest        —    接口<br>|    继承<br>HttpServletRequest    — 接口<br>|    实现<br>org.apache.catalina.connector.RequestFacade 类(tomcat)</p>
-<h2 id="5-3-request获取请求消息数据功能"><a href="#5-3-request获取请求消息数据功能" class="headerlink" title="5.3 request获取请求消息数据功能"></a>5.3 request获取请求消息数据功能</h2><h3 id="5-3-1-获取请求行数据"><a href="#5-3-1-获取请求行数据" class="headerlink" title="5.3.1 获取请求行数据"></a>5.3.1 获取请求行数据</h3><p>GET /day14/demo1?name=zhangsan HTTP/1.1</p>
+<h2 id="5-2-request对象继承体系结构"><a href="#5-2-request对象继承体系结构" class="headerlink" title="5.2 request对象继承体系结构"></a>5.2 request对象继承体系结构</h2><p>ServletRequest		–	接口<br>|	继承<br>HttpServletRequest	– 接口<br>|	实现<br>org.apache.catalina.connector.RequestFacade 类(tomcat)</p>
+<h2 id="5-3-request获取请求消息数据功能"><a href="#5-3-request获取请求消息数据功能" class="headerlink" title="5.3 request获取请求消息数据功能"></a>5.3 request获取请求消息数据功能</h2><h3 id="5-3-1-获取请求行数据"><a href="#5-3-1-获取请求行数据" class="headerlink" title="5.3.1 获取请求行数据"></a>5.3.1 获取请求行数据</h3><p>GET &#x2F;day14&#x2F;demo1?name&#x3D;zhangsan HTTP&#x2F;1.1</p>
 <p>方法：</p>
 <ol>
-<li>获取请求方式 ：<code>GET</code><ul>
-<li><code>String getMethod()</code></li>
+<li>获取请求方式 ：<code>GET</code></li>
+</ol>
+<ul>
+<li><code>String getMethod() </code></li>
 </ul>
-</li>
-<li><strong>(*)</strong>获取虚拟目录：<code>/day14</code><ul>
+<ol start="2">
+<li>**(*)**获取虚拟目录：<code>/day14</code></li>
+</ol>
+<ul>
 <li><code>String getContextPath()</code></li>
 </ul>
-</li>
-<li>获取<code>Servlet</code>路径: <code>/demo1</code><ul>
+<ol start="3">
+<li>获取<code>Servlet</code>路径: <code>/demo1</code></li>
+</ol>
+<ul>
 <li><code>String getServletPath()</code></li>
 </ul>
-</li>
-<li>获取<code>get</code>方式请求参数：<code>name=zhangsan</code><ul>
+<ol start="4">
+<li>获取<code>get</code>方式请求参数：<code>name=zhangsan</code></li>
+</ol>
+<ul>
 <li><code>String getQueryString()</code></li>
 </ul>
-</li>
-<li><p><strong>(*)</strong>获取请求<code>URI</code>：<code>/day14/demo1</code></p>
+<ol start="5">
+<li>**(*)**获取请求<code>URI</code>：<code>/day14/demo1</code></li>
+</ol>
 <ul>
-<li><code>String getRequestURI()</code>：<code>/day14/demo1</code></li>
+<li><p><code>String getRequestURI()</code>：<code>/day14/demo1</code></p>
+</li>
 <li><p><code>StringBuffer getRequestURL()</code>：<a target="_blank" rel="noopener" href="http://localhost/day14/demo1">http://localhost/day14/demo1</a></p>
 </li>
-<li><p><code>URL</code>(<strong>统一资源定位符</strong>)： <a target="_blank" rel="noopener" href="http://localhost/day14/demo1">http://localhost/day14/demo1</a>    中华人民共和国</p>
+<li><p><code>URL</code>(<strong>统一资源定位符</strong>)： <a target="_blank" rel="noopener" href="http://localhost/day14/demo1">http://localhost/day14/demo1</a>	中华人民共和国</p>
 </li>
-<li><code>URI</code>(<strong>统一资源标识符</strong>)： <code>/day14/demo1</code>    共和国</li>
+<li><p><code>URI</code>(<strong>统一资源标识符</strong>)： <code>/day14/demo1</code>	共和国</p>
+</li>
 </ul>
-</li>
-<li><p>获取协议及版本：<code>HTTP/1.1</code></p>
+<ol start="6">
+<li>获取协议及版本：<code>HTTP/1.1</code></li>
+</ol>
 <ul>
 <li><code>String getProtocol()</code></li>
 </ul>
-</li>
-<li><p>获取客户机的<code>IP</code>地址：</p>
+<ol start="7">
+<li>获取客户机的<code>IP</code>地址：</li>
+</ol>
 <ul>
 <li><code>String getRemoteAddr()</code></li>
 </ul>
-</li>
-</ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -834,6 +846,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220808233526032.png" alt="image-20220808233526032"></p>
 <h3 id="5-3-2-获取请求头数据"><a href="#5-3-2-获取请求头数据" class="headerlink" title="5.3.2 获取请求头数据"></a>5.3.2 获取请求头数据</h3><p>方法：</p>
 <ul>
@@ -896,6 +909,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>[例3]</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">ServletContext</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">ServletException</span></span><span class="token punctuation">;</span>
@@ -933,17 +947,18 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="5-3-3-获取请求体数据"><a href="#5-3-3-获取请求体数据" class="headerlink" title="5.3.3 获取请求体数据"></a>5.3.3 获取请求体数据</h3><p>请求体：只有<code>POST</code>请求方式，才有请求体，在请求体中封装了<code>POST</code>请求的请求参数</p>
 <p>步骤：</p>
 <ol>
-<li><p><strong>获取流对象</strong></p>
+<li><strong>获取流对象</strong></li>
+</ol>
 <ul>
 <li><code>BufferedReader getReader()</code>：获取<strong>字符输入流</strong>，只能操作字符数据</li>
 <li><code>ServletInputStream getInputStream()</code>：获取<strong>字节输入流</strong>，可以操作所有类型数据【在文件上传知识点后讲解】</li>
 </ul>
-</li>
-<li><p>再从流对象中拿数据</p>
-</li>
+<ol start="2">
+<li>再从流对象中拿数据</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">ServletException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">WebServlet</span></span><span class="token punctuation">;</span>
@@ -970,6 +985,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
     <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doGet</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span><span class="token punctuation">,</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="5-4-request其他功能"><a href="#5-4-request其他功能" class="headerlink" title="5.4 request其他功能"></a>5.4 request其他功能</h2><h3 id="5-4-1-获取请求参数"><a href="#5-4-1-获取请求参数" class="headerlink" title="5.4.1 获取请求参数"></a>5.4.1 获取请求参数</h3><p><strong>获取请求参数</strong>通用方式：不论get还是post请求方式都可以使用下列方法来获取请求参数</p>
 <ul>
 <li><code>String getParameter(String name)</code>：根据参数名称获取参数值    <code>username=zs&amp;password=123</code></li>
@@ -1022,6 +1038,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doPost</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>[注]<strong>中文乱码问题</strong>：</p>
 <ul>
@@ -1038,7 +1055,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 <ul>
 <li><p>通过<code>request</code>对象<strong>获取请求转发器对象</strong>：<code>RequestDispatcher getRequestDispatcher(String path)</code></p>
 </li>
-<li><p>使用<code>RequestDispatcher</code>对象来进行转发：<code>forward(ServletRequest request, ServletResponse response)</code></p>
+<li><p>使用<code>RequestDispatcher</code>对象来进行转发：<code>forward(ServletRequest request, ServletResponse response) </code></p>
 </li>
 </ul>
 <p>特点：</p>
@@ -1069,6 +1086,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 		<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220809122505641.png" alt="image-20220809122505641"></p>
 <h3 id="5-4-3-共享数据"><a href="#5-4-3-共享数据" class="headerlink" title="5.4.3 共享数据"></a>5.4.3 共享数据</h3><ul>
 <li>域对象：<strong>一个有作用范围的对象，可以在范围内共享数据</strong></li>
@@ -1084,7 +1102,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 <li><code>ServletContext getServletContext()</code></li>
 </ul>
 <p><code>ServletContext</code>对象的功能将在下节讲解。</p>
-<h1 id="六、案例：用户登录"><a href="#六、案例：用户登录" class="headerlink" title="六、案例：用户登录"></a>六、案例：用户登录</h1><h2 id="6-1-用户登录案例需求"><a href="#6-1-用户登录案例需求" class="headerlink" title="6.1 用户登录案例需求"></a>6.1 用户登录案例需求</h2><p>1.编写<code>login.html</code>登录页面    <code>username &amp; password</code> 两个输入框</p>
+<h1 id="六、案例：用户登录"><a href="#六、案例：用户登录" class="headerlink" title="六、案例：用户登录"></a>六、案例：用户登录</h1><h2 id="6-1-用户登录案例需求"><a href="#6-1-用户登录案例需求" class="headerlink" title="6.1 用户登录案例需求"></a>6.1 用户登录案例需求</h2><p>1.编写<code>login.html</code>登录页面	<code>username &amp; password</code> 两个输入框</p>
 <p>2.使用<code>Druid</code>数据库连接池技术,操作<code>mysql</code>，day14数据库中user表</p>
 <p>3.使用<code>JdbcTemplate</code>技术封装<code>JDBC</code></p>
 <p>4.登录成功跳转到<code>SuccessServlet</code>展示：登录成功！用户名,欢迎您</p>
@@ -1147,6 +1165,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
                 <span class="token char">'&#125;'</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="6-2-3-编写JDBC工具类"><a href="#6-2-3-编写JDBC工具类" class="headerlink" title="6.2.3 编写JDBC工具类"></a>6.2.3 编写JDBC工具类</h3><p>使用<code>Durid</code>连接池。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>pool<span class="token punctuation">.</span></span><span class="token class-name">DruidDataSourceFactory</span></span><span class="token punctuation">;</span>
 
@@ -1185,6 +1204,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token keyword">return</span> ds<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="6-2-4-创建UserLogin类，提供login方法"><a href="#6-2-4-创建UserLogin类，提供login方法" class="headerlink" title="6.2.4 创建UserLogin类，提供login方法"></a>6.2.4 创建UserLogin类，提供login方法</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>dao<span class="token punctuation">.</span></span><span class="token class-name">DataAccessException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">BeanPropertyRowMapper</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">JdbcTemplate</span></span><span class="token punctuation">;</span>
@@ -1209,6 +1229,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="6-2-5-编写LoginServlet类"><a href="#6-2-5-编写LoginServlet类" class="headerlink" title="6.2.5 编写LoginServlet类"></a>6.2.5 编写LoginServlet类</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -1248,6 +1269,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="6-2-6-编写FailServlet和SuccessServlet类"><a href="#6-2-6-编写FailServlet和SuccessServlet类" class="headerlink" title="6.2.6 编写FailServlet和SuccessServlet类"></a>6.2.6 编写FailServlet和SuccessServlet类</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">ServletException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">WebServlet</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">HttpServlet</span></span><span class="token punctuation">;</span>
@@ -1276,6 +1298,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -1297,6 +1320,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>【备注】login.html中form表单的action路径的写法：<strong>虚拟目录+Servlet的资源路径</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
 <span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
@@ -1312,6 +1336,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
     <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="6-2-7-演示"><a href="#6-2-7-演示" class="headerlink" title="6.2.7 演示"></a>6.2.7 演示</h3><p>输入正确：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220810005553417.png" alt="image-20220810005553417"></p>
 <p>输入错误：</p>
@@ -1330,7 +1355,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 </li>
 <li><p>属性：<code>setter</code>和<code>getter</code>方法截取后的产物</p>
 <ul>
-<li>例如：<code>getUsername()</code> —&gt; <code>Username</code> —&gt; <code>username</code></li>
+<li>例如：<code>getUsername()</code> –&gt; <code>Username</code> –&gt; <code>username</code></li>
 </ul>
 </li>
 </ul>
@@ -1342,7 +1367,8 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 </li>
 <li><p>getProperty()</p>
 </li>
-<li>populate(Object obj , Map map)：将<code>map</code>集合的<strong>键值对信息</strong>，封装到对应的<code>JavaBean</code>对象中<ul>
+<li><p>populate(Object obj , Map map)：将<code>map</code>集合的<strong>键值对信息</strong>，封装到对应的<code>JavaBean</code>对象中</p>
+<ul>
 <li>把键作为属性的名称，把值作为<code>JavaBean</code>对应属性的值</li>
 </ul>
 </li>
@@ -1358,6 +1384,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InvocationTargetException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="七、HTTP响应消息"><a href="#七、HTTP响应消息" class="headerlink" title="七、HTTP响应消息"></a>七、HTTP响应消息</h1><h2 id="7-1-概述"><a href="#7-1-概述" class="headerlink" title="7.1 概述"></a>7.1 概述</h2><p>[1]<strong>请求消息</strong>：客户端发送给服务器端的数据</p>
 <p>数据格式：</p>
 <ol>
@@ -1367,7 +1394,7 @@ username&#x3D;zhangsan	[请求体]<span aria-hidden="true" class="line-numbers-r
 <li>请求体</li>
 </ol>
 <p>[2]<strong>响应消息</strong>：服务器端发送给客户端的数据</p>
-<h2 id="7-2-响应消息数据格式"><a href="#7-2-响应消息数据格式" class="headerlink" title="7.2 响应消息数据格式"></a>7.2 响应消息数据格式</h2><h3 id="7-2-1-响应行"><a href="#7-2-1-响应行" class="headerlink" title="7.2.1 响应行"></a>7.2.1 响应行</h3><p>格式：<strong>协议/版本 响应状态码 状态码描述</strong></p>
+<h2 id="7-2-响应消息数据格式"><a href="#7-2-响应消息数据格式" class="headerlink" title="7.2 响应消息数据格式"></a>7.2 响应消息数据格式</h2><h3 id="7-2-1-响应行"><a href="#7-2-1-响应行" class="headerlink" title="7.2.1 响应行"></a>7.2.1 响应行</h3><p>格式：<strong>协议&#x2F;版本 响应状态码 状态码描述</strong></p>
 <p><strong>响应状态码</strong>：服务器告诉客户端浏览器本次请求和响应的一个状态。</p>
 <p>下面介绍响应状态码。</p>
 <p>状态码都是<code>3</code>位数字，其分类有：</p>
@@ -1422,13 +1449,14 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
 		hello , response
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="7-3-Response对象"><a href="#7-3-Response对象" class="headerlink" title="7.3 Response对象"></a>7.3 Response对象</h2><p>功能：<strong>设置响应消息</strong></p>
-<p>​    1. 设置响应行</p>
+<p>​	1. 设置响应行</p>
 <ul>
 <li>格式：<code>HTTP/1.1 200 ok</code></li>
-<li>设置状态码：<code>setStatus(int sc)</code> </li>
+<li>设置状态码：<code>setStatus(int sc)</code></li>
 </ul>
-<ol>
+<ol start="2">
 <li><p>设置响应头：<code>setHeader(String name, String value)</code> </p>
 </li>
 <li><p>设置响应体：使用步骤是：</p>
@@ -1454,7 +1482,8 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
 </li>
 <li><p>不以<code>/</code>开头，以<code>.</code>开头路径</p>
 </li>
-<li>规则：找到当前资源和目标资源之间的相对位置关系<ul>
+<li><p>规则：找到当前资源和目标资源之间的相对位置关系</p>
+<ul>
 <li><code>./</code>：当前目录</li>
 <li><code>../</code>：后退一级目录</li>
 </ul>
@@ -1465,7 +1494,8 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
 </li>
 </ol>
 <ul>
-<li>如：<code>http://localhost/day15/responseDemo2</code>        <code>/day15/responseDemo2</code></li>
+<li><p>如：<code>http://localhost/day15/responseDemo2</code>		<code>/day15/responseDemo2</code></p>
+</li>
 <li><p>以<code>/</code>开头的路径</p>
 </li>
 <li><p>规则：判断定义的路径是给谁用的？<strong>判断请求将来从哪儿发出</strong></p>
@@ -1507,6 +1537,7 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>redirect</code> 和 <code>forward</code> 的区别：</p>
 <ul>
 <li><p>重定向的特点：<code>redirect</code></p>
@@ -1531,12 +1562,13 @@ Date: Wed, 06 Jun 2018 07:08:42 GMT
 </ol>
 <p>注：乱码问题：</p>
 <ol>
-<li><code>PrintWriter pw = response.getWriter();</code>     获取的流的默认编码是<code>ISO-8859-1</code></li>
+<li><code>PrintWriter pw = response.getWriter();</code>	 获取的流的默认编码是<code>ISO-8859-1</code></li>
 <li>设置该流的默认编码</li>
 <li>告诉浏览器响应体使用的编码</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//简单的形式，设置编码，是在获取流之前设置</span>
 response<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">"text/html;charset=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -1558,6 +1590,7 @@ response<span class="token punctuation">.</span><span class="token function">set
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220811213819185.png" alt="image-20220811213819185"></p>
 <h3 id="7-5-3-输出字节数据"><a href="#7-5-3-输出字节数据" class="headerlink" title="7.5.3 输出字节数据"></a>7.5.3 输出字节数据</h3><p>服务器输出字节数据到浏览器</p>
 <p>步骤：</p>
@@ -1570,6 +1603,7 @@ response<span class="token punctuation">.</span><span class="token function">set
 <span class="token class-name">ServletOutputStream</span> sos <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//2.输出数据</span>
 sos<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="7-5-4-验证码"><a href="#7-5-4-验证码" class="headerlink" title="7.5.4 验证码"></a>7.5.4 验证码</h3><ol>
 <li>本质：<strong>图片</strong></li>
 <li>目的：防止恶意表单注册</li>
@@ -1647,6 +1681,7 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doPost</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>验证码切换</strong>：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">></span>
 <span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
@@ -1680,18 +1715,19 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
 <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="八、ServletContext对象"><a href="#八、ServletContext对象" class="headerlink" title="八、ServletContext对象"></a>八、ServletContext对象</h1><h2 id="8-1-概念"><a href="#8-1-概念" class="headerlink" title="8.1 概念"></a>8.1 概念</h2><p>代表<strong>整个<code>web</code>应用</strong>，可以和<strong>程序的容器(服务器)</strong>来通信</p>
+
+<h1 id="八、ServletContext对象"><a href="#八、ServletContext对象" class="headerlink" title="八、ServletContext对象"></a>八、ServletContext对象</h1><h2 id="8-1-概念"><a href="#8-1-概念" class="headerlink" title="8.1 概念"></a>8.1 概念</h2><p>代表<strong>整个<code>web</code>应用</strong>，可以和**程序的容器(服务器)**来通信</p>
 <h2 id="8-2-获取"><a href="#8-2-获取" class="headerlink" title="8.2 获取"></a>8.2 获取</h2><ol>
-<li><p>通过<code>request</code>对象获取      <code>request.getServletContext();</code></p>
+<li><p>通过<code>request</code>对象获取  	<code>request.getServletContext();</code></p>
 </li>
-<li><p>通过<code>HttpServlet</code>获取     <code>this.getServletContext();</code></p>
+<li><p>通过<code>HttpServlet</code>获取	 <code>this.getServletContext();</code></p>
 </li>
 </ol>
 <h2 id="8-3-功能"><a href="#8-3-功能" class="headerlink" title="8.3 功能"></a>8.3 功能</h2><p>[1] <strong>获取<code>MIME</code>类型</strong>：</p>
 <ul>
 <li><code>MIME</code>类型：在互联网通信过程中定义的一种文件数据类型<ul>
-<li>格式： 大类型/小类型   <code>text/html</code>,<code>image/jpeg</code></li>
-<li>获取：<code>String getMimeType(String file)</code>  </li>
+<li>格式： 大类型&#x2F;小类型   <code>text/html</code>,<code>image/jpeg</code></li>
+<li>获取：<code>String getMimeType(String file)</code></li>
 </ul>
 </li>
 </ul>
@@ -1715,6 +1751,7 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
 
 <span class="token class-name">String</span> a <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">getRealPath</span><span class="token punctuation">(</span><span class="token string">"/WEB-INF/classes/a.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">//src目录下的资源访问</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="8-4-案例：文件下载"><a href="#8-4-案例：文件下载" class="headerlink" title="8.4 案例：文件下载"></a>8.4 案例：文件下载</h2><p>文件下载需求：</p>
 <ol>
 <li>页面显示超链接</li>
@@ -1724,7 +1761,8 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
 <p>分析：</p>
 <pre><code>1. 超链接指向的资源如果能够被浏览器解析，则在浏览器中展示，如果不能解析，则弹出下载提示框。不满足需求
 1. 任何资源都必须弹出下载提示框
-</code></pre><ol>
+</code></pre>
+<ol start="3">
 <li>使用响应头设置资源的打开方式：<code>content-disposition:attachment;filename=xxx</code></li>
 </ol>
 <p>步骤：</p>
@@ -1732,12 +1770,14 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
 <li><p>定义页面，编辑超链接<code>href</code>属性，指向<code>Servlet</code>，传递资源名称<code>filename</code></p>
 </li>
 <li><p>定义<code>Servlet</code></p>
+</li>
+</ol>
 <ul>
 <li>获取文件名称</li>
 <li>使用字节输入流加载文件进内存</li>
 <li>指定<code>response</code>的响应头： <code>content-disposition:attachment;filename=xxx</code></li>
 </ul>
-</li>
+<ol start="3">
 <li>将数据写出到<code>response</code>输出流</li>
 </ol>
 <p><code>download.html</code></p>
@@ -1755,6 +1795,7 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/downloadServlet?filename=1.avi<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>视频<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>DownloadServlet.java</code></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -1796,6 +1837,7 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
 
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>问题：中文文件问题的解决思路：</p>
 <ol>
 <li><p>获取客户端使用的浏览器版本信息</p>
@@ -1807,6 +1849,7 @@ sos<span class="token punctuation">.</span><span class="token function">write</s
 <span class="token class-name">String</span> agent <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getHeader</span><span class="token punctuation">(</span><span class="token string">"user-agent"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//2.使用工具类方法编码文件名即可</span>
 filename <span class="token operator">=</span> <span class="token class-name">DownLoadUtils</span><span class="token punctuation">.</span><span class="token function">getFileName</span><span class="token punctuation">(</span>agent<span class="token punctuation">,</span> filename<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="九、会话技术概述"><a href="#九、会话技术概述" class="headerlink" title="九、会话技术概述"></a>九、会话技术概述</h1><ol>
 <li>会话：<strong>一次会话中包含多次请求和响应</strong>。<ul>
 <li>一次会话：浏览器第一次给服务器资源发送请求，会话建立，直到有一方断开为止</li>
@@ -1821,22 +1864,23 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
 </ol>
 <h1 id="十、Cookie"><a href="#十、Cookie" class="headerlink" title="十、Cookie"></a>十、Cookie</h1><h2 id="10-1-Cookie定义"><a href="#10-1-Cookie定义" class="headerlink" title="10.1 Cookie定义"></a>10.1 Cookie定义</h2><p>客户端会话技术，<strong>将数据保存到客户端</strong>。</p>
 <h2 id="10-2-Cookie使用步骤"><a href="#10-2-Cookie使用步骤" class="headerlink" title="10.2 Cookie使用步骤"></a>10.2 Cookie使用步骤</h2><ol>
-<li><p>创建<code>Cookie</code>对象，绑定数据</p>
+<li>创建<code>Cookie</code>对象，绑定数据</li>
+</ol>
 <ul>
-<li><code>new Cookie(String name, String value)</code></li>
+<li><code>new Cookie(String name, String value) </code></li>
 </ul>
-</li>
-<li><p>发送<code>Cookie</code>对象</p>
+<ol start="2">
+<li>发送<code>Cookie</code>对象</li>
+</ol>
 <ul>
-<li><code>response.addCookie(Cookie cookie)</code></li>
+<li><code>response.addCookie(Cookie cookie) </code></li>
 </ul>
-</li>
-<li><p>获取<code>Cookie</code>，拿到数据</p>
+<ol start="3">
+<li>获取<code>Cookie</code>，拿到数据</li>
+</ol>
 <ul>
 <li><code>Cookie[] request.getCookies()</code></li>
 </ul>
-</li>
-</ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -1857,6 +1901,7 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -1885,12 +1930,14 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">doGet</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="10-3-实现原理"><a href="#10-3-实现原理" class="headerlink" title="10.3 实现原理"></a>10.3 实现原理</h2><p>基于<strong>响应头</strong><code>set-cookie</code>和<strong>请求头</strong><code>cookie</code>实现。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220812223918896.png" alt="image-20220812223918896"></p>
 <h2 id="10-4-Cookie使用细节"><a href="#10-4-Cookie使用细节" class="headerlink" title="10.4 Cookie使用细节"></a>10.4 Cookie使用细节</h2><h3 id="10-4-1-发送多个Cookie"><a href="#10-4-1-发送多个Cookie" class="headerlink" title="10.4.1 发送多个Cookie"></a>10.4.1 发送多个Cookie</h3><p>可以创建多个<code>Cookie</code>对象，使用<code>response</code>调用多次<code>addCookie</code>方法发送<code>cookie</code>即可。</p>
 <h3 id="10-4-2-Cookie存活时间"><a href="#10-4-2-Cookie存活时间" class="headerlink" title="10.4.2 Cookie存活时间"></a>10.4.2 Cookie存活时间</h3><ol>
 <li>默认情况下，当浏览器关闭后，<code>Cookie</code>数据被销毁</li>
-<li><p><strong>持久化存储</strong>：<code>setMaxAge(int seconds)</code></p>
+<li><strong>持久化存储</strong>：<code>setMaxAge(int seconds)</code></li>
+</ol>
 <ul>
 <li><p>正数：将<code>Cookie</code>数据写到硬盘的文件中。持久化存储，并指定<code>cookie</code>存活时间；时间到后，<code>cookie</code>文件自动失效</p>
 </li>
@@ -1899,8 +1946,6 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
 <li><p>零：删除<code>cookie</code>信息</p>
 </li>
 </ul>
-</li>
-</ol>
 
                                     
                             </div>
@@ -1965,15 +2010,9 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
+                                                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
                                                         <span class="chip bg-color">
-                                                            后端
-                                                        </span>
-                                                    </a>
-                                                    
-                                                    <a href="/tags/JavaWeb/">
-                                                        <span class="chip bg-color">
-                                                            JavaWeb
+                                                            Web技术
                                                         </span>
                                                     </a>
                                                     
@@ -2387,8 +2426,8 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/XML/">
-                        <span class="chip bg-color">XML</span>
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
                     </a>
                     
                 </div>
@@ -2437,12 +2476,8 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF/">
-                        <span class="chip bg-color">后端</span>
-                    </a>
-                    
-                    <a href="/tags/JavaWeb/">
-                        <span class="chip bg-color">JavaWeb</span>
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
                     </a>
                     
                 </div>
@@ -2692,7 +2727,7 @@ filename <span class="token operator">=</span> <span class="token class-name">Do
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">425.3k</span>&nbsp;字
+                class="white-color">427k</span>&nbsp;字
             
             
             
