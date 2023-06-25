@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Understanding Fileless Attacks on Linux-based IoT Devices with HoneyCloud(基于linux的物联网设备的无文件攻击), ShiQuLiZhi BLOG">
+    <meta name="keywords" content="密码学概述与现代密码算法, ShiQuLiZhi BLOG">
     <meta name="description" content="Record the study life of an ordinary college student">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Understanding Fileless Attacks on Linux-based IoT Devices with HoneyCloud(基于linux的物联网设备的无文件攻击) | ShiQuLiZhi BLOG</title>
+    <title>密码学概述与现代密码算法 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Understanding Fileless Attacks on Linux-based IoT Devices with HoneyCloud(基于linux的物联网设备的无文件攻击)</h1>
+                    <h1 class="description center-align post-title">密码学概述与现代密码算法</h1>
                 </div>
             </div>
         </div>
@@ -370,15 +370,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
                                     <span class="chip bg-color">
-                                        论文阅读
+                                        信息安全
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8/">
+                                <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
                                     <span class="chip bg-color">
-                                        物联网安全
+                                        密码学
                                     </span>
                                 </a>
                                 
@@ -390,8 +390,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
-                                    论文阅读
+                                <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    信息安全专业课程
                                 </a>
                                 
                         </div>
@@ -404,7 +404,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2023-04-15
+                            2023-04-29
                     </div>
                     
 
@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-04-22
+                                    2023-06-25
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            531
+                                            1.2k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    1
+                                                    5
                                                         分
                                             </div>
                                             
@@ -455,67 +455,125 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="论文背景"><a href="#论文背景" class="headerlink" title="论文背景"></a>论文背景</h1><p>无文件攻击是一种新型的攻击方式，它不需要下载和执行恶意软件文件来感染受害者设备，而是利用受害设备上已存在的漏洞进行攻击。这种攻击方式可以绕过传统的安全防御措施，因为它不会在受害设备上留下任何可检测的痕迹。无文件攻击通常使用脚本语言或系统工具来执行恶意代码，从而使其更难以被发现和防御。在过去几年中，无文件攻击已经成为黑客攻击中的一个主要趋势，并且对 <code>IoT</code> 设备造成了严重威胁。</p>
-<h1 id="无文件攻击的特点"><a href="#无文件攻击的特点" class="headerlink" title="无文件攻击的特点"></a>无文件攻击的特点</h1><ul>
-<li><p>利用系统内置工具和服务，修改系统级文件&#x2F;设置端口转发，etc</p>
-</li>
-<li><p>通过网络协议</p>
-</li>
-<li><p>保持高隐蔽性（文章提到唯一迹象是出站网络流量的异常模式）</p>
-</li>
-<li><p>审计 <code>shell</code> 命令检测存在问题：(1)使用只读操作系统; (2)禁用某些指令</p>
+                                <h1 id="Chapter1-密码学概述"><a href="#Chapter1-密码学概述" class="headerlink" title="Chapter1 密码学概述"></a>Chapter1 密码学概述</h1><h2 id="1-1-安全服务"><a href="#1-1-安全服务" class="headerlink" title="1.1 安全服务"></a>1.1 安全服务</h2><ul>
+<li><strong>保密性服务</strong>：加密</li>
+<li><strong>认证鉴别服务</strong>：密钥，数字签名</li>
+<li><strong>访问控制服务</strong>：密钥，权限管理</li>
+<li><strong>完整性服务</strong>：加密，数字摘要</li>
+<li><strong>抗否认性服务</strong>：数字签名</li>
+</ul>
+<h2 id="1-2-基本攻击类型"><a href="#1-2-基本攻击类型" class="headerlink" title="1.2 基本攻击类型"></a>1.2 基本攻击类型</h2><ul>
+<li><strong>唯密文攻击</strong></li>
+<li><strong>已知明文攻击</strong>：攻击者知道一些明文密文对</li>
+<li><strong>选择明文攻击</strong>：攻击者可以选择明文密文对</li>
+<li><strong>针对密钥的攻击</strong>：主要是针对公钥密码系统</li>
+</ul>
+<h2 id="1-3-密码算法分类"><a href="#1-3-密码算法分类" class="headerlink" title="1.3 密码算法分类"></a>1.3 密码算法分类</h2><p><strong>对称密码机制</strong>：（DES,AES,SM4,RC4）</p>
 <ul>
-<li>无文件攻击的可审计性和针对基于恶意软件攻击安全性的权衡</li>
+<li>密钥：加密和解密密钥相同或相互推导出</li>
+<li>特点：加密速度快,密钥管理复杂</li>
 </ul>
-</li>
-</ul>
-<h1 id="硬件物联网蜜罐"><a href="#硬件物联网蜜罐" class="headerlink" title="硬件物联网蜜罐"></a>硬件物联网蜜罐</h1><ul>
-<li>扩展程度差</li>
-<li>维护开销高</li>
-</ul>
-<h1 id="软件物联网蜜罐"><a href="#软件物联网蜜罐" class="headerlink" title="软件物联网蜜罐"></a>软件物联网蜜罐</h1><h2 id="内部结构"><a href="#内部结构" class="headerlink" title="内部结构"></a>内部结构</h2><p>由三个模块组成：</p>
+<p><strong>公钥密码机制</strong>：（RSA,ECC,SM2,DH）</p>
 <ul>
-<li>High Fidelity Maintainer(§2.3.1)<ul>
-<li>调整 <code>QEMU</code> 配置</li>
-<li>屏蔽敏感的系统信息</li>
-<li>分散蜜罐的 <code>IP</code> 地址</li>
+<li>密钥：公钥和私钥不同且很难从公钥推导出私钥</li>
+<li>特点：密钥管理简单，加密速度慢</li>
+</ul>
+<blockquote>
+<p><strong>密钥管理简单的原因</strong>：</p>
+<p>只需要将公钥分发给需要加密通信的人，而私钥则仅由接收者持有，不需要在通信中共享私钥，可以避免对密钥进行传输和管理</p>
+</blockquote>
+<h2 id="1-4-古典密码算法"><a href="#1-4-古典密码算法" class="headerlink" title="1.4 古典密码算法"></a>1.4 古典密码算法</h2><h3 id="1-4-1-代替密码"><a href="#1-4-1-代替密码" class="headerlink" title="1.4.1 代替密码"></a>1.4.1 代替密码</h3><ul>
+<li><strong>移位密码</strong></li>
+<li><strong>仿射密码</strong><ul>
+<li>加密算法：$y&#x3D;E_{a,b}(x)&#x3D;(ax+b)%26$</li>
+<li>解密算法：$x &#x3D; D_{a,b}(y)&#x3D;(a^{-1}y-a^{-1}b)%26$</li>
 </ul>
 </li>
-<li>Shell Interceptor and Inference Terminal(§2.3.2)<ul>
-<li><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230422112915627.png" alt="image-20230422112915627"></li>
-<li>报告CPU利用率、进程列表、网络数据包等</li>
-</ul>
-</li>
-<li>Access Controller(§2.3.3)<ul>
-<li>a data-driven approach，连续观察数据动态推断恶意数据包，以免软件蜜罐被攻破而被攻击者利用</li>
+<li><strong><code>Vignere</code> 密码</strong><ul>
+<li>将明文消息中的每个字母移动 $k_i$ 位， $k_i$ 为密钥，是长度为 $m$ 的序列 $k &#x3D; (k_0,k_1,…,k_{m-1})$</li>
+<li>$y_i &#x3D; (x_i+k_{i%m}%26)$，密钥空间为 $26^m$</li>
+<li>存在周期性弱点。破译方法：<strong>重合指数攻击</strong>，通过重合指数找到密钥长度，获取移位密码</li>
+<li><code>OTP </code>密码原理相似，是一种多表代替算法，密钥空间为 $26^n$</li>
 </ul>
 </li>
 </ul>
-<h2 id="攻击意图"><a href="#攻击意图" class="headerlink" title="攻击意图"></a>攻击意图</h2><ul>
-<li><p>占用终端系统</p>
+<h3 id="1-4-2-换位密码"><a href="#1-4-2-换位密码" class="headerlink" title="1.4.2 换位密码"></a>1.4.2 换位密码</h3><ul>
+<li><strong>列换位密码</strong></li>
+<li><strong>矩阵换位密码</strong><ul>
+<li><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429230434345.png" alt="image-20230429230434345" style="zoom: 67%;" /></li>
+</ul>
 </li>
-<li><p>破坏系统数据（*）</p>
-</li>
-<li><p>防止系统监视与审计服务（关闭防火墙&#x2F;杀死看门狗，etc）</p>
-</li>
-<li><p>获取系统信息</p>
-</li>
-<li><p>窃取数据</p>
-</li>
-<li><p>发起网络攻击</p>
-</li>
-<li><p>不涉及 <code>shell</code> 命令的攻击，如SSH隧道攻击</p>
+</ul>
+<h2 id="1-5-密码学相关数学知识"><a href="#1-5-密码学相关数学知识" class="headerlink" title="1.5 密码学相关数学知识"></a>1.5 密码学相关数学知识</h2><h3 id="1-5-1-Euclid算法"><a href="#1-5-1-Euclid算法" class="headerlink" title="1.5.1 Euclid算法"></a>1.5.1 Euclid算法</h3><p><code>x</code> 和 <code>y</code> 为不同时为 $0$ 的整数，则 <code>x</code> 和 <code>y</code> 的最大公因子 <code>(x,y)</code> 是以 <code>ax+by</code> 表示的最小正整数：</p>
+<p>计算 $(100,23)$ 的过程：<br>$100-4×23&#x3D;8$<br>$23-2×8&#x3D;7$<br>$8-1×7&#x3D;1$<br>$7-7×1&#x3D;0$</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429223555862.png" alt="image-20230429223555862"></p>
+<blockquote>
+<p><strong>乘法逆元</strong>：</p>
+<p>$-13×23%100&#x3D;1$</p>
+<p><strong>(*)</strong>$23^{-1}%100 &#x3D; -13 &#x3D; 87$</p>
+<p>$3×100%23&#x3D;1$</p>
+<p><strong>(*)</strong>$100^{-1}%23&#x3D;8^{-1}%23 &#x3D; 3$</p>
+</blockquote>
+<h3 id="1-5-2-欧拉函数"><a href="#1-5-2-欧拉函数" class="headerlink" title="1.5.2 欧拉函数"></a>1.5.2 欧拉函数</h3><p>对于正整数 $n$，与其互素的小于等于 $n$ 的正整数的个数表示为 $\varphi(n)$，有以下定理：</p>
 <ul>
-<li><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230422114041835.png" alt="image-20230422114041835" style="zoom: 67%;" /></li>
+<li>若正整数 $m,n$ 满足 $(m,n)&#x3D;1$，则有 $\varphi(mn) &#x3D; \varphi(m)\varphi(n)$；特别地，当p为素数时,$\varphi(p)&#x3D;p-1$</li>
+<li>正整数 $n&#x3D;p_{1}^{e_{1}} p_{2}^{e_{2}} \ldots p_{m}^{e_{m}}$ 的欧拉函数 $\varphi(n)$ 值为 $\varphi(n)&#x3D;\left(p_{1}-1\right) p_{1}^{e_{1}-1}\left(p_{2}-1\right) p_{2}^{e_{2}-1} \ldots\left(p_{m}-1\right) p_{m}^{e_{m}-1}$</li>
+<li>欧拉定理：对 $n&gt;1$，如果 $(x,n)&#x3D;1$，则有 $x^{\varphi(n)}\equiv 1 (mod;n)$</li>
 </ul>
-</li>
+<p><strong>应用</strong>：由于$2^{\varphi(89)}&#x3D;1,2^{1000};mod;89&#x3D;(2^{88})^{11}*2^{32};mod;89&#x3D;2^{32};mod;89$，可以采用<strong>快速指数算法</strong>计算答案为 $64$.</p>
+<blockquote>
+<p><strong>快速指数算法</strong></p>
+<p>计算 $x^e$，设置三元组 $(X,E,Y)$，其初始值为 $(X,E,Y)&#x3D;(x,e,1)$</p>
+<ul>
+<li>若 $E$ 是奇数，则 $Y&#x3D;X*Y,E&#x3D;E-1$</li>
+<li>若 $E$ 为偶数，则 $X&#x3D;X*X,E&#x3D;E&#x2F;2$</li>
+<li>当 $E&#x3D;0$ 时，$Y$ 的值即为 $x^e$</li>
 </ul>
-<h1 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h1><ul>
-<li>仍不支持新街口</li>
-<li>虚拟机身份暴露</li>
-<li>高级攻击无法分析，如APT、SSH隧道传输流量解密</li>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429232000262.png" alt="image-20230429232000262" style="zoom: 67%;" />
+</blockquote>
+<h1 id="Chapter2-现代密码算法"><a href="#Chapter2-现代密码算法" class="headerlink" title="Chapter2 现代密码算法"></a>Chapter2 现代密码算法</h1><h2 id="2-1-对称密码算法"><a href="#2-1-对称密码算法" class="headerlink" title="2.1 对称密码算法"></a>2.1 对称密码算法</h2><h3 id="2-1-1-DES算法"><a href="#2-1-1-DES算法" class="headerlink" title="2.1.1 DES算法"></a>2.1.1 DES算法</h3><p><code>DES</code> 算法是一种<strong>对称密码算法</strong>，分组加密，包括三个步骤：</p>
+<ul>
+<li>初始置换 $IP$</li>
+<li>$16$ 轮迭代的乘积变换</li>
+<li>逆初始变换 $IP^{-1}$</li>
 </ul>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429234131698.png" alt="image-20230429234131698" style="zoom:67%;" />
 
+<h3 id="2-1-2-IDEA算法"><a href="#2-1-2-IDEA算法" class="headerlink" title="2.1.2 IDEA算法"></a>2.1.2 IDEA算法</h3><p>分组长度为 $64$ 位，分 $4$ 子组进行操作，密钥长度为 $128$ 位，使用异或、模 $216$ 加、模 $216+1$ 乘三个混合运算，在 $16$ 位子分组上进行。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230429234604543.png" alt="image-20230429234604543" style="zoom:80%;" />
+
+<h3 id="2-1-3-AES算法"><a href="#2-1-3-AES算法" class="headerlink" title="2.1.3 AES算法"></a>2.1.3 AES算法</h3><p>128比特的明文分组被分成4×4的字节矩阵</p>
+<ul>
+<li><p><strong>字节替换SubBytes</strong>：非线性置换,独立作用于状态中的每一个字节</p>
+</li>
+<li><p><strong>行移位运算ShiftRows</strong>：字节的循环移位运算,第1行至第4行字节分别向左移动0~3列</p>
+</li>
+<li><p><strong>列混合运算MixColumns</strong>：由一个线性变换对状态的每一列进行变换</p>
+<pre class="line-numbers language-none"><code class="language-none">02 03 01 01
+01 02 03 01
+01 01 02 03
+03 01 01 02<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>轮密钥加AddRoundKey</strong>：与相应的密钥进行异或.</p>
+</li>
+</ul>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230430000206090.png" alt="image-20230430000206090"></p>
+<h2 id="2-2-序列密码算法"><a href="#2-2-序列密码算法" class="headerlink" title="2.2 序列密码算法"></a>2.2 序列密码算法</h2><ul>
+<li><strong>RC4</strong>：基于字节流</li>
+<li><strong>LFSR</strong>：基于位流</li>
+</ul>
+<p>序列密码算法的密钥流不能重复使用，防止重合指数攻击、插入攻击。</p>
+<h2 id="2-3-数字摘要算法"><a href="#2-3-数字摘要算法" class="headerlink" title="2.3 数字摘要算法"></a>2.3 数字摘要算法</h2><ul>
+<li><p><strong>MD5</strong></p>
+</li>
+<li><p><strong>SHA</strong></p>
+</li>
+</ul>
+<p>附加填充比特 $\rightarrow$ 附加长度 $\rightarrow$ 初始化缓冲区 $\rightarrow$ $64(4<em>16)$ 次(MD5)&#x2F; $80(4</em>20)$ 次(SHA)迭代 $\rightarrow$ 输出</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230430001522814.png" alt="image-20230430001522814"></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230430001706090.png" alt="image-20230430001706090" style="zoom: 67%;" />
+
+<h2 id="2-4-公钥密码算法"><a href="#2-4-公钥密码算法" class="headerlink" title="2.4 公钥密码算法"></a>2.4 公钥密码算法</h2>
                                     
                             </div>
                             <hr />
@@ -541,7 +599,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sxhthreo.github.io/2023/04/15/reading/reading01/">https://sxhthreo.github.io/2023/04/15/reading/reading01/</a>
+                    <a href="https://sxhthreo.github.io/2023/04/29/security/mi-ma-xue-gai-shu-yu-xian-dai-mi-ma-suan-fa/">https://sxhthreo.github.io/2023/04/29/security/mi-ma-xue-gai-shu-yu-xian-dai-mi-ma-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -579,15 +637,15 @@
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
                                                         <span class="chip bg-color">
-                                                            论文阅读
+                                                            信息安全
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8/">
+                                                    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
                                                         <span class="chip bg-color">
-                                                            物联网安全
+                                                            密码学
                                                         </span>
                                                     </a>
                                                     
@@ -967,6 +1025,59 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2023/04/29/security/wang-an-01-mi-yao-fen-pei-yu-yong-hu-ren-zheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="密钥分配与用户认证">
+                        
+                        <span class="card-title">密钥分配与用户认证</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    信息安全专业课程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">网络安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2023/04/24/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/">
                     <div class="card-image">
                         
@@ -983,9 +1094,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1003,63 +1114,6 @@
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/01/23/ds-algorithm/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="算法分析与设计2：贪心、动规、分支限界、NP完备性理论">
-                        
-                        <span class="card-title">算法分析与设计2：贪心、动规、分支限界、NP完备性理论</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    数据结构与算法课程
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
                     </a>
                     
                     <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
@@ -1313,7 +1367,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">437.9k</span>&nbsp;字
+                class="white-color">432.5k</span>&nbsp;字
             
             
             
