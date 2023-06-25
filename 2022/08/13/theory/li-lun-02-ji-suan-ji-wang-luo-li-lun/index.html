@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-08-14
+                                    2023-05-28
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            37.2k
+                                            37.4k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    130
+                                                    131
                                                         分
                                             </div>
                                             
@@ -917,7 +917,15 @@
 
 <img src="https://s2.loli.net/2022/03/29/BlAxXfQo2cZ4rPC.png" alt="image-20210128160044735" style="zoom:50%;" />
 
-<h1 id="第3章-数据链路层"><a href="#第3章-数据链路层" class="headerlink" title="第3章 数据链路层"></a>第3章 数据链路层</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p><strong>物理层发出去的信号需要通过数据链路层才知道是否到达目的地；才知道比特流的分界线</strong></p>
+<h1 id="第3章-数据链路层"><a href="#第3章-数据链路层" class="headerlink" title="第3章 数据链路层"></a>第3章 数据链路层</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><ul>
+<li><p><strong>LLC子层</strong>：负责实现逻辑链路的建立、维护和释放，提供流量控制、错误检测和纠正、数据帧的序列化和反序列化等功能</p>
+</li>
+<li><p><strong>MAC子层</strong>：实现介质访问控制机制，用于协调多个节点对共享介质（如以太网）的访问</p>
+</li>
+</ul>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230527214121443.png" alt="image-20230527214121443" style="zoom: 50%;" />
+
+<p><strong>物理层发出去的信号需要通过数据链路层才知道是否到达目的地；才知道比特流的分界线</strong></p>
 <ul>
 <li>**链路(Link)**：从一个结点到相邻结点的一段物理线路，中间没有任何其他交换结点</li>
 <li>**数据链路(Data Link)**：把实现通信协议的硬件和软件加到链路上，就构成了数据链路</li>
@@ -1336,7 +1344,7 @@
 <h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><blockquote>
 <p><code>IP</code>地址是<code>TCP/IP</code>体系结构的网际层所使用的的地址</p>
 </blockquote>
-<p><code>IP</code>地址是<code>Internet</code>上的主机和路由器所使用的的地址，由两部分信息构成</p>
+<p><code>IP</code>地址是<code>Internet</code>上的主机和路由器所使用的地址，由两部分信息构成</p>
 <ul>
 <li><strong>网络编号</strong>：标识因特网上数以百万计的网络</li>
 <li><strong>主机编号</strong>：标识同一网络上不同主机(或路由器各接口)</li>
@@ -1402,8 +1410,7 @@
 </ul>
 </li>
 <li><p><strong>交换机每个接口是一个独立的碰撞域</strong></p>
-</li>
-<li><img src="https://s2.loli.net/2022/03/29/HgJRSvaw2NYQKdh.png" alt="image-20210325105312206" style="zoom:50%;" />
+<img src="https://s2.loli.net/2022/03/29/HgJRSvaw2NYQKdh.png" alt="image-20210325105312206" style="zoom:50%;" />
 
 <ul>
 <li><p>此时<strong>交换机未进行任何操作</strong>，<code>pc1 ping pc4</code>是可以通的，<strong>说明整个交换机连接的范围是一个广播域</strong>。且<code>ping</code>通后，<code>LSW3</code>交换机的<code>MAC表</code>将<code>PC1</code>的<code>MAC</code>地址与接口的对应关系以及<code>PC4</code>的<code>MAC</code>地址与接口的对应关系都记录到<code>MAC</code>地址表中&#x3D;&#x3D;【<code>ping</code>的消息发送出去时记录下PC1地址接口相关情况，<code>ping</code>成功的消息响应返回给PC1时记录下PC4地址接口的情况】&#x3D;&#x3D;</p>
@@ -2319,6 +2326,10 @@ port <span class="token keyword">default</span> vlan <span class="token number">
 <p>解决通过应用进程的交互来实现特定网络应用的问题</p>
 <p>应用层是计算机网络体系结构的<strong>最顶层</strong>，是<strong>设计和建立计算机网络的最终目的</strong></p>
 </blockquote>
+<ol>
+<li><strong>TCP端口：</strong>即传输控制协议端口，需要在客户端和服务器之间建立连接，这样可以提供可靠的数据传输。常见的包括FTP的21端口，Telnet的23端口，SMTP的25端口，HTTP的80端口；</li>
+<li><strong>UDP端口：</strong>即用户数据报协议端口，无需在客户端和服务器端建立连接，安全性得不到保障。常见的DNS的53端口，SNMP（简单网络管理协议）的161端口</li>
+</ol>
 <h2 id="客户-x2F-服务器方式-C-x2F-S"><a href="#客户-x2F-服务器方式-C-x2F-S" class="headerlink" title="客户&#x2F;服务器方式(C&#x2F;S)"></a>客户&#x2F;服务器方式(C&#x2F;S)</h2><ul>
 <li><strong>客户&#x2F;服务器</strong><ul>
 <li>客户和服务器是指通信中所涉及的两个应用进程</li>
@@ -2351,14 +2362,14 @@ port <span class="token keyword">default</span> vlan <span class="token number">
 </li>
 <li><p>客户机收到<code>DHCP</code>确认信息后，查看其中事务<code>ID</code>是否相符，不符则丢弃；符合则<strong>再次使用ARP确认IP地址没有被使用，确认成功后将此IP地址应用(有一定租约)。</strong></p>
 </li>
-<li><p><strong>当IP地址租约达到0.5倍时间时</strong>，客户机会再次向<code>DHCP</code>服务器发送请求信息，此时<code>DHCP</code>服务器会出现以下三种情况</p>
+<li><p><strong>当<code>IP</code>地址租约达到0.5倍时间时</strong>，客户机会再次向<code>DHCP</code>服务器发送请求信息，此时<code>DHCP</code>服务器会出现以下三种情况</p>
 <ol>
 <li>收到请求后，返回一个<strong>确认报文</strong>，其中有新的<code>IP</code>地址租期</li>
-<li>收到请求后，返回<strong>否认报文</strong>，则客户机收到后立刻停止使用IP地址并重新发送”<code>DHCP</code>发现”报文</li>
+<li>收到请求后，返回<strong>否认报文</strong>，则客户机收到后立刻停止使用<code>IP</code>地址并重新发送”<code>DHCP</code>发现”报文</li>
 <li>不响应。则在租期达到<strong>0.875倍</strong>时，<code>DHCP</code>客户必须重新发送”<strong>DHCP请求</strong>“报文，继续等待<code>DHCP</code>服务器可能做出的反应。若依然无反应，则租用期到后，客户机必须立刻停止使用当前<code>IP</code>地址</li>
 </ol>
 </li>
-<li><p><strong>客户端可随时终止DHCP服务器提供的租用期</strong>，这时只需要向<code>DHCP</code>服务器发送<code>DHCP</code>释放报文即可。源地址<code>0.0.0.0</code>，目的地址<code>255.255.255.255</code></p>
+<li><p><strong>客户端可随时终止<code>DHCP</code>服务器提供的租用期</strong>，这时只需要向<code>DHCP</code>服务器发送<code>DHCP</code>释放报文即可。源地址<code>0.0.0.0</code>，目的地址<code>255.255.255.255</code></p>
 </li>
 </ul>
 <h2 id="域名系统DNS"><a href="#域名系统DNS" class="headerlink" title="域名系统DNS"></a>域名系统DNS</h2><blockquote>
@@ -3314,7 +3325,7 @@ port <span class="token keyword">default</span> vlan <span class="token number">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">426.7k</span>&nbsp;字
+                class="white-color">437.9k</span>&nbsp;字
             
             
             

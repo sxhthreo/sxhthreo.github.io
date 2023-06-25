@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-04-27
+                                    2023-05-14
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            2.3k
+                                            2.5k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    12
+                                                    13
                                                         分
                                             </div>
                                             
@@ -463,7 +463,8 @@
 <li><p>遍历前缀和数组，边扫描边记录哪些地方可以切第一刀，哪些地方可以切第二刀。如果位置j可以切第二刀，那么它与前面第一刀进行组合</p>
 </li>
 </ul>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230401004426476.png" alt="image-20230401004426476" style="zoom:67%;" /></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230401004426476.png" alt="image-20230401004426476" style="zoom:67%;" />
+
 <p>根据第二刀的位置划分出 $n$ 种情况。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -503,7 +504,9 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-差分-改变数组元素"><a href="#2-差分-改变数组元素" class="headerlink" title="2.[差分]改变数组元素"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3732/">2.[差分]改变数组元素</a></h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230401222342795.png" alt="image-20230401222342795" style="zoom:67%;" /></p>
+
+<h2 id="2-差分-改变数组元素"><a href="#2-差分-改变数组元素" class="headerlink" title="2.[差分]改变数组元素"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/3732/">2.[差分]改变数组元素</a></h2><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230401222342795.png" alt="image-20230401222342795" style="zoom:67%;" />
+
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230401222308017.png" alt="image-20230401222308017"></p>
 <p><code>a</code> 数组表示 <code>v</code> 数组各个元素的操作次数。当 <code>a</code> 数组元素操作次数 $\geq 1$ 时， <code>v</code> 数组元素的值为 $1$。</p>
 <p>可以运用<strong>差分算法</strong>进行操作。</p>
@@ -541,9 +544,11 @@
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-二分-哈希-我在哪？"><a href="#3-二分-哈希-我在哪？" class="headerlink" title="3.[二分+哈希]我在哪？"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1462/">3.[二分+哈希]我在哪？</a></h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402111351029.png" alt="image-20230402111351029" style="zoom:50%;" /></p>
+
+<h2 id="3-二分-哈希-我在哪？"><a href="#3-二分-哈希-我在哪？" class="headerlink" title="3.[二分+哈希]我在哪？"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1462/">3.[二分+哈希]我在哪？</a></h2><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402111351029.png" alt="image-20230402111351029" style="zoom:50%;" />
+
 <p>找到最小的 $K$，使得任意两个长度为 $K$ 的子串都不相同。</p>
-<p>能否二分—-&gt;<strong>是否具有二段性</strong></p>
+<p>能否二分—&gt;<strong>是否具有二段性</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402112849311.png" alt="image-20230402112849311"></p>
 <p><strong>二分 + STL Set(哈希表)</strong>  $O(n^2logn)$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -586,6 +591,7 @@ unordered_set<span class="token operator">&lt;</span>string<span class="token op
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="4-二分-垦田计划"><a href="#4-二分-垦田计划" class="headerlink" title="4.[二分]垦田计划"></a><a target="_blank" rel="noopener" href="http://118.190.20.162/view.page?gpid=T164">4.[二分]垦田计划</a></h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402124023627.png" alt="image-20230402124023627"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
  
@@ -619,7 +625,6 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
     <span class="token function">sort</span><span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> a <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">+</span> n<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>x<span class="token punctuation">,</span> <span class="token keyword">const</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">&amp;</span>y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> x<span class="token punctuation">.</span>first <span class="token operator">></span> y<span class="token punctuation">.</span>first<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
  
     <span class="token keyword">int</span> l <span class="token operator">=</span> k<span class="token punctuation">,</span> r <span class="token operator">=</span> mx<span class="token punctuation">;</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -631,18 +636,19 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
     cout <span class="token operator">&lt;&lt;</span> l <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
     
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-二分-哈希-四平方和"><a href="#5-二分-哈希-四平方和" class="headerlink" title="5.[二分/哈希]四平方和"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1223/">5.[二分/哈希]四平方和</a></h2><p>四平方和定理，又称为拉格朗日定理：</p>
-<p>每个正整数都可以表示为至多 44 个正整数的平方和。</p>
-<p>如果把 00 包括进去，就正好可以表示为 44 个数的平方和。</p>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-二分-x2F-哈希-四平方和"><a href="#5-二分-x2F-哈希-四平方和" class="headerlink" title="5.[二分&#x2F;哈希]四平方和"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1223/">5.[二分&#x2F;哈希]四平方和</a></h2><p>四平方和定理，又称为拉格朗日定理：</p>
+<p>每个正整数都可以表示为至多 $4$ 个正整数的平方和。</p>
+<p>如果把 $0$ 包括进去，就正好可以表示为 $4$ 个数的平方和。</p>
 <p>比如：</p>
-<p>$5=0^2 +0^2+1^2+2^2$<br>$7=1^2+1^2+1^2+2^2$</p>
+<p>$5&#x3D;0^2 +0^2+1^2+2^2$<br>$7&#x3D;1^2+1^2+1^2+2^2$</p>
 <p>对于一个给定的正整数，可能存在多种平方和的表示法。</p>
-<p>要求你对 4 个数排序：</p>
+<p>要求你对 $4$ 个数排序：</p>
 <p>$0≤a≤b≤c≤d$</p>
 <p>并对所有的可能表示法按 $a,b,c,d$ 为联合主键升序排列，最后输出第一个表示法。</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402174601790.png" alt="image-20230402174601790"></p>
-<p>如果找到字典序最小的解—-&gt;存到结构体中并排序，找到 $t=n-a^2-b^2$字典序最小的组合</p>
+<p>如果找到字典序最小的解—&gt;存到结构体中并排序，找到 $t&#x3D;n-a^2-b^2$字典序最小的组合</p>
 <p>“<strong>查询</strong>$c^2+d^2$的值的结果是否存在”</p>
 <p><strong>二分</strong> $O(N^2logN)$</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -697,6 +703,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>哈希表</strong> $O(N^2)$（仅理论，哈希表 <code>STL</code> 常数大，时间复杂度高）</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -739,9 +746,12 @@ unordered_map<span class="token operator">&lt;</span><span class="token keyword"
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="6-二分-分巧克力"><a href="#6-二分-分巧克力" class="headerlink" title="6.[二分]分巧克力"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1229/">6.[二分]分巧克力</a></h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402213123319.png" alt="image-20230402213123319" style="zoom:67%;" /></p>
-<p>需满足不等式关系：$\sum_{i=0}^{n-1}\left\lfloor\frac{h_{1}}{\text { mid }}\right\rfloor \cdot\left\lfloor\frac{w_{j}}{\text { mid }}\right\rfloor&lt;k$</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402213110230.png" alt="image-20230402213110230" style="zoom:50%;" /></p>
+
+<h2 id="6-二分-分巧克力"><a href="#6-二分-分巧克力" class="headerlink" title="6.[二分]分巧克力"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1229/">6.[二分]分巧克力</a></h2><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402213123319.png" alt="image-20230402213123319" style="zoom:67%;" />
+
+<p>需满足不等式关系：$\sum_{i&#x3D;0}^{n-1}\left\lfloor\frac{h_{1}}{\text { mid }}\right\rfloor \cdot\left\lfloor\frac{w_{j}}{\text { mid }}\right\rfloor&lt;k$</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230402213110230.png" alt="image-20230402213110230" style="zoom:50%;" />
+
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -783,7 +793,8 @@ unordered_map<span class="token operator">&lt;</span><span class="token keyword"
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="7-DP-接龙数列"><a href="#7-DP-接龙数列" class="headerlink" title="7.[DP]接龙数列"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/4961/">7.[DP]接龙数列</a></h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230422165521224.png" alt=""></p>
+
+<h2 id="7-DP-接龙数列"><a href="#7-DP-接龙数列" class="headerlink" title="7.[DP]接龙数列"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/4961/">7.[DP]接龙数列</a></h2><p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230422165521224.png"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
@@ -813,6 +824,7 @@ unordered_map<span class="token operator">&lt;</span><span class="token keyword"
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> n <span class="token operator">-</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="8-滑动窗口-子矩阵"><a href="#8-滑动窗口-子矩阵" class="headerlink" title="8.[滑动窗口]子矩阵"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/4967/">8.[滑动窗口]子矩阵</a></h2><p>考察<strong>单调队列</strong>：</p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230425191554955.png" alt="image-20230425191554955"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -884,6 +896,7 @@ unordered_map<span class="token operator">&lt;</span><span class="token keyword"
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="9-高精度-10进制-VS-2进制"><a href="#9-高精度-10进制-VS-2进制" class="headerlink" title="9.[高精度]10进制 VS 2进制"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/3398/">9.[高精度]10进制 VS 2进制</a></h2><p><strong>秦九韶算法</strong></p>
 <p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230426164654632.png" alt="image-20230426164654632"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
@@ -968,6 +981,56 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="10-日期问题-日期差值"><a href="#10-日期问题-日期差值" class="headerlink" title="10.[日期问题]日期差值"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/3501/">10.[日期问题]日期差值</a></h2><p>计算天的差值，只需分别计算其到公元1年1月1日的差即可。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> months<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">is_leap</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">&amp;&amp;</span> year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> year <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">get_month_days</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">,</span> <span class="token keyword">int</span> month<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> res <span class="token operator">=</span> months<span class="token punctuation">[</span>month<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>month <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> res <span class="token operator">+=</span> <span class="token function">is_leap</span><span class="token punctuation">(</span>year<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">get_total_days</span><span class="token punctuation">(</span><span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> d<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> y<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        res <span class="token operator">+=</span> <span class="token number">365</span> <span class="token operator">+</span> <span class="token function">is_leap</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        res <span class="token operator">+=</span> <span class="token function">get_month_days</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> res <span class="token operator">+</span> d<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> y1<span class="token punctuation">,</span> m1<span class="token punctuation">,</span> d1<span class="token punctuation">,</span> y2<span class="token punctuation">,</span> m2<span class="token punctuation">,</span> d2<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%04d%02d%02d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>y1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>d1<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%04d%02d%02d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>y2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">get_total_days</span><span class="token punctuation">(</span>y1<span class="token punctuation">,</span> m1<span class="token punctuation">,</span> d1<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">get_total_days</span><span class="token punctuation">(</span>y2<span class="token punctuation">,</span> m2<span class="token punctuation">,</span> d2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                                     
                             </div>
@@ -1766,7 +1829,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">426.7k</span>&nbsp;字
+                class="white-color">437.9k</span>&nbsp;字
             
             
             
