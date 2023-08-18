@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-04-24
+                                    2023-06-30
                             </div>
                             
 
@@ -595,11 +595,15 @@
 
 <p><strong>剔除（Purge）两线性表的重复元素</strong>：</p>
 <p><strong>法1</strong>：利用集合的并，先创建一个空表$A$，$LA&#x3D;\varnothing$，再用<code>Union</code>操作。</p>
-<p><strong>法2</strong>：每次<strong>比较后面的数与当前的数是否相同</strong>，通过从当前后面一个数到末尾while循环，<strong>把后面所有重复的元素剔除</strong>。</p>
+<p><strong>法2</strong>：每次<strong>比较后面的数与当前的数是否相同</strong>，通过从当前后面一个数到末尾 <code>while</code> 循环，<strong>把后面所有重复的元素剔除</strong>。</p>
 <blockquote>
 <p>注：</p>
-<p>1.若是剔除当前元素，则不仅麻烦，而且会破坏顺序；</p>
-<p>2.要注意LB的长度会因为剔除而变短，故第八行应为<code>while (j&lt;listLength(LB))</code>而不是<code>LB_len</code>。</p>
+<ol>
+<li><p>若是剔除当前元素，则不仅麻烦，而且会破坏顺序；</p>
+</li>
+<li><p>要注意 $LB$ 的长度会因为剔除而变短，故第八行应为<code>while (j&lt;listLength(LB))</code>而不是<code>LB_len</code>。</p>
+</li>
+</ol>
 </blockquote>
 <p>代码如下：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">Purge</span><span class="token punctuation">(</span>LB<span class="token punctuation">)</span>
@@ -2491,7 +2495,7 @@ i <span class="token operator">=</span> <span class="token number">1</span><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">432.5k</span>&nbsp;字
+                class="white-color">433.3k</span>&nbsp;字
             
             
             

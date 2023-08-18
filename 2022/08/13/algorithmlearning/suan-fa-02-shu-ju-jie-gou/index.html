@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-05-30
+                                    2023-07-02
                             </div>
                             
 
@@ -749,8 +749,8 @@ q<span class="token punctuation">[</span>hh<span class="token punctuation">]</sp
     <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> x<span class="token punctuation">;</span>
         <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>tt <span class="token operator">&amp;&amp;</span> stk<span class="token punctuation">[</span>tt<span class="token punctuation">]</span> <span class="token operator">>=</span> x<span class="token punctuation">)</span>	tt<span class="token operator">--</span><span class="token punctuation">;</span>	 <span class="token comment">//若当前栈顶比x大时,其不会再被用到,直接删去</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>tt<span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"-1 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">//若栈为空,则输出-1</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>tt <span class="token operator">&amp;&amp;</span> stk<span class="token punctuation">[</span>tt<span class="token punctuation">]</span> <span class="token operator">>=</span> x<span class="token punctuation">)</span>	tt<span class="token operator">--</span><span class="token punctuation">;</span>	 <span class="token comment">// 若当前栈顶比x大时,其不会再被用到,直接删去</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>tt<span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"-1 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">// 若栈为空,则输出-1</span>
         	<span class="token keyword">else</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> stk<span class="token punctuation">[</span>tt<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         stk<span class="token punctuation">[</span> <span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>					<span class="token comment">//将x置入栈顶</span>
     <span class="token punctuation">&#125;</span>
@@ -1030,7 +1030,7 @@ q<span class="token punctuation">[</span>hh<span class="token punctuation">]</sp
 <li>将两个集合合并</li>
 <li>询问两个元素是否在一个集合之中</li>
 </ul>
-<p>并查集在近乎 $O(1)$ 时间内<strong>快速支持两个操作</strong>。</p>
+<p>并查集在近乎 $O(1)$ 时间内<strong>快速支持两个操作</strong>。判断图中点的连通性可以用并查集。</p>
 <p><strong>基本原理</strong>：每个集合用一棵树来表示，树根的编号就是整个集合的编号。每个节点存储它的父节点，<code>p[x]</code>表示<code>x</code>的父节点。</p>
 <ul>
 <li>判断树根的方法：<code>if(p[x] == x)</code></li>
@@ -1661,7 +1661,7 @@ pair<span class="token operator">&lt;</span><span class="token keyword">int</spa
 <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   弹出队头元素
 q <span class="token operator">=</span> <span class="token generic-function"><span class="token function">queue</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//清空队列</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="9-4-2-priority-queue"><a href="#9-4-2-priority-queue" class="headerlink" title="9.4.2 priority_queue"></a>9.4.2 priority_queue</h3><p> <strong>优先队列</strong>，默认是<strong>大根堆</strong>。</p>
+<h3 id="9-4-2-priority-queue"><a href="#9-4-2-priority-queue" class="headerlink" title="9.4.2 priority_queue"></a>9.4.2 priority_queue</h3><p><strong>优先队列</strong>，默认是<strong>大根堆</strong>。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> heap<span class="token punctuation">;</span>
     <span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -2566,7 +2566,7 @@ cout <span class="token operator">&lt;&lt;</span> b3 <span class="token operator
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">432.5k</span>&nbsp;字
+                class="white-color">433.3k</span>&nbsp;字
             
             
             

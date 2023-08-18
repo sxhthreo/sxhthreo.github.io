@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-04-13
+                                    2023-07-22
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            18.7k
+                                            18.8k
                                     </div>
                                     
 
@@ -1482,8 +1482,8 @@ exception
 <p>$F&#x3D;{(A, B) \stackrel{f}{\rightarrow} C, \quad B \rightarrow D}$</p>
 <h3 id="5-2-3-3NF"><a href="#5-2-3-3NF" class="headerlink" title="5.2.3 3NF"></a>5.2.3 3NF</h3><p>关系模式$R&lt; U , F &gt;$中，若<strong>不存在</strong>这样的码$X$，属性组$Y$及非主属性$Z(Z\nsubseteq Y)$，使得下式成立：</p>
 <div style="font-size:20px"<div align = "center">X->Y,Y-\>X,Y->Z</div>
-则称$R\in 3NF$。即$3NF$要求：**非主属性既不部分也不传递依赖于码**。
 
+<p>则称$R\in 3NF$。即$3NF$要求：<strong>非主属性既不部分也不传递依赖于码</strong>。</p>
 <p>[例1]判断$SDM (SNO ,  DEPT , MNAME) \in 3NF$是否成立。</p>
 <p>因为$SNO \rightarrow DEPT,DEPT\rightarrow MNAME$，所以$SDM\notin 3NF$</p>
 <p>模式分解的方法是：消除非主属性对码的<strong>传递依赖</strong></p>
@@ -1518,7 +1518,8 @@ exception
 <p>全码属于BCNF。</p>
 </blockquote>
 <p>在<strong>函数依赖</strong>的范畴内，BCNF达到了最高的规范化程度。</p>
-<h2 id="5-3-多值依赖"><a href="#5-3-多值依赖" class="headerlink" title="5.3 多值依赖"></a>5.3 多值依赖</h2><h3 id="5-3-1-多值依赖的定义"><a href="#5-3-1-多值依赖的定义" class="headerlink" title="5.3.1 多值依赖的定义"></a>5.3.1 多值依赖的定义</h3><p>1.<strong>描述型</strong>：</p>
+<h2 id="5-3-多值依赖"><a href="#5-3-多值依赖" class="headerlink" title="5.3 多值依赖"></a>5.3 多值依赖</h2><h3 id="5-3-1-多值依赖的定义"><a href="#5-3-1-多值依赖的定义" class="headerlink" title="5.3.1 多值依赖的定义"></a>5.3.1 多值依赖的定义</h3><p>在一个关系表中，如果给定一个属性集合，该属性集合的值可以决定其他属性集合的所有可能取值，则称这两组属性存在多值依赖关系。</p>
+<p>1.<strong>描述型</strong>：</p>
 <p>关系模式$R(U)$，$X,Y,Z \subset U$，并且$Z &#x3D; U – X – Y$，若对$R(U)$的任一关系$r$，对给定的一对$(x,z)$值有一组$Y$的值，这组值<strong>仅仅决定于$x$值</strong>而与$z$值无关，则称$Y$多值依赖于$X$，记作：$X\rightarrow \rightarrow Y$。</p>
 <blockquote>
 <p>关系模式$TEACH(C#, T#, B#)$ ，一门课程由多个教员担任，一门课程使用相同的一套参考书。</p>
@@ -2821,7 +2822,7 @@ exception
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">432.5k</span>&nbsp;字
+                class="white-color">433.3k</span>&nbsp;字
             
             
             
