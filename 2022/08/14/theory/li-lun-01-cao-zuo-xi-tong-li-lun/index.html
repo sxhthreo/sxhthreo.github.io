@@ -406,7 +406,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-07-22
+                                    2023-09-11
                             </div>
                             
 
@@ -510,7 +510,7 @@
 <li>仅当前台无作业处理时，才运行后台作业。</li>
 </ul>
 </li>
-<li>多道分时系统：  目前采用较多的分时系统。</li>
+<li>多道分时系统：目前采用较多的分时系统。</li>
 </ul>
 <p><strong>影响响应时间的因素</strong>：</p>
 <ul>
@@ -1230,7 +1230,7 @@ Pj<span class="token operator">:</span> <span class="token keyword">while</span>
 <p>&#x3D;&#x3D;<strong>同步</strong>&#x3D;&#x3D;：若所有缓冲区皆空，消费者阻塞等待生产者生产；若所有缓冲区皆满，生产者阻塞等待消费者消费。设置一般信号量：</p>
 <p><code>empty</code> 表示现有空缓冲区数，初值为M;</p>
 <p><code>full</code> 表示现有满缓冲区数，初值为0。</p>
-<p>&#x3D;&#x3D;<strong>互斥</strong>&#x3D;&#x3D;：生产者、消费者<strong>对同一个缓冲区的操作必须互斥</strong>。设置互斥信号量mutex， 初值：</p>
+<p>&#x3D;&#x3D;<strong>互斥</strong>&#x3D;&#x3D;：生产者、消费者<strong>对同一个缓冲区的操作必须互斥</strong>。设置互斥信号量 <code>mutex</code>， 初值：</p>
 <p>生产者行为：产生数据，将数据存入到缓冲区；</p>
 <p>消费者行为：从缓冲区取出数据，消费数据；</p>
 <p><strong>定义变量</strong>：<code>buffer[n]</code>、<code>in</code> 和 <code>out</code> 指针。</p>
@@ -1737,7 +1737,7 @@ R<span class="token operator">:</span> <span class="token punctuation">&#123;</s
 <li><p><strong>安全性检测算法</strong>：</p>
 <ol>
 <li>初始时<strong>安全序列为空</strong>；</li>
-<li>从 <code>Need</code> 矩阵中找到符合下面条件的行：该行对应的进程不在安全序列中，而且该行小于等于 Available 向量，找到后，把对应的进程加入安全序列；若找不到，则执行步骤 4。</li>
+<li>从 <code>Need</code> 矩阵中找到符合下面条件的行：该行对应的进程不在安全序列中，而且该行小于等于 <code>Available</code> 向量，找到后，把对应的进程加入安全序列；若找不到，则执行步骤 4。</li>
 <li>进程 <code>P</code> 进入安全序列后，可顺利执行，直至完成，并释放分配给它的资源，故应执行 <code>Available = Available + Allocation[P]</code>，其中 <code>Allocation[P]</code> 表示进程 <code>P</code> 在 <code>Allocation</code> 矩阵中对应的行，返回步骤 2 。</li>
 <li>若此时安全序列中已有所有进程，则系统处于安全状态，否则处于不安全状态。</li>
 </ol>
@@ -2184,7 +2184,7 @@ R<span class="token operator">:</span> <span class="token punctuation">&#123;</s
 </li>
 </ul>
 <h4 id="6-5-1-2-实现地址转换的方法"><a href="#6-5-1-2-实现地址转换的方法" class="headerlink" title="6.5.1.2 实现地址转换的方法"></a>6.5.1.2 实现地址转换的方法</h4><p><strong>实现地址转换的思路</strong>：</p>
-<p>​		若要访问逻辑地址 $A$，则要先确定逻辑地址 $A$ 对应的<strong>页号</strong> $P$，然后找到 $P$ 号页面在内存中的<strong>起始地址</strong>（查页表），最后确定逻辑地址 $A$ 的<strong>页内偏移量</strong> $W$，则**逻辑地址A对应的物理地址 &#x3D; $P$ 号页面在内存中的起始地址 + 页内偏移量 $W$**。其中：</p>
+<p>​		若要访问逻辑地址 $A$，则要先确定逻辑地址 $A$ 对应的<strong>页号</strong> $P$，然后找到 $P$ 号页面在内存中的<strong>起始地址</strong>（查页表），最后确定逻辑地址 $A$ 的<strong>页内偏移量</strong> $W$，则**逻辑地址 $A$ 对应的物理地址 &#x3D; $P$ 号页面在内存中的起始地址 + 页内偏移量 $W$**。其中：</p>
 <ul>
 <li><p><strong>页号</strong> &#x3D; 逻辑地址 &#x2F; 页面长度（除法的整数部分），<strong>页内偏移量</strong> &#x3D; 逻辑地址 $%$ 页面长度（除法的余数部分），则逻辑地址可以表示为：**(页号,页内偏移量)**，或写作 $(P,d)$ 。</p>
 </li>
@@ -2310,7 +2310,7 @@ R<span class="token operator">:</span> <span class="token punctuation">&#123;</s
 <li><strong>段的共享</strong><ul>
 <li>设置<strong>共享段表</strong></li>
 <li>第一个请求使用共享段的进程申请内存分区，调入，修改共享段表内容</li>
-<li>后续进程使用共享段，在本进程段表填入共享段物理地址；在共享段表中增加表目，将共享段计数count加 $1$</li>
+<li>后续进程使用共享段，在本进程段表填入共享段物理地址；在共享段表中增加表目，将共享段计数 $count$ 加 $1$</li>
 <li>回收执行 $count-1$；$count&#x3D;0$ 时撤销该共享段</li>
 </ul>
 </li>
@@ -5293,7 +5293,7 @@ R<span class="token operator">:</span> <span class="token punctuation">&#123;</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">433.3k</span>&nbsp;字
+                class="white-color">437.4k</span>&nbsp;字
             
             
             

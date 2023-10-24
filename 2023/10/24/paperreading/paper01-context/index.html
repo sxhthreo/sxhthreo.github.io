@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="正则表达式学习记录, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="ConTExT_A Generic Approach for Mitigating Spectre, ShiQuLiZhi BLOG">
     <meta name="description" content="世界很暗，但是你来了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>正则表达式学习记录 | ShiQuLiZhi BLOG</title>
+    <title>ConTExT_A Generic Approach for Mitigating Spectre | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">正则表达式学习记录</h1>
+                    <h1 class="description center-align post-title">ConTExT_A Generic Approach for Mitigating Spectre</h1>
                 </div>
             </div>
         </div>
@@ -370,15 +370,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
                                     <span class="chip bg-color">
-                                        程序设计
+                                        信息安全
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/Python/">
+                                <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
                                     <span class="chip bg-color">
-                                        Python
+                                        论文阅读
                                     </span>
                                 </a>
                                 
@@ -390,8 +390,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" class="post-category">
-                                    Python与数据处理
+                                <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
                                 </a>
                                 
                         </div>
@@ -404,7 +404,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-08-14
+                            2023-10-24
                     </div>
                     
 
@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2022-10-26
+                                    2023-10-24
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            3.6k
+                                            4.1k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    13
+                                                    16
                                                         分
                                             </div>
                                             
@@ -455,352 +455,305 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="一、正则表达式作用"><a href="#一、正则表达式作用" class="headerlink" title="一、正则表达式作用"></a>一、正则表达式作用</h1><p>提取文本信息。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220814224704315.png" alt="image-20220814224704315"></p>
-<p><strong>正则表达式验证网站</strong>：<a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></p>
-<p><strong>Python学习网站</strong>：<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/py/extra/regex/">https://www.byhy.net/tut/py/extra/regex/</a></p>
-<h1 id="二、正则表达式基础语法"><a href="#二、正则表达式基础语法" class="headerlink" title="二、正则表达式基础语法"></a>二、正则表达式基础语法</h1><h2 id="2-1-点-匹配所有字符"><a href="#2-1-点-匹配所有字符" class="headerlink" title="2.1 点-匹配所有字符"></a>2.1 点-匹配所有字符</h2><p><code>.</code> 表示要匹配除了 <code>换行符</code> 之外的任何 <code>单个</code> 字符。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000649238.png" alt="image-20220815000649238"></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''苹果是绿色的
-橙子是橙色的
-香蕉是黄色的
-乌鸦是黑色的'''</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'.色'</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> one <span class="token keyword">in</span> p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="2-2-星号-重复匹配任意次"><a href="#2-2-星号-重复匹配任意次" class="headerlink" title="2.2 星号-重复匹配任意次"></a>2.2 星号-重复匹配任意次</h2><p><code>*</code> 表示匹配<strong>前面的子表达式</strong>任意次，包括0次。</p>
-<p>比如，你要从下面的文本中，选择每行逗号后面的字符串内容，包括逗号本身。注意，这里的逗号是中文的逗号。</p>
-<pre class="line-numbers language-none"><code class="language-none">苹果，是绿色的
-橙子，是橙色的
-香蕉，是黄色的
-乌鸦，是黑色的
-猴子，<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>就可以这样写正则表达式 <code>，.*</code> 。</p>
-<p>在这里，紧跟在<code>.</code>后面，表示任意字符可以出现任意次， 所以整个表达式的意思就是在逗号后面的所有字符，包括逗号</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000704758.png" alt="image-20220815000704758"></p>
-<h2 id="2-3-加号-重复匹配多次"><a href="#2-3-加号-重复匹配多次" class="headerlink" title="2.3 加号-重复匹配多次"></a>2.3 加号-重复匹配多次</h2><p><code>+</code> 表示匹配前面的子表达式一次或多次，不包括0次。</p>
-<p>比如，下面的文本中，最后一行逗号后面 没有内容，就不要选择了。</p>
-<pre class="line-numbers language-none"><code class="language-none">苹果，是绿色的
-橙子，是橙色的
-香蕉，是黄色的
-乌鸦，是黑色的
-猴子，<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>就可以这样写正则表达式 <code>，.+</code> 。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000719290.png" alt="image-20220815000719290"></p>
-<h2 id="2-4-问号-匹配0-1次"><a href="#2-4-问号-匹配0-1次" class="headerlink" title="2.4 问号-匹配0-1次"></a>2.4 问号-匹配0-1次</h2><p><code>?</code> 表示匹配前面的子表达式0次或1次。</p>
-<p>比如，还是上面的例子，你要从文本中，选择每行逗号后面的1个字符，也包括逗号本身。</p>
-<pre class="line-numbers language-none"><code class="language-none">苹果，绿色的
-橙子，橙色的
-香蕉，黄色的
-乌鸦，黑色的
-猴子，<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>就可以这样写正则表达式 <code>，.?</code> 。</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000734825.png" alt="image-20220815000734825"></p>
-<h2 id="2-5-花括号-匹配指定次数"><a href="#2-5-花括号-匹配指定次数" class="headerlink" title="2.5 花括号-匹配指定次数"></a>2.5 花括号-匹配指定次数</h2><p>花括号表示前面的字符匹配<code>指定的次数</code> 。</p>
-<p>比如 ，下面的文本</p>
-<pre class="line-numbers language-none"><code class="language-none">红彤彤，绿油油，黑乎乎，绿油油油油<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>表达式 <code>油&#123;3&#125;</code> 就表示匹配 连续的 油 字 3次</p>
-<p>表达式 <code>油&#123;3,4&#125;</code> 就表示匹配 连续的 油 字 至少3次，至多 4 次</p>
-<p>就只能匹配 后面的，如下所示：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000752884.png" alt="image-20220815000752884"></p>
-<h2 id="2-6-贪婪模式和非贪婪模式"><a href="#2-6-贪婪模式和非贪婪模式" class="headerlink" title="2.6 贪婪模式和非贪婪模式"></a>2.6 贪婪模式和非贪婪模式</h2><p>我们要把下面的字符串中的所有html标签都提取出来，</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">source <span class="token operator">=</span> <span class="token string">'&lt;html>&lt;head>&lt;title>Title&lt;/title>'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>得到这样的一个列表</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">[</span><span class="token string">'&lt;html>'</span><span class="token punctuation">,</span> <span class="token string">'&lt;head>'</span><span class="token punctuation">,</span> <span class="token string">'&lt;title>'</span><span class="token punctuation">,</span> <span class="token string">'&lt;/title>'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>很容易想到使用正则表达式 <code>&lt;.*&gt;</code></p>
-<p>写出如下代码</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">source <span class="token operator">=</span> <span class="token string">'&lt;html>&lt;head>&lt;title>Title&lt;/title>'</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'&lt;.*>'</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>但是运行结果，却是</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">[</span><span class="token string">'&lt;html>&lt;head>&lt;title>Title&lt;/title>'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>怎么回事？ 原来 在正则表达式中， ‘*’, ‘+’, ‘?’ 都是贪婪地，使用他们时，会尽可能多的匹配内容，</p>
-<p>所以， <code>&lt;.*&gt;</code> 中的 星号（表示任意次数的重复），一直匹配到了 字符串最后的 <code>&lt;/title&gt;</code> 里面的e。</p>
-<p>解决这个问题，就<strong>需要使用非贪婪模式，也就是在星号后面加上 <code>?</code></strong> ，变成这样 <code>&lt;.*?&gt;</code></p>
-<p>代码改为</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">source <span class="token operator">=</span> <span class="token string">'&lt;html>&lt;head>&lt;title>Title&lt;/title>'</span>
-
-<span class="token keyword">import</span> re
-<span class="token comment"># 注意多出的问号</span>
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'&lt;.*?>'</span><span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>再运行一遍，就可以了。</p>
-<h2 id="2-7-对元字符的转义"><a href="#2-7-对元字符的转义" class="headerlink" title="2.7 对元字符的转义"></a>2.7 对元字符的转义</h2><p>反斜杠 <code>\</code> 在正则表达式中有多种用途。</p>
-<h3 id="2-7-1-要搜索的内容包含元字符"><a href="#2-7-1-要搜索的内容包含元字符" class="headerlink" title="2.7.1 要搜索的内容包含元字符"></a>2.7.1 要搜索的内容包含元字符</h3><p>比如，我们要在下面的文本中搜索 所有点前面的字符串，也包含点本身</p>
-<pre class="line-numbers language-none"><code class="language-none">苹果.是绿色的
-橙子.是橙色的
-香蕉.是黄色的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>如果，我们这样写正则表达式 <code>.*.</code> ，显然是有问题的。</p>
-<p>因为 点 是一个 元字符， 直接出现在正则表达式中，表示匹配任意的单个字符， 不能表示 . 这个字符本身的意思了。</p>
-<p>怎么办呢？</p>
-<p>如果我们要搜索的内容本身就包含元字符，就可以使用 反斜杠进行转义。</p>
-<p>这里我们就应用使用这样的表达式： <code>.*\.</code></p>
-<p>示例，Python程序如下</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''苹果.是绿色的
-橙子.是橙色的
-香蕉.是黄色的'''</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'.*\.'</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> one <span class="token keyword">in</span>  p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>运行结果如下</p>
-<pre class="line-numbers language-none"><code class="language-none">苹果.
-橙子.
-香蕉.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="2-7-2-匹配某种字符类型"><a href="#2-7-2-匹配某种字符类型" class="headerlink" title="2.7.2 匹配某种字符类型"></a>2.7.2 匹配某种字符类型</h3><p>反斜杠后面接一些字符，表示匹配 <code>某种类型</code> 的一个字符。</p>
-<p>比如：</p>
-<p><code>\d</code> 匹配**<code>0-9</code>之间任意一个数字字符**，等价于表达式 <code>[0-9]</code></p>
-<p><code>\D</code> 匹配任意一个不是<code>0-9</code>之间的数字字符，等价于表达式 <code>[^0-9]</code></p>
-<p><code>\s</code> 匹配任意一个空白字符，包括 空格、<code>tab</code>、换行符等，等价于表达式 <code>[\t\n\r\f\v]</code></p>
-<p><code>\S</code> 匹配任意一个非空白字符，等价于表达式 <code>[^ \t\n\r\f\v]</code></p>
-<p><code>\w</code> 匹配任意一个<strong>文字字符</strong>，包括<strong>大小写字母、数字、下划线</strong>，等价于表达式 <code>[a-zA-Z0-9_]</code>【经常用于用户注册】</p>
-<p>缺省情况也包括<code>Unicode</code>文字字符，如果指定<code>ASCII</code>码标记：<code>p = re.compile(r&#39;\w&#123;2,4&#125;&#39;,re.A)</code>，则只包括<code>ASCII</code>字母</p>
-<p><code>\W</code> 匹配任意一个非文字字符，等价于表达式 <code>[^a-zA-Z0-9_]</code></p>
-<p>反斜杠也可以用在方括号里面，比如<code>[\s,.]</code>表示匹配 ： 任何空白字符， 或者逗号，或者点</p>
-<h2 id="2-8-方括号-匹配几个字符之一"><a href="#2-8-方括号-匹配几个字符之一" class="headerlink" title="2.8 方括号-匹配几个字符之一"></a>2.8 方括号-匹配几个字符之一</h2><p>方括号表示要匹配 指定的几个字符之一 。</p>
-<p>比如：</p>
-<p><code>[abc]</code> 可以匹配 <code>a</code>, <code>b</code>或者<code>c</code>里面的任意一个字符。等价于 <code>[a-c]</code> 。</p>
-<p><code>[a-c]</code> 中间的 - 表示一个范围从<code>a</code>到<code>c</code>。</p>
-<p>如果你想匹配所有的小写字母，可以使用 <code>[a-z]</code>。</p>
-<p><strong>一些元字符在方括号内失去了魔法，变得和普通字符一样了。</strong></p>
-<p>比如：</p>
-<p><code>[akm.]</code> 匹配 <code>a k m .</code> 里面任意一个字符</p>
-<p>这里 <strong><code>.</code> 在括号里面不再表示匹配任意字符了</strong>，而就是表示匹配 <code>.</code> 这个 字符</p>
-<hr>
-<p>如果在方括号中使用 <code>^</code> ， 表示 <code>非</code> 方括号里面的字符集合。</p>
-<p>比如</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token string">'a1b2c3d4e5'</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'[^\d]'</span> <span class="token punctuation">)</span>
-<span class="token keyword">for</span> one <span class="token keyword">in</span>  p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><code>[^\d]</code> 表示，选择非数字的字符</p>
-<p>输出结果为：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">a
-b
-c
-d
-e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="2-9-起始、结尾位置和单行、多行模式"><a href="#2-9-起始、结尾位置和单行、多行模式" class="headerlink" title="2.9 起始、结尾位置和单行、多行模式"></a>2.9 起始、结尾位置和单行、多行模式</h2><p><code>^</code> 表示<strong>匹配文本的 <code>开头</code> 位置</strong>，<code>$</code> 表示<strong>匹配文本的 <code>结尾</code> 位置</strong>。</p>
-<p>正则表达式可以设定 <code>单行模式</code> 和 <code>多行模式</code></p>
-<p>如果是 <code>单行模式</code> ，表示匹配 <code>整个文本</code> 的开头位置。</p>
-<p>如果是 <code>多行模式</code> ，表示匹配 <code>文本每行</code> 的开头位置。</p>
-<p>比如，下面的文本中，每行最前面的数字表示水果的编号，最后的数字表示价格</p>
-<pre class="line-numbers language-none"><code class="language-none">001-苹果价格-60，
-002-橙子价格-70,
-003-香蕉价格-80,<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>如果我们要提取所有的水果编号，用这样的正则表达式 <code>^\d+</code></p>
-<p>上面的正则表达式，使用在<code>Python</code>程序里面，如下所示</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''001-苹果价格-60
-002-橙子价格-70
-003-香蕉价格-80'''</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'^\d+'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>M<span class="token punctuation">)</span>
-<span class="token keyword">for</span> one <span class="token keyword">in</span>  p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>注意：**<code>compile</code>的第二个参数<code>re.M</code>，指明了使用多行模式**。</p>
-</blockquote>
-<p>运行结果如下</p>
-<pre class="line-numbers language-none"><code class="language-none">001
-002
-003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>如果，去掉<code>compile</code>的第二个参数<code>re.M</code>， 运行结果如下</p>
-<pre class="line-numbers language-none"><code class="language-none">001<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>就只有第一行了。</p>
-<p>因为单行模式下，<code>^</code> 只会匹配整个文本的开头位置，<code>$</code> 表示匹配文本的 <code>结尾</code> 位置。</p>
-<p>如果是 <code>单行模式</code> ，表示匹配 <code>整个文本</code> 的结尾位置。</p>
-<p>如果是 <code>多行模式</code> ，表示匹配 <code>文本每行</code> 的结尾位置。</p>
-<p>比如，下面的文本中，每行最前面的数字表示水果的编号，最后的数字表示价格</p>
-<pre class="line-numbers language-none"><code class="language-none">001-苹果价格-60，
-002-橙子价格-70,
-003-香蕉价格-80,<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>如果我们要提取所有的水果编号，用这样的正则表达式 <code>\d+$</code></p>
-<p>对应代码</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''001-苹果价格-60
-002-橙子价格-70
-003-香蕉价格-80'''</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'\d+$'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>MULTILINE<span class="token punctuation">)</span>
-<span class="token keyword">for</span> one <span class="token keyword">in</span>  p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>注意，compile 的第二个参数<code>re.MULTILINE</code>，指明了使用多行模式，</p>
-<p>运行结果如下</p>
-<pre class="line-numbers language-none"><code class="language-none">60
-70
-80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>如果，去掉<code>compile</code>的第二个参数<code>re.MULTILINE</code>， 运行结果如下</p>
-<pre class="line-numbers language-none"><code class="language-none">80<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>就只有最后一行了。</p>
-<p>因为单行模式下，<code>$</code>只会匹配整个文本的结束位置。</p>
-<h2 id="2-10-竖线-匹配其中之一"><a href="#2-10-竖线-匹配其中之一" class="headerlink" title="2.10 竖线-匹配其中之一"></a>2.10 竖线-匹配其中之一</h2><p>竖线表示匹配其中之一 。</p>
-<p>比如 ，</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000806296.png" alt="image-20220815000806296"></p>
-<p>特别要注意的是， 竖线在正则表达式的优先级是最低的， 这就意味着，竖线隔开的部分是一个整体</p>
-<p>比如 <code>绿色|橙</code> 表示 要匹配是 <code>绿色</code> 或者 <code>橙</code> ，</p>
-<p>而不是 <code>绿色</code> 或者 <code>绿橙</code>。</p>
-<h2 id="2-11-括号-分组"><a href="#2-11-括号-分组" class="headerlink" title="2.11 括号-分组"></a>2.11 括号-分组</h2><p>括号称之为<strong>正则表达式的组选择</strong>。</p>
-<p><code>组</code> 就是把<strong>正则表达式匹配的内容里面 <code>其中的某些部分</code> 标记为某个组</strong>。</p>
-<p>我们可以在正则表达式中标记<code>多个</code>组。</p>
-<p>为什么要有组的概念呢？因为我们往往需要提取已经匹配的 内容里面的 某些部分的信心。</p>
-<p>前面，我们有个例子，从下面的文本中，选择每行逗号<strong>前面</strong>的字符串，也 <code>包括逗号本身</code> 。</p>
-<pre class="line-numbers language-none"><code class="language-none">苹果，苹果是绿色的
-橙子，橙子是橙色的
-香蕉，香蕉是黄色的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>就可以这样写正则表达式 <code>^.*，</code> 。</p>
-<p>但是，如果我们要求 <strong>不要包括逗号</strong> 呢？</p>
-<p>当然不能直接 这样写 <code>^.*</code></p>
-<p>因为最后的逗号是<strong>特征</strong>所在， 如果去掉它，就没法找 逗号前面的了。</p>
-<p>但是把逗号放在正则表达式中，又会包含逗号。</p>
-<p>解决问题的方法就是使用 组选择符 ： 括号。</p>
-<p>我们这样写 <code>^(.*)，</code> ，结果如下</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220815000820723.png" alt="image-20220815000820723"></p>
-<p>可以发现，我们把要从整个表达式中提取的部分放在括号中，这样 水果 的名字 就被单独的放在组<code>group</code>中了。</p>
-<p>对应的Python代码如下</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''苹果，苹果是绿色的
-橙子，橙子是橙色的
-香蕉，香蕉是黄色的'''</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'^(.*)，'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>MULTILINE<span class="token punctuation">)</span>
-<span class="token keyword">for</span> one <span class="token keyword">in</span>  p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>分组还可以多次使用。</p>
-<p>比如，我们要从下面的文本中，提取出每个人的 名字 和对应的 手机号</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">张三，手机号码<span class="token number">15945678901</span>
-李四，手机号码<span class="token number">13945677701</span>
-王二，手机号码<span class="token number">13845666901</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>可以使用这样的正则表达式 <code>^(.+)，.+(\d&#123;11&#125;)</code></p>
-<p>可以写出如下的代码</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''张三，手机号码15945678901
-李四，手机号码13945677701
-王二，手机号码13845666901'''</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'^(.+)，.+(\d&#123;11&#125;)'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>MULTILINE<span class="token punctuation">)</span>
-<span class="token keyword">for</span> one <span class="token keyword">in</span> p<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>one<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>返回的是多个元组，元组包含有多个元素。</p>
-<p>当有多个分组的时候，我们可以使用 <code>(?P&lt;分组名&gt;...)</code> 这样的格式，给每个分组命名。</p>
-<p>这样做的好处是，更方便后续的代码提取每个分组里面的内容</p>
-<p>比如</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">content <span class="token operator">=</span> <span class="token triple-quoted-string string">'''张三，手机号码15945678901
-李四，手机号码13945677701
-王二，手机号码13845666901'''</span>
-
-<span class="token keyword">import</span> re
-p <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r'^(?P&lt;name>.+)，.+(?P&lt;phone>\d&#123;11&#125;)'</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>MULTILINE<span class="token punctuation">)</span>
-<span class="token keyword">for</span> <span class="token keyword">match</span> <span class="token keyword">in</span> p<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token string">'phone'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="三、正则表达式高级应用"><a href="#三、正则表达式高级应用" class="headerlink" title="三、正则表达式高级应用"></a>三、正则表达式高级应用</h1><h2 id="3-1-切割字符串"><a href="#3-1-切割字符串" class="headerlink" title="3.1 切割字符串"></a>3.1 切割字符串</h2><p>字符串 对象的 <code>split</code> 方法只适用于 简单的字符串分割。 有时，你需要更加灵活的字符串切割。</p>
-<p>比如，我们需要从下面字符串中提取武将的名字。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">names <span class="token operator">=</span> <span class="token string">'关羽; 张飞, 赵云,马超, 黄忠  李逵'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>我们发现这些名字之间， 有的是分号隔开，有的是逗号隔开，有的是空格隔开， 而且分割符号周围还有不定数量的空格</p>
-<p>这时，可以使用正则表达式里面的<code>split</code>方法：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
-
-names <span class="token operator">=</span> <span class="token string">'关羽; 张飞, 赵云,   马超, 黄忠  李逵'</span>
-
-namelist <span class="token operator">=</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r'[;,\s]\s*'</span><span class="token punctuation">,</span> names<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>namelist<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>正则表达式 <code>[;,\s]\s*</code> 指定了，分割符为 分号、逗号、空格 里面的任意一种均可，并且 该符号周围可以有不定数量的空格。</p>
-<h2 id="3-2-指定替换函数"><a href="#3-2-指定替换函数" class="headerlink" title="3.2 指定替换函数"></a>3.2 指定替换函数</h2><p>我们要求，替换后的内容 的是原来的数字+6， 比如 <code>/av66771949/</code> 替换为 <code>/av66771955/</code> 。</p>
-<p>这种更加复杂的替换，我们可以把 sub的第2个参数 <code>指定为一个函数</code> ，该函数的返回值，就是用来替换的字符串。</p>
-<p>如下</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
-
-names <span class="token operator">=</span> <span class="token triple-quoted-string string">'''
-
-下面是这学期要学习的课程：
-
-&lt;a href='https://www.bilibili.com/video/av66771949/?p=1' target='_blank'>点击这里，边看视频讲解，边学习以下内容&lt;/a>
-这节讲的是牛顿第2运动定律
-
-&lt;a href='https://www.bilibili.com/video/av46349552/?p=125' target='_blank'>点击这里，边看视频讲解，边学习以下内容&lt;/a>
-这节讲的是毕达哥拉斯公式
-
-&lt;a href='https://www.bilibili.com/video/av90571967/?p=33' target='_blank'>点击这里，边看视频讲解，边学习以下内容&lt;/a>
-这节讲的是切割磁力线
-'''</span>
-
-<span class="token comment"># 替换函数，参数是Match对象</span>
-<span class="token keyword">def</span> <span class="token function">subFunc</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment"># Match对象的group(0) 返回的是整个匹配上的字符串， </span>
-    src <span class="token operator">=</span> <span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-    
-    <span class="token comment"># Match对象的group(1) 返回的是第一个group分组的内容</span>
-    number <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">6</span>
-    dest <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'/av</span><span class="token interpolation"><span class="token punctuation">&#123;</span>number<span class="token punctuation">&#125;</span></span><span class="token string">/'</span></span>
-
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">&#123;</span>src<span class="token punctuation">&#125;</span></span><span class="token string"> 替换为 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>dest<span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
-
-    <span class="token comment"># 返回值就是最终替换的字符串</span>
-    <span class="token keyword">return</span> dest
-
-newStr <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'/av(\d+)/'</span><span class="token punctuation">,</span> subFunc <span class="token punctuation">,</span> names<span class="token punctuation">)</span>   <span class="token comment">#第二个参数代表函数名</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>newStr<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>获取组内字符串，如下</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># 获取整个匹配字符串</span>
-<span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 获取第1个组内字符串</span>
-<span class="token keyword">match</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># 获取第2个组内字符串</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><code>Python 3.6</code>以后的版本 ，写法也可以更加简洁，直接像列表一样使用下标，如下</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-<span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-<span class="token keyword">match</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>上面这个例子中：</p>
-<p>正则表达式<code>re.sub</code>函数执行时， <code>每发现一个</code> 匹配的子串， 就会：</p>
+                                <p>讲解：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lVeK1C_AHhc">https://www.youtube.com/watch?v=lVeK1C_AHhc</a></p>
+<p>源码：<a target="_blank" rel="noopener" href="https://github.com/IAIK/contextlight">https://github.com/IAIK/contextlight</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><strong>Spectre attack</strong> 的攻击方式有：</p>
 <ul>
-<li><p>实例化一个<code>match</code>对象</p>
-<p>这个<code>match</code>对象包含了这次匹配的信息， 比如：整个字符串是什么，匹配部分字符串是什么，里面的各个group分组 字符串是什么</p>
+<li>a <strong>cache</strong> covert channel（Original）</li>
+<li>instruction timings</li>
+<li>contention, <strong>etc</strong></li>
+</ul>
+<p>针对瞬态执行攻击，目前的工作仅仅 try to <strong>prevent the cache covert channel</strong></p>
+<p><strong>Contributions</strong>：</p>
+<ul>
+<li>一种硬件软件协同设计以减轻瞬态执行攻击</li>
+<li>only minimal changes are necessary</li>
+<li>阻止所有已知的 Spectre 变体</li>
+</ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="A-Transient-Execution（瞬态执行）"><a href="#A-Transient-Execution（瞬态执行）" class="headerlink" title="A. Transient Execution（瞬态执行）"></a>A. Transient Execution（瞬态执行）</h3><p>现代处理器将指令解码为 <strong>simpler micro-operations</strong> (µOPs)。</p>
+<p><strong>Optimizations</strong>：针对 µOPs，</p>
+<p>not to execute them <strong>in-order</strong> as <strong>given by the instruction stream</strong> but to execute them out-of-order as soon as the <strong>execution unit and required operands are available</strong>. 执行单元&amp;所需操作数可用时立即 (乱序) 执行</p>
+<p><strong>Necessities</strong>：</p>
+<p>需要 <strong>reorder buffer 缓冲区</strong>来存储来自 µOPs 的 intermediate results，直到 they can be retired as intended by the instruction stream</p>
+<p><strong>Speculation</strong> 主要包含两种形式：</p>
+<p><strong>①运行时程序存在的不同分支结构</strong></p>
+<blockquote>
+<p>Intel提供的几种结构如下：</p>
+<ul>
+<li><strong>PHT</strong>：Pattern History Table 记录分支历史的模式，并根据该模式预测下一次分支的方向</li>
+<li><strong>BHB</strong>：Branch History Buffer 记录以前的分支行为，包括分支是否被执行以及执行的方向</li>
+<li><strong>BTB</strong>：Branch Target Buffer 记录分支指令的目标地址，以便在分支指令执行时能够快速获取目标地址</li>
+<li><strong>STL</strong>：Speculative Store Bypass（规范存储绕过）</li>
+<li><strong>RSB</strong>：a small hardware stack of recent return addresses pushed during recent call instructions 存储最近调用指令期间推送的返回地址的硬件栈</li>
+</ul>
+</blockquote>
+<p><strong>②推测数据依赖性的存在</strong></p>
+<p><strong>如果结果预测</strong>：</p>
+<ul>
+<li>正确，reorder buffer 中的指令 <strong>are retired in-order</strong></li>
+<li>错误，结果被废除（squashed），并通过 <strong>flushing</strong> the pipeline and the reorder buffer 执行回滚，过程中 all architectural <strong>but no microarchitectural changes</strong> are reverted</li>
+</ul>
+<p><strong>得出结论</strong>：瞬态执行存在 measurable microarchitectural side effects</p>
+<h3 id="B-Transient-Execution-Attacks-amp-Defenses（攻击-amp-防御手段）"><a href="#B-Transient-Execution-Attacks-amp-Defenses（攻击-amp-防御手段）" class="headerlink" title="B. Transient-Execution Attacks &amp; Defenses（攻击&amp;防御手段）"></a>B. Transient-Execution Attacks &amp; Defenses（攻击&amp;防御手段）</h3><p><strong>定义</strong>：利用 microarchitectural state 的变化来提取 sensitive information 攻击称为 <strong>transient-execution attacks</strong></p>
+<p><strong>分类</strong>：</p>
+<ul>
+<li><strong>Spectre-type attacks</strong>：利用预测机制</li>
+<li><strong>Meltdown-type attacks</strong>：利用 architectural or microarchitectural <strong>fault</strong> 后的 transient execution（即<strong>利用异常的延迟处理</strong>）</li>
+</ul>
+<h4 id="Spectre攻击"><a href="#Spectre攻击" class="headerlink" title="Spectre攻击"></a>Spectre攻击</h4><p>若干变体：</p>
+<table>
+<thead>
+<tr>
+<th align="center">变体</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Spectre-PHT</td>
+<td align="center">利用PHT和BHB，使处理器错误预测条件分支后的代码路径</td>
+</tr>
+<tr>
+<td align="center">Spectre-BTB</td>
+<td align="center">用攻击者选择的目的地毒害BTB，导致在攻击者选择的目的地临时执行代码</td>
+</tr>
+<tr>
+<td align="center">Spectre-STL</td>
+<td align="center">exploits when the processor transiently <strong>uses a stale value</strong>（旧值） because it could not find the updated value in the <strong>store buffer</strong>, e.g., due to <strong>aliasing</strong>（多个变量或表达式使用同一个内存位置）.</td>
+</tr>
+<tr>
+<td align="center">Spectre-RSB &amp; ret2spec</td>
+<td align="center">When a ret is executed, the top of the RSB is used to <strong>predict the return address</strong>. An attacker can <strong>force misspeculation</strong>（强制错误预测） in various ways, e.g., by <strong>overfilling</strong> the RSB, or by <strong>overwriting the return address</strong> on the software stack.</td>
+</tr>
+</tbody></table>
+<p>共同点：</p>
+<ul>
+<li><strong>use transient execution to access data</strong> that they would not access in normal, considerate execution</li>
+<li><strong>use this data to influence the microarchitectural state</strong>（微架构状态）, which can be observed using <strong>microarchitectural attacks</strong>, e.g., <strong>Flush+Reload</strong></li>
+<li>all are executed <strong>locally on the victim machine</strong>, requiring the attacker to run code on the machine</li>
+</ul>
+<h4 id="Meltdown攻击"><a href="#Meltdown攻击" class="headerlink" title="Meltdown攻击"></a>Meltdown攻击</h4><p>不利用错误推测，而利用技术来<strong>临时执行指令</strong></p>
+<p>Between <strong>the occurrence of an exception</strong>（异常发生） and <strong>it being raised</strong>（异常引发）, 访问由出错指令检索到的数据的指令可以短暂地执行。</p>
+<table>
+<thead>
+<tr>
+<th align="center">变体</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">origin</td>
+<td align="center">exploited the deferred page fault following a <strong>user&#x2F;supervisor bit</strong> violation, allowing to <strong>leak arbitrary memory</strong>（泄露任意内存）</td>
+</tr>
+<tr>
+<td align="center">a variation</td>
+<td align="center">allows an attacker to read system registers</td>
+</tr>
+<tr>
+<td align="center">microarchitectural data sampling (MDS) attacks</td>
+<td align="center">have been demonstrated on other <strong>internal buffers of the CPU</strong></td>
+</tr>
+</tbody></table>
+<h4 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h4><ul>
+<li><strong>easiest</strong>：禁用预测<ul>
+<li>类似的<strong>Intel and AMD</strong>：using serializing instructions on both outcomes of a branch</li>
+</ul>
 </li>
-<li><p>调用执行<code>sub</code>函数的第2个参数对象，也就是调用回调函数<code>subFunc</code></p>
-<p>并且把刚才产生的<code>match</code>对象作为参数传递给<code>subFunc</code></p>
+<li><strong>Evtyushkin等人的方法</strong>：allow a developer to <strong>annotate branches</strong> that could leak sensitive data, which are then not predicted（开发人员进行注释）</li>
+</ul>
+<p>所有 local Spectre variants 使用 Flush+ Reload 或 Prime+Probe 方法，需要访问 high-resolution timer，一种防御措施是降低 timer 的准确性。</p>
+<blockquote>
+<p>Flush+Reload（清空重载）：</p>
+<ul>
+<li>首先，攻击者将目标数据从内存加载到缓存中；</li>
+<li>然后，攻击者通过执行<code>clflush</code>指令将该数据从缓存中清空（flush）；</li>
+<li>接着，攻击者等待一段时间，再次读取该数据并计算访问时间，如果读取时间较快，说明该数据被其他程序所访问，并且可以通过测量访问时间的差异来推断出目标数据的值。</li>
+</ul>
+<p>Prime+Probe（填充探测）：</p>
+<ul>
+<li>首先，攻击者将自己的数据加载到缓存中（即进行预热操作）；</li>
+<li>接着，攻击者等待一段时间，使得目标系统上的操作也会访问到相同的缓存行，从而将目标数据加载到缓存中；</li>
+<li>然后，攻击者执行一个与目标数据无关的计算任务，该计算任务需要访问到同一缓存集（set）中的其他缓存行；</li>
+<li>最后，攻击者测量目标数据的访问时间，如果读取时间较短，说明目标数据已经被加载到了缓存中。</li>
+</ul>
+</blockquote>
+<h2 id="Design-of-CONTEXT"><a href="#Design-of-CONTEXT" class="headerlink" title="Design of CONTEXT"></a>Design of CONTEXT</h2><p><strong>Idea</strong>：non-transient mappings 非瞬态映射</p>
+<p>指示映射包含在瞬态执行域中不能访问的<strong>秘密</strong>（must not be accessed within the <strong>transient-execution domain</strong>）</p>
+<p>ConTExT 的优点：</p>
+<ul>
+<li><strong>the instructions leaking the secret are not executed</strong> </li>
+<li><strong>independent instructions</strong> (marked with arrows) later on in the instruction stream can still be executed during the out-of-order execution.<ul>
+<li>独立指令虽然无法彻底执行完毕（cannot retire），它们可以预热（warm up） caches 和 buffers, 例如通过触发预取器（prefetchers）</li>
+</ul>
 </li>
 </ul>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231014144640305.png" alt="image-20231014144640305"></p>
+<h3 id="A-Non-Transient-Memory-Mappings"><a href="#A-Non-Transient-Memory-Mappings" class="headerlink" title="A. Non-Transient Memory Mappings"></a>A. Non-Transient Memory Mappings</h3><p>实现机制包含以下三种：</p>
+<p>①<strong>Currently Reserved Page-Table Entry Bit</strong></p>
+<p>下图是 <code>x86-64</code> 的页表条目，其中46到51位的6位是保留位，可以将其中一个 <code>bit</code> 利用为 non-transient bit</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231021162315520.png" alt="image-20231021162315520"></p>
+<p>②<strong>Currently Ignored Page-Table Entry Bit and Control Register</strong></p>
+<p>通过在其中一个CPU控制寄存器（如CR4、EFER或XCR0）中的一个位上启用该功能，操作系统就能意识到具体忽略位的改变语义</p>
+<p>优点是物理地址空间可以兼容 4PB （Approach 1只能是2PB），缺点是操作系统不能自由使用the retrofitted ignored bit。</p>
+<p>③<strong>Memory Type using Page-Attribute Table</strong></p>
+<p>Page-Attribute Table 允许操作系统为 classes of pages 重新配置各种属性。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231021164916606.png" alt="image-20231021164916606"></p>
+<p>将其中一个PAT条目设置为非瞬态内存类型 <code>&#39;2&#39;</code> （x86定义了6种）</p>
+<p>优点是不必对页表项进行语义更改，缺点是需要对操作系统进行过多更改（Linux 已经利用了所有PAT条目）。</p>
+<h3 id="B-Secret-Tracking"><a href="#B-Secret-Tracking" class="headerlink" title="B. Secret Tracking"></a>B. Secret Tracking</h3><p><strong>Non-transient mappings</strong> 确保在瞬态执行期间不能访问非瞬态内存位置，但我们仍需要保护已经加载到寄存器中的秘密数据。</p>
+<p>商用CPU中的寄存器没有内存类型或保护，故我们需要改变硬件来实现对寄存器的保护。</p>
+<ul>
+<li><p><strong>Tainting Registers</strong> 以保护其中的敏感数据</p>
+<ul>
+<li>添加一个额外的非瞬态位来表示寄存器中的值是否是非瞬态的（即标记为非瞬态）。该”标记”会在内存和寄存器之间进行传播，并且即使只访问了寄存器的一部分，仍然会将标记传播到整个寄存器中；</li>
+<li>对于特殊寄存器 <code>rflags</code>（其会在执行各种指令时更新），<strong>引入 <code>shadow_rflags</code> 寄存器</strong>来按位追踪其因控制流而产生的taint，并且在分支指令中遇到带标记位的 <code>rflags</code> 时会使流水线停顿；</li>
+<li>taint过程只考虑将寄存器作为目标操作数的指令</li>
+</ul>
+</li>
+<li><p><strong>Untainting Registers</strong>：</p>
+<ul>
+<li><p>在不使用非瞬态内存或寄存器的情况下替换寄存器的全部内容</p>
+</li>
+<li><p>将受污染的寄存器写入正常的内存位置，即未标记为非瞬态的内存位置</p>
+<ul>
+<li><strong>原理</strong>：寄存器溢出到正常(即不安全的)内存位置，那么无论如何都可能泄露潜在的秘密。若该内存操作是无意中发生的，其就是程序中的错误，必须在软件级别进行修复；在许多情况下，将秘密移动到正常内存是有意的行为，因为开发人员认为寄存器不再包含秘密。</li>
+</ul>
+</li>
+<li><p>the automated untainting 使 tainted registers 的数量保持较低水平</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Taint Propagation across Memory Operations</strong>：</p>
+<ul>
+<li>每个寄存器都有一个 taint bit，但 taint bit 只能传播给其他寄存器，而不能传播到内存。如果一个操作将带有秘密信息（即被污染的）的寄存器写入内存，taint bit 便会永久地丢失；</li>
+<li>编译器不可避免地需要在标记为非瞬态的内存区域中临时存储（不安全的）寄存器。我们会通过将它们溢出到非瞬态内存位置并从那里读取，逐渐过度估计和污染越来越多的寄存器。</li>
+</ul>
+</li>
+<li><p><strong>Optimizing Performance via Caching</strong>：</p>
+<ul>
+<li>通过缓存来减少污染过度估计的影响</li>
+<li>每64位数据的缓存线中引入一位额外的元数据，即每64B缓存行额外增加8位元数据</li>
+<li>在从内存中读取时，缓存行中存储的位优先于TLB中的信息，也就是说，缓存会覆盖内存映射定义的污染位</li>
+<li>如果缓存行被清除，寄存器就会自动受到污染</li>
+</ul>
+</li>
+<li><p><strong>Taint Control</strong>：</p>
+<ul>
+<li><strong>读写Taint</strong>：引入MSR IA32_TAINT，每个体系结构寄存器的污染位直接映射到这个MSR的一个位，这允许操作系统在一次操作中读写所有的污染位</li>
+<li><strong>中断处理</strong>：在中断中，首先要保存的应该是IA32_TAINT MSR，因为它包含前一个上下文的taint。由于中断处理程序中不能破坏现有的寄存器内容，所以需要先保存所有在中断处理程序中使用的寄存器。通过将IA32_TAINT值自动复制到IA32_SHADOW_TAINT，可以在任何中断处理程序进行寄存器操作之前，保留所有寄存器的污染状态。IA32_SHADOW_TAINT可以像其他寄存器一样处理，例如操作系统可以在上下文切换时将其保存到内核结构中。</li>
+</ul>
+</li>
+</ul>
+<h3 id="C-Software-Support"><a href="#C-Software-Support" class="headerlink" title="C. Software Support"></a>C. Software Support</h3><p><strong>Idea</strong>：Instead of annotating all branches that potentially lead to a secret-dependent operation, application developers simply <strong>annotate the secret variables in their applications directly</strong>.</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231015175503059.png" alt="image-20231015175503059"></p>
+<ul>
+<li><p><strong>Compiler</strong>：</p>
+<ul>
+<li><p>parse（解析） the annotations of secrets</p>
+</li>
+<li><p>编译器将寄存器溢出到堆栈中是不可避免的，并且由于调用约定，一些(可能是秘密的)值必须在堆栈上传递 -&gt; 堆栈也必须使用非瞬态内存映射进行映射</p>
+</li>
+<li><p>为了减少非瞬态堆栈对性能的影响，我们修改编译器，使其仅在必要时使用非瞬态堆栈。这个非瞬态堆栈只包含<strong>寄存器溢出、可能的函数参数和返回值</strong>（由编译器用作临时内存）</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Operating System</strong>：</p>
+<ul>
+<li>操作系统负责 <strong>setting up non-transient memory mappings</strong></li>
+<li>当操作系统解析二进制文件时，它可以直接设置非瞬态内存映射，这些映射由编译器标记</li>
+<li><strong>更改</strong>：The operating system has to save and restore taint values on <strong>context switches</strong>（上下文切换）. The hardware already saves the current <strong>taint value</strong> of all registers into the <strong>IA32_SHADOW_TAINT MSR</strong> upon interrupts. Thus, the operating system only has to read this register and save it together with all other saved registers.</li>
+<li>当从二进制文件初始加载非瞬态内存位置的内容时，操作系统还必须刷新缓存（因为到内存页的初始数据传输不是通过非瞬态用户空间映射完成的），因此，<strong>操作系统必须在此操作之前禁用缓存，或者在此操作之后刷新相应的缓存行</strong>。（该功能已经存在于 <code>x86 ISA</code> 中）</li>
+</ul>
+</li>
+</ul>
+<h2 id="Implementation-of-CONTExT"><a href="#Implementation-of-CONTExT" class="headerlink" title="Implementation of CONTExT"></a>Implementation of CONTExT</h2><h3 id="A-Hardware-Simulation"><a href="#A-Hardware-Simulation" class="headerlink" title="A. Hardware Simulation"></a>A. Hardware Simulation</h3><p><strong>模拟器</strong>：open-source x86-64 emulator Bochs</p>
+<p>我们在Bochs中实现行为变化来分析功能，并在真实的CPU上使用ConTExT-light来估计性能开销</p>
+<ul>
+<li><p><strong>Page-Table Entry</strong>：为了区分非瞬态和正常的内存映射，我们必须在PTE中相应地标记每个内存映射。</p>
+</li>
+<li><p><strong>Translation Lookaside Buffer</strong>：现代CPU在TLB中缓存页表项。For cached Page-Table Entry, <strong>memory accesses</strong>（内存访问） use the cached non-transient bit from the TLB.</p>
+</li>
+<li><p><strong>Cache</strong>：Bochs only implements an instruction cache, but no <strong>data cache</strong>, which plays a vital role in our design to cache taint information. Hence, we extended <strong>Bochs with data-cache emulation</strong> by <strong>implementing an 8-way (inclusive) last-level cache</strong>. 在我们的模拟缓存中，我们为每条缓存线添加了8个 taint bit 作为元数据。</p>
+</li>
+<li><p><strong>Model-Specific Registers</strong>：We added two new MSRs to Bochs. Accesses to IA32_TAINT are directly mapped to the <strong>taint bits of the architectural registers</strong>, allowing the operating system to read and write all at once.</p>
+</li>
+</ul>
+<h3 id="B-ConTExT-light"><a href="#B-ConTExT-light" class="headerlink" title="B. ConTExT-light"></a>B. ConTExT-light</h3><p>ConTExT-light依赖于一个属性，即存储在不可缓存内存中的值通常不能在瞬态执行域内使用，除非该值在寄存器中达到体系结构层面，或者在加载缓冲区、存储缓冲区或行填充缓冲区中达到微体系结构层面。这是因为在这些缓冲区中存储的值通常不会被瞬态执行期间的攻击利用。</p>
+<p>Consists of two parts, <strong>a kernel module</strong>, and <strong>a runtime library</strong>. For the full ConTExT, we provide a compiler extension that minimizes the performance penalties of register spills.</p>
+<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><h3 id="A-Security"><a href="#A-Security" class="headerlink" title="A. Security"></a>A. Security</h3><p>安全保证建立在以下两个假设：</p>
+<ul>
+<li><p><strong>开发人员正确注释所有秘密【重要】</strong></p>
+</li>
+<li><p>应用程序不会主动泄露秘密</p>
+</li>
+</ul>
+<p>系统允许不影响微架构状态的指令进行临时执行。对于整个内存都是秘密的极端情况，ConTExT不会允许任何临时指令的执行。</p>
+<p>①区分两种情况，即<strong>在应用程序中是否使用了具有体系结构意义的秘密信息</strong>：</p>
+<ul>
+<li><strong>Architecturally Unused Secrets</strong>：攻击者无法从非临时内存区域中获取信息</li>
+<li><strong>Architecturally Used Secrets</strong>：攻击者可以从任何未受保护的副本中获取信息，但只要目标被标记为秘密，攻击就会失败</li>
+</ul>
+<p>②将秘密复制到未标记为非瞬态的内存区域的操作可能会受到攻击。</p>
+<p>但是，编译器永远不会隐式地生成这些操作，因为编译器只将堆栈用作临时内存。因此，这样的操作必须由应用程序开发人员显式地定义，这违背了应用程序不会主动泄露机密的假设。</p>
+<p><strong>Limitations</strong>：</p>
+<ol>
+<li><p>ConTExT-light cannot protect secrets while they are <strong>architecturally stored in registers of running threads</strong>. Furthermore, ConTExT-light is not designed as a protection against Meltdown-type attacks. </p>
+</li>
+<li><p>ConTExT只有在应用程序开发人员正确使用的情况下才有效，也就是说，如果开发人员将所有秘密标记为秘密，并且不主动泄露秘密。</p>
+</li>
+</ol>
+<h3 id="B-Performance"><a href="#B-Performance" class="headerlink" title="B. Performance"></a>B. Performance</h3><table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">增加开销</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Compiler Extension(using CONTExT)</td>
+<td align="center">1.26%(average), 5.13%(worst)</td>
+<td align="center">额外的非瞬态堆栈的设置时间</td>
+</tr>
+<tr>
+<td align="center">OpenSSL RSA</td>
+<td align="center">71.14 % (± 4:66 %, n &#x3D; 10 000).</td>
+<td align="center">RSA在安全缓冲区内执行许多 in-place operations</td>
+</tr>
+<tr>
+<td align="center">AES</td>
+<td align="center">338%</td>
+<td align="center">将AES密钥以（中间轮密）注释为秘密</td>
+</tr>
+<tr>
+<td align="center">OpenSSH</td>
+<td align="center">连接时间(包括ConTExT-light初始化时间)平均增加了24.7% ($n &#x3D; 1000$， $σ_{\overline{x}} &#x3D;0.038$)</td>
+<td align="center">主要 asset 是存储在内存中的私钥。为应用ConTExT-light，我们注释了全局变量并更改了sshbufs函数中的堆分配，以使用ConTExT-light提供的堆操作函数，导致了14行代码的更改</td>
+</tr>
+<tr>
+<td align="center">VeraCrypt</td>
+<td align="center">对于挂载加密容器，平均时间从1.59 s增加到1.64 s，增加了3.21% ($n &#x3D; 1000$， $σ_{\overline{x}} &#x3D;0.001$)</td>
+<td align="center">VeraCrypt使用SecureBuffer类来存储敏感数据，例如主密码，则利用其保护SecureBuffer的实例即可</td>
+</tr>
+<tr>
+<td align="center">OATH One Time Password Tool</td>
+<td align="center">无关</td>
+<td align="center">支持基于时间的一次性密码算法(TOTP)，基于用户和服务之间的共享密钥，该工具计算共享密钥和当前时间的加密散列。主要的更改确保存储共享密钥的缓冲区以及用于散列计算的缓冲区被标记为不可用。</td>
+</tr>
+<tr>
+<td align="center">Password Manager</td>
+<td align="center">a slowdown from 0:162 s to 0:248 s for a slowdown of 53 % with ConTExT-light applied</td>
+<td align="center">确保存储主密码以及解密密钥的缓冲区被标记为不可缓存</td>
+</tr>
+<tr>
+<td align="center">NGINX</td>
+<td align="center">a decrease from 63 695 to 59 071 transactions, a decrease of 7.3 %. The average response time per transaction increased from 0.62 s to 0.65 s</td>
+<td align="center">使用ConTExT-light修改NGINX来保护证书密钥</td>
+</tr>
+</tbody></table>
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>在寄存器级提供保护，允许推测缓存和寄存器填充</p>
+<p>选择什么是要保护的秘密是一个讨论的要点</p>
+<p>Untainting时的标准，开发人员能够正确地决定是否可以将数据移动到正常的内存位置</p>
+<p>忽略了虚拟化（Virtualization）</p>
 
                                     
                             </div>
@@ -827,7 +780,7 @@ newStr <span class="token operator">=</span> re<span class="token punctuation">.
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.qqzzss.top/2022/08/14/python/python02-zheng-ze-biao-da-shi-xue-xi-ji-lu/">https://www.qqzzss.top/2022/08/14/python/python02-zheng-ze-biao-da-shi-xue-xi-ji-lu/</a>
+                    <a href="https://www.qqzzss.top/2023/10/24/paperreading/paper01-context/">https://www.qqzzss.top/2023/10/24/paperreading/paper01-context/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -865,15 +818,15 @@ newStr <span class="token operator">=</span> re<span class="token punctuation">.
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
                                                         <span class="chip bg-color">
-                                                            程序设计
+                                                            信息安全
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/Python/">
+                                                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
                                                         <span class="chip bg-color">
-                                                            Python
+                                                            论文阅读
                                                         </span>
                                                     </a>
                                                     
@@ -1249,17 +1202,18 @@ newStr <span class="token operator">=</span> re<span class="token punctuation">.
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/14/development/java01-javase-zhi-shi/">
+                <a href="/2023/10/24/paperreading/paper01-context/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JavaSE知识">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ConTExT_A Generic Approach for Mitigating Spectre">
                         
-                        <span class="card-title">JavaSE知识</span>
+                        <span class="card-title">ConTExT_A Generic Approach for Mitigating Spectre</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1269,30 +1223,31 @@ newStr <span class="token operator">=</span> re<span class="token punctuation">.
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java%E4%B8%8E%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Java与开发基础
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
                     </a>
                     
-                    <a href="/tags/JavaSE/">
-                        <span class="chip bg-color">JavaSE</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">论文阅读</span>
                     </a>
                     
                 </div>
@@ -1306,13 +1261,13 @@ newStr <span class="token operator">=</span> re<span class="token punctuation">.
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/14/theory/li-lun-03-shu-ju-ku-yuan-li-yi/">
+                <a href="/2023/04/29/security/wang-an-01-mi-yao-fen-pei-yu-yong-hu-ren-zheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="数据库原理(一) 数据库系统与SQL">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="密钥分配与用户认证">
                         
-                        <span class="card-title">数据库原理(一) 数据库系统与SQL</span>
+                        <span class="card-title">密钥分配与用户认证</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1323,14 +1278,14 @@ newStr <span class="token operator">=</span> re<span class="token punctuation">.
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/" class="post-category">
-                                    计算机学科理论
+                            <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    信息安全专业课程
                                 </a>
                             
                             
@@ -1340,12 +1295,12 @@ newStr <span class="token operator">=</span> re<span class="token punctuation">.
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">网络安全</span>
                     </a>
                     
                 </div>
