@@ -1,0 +1,1692 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device, ShiQuLiZhi BLOG">
+    <meta name="description" content="世界很暗，但是你来了">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device | ShiQuLiZhi BLOG</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+    
+        <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+            
+
+                <body>
+
+                    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ShiQuLiZhi BLOG</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/goodpapers" class="waves-effect waves-light">
+      
+      <i class="fas fa-coffee" style="zoom: 0.6;"></i>
+      
+      <span>收藏</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ShiQuLiZhi BLOG</div>
+        <div class="logo-desc">
+            
+            世界很暗，但是你来了
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/goodpapers" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-coffee"></i>
+			
+			收藏
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+                        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">
+                                        信息安全
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                    <span class="chip bg-color">
+                                        论文阅读
+                                    </span>
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+                <div class="col s5 right-align">
+                    
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                    <div class="post-date info-break-policy">
+                        <i class="far fa-calendar-minus fa-fw"></i>
+                        发布日期:&nbsp;&nbsp;
+                            2023-11-05
+                    </div>
+                    
+
+                        
+                            <div class="post-date info-break-policy">
+                                <i class="far fa-calendar-check fa-fw"></i>
+                                更新日期:&nbsp;&nbsp;
+                                    2023-11-05
+                            </div>
+                            
+
+                                
+                                    <div class="info-break-policy">
+                                        <i class="far fa-file-word fa-fw"></i>
+                                        文章字数:&nbsp;&nbsp;
+                                            5.9k
+                                    </div>
+                                    
+
+                                        
+                                            <div class="info-break-policy">
+                                                <i class="far fa-clock fa-fw"></i>
+                                                阅读时长:&nbsp;&nbsp;
+                                                    20
+                                                        分
+                                            </div>
+                                            
+
+                                                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+            <!-- 是否加载使用自带的 prismjs. -->
+            <link rel="stylesheet" href="/libs/prism/prism.css">
+            
+
+                
+                    <!-- 代码块折行 -->
+                    <style type="text/css">
+                        code[class*="language-"],
+                        pre[class*="language-"] {
+                            white-space: pre-wrap !important;
+                        }
+                    </style>
+                    
+
+                        <div class="card-content article-card-content">
+                            <div id="articleContent">
+                                <p>源码：<a target="_blank" rel="noopener" href="https://github.com/microsoft/HardLog">https://github.com/microsoft/HardLog</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>有效的系统审计的持久障碍是<strong>日志篡改</strong>（log tampering）。</p>
+<p>①原则上，审计系统可以通过立即将每个日志条目存储在安全的位置。但考虑到<strong>现有网络和存储设备对于大量小消息的低性能</strong>，这会导致不可接受的开销。因此，审计系统将花费相当长的时间对日志条目进行批处理，并异步存储更少、更大的消息。</p>
+<p>② <strong>However</strong>，这种延迟为攻击者篡改批处理事件创造了一个<strong>时间窗口</strong>。</p>
+<p>③ <strong>Finally</strong>，如果将日志存储在商用防篡改本地存储设备中，则管理员无法远程管理日志(即安全地检索和丢弃旧日志)，而商用防篡改本地存储设备缺乏认证和存储重用性。</p>
+<p>传统上，防止日志篡改的主要防御措施是<strong>防篡改审计</strong>（tamper-evident auditing）。系统维护一个加密完整性证明，它在每个新事件时更新，并允许验证者确定日志没有被篡改。</p>
+<p><strong>However</strong>，这样的系统并不能阻止攻击者<strong>通过删除日志来干扰取证</strong>，且它们还会<strong>产生假警报</strong>，因为良性系统崩溃通常会导致完整性检查失败。</p>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>HARDLOG启用以下属性：</p>
+<ol>
+<li><strong>细粒度日志可用性</strong>（Fine-grained log availability）。HARDLOG可以确保日志条目被同步保护，或者在其创建后的一小段有界延迟内得到保护。我们的原型实现了15毫秒的有限延迟，这比最先进的日志删除攻击成功所需的时间要短得多。</li>
+<li><strong>无假篡改告警</strong>（No false tamper alarms）。HARDLOG保护其受保护的审计设备中的日志，而不是检测篡改。因此，管理员不会受到虚假篡改警报的困扰。</li>
+<li><strong>性能适度放缓</strong>（Modest performance slowdown）。HARDLOG给被监视的机器带来了适度的开销。我们的原型在不同的实际程序中，与未经审计的执行相比，只会产生6.3%的几何平均减速。</li>
+<li><strong>远端设备管理</strong>（Remote device management）。HARDLOG允许远程管理员在正常操作下(即在系统被破坏之前)安全地管理日志。发生泄漏后，HARDLOG将保持日志的安全，直到系统恢复，此时可以再次安全地检索日志。</li>
+</ol>
+<p>有关设计包括：</p>
+<ol>
+<li>防篡改审计设备的部署友好规范（deployment-friendly specifications for a tamper-proof audit device）</li>
+<li>临界感知日志保护（criticality-aware log protection）</li>
+<li>有界异步保护保证（bounded-asynchronous protection guarantees）——事件的日志条目都在事件执行的微小有界延迟内得到保护，采用相关实时技术（real-time techniques）</li>
+</ol>
+<h2 id="Background-On-System-Auditing"><a href="#Background-On-System-Auditing" class="headerlink" title="Background On System Auditing"></a>Background On System Auditing</h2><p>本文主要 focus on 取证分析（forensic analysis）和定期机器健康检查（periodic machine health checks）。</p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><h3 id="Synchronous-Log-Protection-and-its-Limitations"><a href="#Synchronous-Log-Protection-and-its-Limitations" class="headerlink" title="Synchronous Log Protection and its Limitations"></a>Synchronous Log Protection and its Limitations</h3><p>防止日志篡改的解决方案：</p>
+<ol>
+<li>同步存储日志(在为安全相关的事件生成日志条目并在允许该事件执行之前)</li>
+<li>在一个安全的位置，一个被破坏的机器无法访问，例如网络存储服务器或一个本地防篡改存储设备</li>
+</ol>
+<p>缺点：</p>
+<ul>
+<li>性能放缓（Prohibitive performance slowdown）。由于通信延迟和设置成本高，网络和本地存储在存储小消息方面的吞吐量都很低。</li>
+<li>物理设备管理（Physical device management）。商用防篡改存储设备需要经常进行物理访问，这与远程工作的加速趋势不相符。这些设备不允许远程管理员安全地检索日志或重用设备存储。</li>
+</ul>
+<h3 id="Asynchronous-Log-Protection-and-its-Limitations"><a href="#Asynchronous-Log-Protection-and-its-Limitations" class="headerlink" title="Asynchronous Log Protection and its Limitations"></a>Asynchronous Log Protection and its Limitations</h3><p>为了在异步存储的日志中启用信任，现有的审计系统实现了防篡改机制来检测日志篡改。它们同步地为每个日志条目创建一个<strong>完整性证明</strong>，当条目被用于分析时，使用相应的证明来检查它们的完整性。</p>
+<p>缺点：</p>
+<ul>
+<li>粗粒度日志可用性（Coarse-grained log availability）。现有的审计系统，即使具有明显的篡改检测机制，也不能对日志可用性提供细粒度的保证。</li>
+<li>假篡改警报（False tamper alarms）。</li>
+</ul>
+<p>当由于内核恐慌或审计软件崩溃而在计算过程中终止现有系统时，会发出错误警报，这会导致内存中瞬态完整性证明或日志丢失。这将导致不正确的完整性检查失败。</p>
+<p>区分<strong>完整性检查失败 from 良性崩溃和日志篡改事件</strong>非常重要，特别是因为管理员无法使用这些可能被篡改的日志执行结论性的取证分析。</p>
+<h2 id="Design-Principles"><a href="#Design-Principles" class="headerlink" title="Design Principles"></a>Design Principles</h2><p>实用有效审计系统的三个设计原则：</p>
+<ol>
+<li>Criticality-Aware（关键性感知） Log Protection<ul>
+<li>不同事件表明可能妥协的能力不同。我们将其分为<strong>(a)关键事件和(b)非关键事件</strong>，并提供不同的日志保护保证。</li>
+<li>之前的研究表明攻击者大多使用关键事件以高权限执行恶意代码(例如，篡改存储在主机内核内存中的日志)。</li>
+<li>为了防止关键事件破坏日志，我们应该在执行关键事件之前同步保护主机中存储的所有日志。这种同步保护确保，如果攻击者在关键事件中取得控制权，则可以获得完整的攻击跟踪。</li>
+</ul>
+</li>
+<li>Bounded-Asynchronous Non-Critical Log Protection（有界异步非关键日志保护）<ul>
+<li><strong>在极少数情况下，即使是非关键事件也可以启用代码执行，并允许攻击者篡改日志</strong>。</li>
+<li>因此，我们应该在一个小的有界时间间隔内保护所有缓冲的非关键日志条目。</li>
+</ul>
+</li>
+<li>Local Log Storage with Remote Management（支持远程管理的本地日志存储）<ul>
+<li>为了保护日志不被主机窃取，需要将日志存储在操作系统无法触及的地方。此存储位置必须是持久的，以避免在系统崩溃时丢失日志。</li>
+<li>由于许多机器都是远程的，因此管理员需要远程管理受保护的日志。特别是，远程管理员应该能够(a)安全地检索日志，(b)在不再需要重用存储时丢弃存储的日志。</li>
+<li>考虑到最可行的现有选项已经需要额外的硬件(例如，使用单独存储设备的虚拟化)，我们设计了避免其缺点的新硬件。如果新硬件支持远程管理并实现内部存储访问控制，那么它可以(a)在不使用时避免系统开销，(b)具有明确的小攻击面，(c)与已经虚拟化的操作系统兼容。</li>
+</ul>
+</li>
+</ol>
+<h2 id="Threat-Model"><a href="#Threat-Model" class="headerlink" title="Threat Model"></a>Threat Model</h2><p>我们假设攻击者即使在操作系统被攻破之后也无法攻破或破坏存储日志的外部审计设备。我们在§VIII-C中讨论了该装置的简洁和受限攻击面。我们忽略操作系统被入侵后生成的任何日志条目，因为它们是不可信的。此外，与之前的审计系统一样，我们不考虑物理攻击，并做出标准假设，即攻击者无法破坏加密协议并危及密钥管理。</p>
+<h2 id="HARDLOG-Design"><a href="#HARDLOG-Design" class="headerlink" title="HARDLOG Design"></a>HARDLOG Design</h2><h3 id="A-System-Model"><a href="#A-System-Model" class="headerlink" title="A. System Model"></a>A. System Model</h3><p>HARDLOG 有三个参与者：</p>
+<ul>
+<li>Host machine。其是必须被审计的企业机器(例如，员工笔记本电脑或台式机，公司服务器)。它有一个称为记录器的系统组件，用于监视与安全相关的事件并为它们生成日志条目。在机器启动时，日志记录器等待审计设备准备好接收日志，然后才允许发生与安全相关的事件。一旦设备准备好，日志记录器将日志发送到设备进行安全存储。主机还运行审计服务，这是设备和管理员之间的通信中继，支持远程日志检索。</li>
+<li>Audit device。审计设备通过设备通信接口接收来自主机的日志。设备接收到日志后，不允许对日志进行修改和删除，除非系统管理员通过安全加密通道下发命令。</li>
+<li>System administrator。管理员使用主机生成的日志进行取证分析和定期健康检查。管理员处于远程，通过网络与主机通信。然后，管理员使用主机的审计服务(即中继)与设备通信。</li>
+</ul>
+<h3 id="B-Audit-Device-Specifications"><a href="#B-Audit-Device-Specifications" class="headerlink" title="B. Audit Device Specifications"></a>B. Audit Device Specifications</h3><h4 id="Device-interposed-storage（设备间存储）"><a href="#Device-interposed-storage（设备间存储）" class="headerlink" title="Device-interposed storage（设备间存储）"></a>Device-interposed storage（设备间存储）</h4><ul>
+<li>该设备介于主机和其控制下的持久存储介质之间，以存储日志。</li>
+<li>审计设备对所有接收到的日志强制执行<strong>只追加策略</strong>，以确保所有存储的日志都具有防篡改性。只追加策略是通过单调递增的索引来描述存储传入日志条目的位置(例如，文件偏移量)。该索引安全地存储在审计设备中，只有系统管理员可以通过安全通信通道重新初始化索引以重用设备存储。</li>
+<li>管理员有责任建立一个日志记录策略（logging policy），在日志被消耗(例如，发送到网络存储)之前不会耗尽日志存储空间。</li>
+</ul>
+<h4 id="Multitasking-processing-unit（多任务处理单元）"><a href="#Multitasking-processing-unit（多任务处理单元）" class="headerlink" title="Multitasking processing unit（多任务处理单元）"></a>Multitasking processing unit（多任务处理单元）</h4><p>审计设备同时执行多个任务，因此它应该能够在这些任务之间分时共享单个处理单元，或者为每个任务提供专用处理单元。具体来说，审计设备执行三个任务:(a)在其内存中接收来自主机的日志，(b)将收集到的日志安全地存储在其存储介质中，(c)响应系统管理员的请求。</p>
+<h4 id="Device-key-pair"><a href="#Device-key-pair" class="headerlink" title="Device key pair"></a>Device key pair</h4><p>为了实现安全的远程管理，系统管理员和设备必须相互认证。为了实现这一点，在配置每个审计设备(例如，第一次设置企业主机)时，管理员为设备生成一个非对称密钥对，并使用它们的签名密钥对其公共部分进行认证。</p>
+<h4 id="Fail-safe-power-management"><a href="#Fail-safe-power-management" class="headerlink" title="Fail-safe power management"></a>Fail-safe power management</h4><p>审计设备可以由主机供电以进行正常操作，但它需要一个备用电源来优雅地处理电源故障。</p>
+<h3 id="C-Log-Protection-and-Storage"><a href="#C-Log-Protection-and-Storage" class="headerlink" title="C. Log Protection and Storage"></a>C. Log Protection and Storage</h3><p>criticality-aware log protection（临界感知日志保护）</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231103153033199.png" alt="image-20231103153033199"></p>
+<h4 id="Synchronous-critical-event-log-protection"><a href="#Synchronous-critical-event-log-protection" class="headerlink" title="Synchronous critical event log protection"></a>Synchronous critical event log protection</h4><p>应用程序线程试图执行与安全相关的事件(例如，系统调用)，因此操作系统将其执行转移到内核日志记录器(1)。日志记录器为与安全相关的事件创建一个条目，并将其存储在HOSTBUF中，HOSTBUF是一个循环缓冲区，在主机的内存中保存临时日志条目(2)。</p>
+<p>然后，记录器根据提供的关键事件列表检查事件是否为关键事件(3)。如果事件非常重要，日志记录器将等待日志发送方保护日志条目(4a)。日志发送者将存储在HOSTBUF中的所有条目(即，先前的非关键条目和当前的关键条目)传输到审计设备(<strong>红</strong>1,2)。日志发送方收到来自审计设备的确认后，日志记录器允许应用程序线程继续执行关键事件(4b)。</p>
+<h4 id="Asynchronous-non-critical-event-log-protection"><a href="#Asynchronous-non-critical-event-log-protection" class="headerlink" title="Asynchronous non-critical event log protection"></a>Asynchronous non-critical event log protection</h4><p>如果事件是非关键事件，则记录器允许应用程序继续执行(4b)，而无需等待日志发送方将非关键条目发送到审计设备(即跳过4a)。日志发送方在<strong>限定的时间间隔</strong>内异步发送缓冲的非关键日志条目。</p>
+<h4 id="Asynchronous-log-storage"><a href="#Asynchronous-log-storage" class="headerlink" title="Asynchronous log storage"></a>Asynchronous log storage</h4><p>所有日志条目(关键和非关键)都异步存储在审计设备上。特别是，HARDLOG实现了日志接收器，一个从主机(即日志发送者)接收日志条目的设备线程。日志接收器将所有接收到的条目存储在一个循环的内存缓冲区DEVBUF中，而不是包含的存储介质(1)。这允许日志接收器快速向主机确认日志条目已到达设备(红2)。日志条目(存储在DEVBUF中)由另一个线程(日志存储器(2,3))刷新到存储介质中，该线程使用单调索引将日志条目附加到存储中，并根据存储的条目数量增加索引。</p>
+<h3 id="D-Bounded-Asynchronous-Protection-Guarantees"><a href="#D-Bounded-Asynchronous-Protection-Guarantees" class="headerlink" title="D. Bounded-Asynchronous Protection Guarantees"></a>D. Bounded-Asynchronous Protection Guarantees</h3><p>每个非关键日志条目在执行相应的非关键事件后的一个很小的有界延迟内被发送到审计设备。</p>
+<p>HARDLOG使用<strong>实时技术</strong>，通过控制非关键日志条目保护管道的各个方面(从在主机上创建到在设备内存储)来实现有界异步保证。这种控制限制了非特权对手和其他后台任务<strong>减慢非关键日志条目保护的速度</strong>。</p>
+<p>为了在给定HARDLOG约束的情况下控制这些资源，我们根据它们是否可以在需要时获得(或抢占)将它们分类为(a)<strong>可抢占资源</strong>(即CPU)和(b)<strong>不可抢占资源</strong>(即通信接口和存储)。</p>
+<h4 id="Preemptible-resource-task-prioritization（可抢占的资源任务优先级）"><a href="#Preemptible-resource-task-prioritization（可抢占的资源任务优先级）" class="headerlink" title="Preemptible resource task prioritization（可抢占的资源任务优先级）"></a>Preemptible resource task prioritization（可抢占的资源任务优先级）</h4><p>首先，HARDLOG分别在主机和设备上以最高优先级执行日志发送方线程和日志接收方线程。因此，其他进程(包括良性进程和恶意进程)不能抢占这些线程的执行。</p>
+<p>一个系统可能有多个最高优先级的线程。</p>
+<p>在这种情况下，HARDLOG将剩余的(非HARDLOG)最高优先级线程限制为小于机器CPU核心的数量，以确保它始终可以抢占CPU核心(例如，在需要时运行日志发送器)。重要的是，HARDLOG不会无限期地保留CPU核心。相反，它的线程在没有日志条目产生时进入睡眠状态，从而允许其他线程使用CPU核心。</p>
+<p>HARDLOG在运行日志发送器时禁用所有硬件设备中断，除了来自审计设备的中断和CPU内核上的Inter-Processor interrupts (处理器间中断，IPIs)，这避免了日志发送者执行过程中不受控制的延迟。</p>
+<h4 id="Non-preemptible-resource-usage-control（不可抢占的资源使用控制）"><a href="#Non-preemptible-resource-usage-control（不可抢占的资源使用控制）" class="headerlink" title="Non-preemptible resource usage control（不可抢占的资源使用控制）"></a>Non-preemptible resource usage control（不可抢占的资源使用控制）</h4><p>HARDLOG系统使用了两个非可抢占资源，类似于主机与审计设备之间的通信接口和存储介质。由于这些资源使用了直接内存访问（DMA）引擎处理请求，所以不能直接被抢占。这可能导致<strong>优先级反转</strong>的问题，即较高优先级的请求被较低优先级的请求阻塞，从而延迟了较高优先级请求的处理。</p>
+<p>为了解决这个问题，<strong>HARDLOG系统控制所有访问这些非可抢占资源的线程，以实现间接资源抢占并限制延迟</strong>。它允许只有特定的线程可以发送请求到资源，而其他较低优先级的线程则需要将请求分解成小块，以保证在需要执行较高优先级任务时能够中断较低优先级线程的执行。</p>
+<h4 id="Micro-architectural-component-isolation（微架构组件隔离）"><a href="#Micro-architectural-component-isolation（微架构组件隔离）" class="headerlink" title="Micro-architectural component isolation（微架构组件隔离）"></a>Micro-architectural component isolation（微架构组件隔离）</h4><p>HARDLOG隔离了共享微架构组件(例如，TLB和缓存)的使用，以确保非特权对手不会滥用它们来减慢日志发送者的执行。例如，如果在主机上启用了同步多线程(SMT)，攻击者可能会试图滥用（abuse）每个核心组件(如L1/L2缓存)的共享来驱逐日志发送方的缓存行，从而迫使日志发送方从内存中检索其缓存行。</p>
+<p>如果攻击者从另一个CPU核心访问大量内存以填满LLC，则在跨核心Last-Level Cache (LLC)上也会出现类似的驱逐场景。</p>
+<p>为了隔离每核组件，当调度日志发送器时，HARDLOG会抢占在日志发送器的CPU内核上同时执行的任何线程。这可以防止对手滥用任何核心组件。此外，为了防止滥用跨核LLC, HARDLOG采用了使用英特尔缓存分配技术(CAT)的缓存分区，该技术在最近的英特尔机器中广泛使用。</p>
+<h4 id="Bounded-thread-execution（有界线程执行）"><a href="#Bounded-thread-execution（有界线程执行）" class="headerlink" title="Bounded thread execution（有界线程执行）"></a>Bounded thread execution（有界线程执行）</h4><p>为确保攻击者和其他任务不能干扰其日志发送者和日志接收者线程，需要<strong>为非关键日志条目设置最大保护延迟</strong>。</p>
+<p>为了实现有界的线程执行，需要满足两个条件：</p>
+<ul>
+<li>一是避免出现无限执行路径，即代码中没有没有带有休眠或重新调度的无限循环；</li>
+<li>二是限制发送和接收线程所处理的数据量。<ul>
+<li>控制HOSTBUF（主机缓冲区）的大小【其大小决定了一次发送日志条目所需的时间】</li>
+</ul>
+</li>
+</ul>
+<p>在绑定线程执行后，最大日志保护延迟 $d_p$ 为 $2t_b +c$，其中 $t_b$ 是日志发送方通过设备通信接口发送整个HOSTBUF并从日志接收方接收确认所需的最大时间，而 $c$ 表示抢占其他资源所需的(恒定的)最大时间。</p>
+<h3 id="E-Remote-Log-Retrieval-and-Filtration（远程日志检索和过滤）"><a href="#E-Remote-Log-Retrieval-and-Filtration（远程日志检索和过滤）" class="headerlink" title="E. Remote Log Retrieval and Filtration（远程日志检索和过滤）"></a>E. Remote Log Retrieval and Filtration（远程日志检索和过滤）</h3><p>HARDLOG使系统管理员能够通过远程连接安全地从审计设备检索所有或一组经过过滤的日志条目。HARDLOG使用(a)设备和管理员之间基于主机的通信中继和(b)处理来自管理员的查询的设备查询执行库来实现。</p>
+<p>HARDLOG使主机能够使用主机的通信接口向设备转发管理员查询。管理员和设备之间的通信是基于传输层安全(TLS)等<strong>认证密钥交换(AKE)协议</strong>进行相互认证和加密的。</p>
+<p>HARDLOG在主机上实现一个审计服务，该服务与系统管理员创建一个网络通道来接收查询(A)。审计服务将接收到的查询发送给内核内查询处理程序(B)，后者将查询缓冲在主机内存(C)中。</p>
+<p>然后，主机内核中的查询中继将查询发送到审计设备(D, E)。然后，审计设备接收查询(<strong>白</strong>A, B)，并使用查询执行器(<strong>白</strong>C)执行查询。设备将查询结果返回给主机审计进程，主机审计进程将查询结果转发给管理员。</p>
+<p>HARDLOG支持以下日志过滤参数:(a)进程名称或标识符和(b)事件类型。此外，HARDLOG允许管理员删除审计设备上不再需要重用存储的日志。</p>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>详见原文</p>
+<h2 id="Security-Analysis-and-Validation"><a href="#Security-Analysis-and-Validation" class="headerlink" title="Security Analysis and Validation"></a>Security Analysis and Validation</h2><h3 id="Defense-Analysis"><a href="#Defense-Analysis" class="headerlink" title="Defense Analysis"></a>Defense Analysis</h3><ul>
+<li><p><strong>Prevent log protection slowdown attacks</strong>（防止日志保护减速攻击）：攻击者可以强调HARDLOG的日志条目保护管道，以延迟非关键日志条目的保护，以篡改尽可能多的日志条目。</p>
+<ul>
+<li>HARDLOG确保日志发送方始终以最高优先级执行，并且最高优先级的非HARDLOG线程的数量始终小于CPU内核。</li>
+<li>HARDLOG确保除了审计设备之外的所有IPI和硬件设备中断都不会发送到CPU核心运行日志发送方。</li>
+<li>HARDLOG隔离日志发送者使用的每核微架构组件(例如，TLB和L1/L2缓存)和跨核LLC分区，攻击者无法通过这些组件影响日志发送方的执行。</li>
+<li>系统管理员将HOSTBUF的大小固定为发送整个缓冲区的某个最坏情况延迟界限($t_b$)</li>
+</ul>
+</li>
+<li><p><strong>Prevent log deletion attacks</strong>（防止日志删除攻击）：</p>
+<ul>
+<li>在特权升级之后，攻击者可以尝试(a)删除主机上的日志条目(在HOSTBUF中)，(b)要求审计设备删除日志，或者(c)切断审计设备的电源，使设备失去其内存中的瞬时日志条目(在DEVBUF中)。</li>
+<li><strong>为了防止日志删除，HARDLOG确保在关键事件执行之前，日志被同步发送到审计设备，攻击者可能获得特权</strong>(§VI-C)。对于非关键事件，HARDLOG确保有界异步保护延迟(§VI-D)。我们的实验表明，对于我们的原型，这种延迟可以小到15 ms，适合防止强攻击(§VIII-B)。</li>
+<li>一旦审计设备内的条目受到保护，它就不会接受非管理员发出的日志删除请求。由于攻击者无法绕过管理员和审计设备之间的安全连接(§VI-E)，因此他们无法发送有效的日志删除请求。</li>
+</ul>
+</li>
+<li><p><strong>Prevent log modification attacks</strong>（防止日志修改攻击）：</p>
+<ul>
+<li>HARDLOG为所有的日志修改攻击提供了一种简单的防御:设备只接受来自主机的日志，以一种只追加的方式(§VI-B)。</li>
+<li>攻击者还可以尝试用日志条目填充设备，以覆盖他们的攻击跟踪。但是，如果审计设备的存储已满，它将停止接受新的日志条目。因此，攻击者无法覆盖现有日志。</li>
+</ul>
+</li>
+<li><strong>Prevent relay communication attacks</strong>（防止中继通信攻击）：<ul>
+<li>有特权的攻击者可以尝试破坏设备与管理员之间的主机中继通信。特别是，它们可以尝试伪造查询响应或重播以前的命令。</li>
+<li>为了防止这种情况，HARDLOG在设备和系统管理员之间建立了一个安全的相互认证连接(§VI-E)(使用他们的公私钥对)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Bounded-Asynchronous-Guarantee-Validation"><a href="#Bounded-Asynchronous-Guarantee-Validation" class="headerlink" title="Bounded-Asynchronous Guarantee Validation"></a>Bounded-Asynchronous Guarantee Validation</h3><p>一些实验结果见原文</p>
+<h2 id="Attack-Surface-Analysis"><a href="#Attack-Surface-Analysis" class="headerlink" title="Attack Surface Analysis"></a>Attack Surface Analysis</h2><p>HARDLOG的审计设备攻击面很小且受限。</p>
+<p>特别是，与向潜在攻击者(例如，应用程序和硬件设备)公开大量接口的主机不同，审计设备只有一个公开的接口(例如，我们原型的USB接口)。</p>
+<p>此外，尽管我们使用Linux快速构建审计设备的原型，但在实践中，经过验证的操作系统内核或小型实时操作系统可以支持我们的简单需求。该设备可以使用现有的接口加固技术、经过验证的解析器和经过验证的加密库进一步屏蔽。</p>
+<h2 id="Performance-Evaluation"><a href="#Performance-Evaluation" class="headerlink" title="Performance Evaluation"></a>Performance Evaluation</h2><p>详见原文</p>
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><ul>
+<li>Frequent critical events：某些程序可能频繁地执行一些关键事件，并引入不可忽略的同步日志保护开销。</li>
+<li>Other micro-architectural components：除了LLC，其他组件(例如，缓存目录和CPU环互连)在不同的CPU内核之间共享，但硬件目前不支持隔离这些组件。</li>
+<li>Post-compromise log retrieval（入侵后日志检索）：即使在主机被入侵后，HARDLOG也能安全地保存日志。然而，如果受损的主机停止中继网络通信，管理员必须恢复机器以物理方式或通过远程恢复机制。</li>
+<li>通过HOSTBUF导致系统减速。当内存中的日志缓冲区(例如HOSTBUF)满时，每个审计系统(包括HARDLOG)都必须暂停执行任何与安全相关事件的线程，以避免丢失日志条目。攻击者可能会滥用此功能来降低系统速度。防止此类攻击的一种方法是通过分析良性程序行为来建立每秒允许多少安全相关事件的速率限制配额。Leave this to future work</li>
+</ul>
+
+                                    
+                            </div>
+                            <hr />
+
+                            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ShiQuLiZhi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.qqzzss.top/2023/11/05/paperreading/paper02-hardlog/">https://www.qqzzss.top/2023/11/05/paperreading/paper02-hardlog/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特别声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">ShiQuLiZhi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+                                <div class="tag_share" style="display: block;">
+                                    <div class="post-meta__tag-list" style="display: inline-block;">
+                                        
+                                            <div class="article-tag">
+                                                
+                                                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                                        <span class="chip bg-color">
+                                                            信息安全
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                                        <span class="chip bg-color">
+                                                            论文阅读
+                                                        </span>
+                                                    </a>
+                                                    
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="post_share"
+                                        style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                        <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                                    </div>
+                                </div>
+                                
+                        </div>
+    </div>
+
+    
+
+                
+
+                            
+
+                                        
+
+                                                    
+                                                        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling"
+        style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '8SzvSoQjCOrTadqpJ1LjqujD-9Nh9j0Va',
+        appKey: 'iv4mV6VBG7twuE7yQgwpsYaq',
+        notify: '' === 'true',
+        verify: '' === 'true',
+        visitor: '' === 'true',
+        avatar: '/medias/moren.png',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '快来评论区发表你的观点吧~ 听说昵称填写qq号可以显示qq头像和qq昵称哦!',
+        enableQQ: true,
+        boolean: true,
+        emojiCDN: '//i0.hdslb.com/bfs/emote/',
+        // 表情title和图片映射
+        emojiMaps: {
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+            "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+            "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+            "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+            "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+            "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+            "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+            "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+            "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+            "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+            "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+            "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+            "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+            "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+            "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+            "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+            "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+            "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+            "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+            "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+            "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+            "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+            "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+            "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+            "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+            "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+            "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+            "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+            "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+            "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+            "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+            "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+            "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+            "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+            "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+            "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+            "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+            "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+            "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+            "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+            "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+            "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+            "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+            "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+            "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+            "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+            "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+            "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+            "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+            "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+        },
+        requiredFields: ['nick'], //设置必填项
+    });
+</script>
+                                                            
+
+                                                                
+
+                                                                            
+
+                                                                                        
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/11/05/paperreading/paper02-hardlog/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device">
+                        
+                        <span class="card-title">HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">论文阅读</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/10/27/development/ba-gu-wen-zheng-li/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="八股文整理">
+                        
+                        <span class="card-title">八股文整理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java%E4%B8%8E%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Java与开发基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+    <script>
+        $('#articleContent').on('copy', function (e) {
+            // IE8 or earlier browser is 'undefined'
+            if (typeof window.getSelection === 'undefined') return;
+
+            var selection = window.getSelection();
+            // if the selection is short let's not annoy our users.
+            if (('' + selection).length < Number.parseInt('150')) {
+                return;
+            }
+
+            // create a div outside of the visible area and fill it with the selected text.
+            var bodyElement = document.getElementsByTagName('body')[0];
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            bodyElement.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            // we need a <pre> tag workaround.
+            // otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            var url = document.location.href;
+            newdiv.innerHTML += '<br />'
+                + '来源: ShiQuLiZhi BLOG<br />'
+                + '文章作者: ShiQuLiZhi<br />'
+                + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+                + '本文著作权归作者所有，任何形式的转载均请注明出处。';
+
+            selection.selectAllChildren(newdiv);
+            window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+        });
+    </script>
+    
+
+        <!-- 代码块功能依赖 -->
+        <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+        <!-- 代码语言 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+            
+
+                <!-- 代码块复制 -->
+                
+                    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+                    
+
+                        <!-- 代码块收缩 -->
+                        
+                            <script type="text/javascript"
+                                src="/libs/codeBlock/codeShrink.js"></script>
+                            
+
+                                <!-- 代码块折行 -->
+                                
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src=""></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+                            <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2023</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">ShiQuLiZhi</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">470.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2022";
+                    var startMonth = "8";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/sxhthreo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+        data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+    
+
+        
+            <a href="mailto:951161604@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+                data-position="top" data-delay="50">
+                <i class="fas fa-envelope-open"></i>
+            </a>
+            
+
+                
+
+                        
+
+                                
+                                    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=951161604"
+                                        class="tooltipped" target="_blank"
+                                        data-tooltip="QQ联系我: 951161604" data-position="top"
+                                        data-delay="50">
+                                        <i class="fab fa-qq"></i>
+                                    </a>
+                                    
+
+                                        
+
+                                                
+                                                    <a href="https://www.zhihu.com/people/shui-he-qing-chi-zi-14" class="tooltipped"
+                                                        target="_blank"
+                                                        data-tooltip="关注我的知乎: https://www.zhihu.com/people/shui-he-qing-chi-zi-14"
+                                                        data-position="top" data-delay="50">
+                                                        <i class="fab fa-zhihu1">知</i>
+                                                    </a>
+                                                    
+
+                                                        
+
+                                                                
+                                                                    <a href="https://blog.csdn.net/sxH3O?type=blog"
+                                                                        class="tooltipped" target="_blank"
+                                                                        data-tooltip="关注我的CSDN: https://blog.csdn.net/sxH3O?type=blog"
+                                                                        data-position="top" data-delay="50">
+                                                                        <i class="fab fa-csdn">C</i>
+                                                                    </a>
+                                                                    </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+                                <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+                                    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                                        <script
+                                            src="/libs/materialize/materialize.min.js"></script>
+                                        <script
+                                            src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                        <script
+                                            src="/libs/aos/aos.js"></script>
+                                        <script
+                                            src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                        <script
+                                            src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                        <script
+                                            src="/js/matery.js"></script>
+
+                                        <!-- Baidu Analytics -->
+
+                                            <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                                
+                                                    <script
+                                                        src="/libs/others/clicklove.js"
+                                                        async="async"></script>
+                                                    
+                                                        
+
+                                                                
+
+                                                                        
+
+                                                                                
+                                                                                        
+                                                                                            <script
+                                                                                                type="text/javascript"
+                                                                                                color="0,0,255"
+                                                                                                pointColor="0,0,255"
+                                                                                                opacity='0.7'
+                                                                                                zIndex="-1"
+                                                                                                count="99"
+                                                                                                src="/libs/background/canvas-nest.js"></script>
+                                                                                            
+
+                                                                                                
+
+                                                                                                            
+                                                                                                                <script
+                                                                                                                    type="text/javascript"
+                                                                                                                    src="/libs/background/ribbon-dynamic.js"
+                                                                                                                    async="async"></script>
+                                                                                                                
+
+                                                                                                                    
+                                                                                                                        <script
+                                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+                                                                                                                        
+
+
+
+
+                </body>
+
+</html>
