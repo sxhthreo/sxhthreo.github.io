@@ -289,14 +289,14 @@
                         
                             
                                 <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"
-                                    title="算法学习: 9">
+                                    title="算法学习: 10">
                                     <!-- <span
                                         class="chip center-align waves-effect waves-light
                              chip-active "
                                         style="background-color: #F9EBEA;">
                                         算法学习
                                             <span class="tag-length">
-                                                9
+                                                10
                                             </span>
                                     </span> -->
                                     <div class="moleskine-wrapper">
@@ -642,6 +642,60 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/11/13/algorithmlearning/suan-fa-shua-ti-guan-yu-lian-biao-de-ruo-gan-wen-ti/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="关于链表的若干问题">
+                            
+                            <span class="card-title">关于链表的若干问题</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                节选自：https://leetcode.cn/studyplan/top-100-liked/
+链表反转初始化 pre、cur 分别指向 null 和头节点。
+
+class Solution &#123;
+    public ListN
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    算法学习
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">程序设计</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1113,11 +1167,11 @@ $O(2^h)$（树的层相关，记录一层）
                         <div class="summary block-with-text">
                             
                                 一、排序算法1.1 快速排序
-确定分界点x：$q[1]$、$q[(1+r)&#x2F;2]$、$q[r]$、随机
+确定分界点x：$q[1]$、$q[(1+r)/2]$、$q[r]$、随机
 调整区间：保证所有小于等于 $x$ 的数在 $x$ 的左区间，大于等于 $x$ 的数在 $x$ 的右区间
 递归处理左右两段
 
-
+调整区间可
                             
                         </div>
                         <div class="publish-info">
@@ -1229,7 +1283,7 @@ $O(2^h)$（树的层相关，记录一层）
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">470.6k</span>&nbsp;字
+                class="white-color">479.2k</span>&nbsp;字
             
             
             
@@ -1516,12 +1570,27 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+                                                                                                                            type="module"></script>
                                                                                                                         
 
 
 
 
-                </body>
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>

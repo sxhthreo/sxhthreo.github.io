@@ -287,11 +287,11 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 31">
+                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 32">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="算法" style="background-color: #F9EBEA;">算法
-                        <span class="tag-length">31</span>
+                        <span class="tag-length">32</span>
                     </span>
                 </a>
                 
@@ -332,11 +332,11 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" title="程序设计: 29">
+                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" title="程序设计: 30">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="程序设计" style="background-color: #F8F9F9;">程序设计
-                        <span class="tag-length">29</span>
+                        <span class="tag-length">30</span>
                     </span>
                 </a>
                 
@@ -877,7 +877,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">470.6k</span>&nbsp;字
+                class="white-color">479.2k</span>&nbsp;字
             
             
             
@@ -1164,12 +1164,27 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+                                                                                                                            type="module"></script>
                                                                                                                         
 
 
 
 
-                </body>
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 
 </html>
