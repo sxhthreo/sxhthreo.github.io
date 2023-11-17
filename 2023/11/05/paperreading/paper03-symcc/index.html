@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="嵌入式系统课程作业, ShiQuLiZhi BLOG">
+    <meta name="keywords" content="Symbolic execution with SYMCC_Don’t interpret, compile!, ShiQuLiZhi BLOG">
     <meta name="description" content="世界很暗，但是你来了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>嵌入式系统课程作业 | ShiQuLiZhi BLOG</title>
+    <title>Symbolic execution with SYMCC_Don’t interpret, compile! | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">嵌入式系统课程作业</h1>
+                    <h1 class="description center-align post-title">Symbolic execution with SYMCC_Don’t interpret, compile!</h1>
                 </div>
             </div>
         </div>
@@ -370,15 +370,15 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
                                     <span class="chip bg-color">
-                                        算法
+                                        信息安全
                                     </span>
                                 </a>
                                 
-                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
                                     <span class="chip bg-color">
-                                        程序设计
+                                        论文阅读
                                     </span>
                                 </a>
                                 
@@ -390,8 +390,8 @@
                         <div class="post-cate">
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                                <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                                <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
                                 </a>
                                 
                         </div>
@@ -404,7 +404,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2023-04-24
+                            2023-11-05
                     </div>
                     
 
@@ -412,7 +412,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-04-24
+                                    2023-11-17
                             </div>
                             
 
@@ -420,7 +420,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            5.8k
+                                            5.6k
                                     </div>
                                     
 
@@ -428,7 +428,7 @@
                                             <div class="info-break-policy">
                                                 <i class="far fa-clock fa-fw"></i>
                                                 阅读时长:&nbsp;&nbsp;
-                                                    22
+                                                    19
                                                         分
                                             </div>
                                             
@@ -455,363 +455,104 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <h1 id="第一次作业"><a href="#第一次作业" class="headerlink" title="第一次作业"></a>第一次作业</h1><ol>
-<li><strong>列举目前市面上常用的嵌入式操作系统名字（越多越好）</strong></li>
-</ol>
-<p>Android、uClinux、WinCE、PalmOS、Symbian、eCos、uCOS-II、VxWorks、pSOS、Nucleus、ThreadX 、Rtems 、QNX、INTEGRITY、OSE、C ExecuTIve</p>
-<ol>
-<li><strong>列举基于模型的系统工程 与 传统开发流程的优势（至少4点）</strong></li>
-</ol>
-<p><strong>（一）基于模型的系统工程</strong>（MBSE）是建模方法的形式化应用，以使建模方法支持系统要求、设计、分析、验证和确认等活动，这些活动从概念性设计阶段开始，持续贯穿到设计开发以及后来的所有寿命周期阶段。</p>
-<p><strong>优势</strong>：</p>
-<p>（1）改善了开发系统的利益相关者（客户、项目管理人员、系统工程师、软硬件工程师、测试人员和各专业工程学科的人员）之间的沟通；</p>
-<p>（2）通过使系统模型能够被从多个侧面进行观察，以及提供变更影响分析的能力， 提高了管理复杂系统的能力；</p>
-<p>（3）通过提供可评估一致性、正确性和完善性的无歧义的且精确的系统模型，提升了产品质量；</p>
-<p>（4）通过以更加标准化的方式捕获信息并高效地利用模型驱动方法固有的内置抽象机制，增强知识捕获及信息的复用。这会导致缩短开发周期和更低的维护成本，以改进设计。</p>
-<p><strong>（二）传统开发流程</strong>是一个文档驱动的流程，它将整个软件开发过程划分为顺序相接的几个阶段，每个阶段都必需完成全部规定的任务（文档）后才能够进入下一个阶段。</p>
-<p><strong>优势</strong>：</p>
-<p>（1）从系统整体出发，强调在整体优化的条件下“自上而下”地分析和设计，保证了系统的整体性和目标的一致性；</p>
-<p>（2）遵循用户至上原则；</p>
-<p>（3）每一阶段的工作成果是下一阶段的依据，便于系统开发的管理和控制；</p>
-<p>（4）文档规范化，按工程标准建立标准化的文档资料。</p>
-<ol>
-<li>列举RISC-V相对ARM构架的优势和缺陷，各三条。</li>
-</ol>
-<p><strong>优势</strong>：</p>
-<p>（1）RISC-V 是一个完全开源且免版税的指令集架构，可以用于任何目的，允许任何人设计、制造以及销售RISC-V芯片和软件，相对ARM构架具有开放的生态；</p>
-<p>（2）RISC-V技术是后发技术，能够总结前人的经验教训，做到相对简洁和干净；</p>
-<p>（3）RISC-V指令集架构具有低功耗、低成本、开源开放、可模块化、简洁、面积小、速度快等优点，与IoT场景需求碎片化的、可定制化的特性十分契合。</p>
-<p><strong>劣势</strong>：</p>
-<p>（1）由于RISC-V诞生时间太短，相关的编译器、开发工具和软件开发环境（IDE）以及其它生态要素还在发展；</p>
-<p>（2）RISC-V 定义了一个很小的、带有扩展的 ISA，导致ISA 碎片化；</p>
-<p>（3）RISC-V 尚未实现部分性能的提升，如超标量执行等。</p>
-<ol>
-<li>查询自己手机的处理器型号、性能和参数，并描述其ARM版本（或源自的版本），以及指令集的版本。</li>
-</ol>
-<p><strong>处理器</strong></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230424233851772.png" alt="image-20230424233851772"></p>
-<p><strong>型号</strong>：HUAWEI Kirin 990 5G</p>
-<p><strong>性能</strong>：作为华为首款旗舰5G SoC，Kirin 990 5G采用先进的7nm+ EUV工艺制程，将5G Modem集成到SoC芯片中，面积更小，功耗更低；率先支持NSA/SA双架构和TDD/FDD全频段，是领先的全网通5G SoC。麒麟990 5G NR理论下行峰值速率可达2.3Gbps，NR理论上行峰值速率达1.25Gbps，提供5G极速体验。</p>
-<p><strong>参数见下表</strong>：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>网络制式</th>
-<th>2G/3G/4G/5G</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPU制程</td>
-<td>7nm+EUV</td>
-</tr>
-<tr>
-<td>CPU主频</td>
-<td>2X  Cortex-A76 Based @2.86GHz  2X  Cortex-A76 Based @2.36GHz  4X  Cortex-A55 @1.95GHz</td>
-</tr>
-<tr>
-<td>GPU</td>
-<td>16  Core Mali-G76</td>
-</tr>
-<tr>
-<td>NPU</td>
-<td>2  Big-Core +1 Tiny-Core</td>
-</tr>
-<tr>
-<td>通用闪存（UFS）</td>
-<td>UFS  3.0 , UFS 2.1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>ARM版本</strong>：16 Core Mali G76 GPU</p>
-<p><strong>指令集版本</strong>：采用的是RISC精简指令集RISC-V</p>
-<h1 id="第二次作业"><a href="#第二次作业" class="headerlink" title="第二次作业"></a>第二次作业</h1><p><strong>1.深入调研并介绍IIC总线的结构、通信原理、特点（速度、同步性、双工性等）等。从理解的角度分析IIC总线的优缺点（相对SPI和CAN）。</strong></p>
-<p>IIC（Inter-Integrated Circuit）总线是一种串行通信协议，由飞利浦公司（Philips）于1980年代初开发，用于连接微控制器和周边设备。</p>
-<p><strong>①结构</strong></p>
-<p>IIC总线由两条双向线路组成：数据线（SDA）和时钟线（SCL），其中SDA线用于传输数据，SCL线用于传输时钟信号。通信的两端各有一个主设备和一个或多个从设备。主设备控制总线的访问，从设备响应主设备的命令并提供数据。总线上的设备通过IIC地址进行寻址。结构示意图如下：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230424233937803.png" alt="image-20230424233937803"></p>
-<p><strong>②通信原理</strong></p>
-<p>IIC总线采用主从结构进行通信，主设备可以是任何一台能够控制总线的设备（通常是微控制器），而从设备则是被控制的设备（如温度传感器、EEPROM存储器等）。通信分为两种模式：传输模式和接收模式。在传输模式下，主设备向从设备发送数据，从设备负责接收并响应；在接收模式下，主设备向从设备发送命令，从设备则会发送数据给主设备。</p>
-<p>在IIC总线通信时，主设备控制SCL线的时钟信号，而SDA线上的数据则在时钟信号的控制下进行传输。传输时，主设备在SCL线上产生时钟脉冲，同时在SDA线上发送数据位。从设备在时钟脉冲的控制下读取SDA线上的数据位，并在下一个时钟脉冲的前沿将其应答给主设备。如果数据传输成功，则从设备返回应答信号。</p>
-<p><strong>③特点</strong></p>
-<p>（1）速度</p>
-<p>IIC总线的速度取决于SCL线上的时钟频率。在标准模式下，时钟频率为100 kHz，最大数据传输速率为100 kbit/s。在快速模式下，时钟频率为400 kHz，最大数据传输速率为400 kbit/s。在高速模式下，时钟频率可以达到3.4 MHz，最大数据传输速率为3.4 Mbit/s。</p>
-<p>（2）同步性</p>
-<p>IIC总线是同步通信协议，即数据传输的时序由时钟信号控制。主设备通过控制时钟信号来确保通信的同步性，从而保证数据的准确传输。</p>
-<p>（3）双工性</p>
-<p>IIC总线支持双向通信，即主设备和从设备都可以发送和接收数据。主设备可以在任何时候控制总线的访问，并根据需要在总线上发送数据或接收数据。从设备只有在主设备允许时才能发送数据，并且只有在主设备发起读操作时才能发送数据。在同一时间内，IIC总线只能进行读或写操作，不能同时进行，属于半双工同步传输型总线。</p>
-<p>（4）多主机支持</p>
-<p>IIC总线支持多主机系统，即在同一总线上连接多个主设备。在这种情况下，每个主设备都有自己的地址，并且在使用总线之前必须获得总线的控制权。多主机系统可以提高系统的灵活性和可扩展性，可以实现更复杂的系统设计。</p>
-<p>（5）适用范围广</p>
-<p>IIC总线的应用范围非常广泛，可以用于连接各种类型的设备，如传感器、存储器、显示屏、电机驱动器等。它也可以用于通信距离比较短的应用场景，如板级通信、嵌入式系统等。</p>
-<p><strong>④优点</strong></p>
-<p>（1）线路简单</p>
-<p>相对于SPI总线和CAN总线，IIC总线只需要两条信号线进行通信，因此线路非常简单，易于实现和维护。相比之下，SPI总线需要四条信号线（一个主设备选择线、一个主设备输出线、一个从设备输出线和一个时钟线），而CAN总线需要两条信号线（一个CAN高速线和一个CAN低速线），因此IIC总线在线路复杂度方面具有优势。</p>
-<p>（2）多主机支持</p>
-<p>IIC总线支持多主机系统，即在同一总线上连接多个主设备，每个主设备都有自己的地址，并且在使用总线之前必须获得总线的控制权。这使得多主机系统可以实现更复杂的系统设计和更高的灵活性，而SPI总线只支持单主机系统，CAN总线虽然支持多主机系统，但需要使用更复杂的控制协议。</p>
-<p><strong>⑤缺点</strong></p>
-<p>（1）速度慢</p>
-<p>相对于SPI总线和CAN总线，IIC总线的速度较慢，最高速度只有400Kbps。因此，在一些需要高速数据传输的应用中，IIC总线可能无法满足要求。相比之下，SPI总线的最高速度可以达到100Mbps，CAN总线的最高速度可以达到1Mbps或更高，因此在速度方面，IIC总线具有劣势。</p>
-<p>（2）同步性差</p>
-<p>IIC总线的同步性较差，因为IIC总线的时钟由主设备控制，因此在一些高精度时序要求的应用中可能会出现问题。相比之下，SPI总线和CAN总线都具有较好的同步性，因为它们都有独立的时钟线。</p>
-<p>（3）双工性差</p>
-<p>IIC总线的双工性较差，在同一时间内，IIC总线只能进行读或写操作，不能同时进行；而SPI总线和CAN总线都具有良好的双工性，可以同时进行读和写操作。</p>
-<p>由于IIC、SPI、CAN总线各有各的特点和优势，我们可以根据具体的应用场景来选择最适合的通信总线。若需要简单的线路和多主机支持，可以选择IIC总线；若需要高速数据传输和良好的同步性，可以选择SPI总线；若需要长距离通信和实时性要求较高的应用，则可以选择CAN总线。</p>
-<ol>
-<li><strong>结合课堂内容，设异常触发指令的地址为0xFFFF0100，计算一下各个异常模式时，PC、LR、PRI*、Return Code的具体取值，写明分析过程。</strong></li>
-</ol>
-<p><strong>（1）Reset模式</strong></p>
-<p>  在Reset模式下，处理器会执行一系列初始化操作，包括将寄存器清零和设置中断向量表等。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108, <strong>LR**</strong>、PRI*、Return Code**均为N/A（不确定）。</p>
-<p><strong>（2）Undefined Instruction模式</strong></p>
-<p>当处理器遇到一条无法识别的指令时，它会进入Undefined Instruction异常模式。在这个模式下，处理器会暂停执行，并且会向操作系统发出一个异常信号，以便系统处理这个异常。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4=0xFFFF0104，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行 MOVS PC, R14_und 指令时，将恢复PC（从R14_und）和CPSR（从SPSR_und）的值，并返回到未定义指令后的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
-<p><strong>（3）Software Interrupt模式</strong></p>
-<p>当执行软件中断指令时，处理器会进入Software Interrupt异常模式。该模式用于处理与处理器相关的软件中断请求。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4=0xFFFF0104，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行 MOVS PC, R14_svc 指令时，将恢复PC（从R14_svc）和CPSR（从SPSR_svc）的值，并返回到SWI的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
-<p><strong>（4）Prefetch Abort模式</strong></p>
-<p>当处理器试图执行从内存中读取的非法指令或数据时，会触发Prefetch Abort异常。PC未更新，则<strong>PC</strong>值为异常触发指令地址+8，即0xFFFF0108,<strong>LR</strong>值为PC-4=0xFFFF0104，<strong>PRI*</strong>值为当前指令地址，为0xFFFF0100。当执行SUBS PC,R4_abt,#4后，将重新执行被中止的指令，则<strong>Return Code</strong>为0xFFFF0100。</p>
-<p><strong>（5）Data Abort模式</strong></p>
-<p>  当处理器试图执行或存储非法数据时，会触发Data Abort异常。这可能是因为数据不在可寻址的内存空间中，或者由于硬件错误而导致读取或写入失败。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4=0xFFFF0108，<strong>PRI*</strong>值为当前指令地址，为0xFFFF0100。当执行SUBS PC,R4_abt,#8后，将重新执行被中止的指令，则<strong>Return Code</strong>为0xFFFF0100。</p>
-<p><strong>（6）Interrupt模式</strong></p>
-<p>当处理器接收到来自外部设备的中断信号时，会进入Interrupt异常模式。在该模式下，处理器会执行特定的中断服务例程，以响应外部中断请求。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4=0xFFFF0108，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行SUBS PC,R14_irq,#4后，将返回到异常指令后的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
-<p><strong>（7）Fast Interrupt模式</strong></p>
-<p>当Fast Interrupt信号被触发时，处理器会立即跳转到Fast Interrupt异常模式，并且禁用中断响应。在该模式下，处理器会执行特定的中断服务例程，以尽快响应高优先级的中断请求。PC更新，则<strong>PC</strong>值为异常触发指令地址+12，即0xFFFF010C,<strong>LR</strong>值为PC-4=0xFFFF0108，<strong>PRI*</strong>值为下一条指令地址，为0xFFFF0104。当执行SUBS PC,R14_fiq,#4后，将返回到异常指令后的下一条指令，则<strong>Return Code</strong>为0xFFFF0104。</p>
-<h1 id="第三次作业"><a href="#第三次作业" class="headerlink" title="第三次作业"></a>第三次作业</h1><ol>
-<li><strong>SUB R3，R2，R1，LSR R0</strong></li>
-</ol>
-<p><strong>上面汇编指令中，R0，R1，R2，R3分别在32位的指令长度的位数范围？</strong></p>
-<p>R0代表寄存器移位位数，对应指令8-11位；R1对应指令0-3位；</p>
-<p>R2对应指令16-19位；R3代表指令12-15位。</p>
-<ol>
-<li><strong>读程序，给每一行增加注释，并说明执行过程中R0,R1,R2的值如何变化？</strong></li>
-</ol>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">AREA StrCopy, CODE, READONLY ; 定义代码区域，不可修改，只可读
-ENTRY            ; 指定程序的入口点
-start            ; 程序入口
-
-X EQU 88           ; 定义符号常量X为88
-Y EQU 76           ; 定义符号常量Y为76
-Z EQU 96           ; 定义符号常量Z为96
-
-STACK_TOP EQU 0X1000     ; 定义符号常量STACK_TOP为0X1000
-  MOV R0, #0XAB      ; 把0XAB的值加载到寄存器R0中，R0&#x3D;0xAB
-LOOP1
-  MOV R0, R0, ASR #1    ; 把R0右移一位，并把结果存回R0，R0&#x3D;0x55，第二次执行该语句时变为R0&#x3D;0x2A
-  CMP R0, #0X50      ; 比较R0与0X50的大小
-  BGE LOOP1        ; 如果R0大于等于0X50则跳转到LOOP1标记处（此处会跳转）
-  MOV R1, #Y        ; 把Y的值加载到寄存器R1中，R1&#x3D;76&#x3D;0x4C
-  ADD R2, R0, R1, LSL #1  ; 把R0和R1左移一位的结果相加，存入R2中, R2&#x3D;R0+R1*2&#x3D;0xC2
-  MOV SP, #0X1000     ; 把0X1000的值加载到栈指针寄存器SP中
-  STR R2, [SP]       ; 把R2的值存入以栈指针寄存器SP的值为地址的存储单元中
-  MOV R0, #Z        ; 把Z的值加载到寄存器R0中,R0&#x3D;96&#x3D;0x60
-  AND R0, R0, #0XFF    ; 把R0与0XFF进行与运算，存入R0中, R0&#x3D;0x60
-  MOV R1, #Y        ; 把Y的值加载到寄存器R1中,R1&#x3D;76&#x3D;0x4C
-  ADD R2, R0, R1, LSR #1  ; 把R0和R1右移一位的结果相加，存入R2中,R2&#x3D;R0+R1&#x2F;2&#x3D;0x86
-  LDR R0, [SP]       ; 将以栈指针寄存器SP的值为地址的存储单元中的内容加载到寄存器R0中,R0&#x3D;0xC2
-  MOV R1, #0X01      ; 把0X01的值加载到寄存器R1中，R1&#x3D;0x01
-  ORR R0, R0, R1      ; 把R0和R1进行或运算，存入R0中,R0&#x3D;0xC3
-  MOV R1, R2        ; 把R2的值加载到寄存器R1中,R1&#x3D;0x86
-  ADD R2, R0, R1, LSR #1  ; 把R0和R1右移一位的结果相加，存入R2中,R2&#x3D;R0+R1&#x2F;2&#x3D;0x106
-STOP
-  B STOP          ; 无条件跳转到STOP标记处，即进入死循环
-END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>程序最终运行结果为：R0=0xC3, R1=0x86, R2=0x106.</p>
-<h1 id="第四次作业"><a href="#第四次作业" class="headerlink" title="第四次作业"></a>第四次作业</h1><p><strong>任务一: 安装ARM编译环境</strong></p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230424234227363.png" alt="image-20230424234227363"></p>
-<p>对项目代码进行编译，显示0 Errors, 0 Warnings，说明环境配置正常，编译通过：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230424234234468.png" alt="image-20230424234234468"></p>
-<p><strong>任务二：运行STM32F746_Experiment_v1.1\01_汇编\3.1_asm1\Asm1_b例程，进入debug模式。</strong></p>
-<p>Debug界面如下所示：</p>
-<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20230424234301190.png" alt="image-20230424234301190"></p>
-<p>阅读代码，计算每行代码的目标寄存器的值。</p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">x     EQU 45               	;&#x2F;* x&#x3D;45 *&#x2F;
-y     EQU 64               	;&#x2F;* y&#x3D;64 *&#x2F;
-z     EQU 87               	;&#x2F;* z&#x3D;87 *&#x2F;
-stack_top EQU 0x30200000   	;&#x2F;* define the top address for stacks*&#x2F;
-
-export Reset_Handler
-
-AREA text,CODE,READONLY
-
-Reset_Handler              	;&#x2F;* code start *&#x2F;
-    mov  r0, #x            	; R0&#x3D;0x2D
-    mov  r0, r0, lsl #8    	; R0&#x3D;0x2D00
-    mov  r1, #y        		; R1&#x3D;0x40
-    add  r2, r0, r1, lsr #1 ; R2&#x3D;0x2D20
-    ldr  sp, &#x3D;stack_top    	; SP&#x3D;0x30200000
-    str  r2, [sp]
-    mov  r0, #z        		; R0&#x3D;0x57
-    and  r0, r0, #0xFF    	; R0&#x3D;0x57
-    mov  r1, #y        		; R1&#x3D;0x40
-    add  r2, r0, r1, lsr #1  ; R2&#x3D;0x77
-    ldr  r0, [sp]       	; R0&#x3D;0x2D20
-    mov  r1, #0x01      	; R1&#x3D;0x01
-    orr  r0, r0, r1      	; R0&#x3D;0x2D21
-    mov  r1, R2        		; R1&#x3D;0x77
-    add  r2, r0, r1, lsr #1  ; R2&#x3D;0x2D5C
-stop
-	b   stop         		;&#x2F;* end the code £¬cycling*&#x2F;
-END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="第五次作业"><a href="#第五次作业" class="headerlink" title="第五次作业"></a>第五次作业</h1><p><strong>一. 阅读发布的Um_s3c2410.pdf开发手册，回答如下问题</strong></p>
-<ol>
-<li><strong>对于I/O端口操作需求，假设GPB0端口连接了一个按键，我需要读按键的值。</strong></li>
-</ol>
-<p><strong>1）至少需要操作哪两个寄存器，对应的地址是多少？提示：搜索“GPB0”，找到寄存器名和地址。</strong></p>
-<p>①GPBCON寄存器，寄存器的地址为0x56000010；</p>
-<p>②GPBDAT寄存器，寄存器的地址为0x56000014。</p>
-<p><strong>2）需要操作这两个寄存器的哪几个bit位，如何操作？提示：例如 传感器GP[0:1]=00，按键值=GP*</strong>[<em>]*</em></p>
-<p>①寄存器GPBCON[1:0]=01；</p>
-<p>②按键值=GPBDAT[0]。</p>
-<p><strong>2.解释下列寄存器的含义以及地址</strong></p>
-<p>1）ADCCON</p>
-<p>含义：ADC控制寄存器，用于控制模数转换器的工作模式和采样率。</p>
-<p>地址：0x58000000</p>
-<p>2）WTCON</p>
-<p>含义：看门狗定时器控制寄存器，用于设置看门狗计时器的计时时钟和计时时间，并控制其启用和禁用。</p>
-<p>地址：0x53000000</p>
-<p>3）SPPIN0</p>
-<p>含义：SPI通道0引脚控制寄存器。</p>
-<p>地址：0x59000008</p>
-<p>4）BWSCON</p>
-<p>含义：总线宽度和等待状态控制寄存器，用于控制外部存储器的总线宽度和等待状态。</p>
-<p>地址：0x48000000</p>
-<p>5）BANKSIZE</p>
-<p>含义：可变内存库大小寄存器，用于存储处理器或计算机系统中内存或存储器大小的寄存器。</p>
-<p>地址：0x48000028</p>
-<p><strong>二. 以实验包中“STM32F746_Experiment_v1.1\02_GPIO”例程为例子，描述STM32系列嵌入式系统的启动过程。</strong></p>
-<p><strong>参考资料如下：</strong></p>
-<p>1) <strong>STM32F74xx中文参考手册(1).pdf （STM32F746_Experiment_v1.1目录下）</strong><br>2) <strong>上课讲课的PPT</strong><br>3) <strong>自行网上搜索。例如：<a target="_blank" rel="noopener" href="https://blog.csdn.net/luobeihai/article/details/117595762">https://blog.csdn.net/luobeihai/article/details/117595762</a></strong></p>
-<p><strong>①设置栈和堆的信息</strong></p>
-<p><strong>（1）栈</strong></p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">Stack_Size   EQU   0x00000400
-	AREA  STACK, NOINIT, READWRITE, ALIGN&#x3D;3
-	Stack_Mem    SPACE  Stack_Size
-__initial_sp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>开辟栈的大小为 0X00000400（1KB），栈的作用是用于局部变量、函数调用、函数形参等的开销；标号__initial_sp 紧挨着 SPACE 语句放置，表示栈的结束地址，即栈顶地址。</p>
-<p><strong>（2）堆</strong></p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">Heap_Size    EQU   0x00000200
-	AREA  HEAP, NOINIT, READWRITE, ALIGN&#x3D;3
-__heap_base
-Heap_Mem    SPACE  Heap_Size
-__heap_limit
-     PRESERVE8
-     THUMB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>开辟堆的大小为 0X00000200（512 字节），<strong>heap_base 表示堆的起始地址， </strong>heap_limit 表示堆的结束地址。堆主要用来动态内存的分配。</p>
-<p><strong>②定义中断向量表</strong></p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__Vectors    DCD   __initial_sp    ; Top of Stack
-        DCD   Reset_Handler        ; Reset Handler
-        DCD   NMI_Handler      	   ; NMI Handler
-        DCD   HardFault_Handler    ; Hard Fault Handler
-        DCD   MemManage_Handler    ; MPU Fault Handler
-        DCD   BusFault_Handler     ; Bus Fault Handler
-        DCD   UsageFault_Handler   ; Usage Fault Handler        
-		......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>ARM 规定向量表的起始位置存放的是栈顶指针 MSP 的地址值，紧接着存放的是复位中断入口函数的地址。当刚上电的时候，硬件会根据向量表的地址找到向量表的具体位置（对于向量表的地址是可以通过 NVIC 中的一个重定位寄存器来设置的，复位时该寄存器的值为0），然后会根据向量表中的这两个数据，设置 SP、PC 的值，这时 CPU 就会从复位中断的入口函数开始取指令运行程序。</p>
-<p><strong>③调用SystemInit函数，设置系统时钟</strong></p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">Reset_Handler  PROC
-       EXPORT Reset_Handler       [WEAK]
-       IMPORT __main
-       IMPORT SystemInit
-       LDR   R0, &#x3D;SystemInit
-       BLX   R0        			; 调用SystemInit函数
-       LDR   R0, &#x3D;__main
-       BX   R0
-ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p> 硬件设置好了 SP、PC 的值后，这时CPU 会从 Reset_Handler 处开始取指令运行，首先会调用 SystemInit 函数来初始化系统时钟，该函数是官方固件库提供的一个库函数，在 system_stm32f7xx.c 文件中定义如下：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">SystemInit</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
- <span class="token comment">/* FPU settings */</span>
- <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token punctuation">(</span>__FPU_PRESENT <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>__FPU_USED <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span></span></span>
- SCB<span class="token operator">-></span>CPACR <span class="token operator">|=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3UL</span> <span class="token operator">&lt;&lt;</span> <span class="token number">10</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">|</span><span class="token punctuation">(</span><span class="token number">3UL</span> <span class="token operator">&lt;&lt;</span> <span class="token number">11</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* set CP10 and CP11 Full Access */</span>
- <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
- 
- <span class="token comment">/* Reset the RCC clock configuration to the default reset state */</span>
- <span class="token comment">/* Set HSION bit */</span>
- RCC<span class="token operator">-></span>CR <span class="token operator">|=</span> <span class="token punctuation">(</span><span class="token class-name">uint32_t</span><span class="token punctuation">)</span><span class="token number">0x00000001</span><span class="token punctuation">;</span>
- 
- <span class="token comment">/* Reset CFGR register */</span>
- RCC<span class="token operator">-></span>CFGR <span class="token operator">=</span> <span class="token number">0x00000000</span><span class="token punctuation">;</span>
-
- <span class="token comment">/* Reset HSEON, CSSON and PLLON bits */</span>
- RCC<span class="token operator">-></span>CR <span class="token operator">&amp;=</span> <span class="token punctuation">(</span><span class="token class-name">uint32_t</span><span class="token punctuation">)</span><span class="token number">0xFEF6FFFF</span><span class="token punctuation">;</span>
-
- <span class="token comment">/* Reset PLLCFGR register */</span>
- RCC<span class="token operator">-></span>PLLCFGR <span class="token operator">=</span> <span class="token number">0x24003010</span><span class="token punctuation">;</span>
-
- <span class="token comment">/* Reset HSEBYP bit */</span>
- RCC<span class="token operator">-></span>CR <span class="token operator">&amp;=</span> <span class="token punctuation">(</span><span class="token class-name">uint32_t</span><span class="token punctuation">)</span><span class="token number">0xFFFBFFFF</span><span class="token punctuation">;</span>
-
- <span class="token comment">/* Disable all interrupts */</span>
- RCC<span class="token operator">-></span>CIR <span class="token operator">=</span> <span class="token number">0x00000000</span><span class="token punctuation">;</span>
-
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">if</span> <span class="token expression"><span class="token function">defined</span> <span class="token punctuation">(</span>DATA_IN_ExtSRAM<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">defined</span> <span class="token punctuation">(</span>DATA_IN_ExtSDRAM<span class="token punctuation">)</span></span></span>
-	<span class="token function">SystemInit_ExtMemCtl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">/* DATA_IN_ExtSRAM || DATA_IN_ExtSDRAM */</span></span>
-
-<span class="token comment">/* Configure the Vector Table location add offset address */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">VECT_TAB_SRAM</span></span>
-	SCB<span class="token operator">-></span>VTOR <span class="token operator">=</span> SRAM1_BASE <span class="token operator">|</span> VECT_TAB_OFFSET<span class="token punctuation">;</span> <span class="token comment">/* Vector Table Relocation in Internal SRAM */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
- 	SCB<span class="token operator">-></span>VTOR <span class="token operator">=</span> FLASH_BASE <span class="token operator">|</span> VECT_TAB_OFFSET<span class="token punctuation">;</span> <span class="token comment">/* Vector Table Relocation in Internal FLASH */</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>该函数完成以下功能：</p>
+                                <p>源码：<a target="_blank" rel="noopener" href="http://www.s3.eurecom.fr/tools/symbolic_execution/symcc.html">http://www.s3.eurecom.fr/tools/symbolic_execution/symcc.html</a></p>
+<p>总结：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/599054963">https://zhuanlan.zhihu.com/p/599054963</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>符号执行的目的是帮助软件测试，在计算机辅助推理领域取得了巨大进步。</p>
+<p>符号执行成为了软件安全和验证社区研究的主题，并且该技术已经在漏洞搜索和程序测试中确立了自己的地位。</p>
+<p><strong>性能仍然是符号执行的核心挑战</strong>：</p>
 <ul>
-<li><p><strong>FPU 设置部分</strong>：如果芯片支持 FPU（浮点运算器），则设置 CP10 和 CP11 为完全访问权限。</p>
+<li>缓慢的处理意味着每次执行和测试的代码更少，因此每个投入的资源检测到的bug更少</li>
+<li>Yun等人最近提供了大量证据，证明执行组件是符号执行的现代实现中的主要瓶颈</li>
+</ul>
+<p><strong>现有最先进的符号执行方式</strong>：</p>
+<p>大多数实现将被测程序转换为<strong>中间表示</strong>(例如，LLVM位码)，然后进行符号计算（executed symbolically）。从概念上讲，系统一个接一个地循环遍历目标程序的指令，执行所请求的计算，并根据任意符号输入（any symbolic input）跟踪语义。</p>
+<p><strong>本质上是一个解释器</strong>。更具体地说，除了通常的执行之外，它是用于相应中间表示的解释器，它以符号方式跟踪计算。</p>
+<p>一般来说，<strong>解释的效率低于编译</strong>，因为它在每次执行时执行编译器只需执行一次的工作。因此，我们的核心思想是将“编译而不是解释”应用于符号执行，以获得更好的性能。</p>
+<p>在编程语言中，它是用执行等效操作的机器码序列替换源语言指令的过程。为了将同样的思想应用到符号执行中，<strong>我们将符号处理嵌入到目标程序中。最终结果是一个无需外部解释器即可执行的二进制文件</strong>;它执行与目标程序相同的操作，但额外地跟踪符号表达式。这种技术使它能够执行解释器通常应用的任何符号推理，同时保持编译程序的速度。</p>
+<p>符号执行的早期实现中也使用了类似的方法:DART、CUTE和EXE在C源代码级别检测被测程序，但有两个基本问题：</p>
+<ol>
+<li><p><strong>源代码插桩</strong>（tie）将它们绑定到一种编程语言中。相反，我们的方法是<strong>在编译器的中间表示上工作</strong>，因此独立于源语言。</p>
+<blockquote>
+<p>【可能解释】每个编程语言都有不同的语法和结构，所以为不同的编程语言编写和维护插桩逻辑会变得非常复杂</p>
+<p>【<strong>插桩的含义</strong>】在符号执行过程中，<strong>程序变量</strong>会被映射到<strong>符号表达式</strong>，用于后续路径约束的生成和求解。这种映射关系的构建需要符号执行引擎对原始程序进行<strong>插桩</strong>来实现。</p>
+</blockquote>
 </li>
-<li><p><strong>RCC 时钟配置部分</strong>：将芯片的 RCC 寄存器设置为默认值。具体步骤包括：</p>
+<li><p>处理完整编程语言的要求使得实现非常复杂;这种方法对于C来说可能是可行的，但是对于像C++这样的大型语言来说可能会失败。我们基于编译器的技术只需要<strong>处理编译器的中间表示</strong>，这是一种小得多的语言。【和上面那条其实类似】</p>
+</li>
+</ol>
+<p>我们在LLVM框架的基础上实现了我们的想法，称为SYMCC。它接受被测程序的未修改的LLVM位码，并将符号执行能力直接编译成二进制文件。在程序的每个分支点，<strong>“符号化”二进制文件</strong>将生成一个偏离当前执行路径的输入。换句话说，SYMCC生成执行聚合执行的二进制文件，这是一种符号执行，它不同时遵循多个执行路径，而是<strong>依赖于一个外部实体(比如fuzzer)来确定测试用例的优先级并编排执行</strong>（orchestrate execution）。</p>
+<p>在最常见的情况下，SYMCC取代了普通的编译器，并将被测程序的C或c++源代码编译成一个仪表化的二进制文件因此，SYMCC被设计用于分析源代码(或至少LLVM位码)可用的程序，例如在开发期间作为安全开发生命周期的一部分。</p>
+<p><strong>Contributions</strong>：</p>
 <ul>
-<li><p>打开 HSION（内部高速时钟）位。</p>
-</li>
-<li><p>重置 CFGR 寄存器为 0；</p>
-</li>
-<li><p>关闭 HSEON（外部高速时钟）、CSSON（时钟安全系统）和 PLLON（锁相环）位；</p>
-</li>
-<li><p>将 PLLCFGR 寄存器重置为默认值；</p>
-</li>
-<li><p>关闭 HSEBYP（外部高速时钟旁路）位；</p>
-</li>
-<li><p>禁用所有中断。</p>
-</li>
+<li>我们提出了基于编译的符号执行，这种技术在保持低复杂度的同时提供了比当前方法更高的性能。支持额外的源语言可以添加很少的努力；</li>
+<li>我们展示了SYMCC，我们在LLVM框架之上的开源实现。</li>
+<li>我们根据最先进的符号执行引擎对SYMCC进行了评估，并表明它在分析现实世界的软件方面提供了好处，从而发现了OpenJPEG中的两个关键漏洞。</li>
+</ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Symbolic-execution"><a href="#Symbolic-execution" class="headerlink" title="Symbolic execution"></a>Symbolic execution</h3><p>符号执行的每个实现都是由一组基本构建块构建的。</p>
+<ul>
+<li><strong>Execution</strong>：被测程序被执行，系统产生表示<strong>计算结果的符号表达式</strong>。这些表达式是对程序进行推理的基本资产。出于我们的目的，我们区分了基于IR的执行和不使用IR的执行。</li>
+<li><strong>Symbolic backend</strong>：唯一目的是对它们进行推理，例如，生成触发某个安全漏洞的新程序输入。<strong>符号后端由推理过程中涉及的组件组成</strong>。通常，实现使用SMT求解器，可能通过预处理技术进行增强。例如，KLEE使用精心设计的缓存机制来最小化求解器查询的数量，QSYM从查询中删除所有无关信息以减少求解器的负载。</li>
+<li><strong>Forking（分叉） and scheduling（调度）</strong>：两类实现方法<ul>
+<li>只执行一次目标程序，可能沿着给定程序输入指定的路径，并<strong>基于该单次执行生成新的程序输入</strong>。新的输入通常反馈到系统或传递到并发运行的 fuzzer。这种方法通常被称为<strong>concolic执行器</strong>，包括SAGE、Driller和QSYM等。</li>
+<li>通过额外的工具来管理沿着不同路径的被测程序的多次执行。通常，它们<strong>在程序的分支点“分叉”执行</strong>(为了避免必须从一个新输入开始重新执行);调度程序通常编排不同的执行状态，并根据某种搜索策略对它们进行优先级排序。例如，KLEE， Mayhem和 angr 都遵循这种方法。</li>
 </ul>
 </li>
-<li><p><strong>外部存储器部分</strong>：如果使用外部存储器（如外部 SRAM 或 SDRAM），则调用 SystemInit_ExtMemCtl() 函数进行配置。</p>
+</ul>
+<p><strong>路径爆炸问题</strong>在第二种方法中更加普遍。分叉系统需要管理每个执行状态的大量信息，而concolic执行器只是生成一个新的程序输入，将其写入磁盘，然后“忘记它”。Mayhem实现了一种混合方法，在有足够内存可用时进行分叉，否则将状态持久化到磁盘。</p>
+<p>对于SYMCC，我们决定采用concolic方法，因为我们认为它允许更高的执行速度和更简单的实现。</p>
+<p>我们的工作专注于<strong>改进执行组件</strong>，而我们在符号后端重用Yun等人的工作。</p>
+<p>我们研究当前符号执行实现中执行组件的两种流行风格。</p>
+<h3 id="IR-based-symbolic-execution"><a href="#IR-based-symbolic-execution" class="headerlink" title="IR-based symbolic execution"></a>IR-based symbolic execution</h3><p>实现符号执行的一种常用方法是通过<strong>中间表示(IR)</strong>。与流行的CPU体系结构的本地指令集相比，IR通常在高层次上用更少的指令描述程序行为。因此，为IR实现符号解释器要比直接为机器码实现符号解释器容易得多，因此这是许多最先进的系统所采用的方法。</p>
+<p>基于IR的符号执行首先需要将被分析的程序转换成IR。例如，KLEE在LLVM位码上工作，并使用clang编译器从源代码生成它;S2E也解释LLVM位码，但从QEMU的内部程序表示动态生成它，在执行过程中翻译遇到的每个基本块;angr将机器码转换为VEX，即Valgrind框架的IR。</p>
+<p>一般来说，IR生成可能需要大量的工作，特别是当它从机器代码开始时。<strong>一旦目标程序的IR可用，符号解释器就可以运行它并生成对应于每个计算的符号表达式。表达式通常被传递到符号后端进行进一步处理</strong>。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109171958998.png" alt="image-20231109171958998"></p>
+<h3 id="IR-less-symbolic-execution"><a href="#IR-less-symbolic-execution" class="headerlink" title="IR-less symbolic execution"></a>IR-less symbolic execution</h3><p>虽然将目标程序转换为中间表示简化了符号执行的实现，但解释IR比相应二进制的本机执行要慢得多，特别是在没有符号数据的情况下(即，当不需要符号推理时)。这种观察导致了Triton和QSYM的开发，它们遵循一种不同的方法:不是将被测试的程序翻译成IR然后解释它，而是<strong>执行未修改的机器码并在运行时对其进行检测</strong>。</p>
+<p>具体来说，Triton和QSYM都使用Intel的Pin来控制目标程序的执行。Pin提供了在<strong>执行某些机器代码指令</strong>时插入自定义代码的工具。符号执行器使用这种机制注入代码，这些代码除了由CPU执行的具体计算之外，还以符号方式处理计算。例如，当CPU准备将两个寄存器中的值相加时，Pin调用符号执行器，它获取寄存器值对应的符号表达式，生成描述和的表达式，并将其与接收计算结果的寄存器关联起来。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109173954377.png" alt="image-20231109173954377"></p>
+<ul>
+<li>Run-time instrumentation（运行时插桩） 也会带来开销，但比解释 IR 快得多</li>
+<li><strong>健壮性</strong>：如果基于 IR 的系统不知道如何处理某个指令或对某些库函数的调用，它就无法继续，因为解释器无法执行请求的计算；然而，在无 IR 符号执行中，CPU总是可以具体地执行目标程序。注入的分析代码将无法生成适当的符号表达式。</li>
+</ul>
+<p>然而，直接在机器码上构建符号执行有相当大的缺点。最值得注意的是，实现需要处理更大的指令集：</p>
+<p>通常用于符号执行的 IR 包含几十条不同的指令，而 CPU 指令集很容易达到数百到数千条。<strong>符号执行器必须知道如何以符号方式表达每条指令的语义，这将导致更加复杂的实现。</strong>另一个问题是体系结构依赖性：机器代码的检测自然是一项依赖于机器的工作。另一方面，IR 通常是架构不可知论者。因此，基于IR的系统可以在任何架构上工作，只要存在从各自的机器码到IR的转换器。这与嵌入式设备领域尤其相关，在该领域中，常见的CPU架构种类繁多。</p>
+<p>SYMCC使用IR，因此<strong>保留了与基于IR的方法相关的灵活性和实现简单性</strong>，然而我们<strong>基于编译的技术</strong>允许它达到(并超越)无IR系统的高性能，正如我们在第5节中所展示的那样。</p>
+<h3 id="Reducing-overhead"><a href="#Reducing-overhead" class="headerlink" title="Reducing overhead"></a>Reducing overhead</h3><p>无论是基于 IR 还是不基于 IR 的符号执行，只有在计算涉及符号数据时，才需要构建符号表达式并将其传递给符号后端。否则，结果完全独立于用户输入，因此与在后端执行的任何推理无关。因此，一种常见的优化策略是<strong>将符号处理限制为对符号数据的计算</strong>，并采用更快的执行机制，我们称之为<strong>具体检查</strong>的策略。</p>
+<p>在基于IR的实现中，IR的符号解释甚至可以与机器代码在真实或快速仿真CPU上的本机执行交替进行;例如，Angr b就采用了这种方法。实现的具体检查范围各不相同——QSYM决定是否在每条指令的基础上调用符号后端，而angr将钩子放在相关操作(如内存和寄存器访问)上。尽可能多地回到快速执行方案是一个重要的优化，我们也在SYMCC中实现了这一点。</p>
+<h2 id="Compilation-based-symbolic-execution"><a href="#Compilation-based-symbolic-execution" class="headerlink" title="Compilation-based symbolic execution"></a>Compilation-based symbolic execution</h2><p>我们的方法的高级目标是通过将<strong>计算的符号处理编译到目标程序</strong>中来加速符号执行的执行部分。</p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>我们将<strong>符号解释器(或观察者)</strong>的逻辑<strong>编译到目标程序中</strong>。与符号执行的早期实现相反，我们不是在源代码级别执行这种嵌入，而是使用编译器的中间表示，这使我们能够独立于编写被测程序的源语言，以及独立于目标体系结构。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109220832396.png" alt="image-20231109220832396"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109211405790.png" alt="image-20231109211405790"></p>
+<blockquote>
+<p>LLVM位码中的一个示例函数</p>
+</blockquote>
+<p>插入目标程序相关附加指令（黄色框），原始代码依然保留，插入的是对运行时支持库的调用该库构建符号表达式并于SMT求解器交互。</p>
+<h3 id="Support-library"><a href="#Support-library" class="headerlink" title="Support library"></a>Support library</h3><p>由于我们将符号执行功能编译到目标程序中，所以典型符号执行引擎的所有组件都需要可用。因此，我们将符号后端绑定到一个供目标程序使用的库中。</p>
+<p>该库公开了符号后端的入口点，以便从 the instrumented target 调用，例如，用于构建符号表达式和通知后端有关条件跳转的函数。</p>
+<h3 id="Symbolic-handlers"><a href="#Symbolic-handlers" class="headerlink" title="Symbolic handlers"></a>Symbolic handlers</h3><p>编译时转换的核心是插入处理符号计算的调用。编译器遍历整个程序，并为每次计算插入对符号后端的调用。例如，当目标程序检查两个变量的内容是否相等时，编译器插入代码来获取两个操作数的符号表达式，构建结果“等于”表达式，并将其与接收结果的变量相关联(%7)。代码在编译时生成并嵌入到二进制文件中。这个过程取代了传统符号执行引擎在运行时必须执行的大量符号处理。<strong>我们的编译器对目标程序精确地进行一次检测，然后生成的二进制文件可以在不同的输入上运行，而不需要重复检测过程</strong>，这在与 fuzzer 结合使用时特别有效。此外，插入的处理成为目标程序的一个组成部分，因此它受制于通常的CPU优化，如缓存和分支预测。</p>
+<h3 id="Concreteness-checks"><a href="#Concreteness-checks" class="headerlink" title="Concreteness checks"></a>Concreteness checks</h3><p>对运行时支持库的每个插入调用都会引入开销:它最终会调用符号后端，并可能将负载放在 SMT 求解器上。</p>
+<p>但是，只有在计算接收符号输入时，才需要涉及符号后端。没有必要通知后端完全具体的计算——我们只会产生不必要的开销。在我们基于编译的方法中，有两个阶段的数据可以被确定为具体的:</p>
+<ul>
+<li><strong>Compile time</strong>：编译时常量，如数据结构的偏移量、魔术常量或默认返回值，在运行时永远不会变成符号。</li>
+<li><strong>Run time</strong>：在许多情况下，编译器无法知道数据在运行时是具体的还是符号的，例如，当它从内存中读取时:一个内存单元可能包含符号数据或具体数据，并且它的具体性在执行过程中会发生变化。在这些情况下，如果计算的所有输入都是具体的，我们只能在运行时检查并动态地防止调用符号后端。</li>
+</ul>
+<p>因此，在我们生成的代码中，如果数据在编译时已知为常数，我们就会省略对符号后端的调用。此外，在其余情况下，我们会插入运行时检查，将后端调用限制在计算中至少有一个输入是符号输入（因此结果也可能是符号输入）的情况。</p>
+<h2 id="Implementation-of-SymCC"><a href="#Implementation-of-SymCC" class="headerlink" title="Implementation of SymCC"></a>Implementation of SymCC</h2><p>我们在 <strong>LLVM 编译器框架</strong>的基础上构建了 SYMCC。编译时工具是通过从头开始编写的自定义编译器传递实现的。该程序将编译器前端生成的 LLVM 位码走一遍，并插入用于符号处理的代码（如第 3.3 节所述）。插入的代码调用符号后端导出的函数：我们提供了 Z3 SMT 求解器的精简封装，以及与 QSYM更复杂后端的可选集成。编译器传递由大约 1000 行 C++ 代码组成；运行时支持库也是用 C++ 编写的，由另外 1000 行代码组成（不包括 Z3 和可选的 QSYM 代码）。相对较小的代码库表明，该方法概念简单，从而降低了出现实施错误的可能性。</p>
+<h3 id="Compile-time-instrumentation"><a href="#Compile-time-instrumentation" class="headerlink" title="Compile-time instrumentation"></a>Compile-time instrumentation</h3><p>由于我们的编译器扩展是作为 LLVM 通道（an LLVM pass）实现的，因此它运行在基于 LLVM 的编译器的 “<strong>中间端</strong>“（in the “middle-end” of LLVM-based compilers）——在前端将源语言翻译成 LLVM 位码之后，但在后端将位码转换成机器码之前。因此，SYMCC 需要支持 LLVM 位码语言的指令和固有函数。</p>
+<p>相对于各种优化步骤而言，SYMCC 的传递位置需要权衡利弊。在优化器的早期阶段，比特码仍与前端生成的非常相似，通常效率较低，但相对简单，而且仅限于 LLVM 比特码指令集的一个子集。相比之下，在优化器流水线的后期阶段，死代码已被优化掉，昂贵的表达式（如乘法）已被更便宜的表达式（如位移）所取代；这种优化后的代码允许使用更少、更便宜的仪器，但需要处理指令集的更大一部分。在当前的实现中，我们的代码在<strong>优化流水线的中间运行</strong>，在消除死代码和降低强度等基本优化之后，但在矢量器（即在支持的架构上用 SIMD 指令替换循环的阶段）之前。在更晚的时间运行我们的代码可以提高编译后程序的性能，但会使我们的实现复杂化，因为我们需要实现矢量操作的符号处理；我们选择了实现简单化。</p>
+<h3 id="Shadow-memory"><a href="#Shadow-memory" class="headerlink" title="Shadow memory"></a>Shadow memory</h3><p>首先，符号表达式与数据相关联的信息被存储在内存中的一个影子区域（shadow region）。运行时支持库会跟踪目标程序中的内存分配，并将它们映射到相应的影子区域，这些影子区域以每页为单位包含了相应的符号表达式。然而，有一个特殊情况：与函数局部变量对应的表达式存储在局部变量本身中。这意味着在代码生成过程中，它们被当作普通数据进行处理；特别是，编译器的寄存器分配器可能会决定将它们放入机器寄存器以实现快速访问。</p>
+<p>可以用固定偏移量的方式替换当前的内存分配跟踪方案。这种技术被流行的LLVM santizers所使用。这样做可以实现对符号表达式的常数时间查找，而当前的查找时间与包含符号数据的内存页数成对数关系。</p>
+<p>然而，由于内存页数通常很小（根据作者的经验，不超过10页），作者选择了更简单的按需分配的实现方式。</p>
+<h3 id="Symbolic-backend"><a href="#Symbolic-backend" class="headerlink" title="Symbolic backend"></a>Symbolic backend</h3><p>提供了两个不同的后端：</p>
+<ul>
+<li><p>第一个是他们自己实现的后端，是对Z3的一个轻量级封装。它作为一个共享对象被打包并链接到被插装的目标程序中。编译器插入对后端的调用，后端构造所需的Z3表达式，并查询SMT求解器以生成新的程序输入。</p>
 </li>
-<li><p><strong>向量表位置部分</strong>：根据宏定义的设置，将向量表位置设置为内部 SRAM 或内部 FLASH。</p>
+<li><p>然而，由于后端大部分与执行组件独立，并且只通过一个简单的接口与执行组件进行通信，我们可以在不影响主要的执行组件的情况下替换它。作者通过集成QSYM后端来展示了这种灵活性，可以选择性地使用该后端，取代他们简单的Z3封装。他们从处理符号表达式的QSYM代码部分编译了一个共享库，将其链接到目标程序，并将仪器化程序中的调用转换成对QSYM代码的调用。他们封装的QSYM代码接口包括一组用于创建表达式的函数（例如，<code>SymExpr _sym_build_add(SymExpr a, SymExpr b)</code>），以及用于传递调用上下文和路径约束的辅助函数；添加路径约束会通过Z3触发生成新的输入。实际上，这意味着他们可以将QSYM后端中的所有复杂表达式处理功能与依赖跟踪和热代码路径的后退策略等相结合，与自己的快速执行组件一起使用。</p>
 </li>
 </ul>
-<p><strong>④调用__main函数</strong></p>
-<p>__main 函数是系统自带的库函数，根据反汇编的文件，得到的该函数的部分代码如下：</p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__main
-  _main_stk
-	0x08000130:  f8dfd010  ....  LDR   sp,__lit__00000000 ; [0x8000144] &#x3D; 0x200007a0
-	.ARM.Collect$$$$00000004
-  _main_scatterload
-
-	0x08000134:  f000f81a  ....  BL    __scatterload ; 0x800016c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>接下来就跳转到了 __scatterload 函数，从函数名可以看出这是一个分散加载函数，该函数主要实现的功能就是数据段的重定位和清除 bss 段，初始化栈空间。该函数的反汇编源码如下：</p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__scatterload
-  __scatterload_rt2
-    0x0800016c:  4c06    .L   LDR   r4,[pc,#24] ; [0x8000188] &#x3D; 0x80005d4
-    0x0800016e:  4d07    .M   LDR   r5,[pc,#28] ; [0x800018c] &#x3D; 0x80005f4
-    0x08000170:  e006    ..   B    0x8000180 ; __scatterload + 20
-    0x08000172:  68e0    .h   LDR   r0,[r4,#0xc]
-    0x08000174:  f0400301  @...  ORR   r3,r0,#1
-    0x08000178:  e8940007  ....  LDM   r4,&#123;r0-r2&#125;
-    0x0800017c:  4798    .G   BLX   r3
-    0x0800017e:  3410    .4   ADDS   r4,r4,#0x10
-    0x08000180:  42ac    .B   CMP   r4,r5
-    0x08000182:  d3f6    ..   BCC   0x8000172 ; __scatterload + 6
-    0x08000184:  f7ffffd8  ....  BL    __main_after_scatterload ; 0x8000138<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>⑤调用main函数</strong></p>
-<p>从上面的汇编代码可以看出，<strong>scatterload 函数最后调用了 </strong>main_after_scatterload 函数，这个函数实现的功能就是跳转到了用户的 main 函数，进入到用户程序。__main_after_scatterload 函数的代码如下：</p>
-<pre class="line-numbers language-asm" data-language="asm"><code class="language-asm">__main_after_scatterload
-  _main_clock
-  _main_cpp_init
-  _main_init
-    0x08000138:  4800    .H   LDR   r0,[pc,#0] ; [0x800013c] &#x3D; 0x80004c1
-    0x0800013a:  4700    .G   BX    r0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看出，代码最后跳转到了 r0 寄存器所指示的地址中去了，实际上这个地址就是用户的 main 函数地址。由此完成 STM32 的启动过程，接下来运行的是用户程序的代码。</p>
+<h3 id="Concreteness-checks-1"><a href="#Concreteness-checks-1" class="headerlink" title="Concreteness checks"></a>Concreteness checks</h3><p>为了获得良好的性能，我们需要将符号推理(即符号后端的参与)限制在必要的情况下。换句话说，当计算的所有操作数都是具体的时，我们应该避免调用符号后端。</p>
+<p>在我们的实现中，符号表达式在运行时被表示为指针，具体值的表达式是空指针。因此，在执行过程中检查给定表达式的具体性是一种简单的空指针检查。在位码的每次计算之前，如果所有操作数都是具体的，则插入一个跳过符号处理的条件跳转;如果至少有一个操作数是符号操作数，则根据需要为其他操作数创建符号表达式，并调用符号后端。显然，当编译器可以推断出一个值是编译时常量，因此在运行时绝不是符号值时，我们就省略了符号处理代码的生成。</p>
+<h2 id="Interacting-with-the-environment"><a href="#Interacting-with-the-environment" class="headerlink" title="Interacting with the environment"></a>Interacting with the environment</h2><p>传统 一步一步算关系</p>
+<p>前面后面加两个 hook，编译阶段加好了，不需要再推导，直接算结果就行（且有优化空间）</p>
 
                                     
                             </div>
@@ -838,7 +579,7 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.qqzzss.top/2023/04/24/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/">https://www.qqzzss.top/2023/04/24/homework/qian-ru-shi-xi-tong-ke-cheng-zuo-ye/</a>
+                    <a href="https://www.qqzzss.top/2023/11/05/paperreading/paper03-symcc/">https://www.qqzzss.top/2023/11/05/paperreading/paper03-symcc/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -876,15 +617,15 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                                         
                                             <div class="article-tag">
                                                 
-                                                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
                                                         <span class="chip bg-color">
-                                                            算法
+                                                            信息安全
                                                         </span>
                                                     </a>
                                                     
-                                                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
                                                         <span class="chip bg-color">
-                                                            程序设计
+                                                            论文阅读
                                                         </span>
                                                     </a>
                                                     
@@ -1264,13 +1005,13 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/29/security/mi-ma-xue-gai-shu-yu-xian-dai-mi-ma-suan-fa/">
+                <a href="/2023/11/05/paperreading/paper02-hardlog/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="密码学概述与现代密码算法">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device">
                         
-                        <span class="card-title">密码学概述与现代密码算法</span>
+                        <span class="card-title">HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1281,14 +1022,14 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-05
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    信息安全专业课程
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
                                 </a>
                             
                             
@@ -1302,8 +1043,8 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                         <span class="chip bg-color">信息安全</span>
                     </a>
                     
-                    <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">
-                        <span class="chip bg-color">密码学</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">论文阅读</span>
                     </a>
                     
                 </div>
@@ -1317,13 +1058,13 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/23/ds-algorithm/suan-fa-ke-cheng-02-suan-fa-fen-xi-yu-she-ji-2/">
+                <a href="/2023/10/27/development/ba-gu-wen-zheng-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="算法分析与设计2：贪心、动规、分支限界、NP完备性理论">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="八股文整理">
                         
-                        <span class="card-title">算法分析与设计2：贪心、动规、分支限界、NP完备性理论</span>
+                        <span class="card-title">八股文整理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1334,14 +1075,14 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    数据结构与算法课程
+                            <a href="/categories/Java%E4%B8%8E%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Java与开发基础
                                 </a>
                             
                             
@@ -1351,16 +1092,8 @@ ENDP<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">理论知识</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
                     </a>
                     
                 </div>
