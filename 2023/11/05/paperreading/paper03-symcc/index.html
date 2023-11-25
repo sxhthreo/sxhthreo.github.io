@@ -1,0 +1,1643 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="Symbolic execution with SYMCC_Don’t interpret, compile!, ShiQuLiZhi BLOG">
+    <meta name="description" content="世界很暗，但是你来了">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Symbolic execution with SYMCC_Don’t interpret, compile! | ShiQuLiZhi BLOG</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+    
+        <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+            
+
+                <body>
+
+                    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ShiQuLiZhi BLOG</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/goodpapers" class="waves-effect waves-light">
+      
+      <i class="fas fa-coffee" style="zoom: 0.6;"></i>
+      
+      <span>收藏</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ShiQuLiZhi BLOG</div>
+        <div class="logo-desc">
+            
+            世界很暗，但是你来了
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/goodpapers" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-coffee"></i>
+			
+			收藏
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+                        
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Symbolic execution with SYMCC_Don’t interpret, compile!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                    <span class="chip bg-color">
+                                        信息安全
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                    <span class="chip bg-color">
+                                        论文阅读
+                                    </span>
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+                <div class="col s5 right-align">
+                    
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                    <div class="post-date info-break-policy">
+                        <i class="far fa-calendar-minus fa-fw"></i>
+                        发布日期:&nbsp;&nbsp;
+                            2023-11-05
+                    </div>
+                    
+
+                        
+                            <div class="post-date info-break-policy">
+                                <i class="far fa-calendar-check fa-fw"></i>
+                                更新日期:&nbsp;&nbsp;
+                                    2023-11-17
+                            </div>
+                            
+
+                                
+                                    <div class="info-break-policy">
+                                        <i class="far fa-file-word fa-fw"></i>
+                                        文章字数:&nbsp;&nbsp;
+                                            5.6k
+                                    </div>
+                                    
+
+                                        
+                                            <div class="info-break-policy">
+                                                <i class="far fa-clock fa-fw"></i>
+                                                阅读时长:&nbsp;&nbsp;
+                                                    19
+                                                        分
+                                            </div>
+                                            
+
+                                                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+            <!-- 是否加载使用自带的 prismjs. -->
+            <link rel="stylesheet" href="/libs/prism/prism.css">
+            
+
+                
+                    <!-- 代码块折行 -->
+                    <style type="text/css">
+                        code[class*="language-"],
+                        pre[class*="language-"] {
+                            white-space: pre-wrap !important;
+                        }
+                    </style>
+                    
+
+                        <div class="card-content article-card-content">
+                            <div id="articleContent">
+                                <p>源码：<a target="_blank" rel="noopener" href="http://www.s3.eurecom.fr/tools/symbolic_execution/symcc.html">http://www.s3.eurecom.fr/tools/symbolic_execution/symcc.html</a></p>
+<p>总结：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/599054963">https://zhuanlan.zhihu.com/p/599054963</a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>符号执行的目的是帮助软件测试，在计算机辅助推理领域取得了巨大进步。</p>
+<p>符号执行成为了软件安全和验证社区研究的主题，并且该技术已经在漏洞搜索和程序测试中确立了自己的地位。</p>
+<p><strong>性能仍然是符号执行的核心挑战</strong>：</p>
+<ul>
+<li>缓慢的处理意味着每次执行和测试的代码更少，因此每个投入的资源检测到的bug更少</li>
+<li>Yun等人最近提供了大量证据，证明执行组件是符号执行的现代实现中的主要瓶颈</li>
+</ul>
+<p><strong>现有最先进的符号执行方式</strong>：</p>
+<p>大多数实现将被测程序转换为<strong>中间表示</strong>(例如，LLVM位码)，然后进行符号计算（executed symbolically）。从概念上讲，系统一个接一个地循环遍历目标程序的指令，执行所请求的计算，并根据任意符号输入（any symbolic input）跟踪语义。</p>
+<p><strong>本质上是一个解释器</strong>。更具体地说，除了通常的执行之外，它是用于相应中间表示的解释器，它以符号方式跟踪计算。</p>
+<p>一般来说，<strong>解释的效率低于编译</strong>，因为它在每次执行时执行编译器只需执行一次的工作。因此，我们的核心思想是将“编译而不是解释”应用于符号执行，以获得更好的性能。</p>
+<p>在编程语言中，它是用执行等效操作的机器码序列替换源语言指令的过程。为了将同样的思想应用到符号执行中，<strong>我们将符号处理嵌入到目标程序中。最终结果是一个无需外部解释器即可执行的二进制文件</strong>;它执行与目标程序相同的操作，但额外地跟踪符号表达式。这种技术使它能够执行解释器通常应用的任何符号推理，同时保持编译程序的速度。</p>
+<p>符号执行的早期实现中也使用了类似的方法:DART、CUTE和EXE在C源代码级别检测被测程序，但有两个基本问题：</p>
+<ol>
+<li><p><strong>源代码插桩</strong>（tie）将它们绑定到一种编程语言中。相反，我们的方法是<strong>在编译器的中间表示上工作</strong>，因此独立于源语言。</p>
+<blockquote>
+<p>【可能解释】每个编程语言都有不同的语法和结构，所以为不同的编程语言编写和维护插桩逻辑会变得非常复杂</p>
+<p>【<strong>插桩的含义</strong>】在符号执行过程中，<strong>程序变量</strong>会被映射到<strong>符号表达式</strong>，用于后续路径约束的生成和求解。这种映射关系的构建需要符号执行引擎对原始程序进行<strong>插桩</strong>来实现。</p>
+</blockquote>
+</li>
+<li><p>处理完整编程语言的要求使得实现非常复杂;这种方法对于C来说可能是可行的，但是对于像C++这样的大型语言来说可能会失败。我们基于编译器的技术只需要<strong>处理编译器的中间表示</strong>，这是一种小得多的语言。【和上面那条其实类似】</p>
+</li>
+</ol>
+<p>我们在LLVM框架的基础上实现了我们的想法，称为SYMCC。它接受被测程序的未修改的LLVM位码，并将符号执行能力直接编译成二进制文件。在程序的每个分支点，<strong>“符号化”二进制文件</strong>将生成一个偏离当前执行路径的输入。换句话说，SYMCC生成执行聚合执行的二进制文件，这是一种符号执行，它不同时遵循多个执行路径，而是<strong>依赖于一个外部实体(比如fuzzer)来确定测试用例的优先级并编排执行</strong>（orchestrate execution）。</p>
+<p>在最常见的情况下，SYMCC取代了普通的编译器，并将被测程序的C或c++源代码编译成一个仪表化的二进制文件因此，SYMCC被设计用于分析源代码(或至少LLVM位码)可用的程序，例如在开发期间作为安全开发生命周期的一部分。</p>
+<p><strong>Contributions</strong>：</p>
+<ul>
+<li>我们提出了基于编译的符号执行，这种技术在保持低复杂度的同时提供了比当前方法更高的性能。支持额外的源语言可以添加很少的努力；</li>
+<li>我们展示了SYMCC，我们在LLVM框架之上的开源实现。</li>
+<li>我们根据最先进的符号执行引擎对SYMCC进行了评估，并表明它在分析现实世界的软件方面提供了好处，从而发现了OpenJPEG中的两个关键漏洞。</li>
+</ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Symbolic-execution"><a href="#Symbolic-execution" class="headerlink" title="Symbolic execution"></a>Symbolic execution</h3><p>符号执行的每个实现都是由一组基本构建块构建的。</p>
+<ul>
+<li><strong>Execution</strong>：被测程序被执行，系统产生表示<strong>计算结果的符号表达式</strong>。这些表达式是对程序进行推理的基本资产。出于我们的目的，我们区分了基于IR的执行和不使用IR的执行。</li>
+<li><strong>Symbolic backend</strong>：唯一目的是对它们进行推理，例如，生成触发某个安全漏洞的新程序输入。<strong>符号后端由推理过程中涉及的组件组成</strong>。通常，实现使用SMT求解器，可能通过预处理技术进行增强。例如，KLEE使用精心设计的缓存机制来最小化求解器查询的数量，QSYM从查询中删除所有无关信息以减少求解器的负载。</li>
+<li><strong>Forking（分叉） and scheduling（调度）</strong>：两类实现方法<ul>
+<li>只执行一次目标程序，可能沿着给定程序输入指定的路径，并<strong>基于该单次执行生成新的程序输入</strong>。新的输入通常反馈到系统或传递到并发运行的 fuzzer。这种方法通常被称为<strong>concolic执行器</strong>，包括SAGE、Driller和QSYM等。</li>
+<li>通过额外的工具来管理沿着不同路径的被测程序的多次执行。通常，它们<strong>在程序的分支点“分叉”执行</strong>(为了避免必须从一个新输入开始重新执行);调度程序通常编排不同的执行状态，并根据某种搜索策略对它们进行优先级排序。例如，KLEE， Mayhem和 angr 都遵循这种方法。</li>
+</ul>
+</li>
+</ul>
+<p><strong>路径爆炸问题</strong>在第二种方法中更加普遍。分叉系统需要管理每个执行状态的大量信息，而concolic执行器只是生成一个新的程序输入，将其写入磁盘，然后“忘记它”。Mayhem实现了一种混合方法，在有足够内存可用时进行分叉，否则将状态持久化到磁盘。</p>
+<p>对于SYMCC，我们决定采用concolic方法，因为我们认为它允许更高的执行速度和更简单的实现。</p>
+<p>我们的工作专注于<strong>改进执行组件</strong>，而我们在符号后端重用Yun等人的工作。</p>
+<p>我们研究当前符号执行实现中执行组件的两种流行风格。</p>
+<h3 id="IR-based-symbolic-execution"><a href="#IR-based-symbolic-execution" class="headerlink" title="IR-based symbolic execution"></a>IR-based symbolic execution</h3><p>实现符号执行的一种常用方法是通过<strong>中间表示(IR)</strong>。与流行的CPU体系结构的本地指令集相比，IR通常在高层次上用更少的指令描述程序行为。因此，为IR实现符号解释器要比直接为机器码实现符号解释器容易得多，因此这是许多最先进的系统所采用的方法。</p>
+<p>基于IR的符号执行首先需要将被分析的程序转换成IR。例如，KLEE在LLVM位码上工作，并使用clang编译器从源代码生成它;S2E也解释LLVM位码，但从QEMU的内部程序表示动态生成它，在执行过程中翻译遇到的每个基本块;angr将机器码转换为VEX，即Valgrind框架的IR。</p>
+<p>一般来说，IR生成可能需要大量的工作，特别是当它从机器代码开始时。<strong>一旦目标程序的IR可用，符号解释器就可以运行它并生成对应于每个计算的符号表达式。表达式通常被传递到符号后端进行进一步处理</strong>。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109171958998.png" alt="image-20231109171958998"></p>
+<h3 id="IR-less-symbolic-execution"><a href="#IR-less-symbolic-execution" class="headerlink" title="IR-less symbolic execution"></a>IR-less symbolic execution</h3><p>虽然将目标程序转换为中间表示简化了符号执行的实现，但解释IR比相应二进制的本机执行要慢得多，特别是在没有符号数据的情况下(即，当不需要符号推理时)。这种观察导致了Triton和QSYM的开发，它们遵循一种不同的方法:不是将被测试的程序翻译成IR然后解释它，而是<strong>执行未修改的机器码并在运行时对其进行检测</strong>。</p>
+<p>具体来说，Triton和QSYM都使用Intel的Pin来控制目标程序的执行。Pin提供了在<strong>执行某些机器代码指令</strong>时插入自定义代码的工具。符号执行器使用这种机制注入代码，这些代码除了由CPU执行的具体计算之外，还以符号方式处理计算。例如，当CPU准备将两个寄存器中的值相加时，Pin调用符号执行器，它获取寄存器值对应的符号表达式，生成描述和的表达式，并将其与接收计算结果的寄存器关联起来。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109173954377.png" alt="image-20231109173954377"></p>
+<ul>
+<li>Run-time instrumentation（运行时插桩） 也会带来开销，但比解释 IR 快得多</li>
+<li><strong>健壮性</strong>：如果基于 IR 的系统不知道如何处理某个指令或对某些库函数的调用，它就无法继续，因为解释器无法执行请求的计算；然而，在无 IR 符号执行中，CPU总是可以具体地执行目标程序。注入的分析代码将无法生成适当的符号表达式。</li>
+</ul>
+<p>然而，直接在机器码上构建符号执行有相当大的缺点。最值得注意的是，实现需要处理更大的指令集：</p>
+<p>通常用于符号执行的 IR 包含几十条不同的指令，而 CPU 指令集很容易达到数百到数千条。<strong>符号执行器必须知道如何以符号方式表达每条指令的语义，这将导致更加复杂的实现。</strong>另一个问题是体系结构依赖性：机器代码的检测自然是一项依赖于机器的工作。另一方面，IR 通常是架构不可知论者。因此，基于IR的系统可以在任何架构上工作，只要存在从各自的机器码到IR的转换器。这与嵌入式设备领域尤其相关，在该领域中，常见的CPU架构种类繁多。</p>
+<p>SYMCC使用IR，因此<strong>保留了与基于IR的方法相关的灵活性和实现简单性</strong>，然而我们<strong>基于编译的技术</strong>允许它达到(并超越)无IR系统的高性能，正如我们在第5节中所展示的那样。</p>
+<h3 id="Reducing-overhead"><a href="#Reducing-overhead" class="headerlink" title="Reducing overhead"></a>Reducing overhead</h3><p>无论是基于 IR 还是不基于 IR 的符号执行，只有在计算涉及符号数据时，才需要构建符号表达式并将其传递给符号后端。否则，结果完全独立于用户输入，因此与在后端执行的任何推理无关。因此，一种常见的优化策略是<strong>将符号处理限制为对符号数据的计算</strong>，并采用更快的执行机制，我们称之为<strong>具体检查</strong>的策略。</p>
+<p>在基于IR的实现中，IR的符号解释甚至可以与机器代码在真实或快速仿真CPU上的本机执行交替进行;例如，Angr b就采用了这种方法。实现的具体检查范围各不相同——QSYM决定是否在每条指令的基础上调用符号后端，而angr将钩子放在相关操作(如内存和寄存器访问)上。尽可能多地回到快速执行方案是一个重要的优化，我们也在SYMCC中实现了这一点。</p>
+<h2 id="Compilation-based-symbolic-execution"><a href="#Compilation-based-symbolic-execution" class="headerlink" title="Compilation-based symbolic execution"></a>Compilation-based symbolic execution</h2><p>我们的方法的高级目标是通过将<strong>计算的符号处理编译到目标程序</strong>中来加速符号执行的执行部分。</p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>我们将<strong>符号解释器(或观察者)</strong>的逻辑<strong>编译到目标程序中</strong>。与符号执行的早期实现相反，我们不是在源代码级别执行这种嵌入，而是使用编译器的中间表示，这使我们能够独立于编写被测程序的源语言，以及独立于目标体系结构。</p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109220832396.png" alt="image-20231109220832396"></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20231109211405790.png" alt="image-20231109211405790"></p>
+<blockquote>
+<p>LLVM位码中的一个示例函数</p>
+</blockquote>
+<p>插入目标程序相关附加指令（黄色框），原始代码依然保留，插入的是对运行时支持库的调用该库构建符号表达式并于SMT求解器交互。</p>
+<h3 id="Support-library"><a href="#Support-library" class="headerlink" title="Support library"></a>Support library</h3><p>由于我们将符号执行功能编译到目标程序中，所以典型符号执行引擎的所有组件都需要可用。因此，我们将符号后端绑定到一个供目标程序使用的库中。</p>
+<p>该库公开了符号后端的入口点，以便从 the instrumented target 调用，例如，用于构建符号表达式和通知后端有关条件跳转的函数。</p>
+<h3 id="Symbolic-handlers"><a href="#Symbolic-handlers" class="headerlink" title="Symbolic handlers"></a>Symbolic handlers</h3><p>编译时转换的核心是插入处理符号计算的调用。编译器遍历整个程序，并为每次计算插入对符号后端的调用。例如，当目标程序检查两个变量的内容是否相等时，编译器插入代码来获取两个操作数的符号表达式，构建结果“等于”表达式，并将其与接收结果的变量相关联(%7)。代码在编译时生成并嵌入到二进制文件中。这个过程取代了传统符号执行引擎在运行时必须执行的大量符号处理。<strong>我们的编译器对目标程序精确地进行一次检测，然后生成的二进制文件可以在不同的输入上运行，而不需要重复检测过程</strong>，这在与 fuzzer 结合使用时特别有效。此外，插入的处理成为目标程序的一个组成部分，因此它受制于通常的CPU优化，如缓存和分支预测。</p>
+<h3 id="Concreteness-checks"><a href="#Concreteness-checks" class="headerlink" title="Concreteness checks"></a>Concreteness checks</h3><p>对运行时支持库的每个插入调用都会引入开销:它最终会调用符号后端，并可能将负载放在 SMT 求解器上。</p>
+<p>但是，只有在计算接收符号输入时，才需要涉及符号后端。没有必要通知后端完全具体的计算——我们只会产生不必要的开销。在我们基于编译的方法中，有两个阶段的数据可以被确定为具体的:</p>
+<ul>
+<li><strong>Compile time</strong>：编译时常量，如数据结构的偏移量、魔术常量或默认返回值，在运行时永远不会变成符号。</li>
+<li><strong>Run time</strong>：在许多情况下，编译器无法知道数据在运行时是具体的还是符号的，例如，当它从内存中读取时:一个内存单元可能包含符号数据或具体数据，并且它的具体性在执行过程中会发生变化。在这些情况下，如果计算的所有输入都是具体的，我们只能在运行时检查并动态地防止调用符号后端。</li>
+</ul>
+<p>因此，在我们生成的代码中，如果数据在编译时已知为常数，我们就会省略对符号后端的调用。此外，在其余情况下，我们会插入运行时检查，将后端调用限制在计算中至少有一个输入是符号输入（因此结果也可能是符号输入）的情况。</p>
+<h2 id="Implementation-of-SymCC"><a href="#Implementation-of-SymCC" class="headerlink" title="Implementation of SymCC"></a>Implementation of SymCC</h2><p>我们在 <strong>LLVM 编译器框架</strong>的基础上构建了 SYMCC。编译时工具是通过从头开始编写的自定义编译器传递实现的。该程序将编译器前端生成的 LLVM 位码走一遍，并插入用于符号处理的代码（如第 3.3 节所述）。插入的代码调用符号后端导出的函数：我们提供了 Z3 SMT 求解器的精简封装，以及与 QSYM更复杂后端的可选集成。编译器传递由大约 1000 行 C++ 代码组成；运行时支持库也是用 C++ 编写的，由另外 1000 行代码组成（不包括 Z3 和可选的 QSYM 代码）。相对较小的代码库表明，该方法概念简单，从而降低了出现实施错误的可能性。</p>
+<h3 id="Compile-time-instrumentation"><a href="#Compile-time-instrumentation" class="headerlink" title="Compile-time instrumentation"></a>Compile-time instrumentation</h3><p>由于我们的编译器扩展是作为 LLVM 通道（an LLVM pass）实现的，因此它运行在基于 LLVM 的编译器的 “<strong>中间端</strong>“（in the “middle-end” of LLVM-based compilers）——在前端将源语言翻译成 LLVM 位码之后，但在后端将位码转换成机器码之前。因此，SYMCC 需要支持 LLVM 位码语言的指令和固有函数。</p>
+<p>相对于各种优化步骤而言，SYMCC 的传递位置需要权衡利弊。在优化器的早期阶段，比特码仍与前端生成的非常相似，通常效率较低，但相对简单，而且仅限于 LLVM 比特码指令集的一个子集。相比之下，在优化器流水线的后期阶段，死代码已被优化掉，昂贵的表达式（如乘法）已被更便宜的表达式（如位移）所取代；这种优化后的代码允许使用更少、更便宜的仪器，但需要处理指令集的更大一部分。在当前的实现中，我们的代码在<strong>优化流水线的中间运行</strong>，在消除死代码和降低强度等基本优化之后，但在矢量器（即在支持的架构上用 SIMD 指令替换循环的阶段）之前。在更晚的时间运行我们的代码可以提高编译后程序的性能，但会使我们的实现复杂化，因为我们需要实现矢量操作的符号处理；我们选择了实现简单化。</p>
+<h3 id="Shadow-memory"><a href="#Shadow-memory" class="headerlink" title="Shadow memory"></a>Shadow memory</h3><p>首先，符号表达式与数据相关联的信息被存储在内存中的一个影子区域（shadow region）。运行时支持库会跟踪目标程序中的内存分配，并将它们映射到相应的影子区域，这些影子区域以每页为单位包含了相应的符号表达式。然而，有一个特殊情况：与函数局部变量对应的表达式存储在局部变量本身中。这意味着在代码生成过程中，它们被当作普通数据进行处理；特别是，编译器的寄存器分配器可能会决定将它们放入机器寄存器以实现快速访问。</p>
+<p>可以用固定偏移量的方式替换当前的内存分配跟踪方案。这种技术被流行的LLVM santizers所使用。这样做可以实现对符号表达式的常数时间查找，而当前的查找时间与包含符号数据的内存页数成对数关系。</p>
+<p>然而，由于内存页数通常很小（根据作者的经验，不超过10页），作者选择了更简单的按需分配的实现方式。</p>
+<h3 id="Symbolic-backend"><a href="#Symbolic-backend" class="headerlink" title="Symbolic backend"></a>Symbolic backend</h3><p>提供了两个不同的后端：</p>
+<ul>
+<li><p>第一个是他们自己实现的后端，是对Z3的一个轻量级封装。它作为一个共享对象被打包并链接到被插装的目标程序中。编译器插入对后端的调用，后端构造所需的Z3表达式，并查询SMT求解器以生成新的程序输入。</p>
+</li>
+<li><p>然而，由于后端大部分与执行组件独立，并且只通过一个简单的接口与执行组件进行通信，我们可以在不影响主要的执行组件的情况下替换它。作者通过集成QSYM后端来展示了这种灵活性，可以选择性地使用该后端，取代他们简单的Z3封装。他们从处理符号表达式的QSYM代码部分编译了一个共享库，将其链接到目标程序，并将仪器化程序中的调用转换成对QSYM代码的调用。他们封装的QSYM代码接口包括一组用于创建表达式的函数（例如，<code>SymExpr _sym_build_add(SymExpr a, SymExpr b)</code>），以及用于传递调用上下文和路径约束的辅助函数；添加路径约束会通过Z3触发生成新的输入。实际上，这意味着他们可以将QSYM后端中的所有复杂表达式处理功能与依赖跟踪和热代码路径的后退策略等相结合，与自己的快速执行组件一起使用。</p>
+</li>
+</ul>
+<h3 id="Concreteness-checks-1"><a href="#Concreteness-checks-1" class="headerlink" title="Concreteness checks"></a>Concreteness checks</h3><p>为了获得良好的性能，我们需要将符号推理(即符号后端的参与)限制在必要的情况下。换句话说，当计算的所有操作数都是具体的时，我们应该避免调用符号后端。</p>
+<p>在我们的实现中，符号表达式在运行时被表示为指针，具体值的表达式是空指针。因此，在执行过程中检查给定表达式的具体性是一种简单的空指针检查。在位码的每次计算之前，如果所有操作数都是具体的，则插入一个跳过符号处理的条件跳转;如果至少有一个操作数是符号操作数，则根据需要为其他操作数创建符号表达式，并调用符号后端。显然，当编译器可以推断出一个值是编译时常量，因此在运行时绝不是符号值时，我们就省略了符号处理代码的生成。</p>
+<h2 id="Interacting-with-the-environment"><a href="#Interacting-with-the-environment" class="headerlink" title="Interacting with the environment"></a>Interacting with the environment</h2><p>传统 一步一步算关系</p>
+<p>前面后面加两个 hook，编译阶段加好了，不需要再推导，直接算结果就行（且有优化空间）</p>
+
+                                    
+                            </div>
+                            <hr />
+
+                            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ShiQuLiZhi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.qqzzss.top/2023/11/05/paperreading/paper03-symcc/">https://www.qqzzss.top/2023/11/05/paperreading/paper03-symcc/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特别声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">ShiQuLiZhi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+                                <div class="tag_share" style="display: block;">
+                                    <div class="post-meta__tag-list" style="display: inline-block;">
+                                        
+                                            <div class="article-tag">
+                                                
+                                                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                                                        <span class="chip bg-color">
+                                                            信息安全
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                                        <span class="chip bg-color">
+                                                            论文阅读
+                                                        </span>
+                                                    </a>
+                                                    
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="post_share"
+                                        style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                        <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                                    </div>
+                                </div>
+                                
+                        </div>
+    </div>
+
+    
+
+                
+
+                            
+
+                                        
+
+                                                    
+                                                        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling"
+        style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '8SzvSoQjCOrTadqpJ1LjqujD-9Nh9j0Va',
+        appKey: 'iv4mV6VBG7twuE7yQgwpsYaq',
+        notify: '' === 'true',
+        verify: '' === 'true',
+        visitor: '' === 'true',
+        avatar: '/medias/moren.png',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '快来评论区发表你的观点吧~ 听说昵称填写qq号可以显示qq头像和qq昵称哦!',
+        enableQQ: true,
+        boolean: true,
+        emojiCDN: '//i0.hdslb.com/bfs/emote/',
+        // 表情title和图片映射
+        emojiMaps: {
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+            "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+            "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+            "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+            "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+            "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+            "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+            "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+            "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+            "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+            "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+            "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+            "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+            "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+            "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+            "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+            "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+            "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+            "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+            "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+            "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+            "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+            "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+            "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+            "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+            "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+            "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+            "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+            "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+            "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+            "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+            "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+            "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+            "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+            "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+            "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+            "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+            "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+            "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+            "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+            "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+            "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+            "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+            "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+            "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+            "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+            "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+            "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+            "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+            "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+        },
+        requiredFields: ['nick'], //设置必填项
+    });
+</script>
+                                                            
+
+                                                                
+
+                                                                            
+
+                                                                                        
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/11/05/paperreading/paper02-hardlog/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device">
+                        
+                        <span class="card-title">HARDLOG_Practical Tamper-Proof System Auditing Using a Novel Audit Device</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">论文阅读</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/10/27/development/ba-gu-wen-zheng-li/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="八股文整理">
+                        
+                        <span class="card-title">八股文整理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Here's something encrypted, password is required to continue reading.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java%E4%B8%8E%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Java与开发基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">Web技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+    <script>
+        $('#articleContent').on('copy', function (e) {
+            // IE8 or earlier browser is 'undefined'
+            if (typeof window.getSelection === 'undefined') return;
+
+            var selection = window.getSelection();
+            // if the selection is short let's not annoy our users.
+            if (('' + selection).length < Number.parseInt('150')) {
+                return;
+            }
+
+            // create a div outside of the visible area and fill it with the selected text.
+            var bodyElement = document.getElementsByTagName('body')[0];
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            bodyElement.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            // we need a <pre> tag workaround.
+            // otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            var url = document.location.href;
+            newdiv.innerHTML += '<br />'
+                + '来源: ShiQuLiZhi BLOG<br />'
+                + '文章作者: ShiQuLiZhi<br />'
+                + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+                + '本文著作权归作者所有，任何形式的转载均请注明出处。';
+
+            selection.selectAllChildren(newdiv);
+            window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+        });
+    </script>
+    
+
+        <!-- 代码块功能依赖 -->
+        <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+        <!-- 代码语言 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+            
+
+                <!-- 代码块复制 -->
+                
+                    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+                    
+
+                        <!-- 代码块收缩 -->
+                        
+                            <script type="text/javascript"
+                                src="/libs/codeBlock/codeShrink.js"></script>
+                            
+
+                                <!-- 代码块折行 -->
+                                
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src=""></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+                            <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2023</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">ShiQuLiZhi</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">459k</span>&nbsp;字
+            
+            
+            
+            
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2022";
+                    var startMonth = "8";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/sxhthreo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+        data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+    
+
+        
+            <a href="mailto:951161604@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+                data-position="top" data-delay="50">
+                <i class="fas fa-envelope-open"></i>
+            </a>
+            
+
+                
+
+                        
+
+                                
+                                    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=951161604"
+                                        class="tooltipped" target="_blank"
+                                        data-tooltip="QQ联系我: 951161604" data-position="top"
+                                        data-delay="50">
+                                        <i class="fab fa-qq"></i>
+                                    </a>
+                                    
+
+                                        
+
+                                                
+                                                    <a href="https://www.zhihu.com/people/shui-he-qing-chi-zi-14" class="tooltipped"
+                                                        target="_blank"
+                                                        data-tooltip="关注我的知乎: https://www.zhihu.com/people/shui-he-qing-chi-zi-14"
+                                                        data-position="top" data-delay="50">
+                                                        <i class="fab fa-zhihu1">知</i>
+                                                    </a>
+                                                    
+
+                                                        
+
+                                                                
+                                                                    <a href="https://blog.csdn.net/sxH3O?type=blog"
+                                                                        class="tooltipped" target="_blank"
+                                                                        data-tooltip="关注我的CSDN: https://blog.csdn.net/sxH3O?type=blog"
+                                                                        data-position="top" data-delay="50">
+                                                                        <i class="fab fa-csdn">C</i>
+                                                                    </a>
+                                                                    </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+                                <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+                                    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                                        <script
+                                            src="/libs/materialize/materialize.min.js"></script>
+                                        <script
+                                            src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                        <script
+                                            src="/libs/aos/aos.js"></script>
+                                        <script
+                                            src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                        <script
+                                            src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                        <script
+                                            src="/js/matery.js"></script>
+
+                                        <!-- Baidu Analytics -->
+
+                                            <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                                
+                                                    <script
+                                                        src="/libs/others/clicklove.js"
+                                                        async="async"></script>
+                                                    
+                                                        
+
+                                                                
+
+                                                                        
+
+                                                                                
+                                                                                        
+                                                                                            <script
+                                                                                                type="text/javascript"
+                                                                                                color="0,0,255"
+                                                                                                pointColor="0,0,255"
+                                                                                                opacity='0.7'
+                                                                                                zIndex="-1"
+                                                                                                count="99"
+                                                                                                src="/libs/background/canvas-nest.js"></script>
+                                                                                            
+
+                                                                                                
+
+                                                                                                            
+                                                                                                                <script
+                                                                                                                    type="text/javascript"
+                                                                                                                    src="/libs/background/ribbon-dynamic.js"
+                                                                                                                    async="async"></script>
+                                                                                                                
+
+                                                                                                                    
+                                                                                                                        <script
+                                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                                            type="module"></script>
+                                                                                                                        
+
+
+
+
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>

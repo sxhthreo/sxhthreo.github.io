@@ -1,0 +1,2082 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="数据库原理(一) 数据库系统与SQL, ShiQuLiZhi BLOG">
+    <meta name="description" content="世界很暗，但是你来了">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库原理(一) 数据库系统与SQL | ShiQuLiZhi BLOG</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+    
+        <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+            
+
+                <body>
+
+                    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ShiQuLiZhi BLOG</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/goodpapers" class="waves-effect waves-light">
+      
+      <i class="fas fa-coffee" style="zoom: 0.6;"></i>
+      
+      <span>收藏</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ShiQuLiZhi BLOG</div>
+        <div class="logo-desc">
+            
+            世界很暗，但是你来了
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/goodpapers" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-coffee"></i>
+			
+			收藏
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+                        
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库原理(一) 数据库系统与SQL</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">
+                                        理论知识
+                                    </span>
+                                </a>
+                                
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">
+                                        数据库
+                                    </span>
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+                <div class="col s5 right-align">
+                    
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/" class="post-category">
+                                    计算机学科理论
+                                </a>
+                                
+                        </div>
+                        
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                    <div class="post-date info-break-policy">
+                        <i class="far fa-calendar-minus fa-fw"></i>
+                        发布日期:&nbsp;&nbsp;
+                            2022-08-14
+                    </div>
+                    
+
+                        
+                            <div class="post-date info-break-policy">
+                                <i class="far fa-calendar-check fa-fw"></i>
+                                更新日期:&nbsp;&nbsp;
+                                    2022-08-14
+                            </div>
+                            
+
+                                
+                                    <div class="info-break-policy">
+                                        <i class="far fa-file-word fa-fw"></i>
+                                        文章字数:&nbsp;&nbsp;
+                                            9.5k
+                                    </div>
+                                    
+
+                                        
+                                            <div class="info-break-policy">
+                                                <i class="far fa-clock fa-fw"></i>
+                                                阅读时长:&nbsp;&nbsp;
+                                                    37
+                                                        分
+                                            </div>
+                                            
+
+                                                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+            <!-- 是否加载使用自带的 prismjs. -->
+            <link rel="stylesheet" href="/libs/prism/prism.css">
+            
+
+                
+                    <!-- 代码块折行 -->
+                    <style type="text/css">
+                        code[class*="language-"],
+                        pre[class*="language-"] {
+                            white-space: pre-wrap !important;
+                        }
+                    </style>
+                    
+
+                        <div class="card-content article-card-content">
+                            <div id="articleContent">
+                                <h1 id="ch1-数据库系统概述"><a href="#ch1-数据库系统概述" class="headerlink" title="ch1.数据库系统概述"></a>ch1.数据库系统概述</h1><h2 id="1-1-数据模型"><a href="#1-1-数据模型" class="headerlink" title="1.1 数据模型"></a>1.1 数据模型</h2><h3 id="1-1-1-分类"><a href="#1-1-1-分类" class="headerlink" title="1.1.1 分类"></a>1.1.1 分类</h3><ul>
+<li>网状模型（图）</li>
+<li>层次模型（树形结构）</li>
+<li><strong>关系模型</strong>（二维表）</li>
+</ul>
+<h3 id="1-1-2-组成要素"><a href="#1-1-2-组成要素" class="headerlink" title="1.1.2 组成要素"></a>1.1.2 组成要素</h3><ul>
+<li><strong>数据结构</strong>：研究对象类型的集合。对象：与数据类型、内容、性质有关的对象（<strong>物质</strong>）、与数据之间<strong>联系</strong>（物质之间的联系）有关的对象。</li>
+<li><strong>数据操作</strong>：类型有检索、更新（插入、删除、修改）等。</li>
+<li><strong>数据的约束条件（完整约束性）</strong>：一组完整性规则的集合，需满足<strong>实体完整性</strong>和<strong>参照完整性</strong>。</li>
+</ul>
+<h3 id="1-1-3-概念模型"><a href="#1-1-3-概念模型" class="headerlink" title="1.1.3 概念模型"></a>1.1.3 概念模型</h3><p>用于信息世界的建模，是现实世界到机器世界的一个中间层次，是数据库设计的有力工具，是数据库设计人员和用户之间进行交流的语言。</p>
+<p>信息世界中的基本概念有：</p>
+<p><strong>实体</strong>(Entity)：客观存在并可相互区别的事物称为实体。[矩形框]</p>
+<p><strong>属性</strong>(Attribute)：实体所具有的某一特性称为属性，一个实体可以由若干个属性来刻画。如学生可由学号、姓名，性别、系别、入学时间等属性来描述。[椭圆形]</p>
+<p><strong>码</strong>(Key)：<strong>能唯一标识实体的属性集</strong>称为码。（一个或多个属性，如学生可以通过学号唯一区分）</p>
+<p><strong>域</strong>(Domain)：属性的<strong>取值范围</strong>称为该属性的域。（如成绩0-100分）</p>
+<p><strong>实体型</strong>(Entity Type):用实体名及其属性集来抽象和刻画，同类实体称为实体型。如：学生（学号，姓名，性别，出生年….)</p>
+<p><strong>实体集</strong>(Entity Set):同型实体的集合称为实体集。</p>
+<p><strong>联系</strong>(Relationship):现实世界中事物内部以及事物之间的联系在信息世界中反映为<strong>实体内部的联系和实体之间的联系</strong>。[菱形，填入联系的名字]</p>
+<p>如下图所示，有<strong>一对一、一对多、多对多</strong>的三种关系。实体名（如仓库）用矩形框表示，属性（如联系为库存，其属性为仓库存取零件的数量）用椭圆形表示，联系用菱形框表示，<strong>ER图</strong>（实体-联系图(Entity-Relationship Diagram)）用<strong>无向边</strong>连接。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220224165754825.png" alt="image-20220224165754825" style="zoom:67%;" />
+
+<p>一个实体转化成一个关系数据库中的一张表，一张表就是一个关系模式，新建表来表示联系。<strong>相联系的两个实体的码及自己的属性均作为联系的表的属性。</strong></p>
+<p><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220224172151782.png" alt="image-20220224172151782"></p>
+<p>在这里，指的是仓库号、零件号、库存量。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> kucun<span class="token punctuation">(</span>
+	lingjianID <span class="token keyword">int</span><span class="token punctuation">,</span>
+    cangkuID <span class="token keyword">int</span><span class="token punctuation">,</span>
+    kucun <span class="token keyword">int</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>插入数据：<code>insert into kucun values (1,1,8)</code></p>
+<p>其他步骤如下：</p>
+<p>创建表：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> cangku<span class="token punctuation">(</span>
+	cangkuID <span class="token keyword">int</span><span class="token punctuation">,</span>
+	Cname <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	yy <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>插入数据：<code>insert into cangku values (1,&#39;dddd&#39;,&#39;kkk&#39;);</code></p>
+<p>修改数据：</p>
+<p><code>update kucun set kucun=kucun-8 where cangkuID=3 and lingjianID=1</code></p>
+<p>还可以通过设置主码<code>primary key</code>使实体不相同。</p>
+<h2 id="1-2-关系模型"><a href="#1-2-关系模型" class="headerlink" title="1.2 关系模型"></a>1.2 关系模型</h2><p>下面介绍关系模型的相关术语。</p>
+<ul>
+<li><p><strong>关系模式</strong>：对关系的描述，一般形式为关系名(属性1,属性2,…,属性n)。如学生(学号,姓名,年龄,性别,系别,年级)。相当于概念模型中的实体型关系(Relation)：一个关系对应一张二维表。</p>
+</li>
+<li><p>&#x3D;&#x3D;<strong>元组</strong>&#x3D;&#x3D;(Tuple)：表中的一行即为一个元组。</p>
+</li>
+<li><p><strong>属性</strong>(Attribute)：表中的一列即为一个属性，每一属性都有一个属性名。</p>
+</li>
+<li><p>&#x3D;&#x3D;<strong>主码</strong>&#x3D;&#x3D;(Key)：表中的某个属性组，它可以唯一确定一个元组。</p>
+</li>
+<li><p><strong>域</strong>(Domain)：属性的取值范围。</p>
+</li>
+<li><p><strong>分量</strong>：元组中的一个属性值。</p>
+</li>
+</ul>
+<p>​		关系模型中存在<strong>数据操纵</strong>，包括查询、插入、删除、更新，这些操作是集合操作，操作对象和操作结果都是关系，即若干元组的集合；同时关系模型中存取路径对用户隐蔽，用户只要指出“干什么”，不必详细说明“怎么干”，大大提高了数据的独立性和用户生产率。</p>
+<blockquote>
+<p>完整性约束有实体完整性、参照完整性和用户定义的完整性三大类。前两个是关系模型必须满足的完整性约束条件，被称作是关系的两个不变性。</p>
+</blockquote>
+<p>关系模型的特点：</p>
+<p> （1）优点：建立在严格的数学概念的基础上；概念单一，实体和联系都用关系表示，数据操作结果为关系；存取路径对用户透明。</p>
+<p> （2）缺点：存取路径对用户透明导致查询效率往往不如非关系数据模型。为提高性能，必须对用户的查询请求进行优化，增加了开发数据库管理系统的难度。</p>
+<h2 id="1-3-数据库系统结构"><a href="#1-3-数据库系统结构" class="headerlink" title="1.3 数据库系统结构"></a>1.3 数据库系统结构</h2><h3 id="1-3-1-概念"><a href="#1-3-1-概念" class="headerlink" title="1.3.1 概念"></a>1.3.1 概念</h3><p>型(Type)：对某一类数据的结构和属性的说明。（如结构体，创建完不动）</p>
+<p>值(Value)：是型的一个具体赋值。（经常变化）</p>
+<p>模式(schema)：是数据库系统中全体数据的逻辑结构和特征的描述，是型。</p>
+<p>【例】学生记录</p>
+<p>记录型：(学号,姓名,性别,系别,年龄,籍贯)</p>
+<p>该记录型的一个记录值：(210201,李明,男,计算机,22,江苏)</p>
+<h3 id="1-3-2-数据库系统的三级模式结构"><a href="#1-3-2-数据库系统的三级模式结构" class="headerlink" title="1.3.2 数据库系统的三级模式结构"></a>1.3.2 数据库系统的三级模式结构</h3><img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220303164626823.png" alt="image-20220303164626823" style="zoom: 67%;" />
+
+<p><strong>模式(Schema)<strong>：也称逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，</strong>是所有用户的公共数据视图</strong>，综合了所有用户的需求，一个数据库只有一个模式。模式是数据库系统模式结构的中间层，与数据的物理存储细节和硬件环境无关，与具体的应用程序、开发工具及高级程序设计语言无关。</p>
+<p><strong>外模式(External Schema)<strong>：也称子模式或用户模式，是数据库用户使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的数据的逻辑表示。外模式通常是模式的子集，一个数据库可以有多个外模式。同一外模式可以为某一用户的多个应用系统所使用，但一个应用程序只能使用一个外模式。外模式是保证数据库安全性的一个有力措施，</strong>每个用户只能看见和访问所对应的外模式中的数据。</strong></p>
+<p>（1）外模式／模式映象：定义了外模式与模式之间的对应关系，每一个外模式都对应一个外模式／模式映象，该映象定义通常包含在各自外模式的描述中。</p>
+<p>（2）外模式／模式映象保证了数据的<strong>逻辑独立性</strong>：当模式改变时，数据库管理员修改有关外模式／模式映象，使外模式保持不变；应用程序是依据数据的外模式编写的，从而应用程序不必修改，保证了数据与程序的逻辑独立性，简称数据的逻辑独立性。</p>
+<p><strong>内模式(Internal Schema)<strong>：也称存储模式，是数据</strong>物理结构</strong>和存储方式的描述，是数据在数据库内部的表示方式，一个数据库只有一个内模式。</p>
+<p>模式／内模式映象保证了数据的<strong>物理独立性</strong>：当数据库的存储结构改变了(例如选用了另一种存储结构)，数据库管理员修改模式／内模式映象，使模式保持不变，应用程序不受影响，保证了数据与程序的物理独立性，简称数据的物理独立性。</p>
+<h1 id="ch2-关系数据库"><a href="#ch2-关系数据库" class="headerlink" title="ch2.关系数据库"></a>ch2.关系数据库</h1><p>关系数据语言能够嵌入高级语言中使用，是一种高度非过程化的语言，存取路径的选择由DBMS的优化机制来完成。</p>
+<h2 id="2-1-关系数据结构"><a href="#2-1-关系数据结构" class="headerlink" title="2.1 关系数据结构"></a>2.1 关系数据结构</h2><h3 id="2-1-1-概念"><a href="#2-1-1-概念" class="headerlink" title="2.1.1 概念"></a>2.1.1 概念</h3><p><strong>域</strong>(Domain)：是一组具有相同数据类型的值的集合。如整数、实数、介于某个取值范围的整数、指定长度字符串集合等。</p>
+<p>（大写字母表示<strong>型</strong>，小写字母表示<strong>值</strong>）</p>
+<p><strong>笛卡尔积</strong>(Cartesian Product)：给定一组域$D_{1},D_{2},\ldots,D_{n}$，这些域可以相同，$D_{1},D_{2},\ldots,D_{n}$的笛卡尔积为：$D_{1} \times D_{2} \times \ldots \times D_{n} &#x3D; \left{ \left( d_{1},d_{2},\ldots,d_{n} \right) \middle| d_{i} \in D_{i},i &#x3D; 1,2,\ldots,n \right}$</p>
+<p><strong>元组</strong>(Tuple)：笛卡尔积中每一个元素$\left( d_{1},d_{2},\ldots,d_{n} \right)$。</p>
+<p><strong>分量</strong>(Component)：笛卡尔积元素$\left( d_{1},d_{2},\ldots,d_{n} \right)$中的每个值$d_{i}$。</p>
+<p><strong>基数</strong>(Cardinal number)：一个域允许的<strong>不同取值个数</strong>称为这个域的基数。若$D_{i}$(i＝1,2,…,n)为有限集，其基数为$m_{i}(i＝1,2,…,n)$，则$D_{1}×D_{2}×…×D_{n}$的基数M为：$M &#x3D; {\prod\limits_{i &#x3D; 1}^{n}m_{i}}$.</p>
+<p><strong>关系</strong>：$D_{1} \times D_{2} \times \ldots \times D_{n}$的<strong>子集</strong>称为域$D_{1} , D_{2} , \ldots , D_{n}$上的关系，表示为$R(D_{1} , D_{2} , \ldots , D_{n})$，其中R为关系名，n是关系的<strong>目</strong>或<strong>度</strong>(Degree)。当n&#x3D;1时为单元关系，n&#x3D;2时为二元关系。关系中的每个元素是关系中的元组，通常用t表示。关系描述有意义的元组的集合。</p>
+<p><strong>属性</strong>(Attribute)：关系是笛卡尔积的有限子集，所以关系也是一个二维表。关系中不同列可以对应相同的域，为了区分，必须对每列起一个名字，称为属性，n目关系必有n个属性。</p>
+<p><strong>候选码</strong>(Candidate key)：若关系中某一属性组的值能唯一地标识一个元组，则称该属性组为候选码。若候选码包含了关系模式的所有属性，则称该候选码为<strong>全码</strong>(All-key)。</p>
+<p><strong>主码</strong>(Primary key)：若一个关系有多个候选码，则选定其中的一个就称为主码，主码的诸属性称为主属性，不包含在任何候选码中的属性称为非主属性。在任一候选码中的属性都是主属性。</p>
+<h3 id="2-1-2-关系的基本性质"><a href="#2-1-2-关系的基本性质" class="headerlink" title="2.1.2 关系的基本性质"></a>2.1.2 关系的基本性质</h3><p>列是同质的：每一列中的分量是同一类型的数据，来自同一域；</p>
+<p>不同列可来自同一个域：不同列(属性)要给予不同的属性名；</p>
+<p>列的顺序无所谓：列的次序可以任意交换；</p>
+<p>任意两个元组不能完全相同：这是由笛卡尔积的性质决定的；</p>
+<p>行的顺序无所谓：行的次序可以任意交换；</p>
+<p>分量必须取原子值：每一个分量都必须是不可分的数据项。</p>
+<h3 id="2-1-3-关系模式-Relation-Schema"><a href="#2-1-3-关系模式-Relation-Schema" class="headerlink" title="2.1.3 关系模式(Relation Schema)"></a>2.1.3 关系模式(Relation Schema)</h3><p>对关系的描述。关系模式是型（稳定不变），而关系是值（变化）。</p>
+<p>关系模式的形式化表示：$R(U,D,dom,F)$</p>
+<blockquote>
+<p>其中：R为关系名，U为组成该关系的属性名集合，D为属性组U中属性所来自的域，dom为属性向域的映象集合，F为属性间的数据依赖关系集合。</p>
+</blockquote>
+<h2 id="2-2-关系的完整性"><a href="#2-2-关系的完整性" class="headerlink" title="2.2 关系的完整性"></a>2.2 关系的完整性</h2><p>关系模型中包括<strong>实体完整性、参照完整性</strong>（必须支持，被称作是<strong>关系的两个不变性</strong>）和用户定义的完整性三类完整性约束。</p>
+<h3 id="2-2-1-实体完整性"><a href="#2-2-1-实体完整性" class="headerlink" title="2.2.1 实体完整性"></a>2.2.1 实体完整性</h3><p>&#x3D;&#x3D;<strong>主属性不能为空</strong>&#x3D;&#x3D;（在任何候选码中的属性都是主属性）。</p>
+<h3 id="2-2-2-参照完整性"><a href="#2-2-2-参照完整性" class="headerlink" title="2.2.2 参照完整性"></a>2.2.2 参照完整性</h3><h4 id="2-2-2-1-外码-Foreign-Key"><a href="#2-2-2-1-外码-Foreign-Key" class="headerlink" title="2.2.2.1 外码(Foreign Key)"></a>2.2.2.1 外码(Foreign Key)</h4><p>设<strong>F是关系R的一个或一组属性</strong>（属性集），但不是关系R的码。如果F与关系S的主码Ks相对应，则称F是关系R的<strong>外码</strong>，关系R称为<strong>参照关系</strong>(Referencing Relation)，关系S称为<strong>被参照关系</strong>(Referenced Relation)或目标关系(Target Relation)。</p>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>关系R和S不一定是不同的关系；</li>
+<li>目标关系S的主码Ks和参照关系的外码F必须定义在同一个(或一组)域上；</li>
+<li>外码并不一定要与相应的主码同名。</li>
+</ul>
+</blockquote>
+<p>[例1]学生实体、专业实体以及专业与学生间的一对多联系。</p>
+<p>   学生(<em><strong>学号</strong></em>,姓名,性别,专业号,年龄) </p>
+<p>  专业(<em><strong>专业号</strong></em>,专业名)</p>
+<p>[例2]学生、课程、学生与课程之间的多对多联系。</p>
+<p>  学生(<em><strong>学号</strong></em>,姓名,性别,专业号,年龄)   </p>
+<p>  课程(<em><strong>课程号</strong></em>,课程名,学分) </p>
+<p>  选修(<em><strong>学号,课程号</strong></em>,成绩)</p>
+<p>【解释】学号不是选修的码，学号与学生的主码有对应的关系，故学号是选修的外码。课程号同理。</p>
+<p>[例3]学生实体及其内部的领导联系(一对多) 。 </p>
+<p>  学生(<em><strong>学号</strong></em>,姓名,性别,专业号,年龄,<em><strong>班长</strong></em>)</p>
+<h4 id="2-2-2-2-参照完整性规则"><a href="#2-2-2-2-参照完整性规则" class="headerlink" title="2.2.2.2 参照完整性规则"></a>2.2.2.2 参照完整性规则</h4><p>若属性(或属性组)F是基本关系R的外码，它与基本关系S的主码Ks相对应，则对于R中每个元组在F上的值必须：或者&#x3D;&#x3D;<strong>取空值</strong>&#x3D;&#x3D;(F的每个属性值均为空值)，或者等于S中&#x3D;&#x3D;<strong>某个元组的主码值</strong>&#x3D;&#x3D;。</p>
+<p>比如专业号要么取空（还未安排，但因为它是主属性，实际上不能为空），要么是专业这个关系中专业号的某一个。</p>
+<h3 id="2-2-3-用户定义的完整性"><a href="#2-2-3-用户定义的完整性" class="headerlink" title="2.2.3 用户定义的完整性"></a>2.2.3 用户定义的完整性</h3><p>如设定成绩不能大于100，即可通过<code>grade int check(grade&lt;=100)</code>来进行限制。</p>
+<h2 id="2-3-关系代数"><a href="#2-3-关系代数" class="headerlink" title="2.3 关系代数"></a>2.3 关系代数</h2><p>常用的关系代数运算符有集合运算符、专门的关系运算符、算术比较符、逻辑运算符。</p>
+<h3 id="2-3-1-集合运算"><a href="#2-3-1-集合运算" class="headerlink" title="2.3.1 集合运算"></a>2.3.1 集合运算</h3><p>（1）<strong>并</strong>(Union)：设R和S具有相同的目n(两个关系都有n个属性)，且相应的属性取自同一个域，则R∪S 仍为n目关系，由属于R或属于S的元组组成。$R∪S &#x3D; { t|t ∈ R∨t ∈S }$</p>
+<p>（2）<strong>差</strong>(Difference)：设R和S具有相同目n，且相应的属性取自同一个域，则R - S仍为n目关系，由属于R而不属于S的所有元组组成。$R - S &#x3D; { t|t∈R∧t ∉S }$</p>
+<p>（3）<strong>交</strong>(Intersection)：设R和S具有相同目n，且相应属性取自同一个域，则R∩S仍为n目关系，由既属于R又属于S的元组组成。$R∩S &#x3D; { t|t∈R∧t ∈S }\quad or \quad R∩S &#x3D; R –(R-S)$</p>
+<p>（4）<strong>广义笛卡尔积</strong>(Extended Cartesian Product) ：设R为n目关系、k1个元组，S为m目关系、k2个元组，则R×S为n+m列的元组的集合，元组的前n列是关系R的一个元组，后m列是关系S的一个元组，共有k1×k2个元组$R×S &#x3D;\left{ \hat{t_{r}t_{s}} \middle| t_{r} \in R \land t_{s} \in S \right}$.</p>
+<p>广义笛卡尔积<strong>前半部分来自R，后半部分来自S</strong>。</p>
+<p>【例】</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220308172559514.png" alt="image-20220308172559514" style="zoom: 50%;" />
+
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220330200058456.png" alt="image-20220330200058456" style="zoom: 67%;" />
+
+<h3 id="2-3-2-专门的关系运算符"><a href="#2-3-2-专门的关系运算符" class="headerlink" title="2.3.2 专门的关系运算符"></a>2.3.2 专门的关系运算符</h3><p>（1）$R,t \in R,t\left\lbrack A_{i} \right\rbrack$ ：设关系模式$R\left( A_{1},A_{2},\ldots,A_{n} \right)$的一个关系为R。t∈R表示t是R的一个元组，$\left. {t\left\lbrack A \right.}<em>{i} \right\rbrack$则表示元组t中相应于属性$A</em>{i}$的一个分量。 </p>
+<p>（2）$A,t\left\lbrack A \right\rbrack,\overset{¯}{A}$ ：若$A &#x3D; \left{ A_{i1},A_{i2},\ldots,A_{ik} \right}$，$A_{i1},A_{i2},\ldots,A_{ik}$是$A_{1},A_{2},\ldots,A_{n}$中的一部分，则A称为属性列或域列。$t\left\lbrack A \right\rbrack &#x3D; \left( t\left\lbrack A_{i1} \right\rbrack,t\left\lbrack A_{i2} \right\rbrack,\ldots,t\left\lbrack A_{ik} \right\rbrack \right)$表示<strong>元组t在属性列A上诸分量的集合</strong>，$\overset{¯}{A}$则表示$\left{A_{1},A_{2},\ldots,A_{n}\right}$中去掉$\left{ A_{i1},A_{i2},\ldots,A_{ik} \right}$后剩余的属性组。</p>
+<p>（3）<strong>元组的连接</strong>（$\hat{t_{r}t_{s}}$）：R为n目关系，S为m目关系。$t_{r} \in R$，$t_{s} \in S$，$\hat{t_{r}t_{s}}$称为元组的连接。它是一个n + m列的元组，前n个分量为R中的一个n元组，后m个分量为S中的一个m元组。</p>
+<p>（4）<strong>象集</strong>(Images Set) $Z_{x}$：给定一个关系$R(X,Z)$，X和Z为属性组。当$t[X]&#x3D;x$时，x在R中的象集为：$Z_{x} &#x3D; \left{ t\left\lbrack Z \right\rbrack \middle| t \in R,t\left\lbrack X \right\rbrack &#x3D; x \right}$ ，它表示R中属性组X上值为x的诸元组在Z上分量的集合。即：<strong>在X上选择满足我设定的值，但取的是Z上各个元组的值</strong>。</p>
+<p>（5）<strong>选择</strong>(Selection)：是从<strong>行的角度</strong>进行的运算，在关系R中选择满足给定条件的诸元组，记为$\sigma_{F}\left( R \right) &#x3D; \left{ t \middle| t \in R\bigwedge F\left( t \right) &#x3D;^{‘}真^{‘} \right}$，其中F是选择运算符，是一个逻辑表达式。</p>
+<p>（6）<strong>投影</strong>(Projection)：从R中选择出若干<strong>属性列</strong>组成新的关系，记为$\pi_{A}\left( R \right) &#x3D; \left{ t\left\lbrack A \right\rbrack \middle| t \in R \right}$，其中A是R中的<strong>属性列</strong>。投影操作主要是从<strong>列的角度</strong>进行运算，但投影之后不仅取消了原关系中的某些列，而且还可能取消某些元组(避免重复行)。如：查询学生的姓名和所在系别，可用语句：$\pi_{Sname,Sdept}\left( {Student} \right)$来完成。</p>
+<p>（7）<strong>关于连接</strong>：</p>
+<p>【1】<strong>连接</strong>(Join)：又称<strong>θ连接</strong>，是从两个关系的笛卡尔积中选取属性间满足一定条件的元组，记为  <img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image002.png" alt="img">，其中A和B分别为R和S上度数相等且可比的属性组，θ为<strong>比较运算符</strong>。</p>
+<p>连接运算从R和S的广义笛卡尔积R×S中选取R关系在A属性组上的值与S关系在B属性组上值<strong>满足比较关系的元组</strong>。</p>
+<p>【2】<strong>等值连接</strong>(Equijoin)：θ为&#x3D;的连接运算称为等值连接 ，它是从关系R与S的广义笛卡尔积中选取A、B属性值相等的元组：<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image002-16469188480731.png" alt="img">。等值连接有<code>m+n</code>目关系。</p>
+<p>【3】<strong>自然连接</strong>(Natural join)：是一种特殊的等值连接，要求两个关系中进行比较的分量必须是<strong>相同的属性组</strong>，在结果中把重复的属性列去掉。设R和S具有相同的属性组B，则：<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/clip_image002-16469189378942.png" alt="img">。</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220310161628334.png" alt="image-20220310161628334" style="zoom:80%;" />
+
+<p>有关<code>Sql</code>语句：</p>
+<p>广义笛卡尔积：<code>select * from student,sc</code></p>
+<p>等值连接：<code>select * from student,sc where student.sno = sc.sno</code></p>
+<p>自然连接：<code>select sname,sc.no,ssex from student,sc where student.sno = sc.sno</code></p>
+<p>（8）<strong>除</strong>(Division)：给定关系R(X,<strong>Y</strong>) 和S(<strong>Y</strong>,Z)，其中X,Y,Z为属性组。R中的Y与S中的Y可以有不同的属性名，但必须出自相同的域集。R与S的除运算得到一个新的关系P(X)，P是R中满足下列条件的元组在X属性列上的投影：(关系R)元组<strong>在X上分量值x的象集</strong>$Y_{x}$包含S在Y上投影的集合。用数学表示为：$R \div S &#x3D; \left{ t_{r}\left\lbrack X \right\rbrack \middle| t_{r} \in R \land \pi_{Y}\left( S \right) \subseteq Y_{x} \right}$，其中$Y_{x}$表示x在R中的象集，$x&#x3D;t_{r}\left\lbrack X \right\rbrack$.</p>
+<p>在实际操作中的步骤如下：</p>
+<p>首先找出两个关系的相同属性列，<strong>记为Y</strong>，然后看所有X上每个分量值对应的象集是否包含S在相同属性列Y上投影。若有，则属于除后的结果。</p>
+<p>如在<code>sc</code>表（包含<code>sno</code>和<code>cno</code>），<code>course</code>（包含<code>cno</code>和其他课程信息如课程名），执行$sc \div course$，相同的属性列为<code>cno</code>，那么则是将所有<code>sno</code>对应的象集（即选课编号<code>cno</code>）与<code>course</code>在<code>cno</code>上投影集合进行判断归属关系，那么该运算表示的含义则为所有课都选的同学的学号。又如$sc \div student$，相同的属性列为<code>sno</code>，则结果为被所有同学都选的课。又如下面的例子：</p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220310220429555.png" alt="image-20220310220429555" style="zoom:80%;" />
+
+
+
+<h1 id="ch3-关系数据库标准语言SQL"><a href="#ch3-关系数据库标准语言SQL" class="headerlink" title="ch3.关系数据库标准语言SQL"></a>ch3.关系数据库标准语言SQL</h1><h2 id="3-1-Sql语言的动词"><a href="#3-1-Sql语言的动词" class="headerlink" title="3.1 Sql语言的动词"></a>3.1 Sql语言的动词</h2><table>
+<thead>
+<tr>
+<th align="center">Sql功能</th>
+<th align="center">动词</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">数据定义</td>
+<td align="center">create，drop，alter（更改表的结构）</td>
+</tr>
+<tr>
+<td align="center">数据查询</td>
+<td align="center">select</td>
+</tr>
+<tr>
+<td align="center">数据操纵</td>
+<td align="center">insert，update，delete</td>
+</tr>
+<tr>
+<td align="center">数据控制</td>
+<td align="center">grant, revoke</td>
+</tr>
+</tbody></table>
+<h2 id="3-2-创建、删除基本表"><a href="#3-2-创建、删除基本表" class="headerlink" title="3.2 创建、删除基本表"></a>3.2 创建、删除基本表</h2><h3 id="3-2-1-创建基本表"><a href="#3-2-1-创建基本表" class="headerlink" title="3.2.1 创建基本表"></a>3.2.1 创建基本表</h3><ul>
+<li><p>**use  xx(数据库)**：打开数据库。该语句以后的操作在该数据库进行。</p>
+</li>
+<li><p><strong>定义（创建）基本表</strong>：</p>
+</li>
+</ul>
+<p> CREATE TABLE &lt;表名&gt;</p>
+<p>   (&lt;列名&gt; &lt;数据类型&gt;[ &lt;列级完整性约束条件&gt; ]</p>
+<p>   [,&lt;列名&gt; &lt;数据类型&gt;[ &lt;列级完整性约束条件&gt;] ] …</p>
+<p>   [,&lt;表级完整性约束条件&gt; ] )；</p>
+<p>​		其中：表名为所要定义的基本表的名字，列名为组成该表的各个属性(列)，列级完整性约束条件为涉及相应属性列的完整性约束条件，表级完整性约束条件为涉及一个或多个属性列的完整性约束条件。</p>
+<h3 id="3-2-2-约束"><a href="#3-2-2-约束" class="headerlink" title="3.2.2 约束"></a>3.2.2 约束</h3><p>常用的完整性约束有：</p>
+<p><strong>主码约束PRIMARY KEY、唯一性约束UNIQUE、非空值约束NOT NULL、参照完整性约束FOREIGN、KEY、REFERENCES</strong>。</p>
+<p>加入约束：<strong>CONSTRAINT</strong> salary_cap <strong>CHECK</strong> (salary &lt; 100000)   –加入约束名字</p>
+<p>用PRIMARY KEY约束定义为列约束；若主键有两列或更多列，必须使用其作为表约束。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> table_name<span class="token punctuation">(</span>
+	pk_column data_type <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> table_name<span class="token punctuation">(</span>
+	pk_column_1 data_type<span class="token punctuation">,</span>
+    pk_column_2 data_type<span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">(</span>pk_column_1<span class="token punctuation">,</span>pk_column_2<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>查看约束：（<code>sysobjects</code>是系统自建的表）</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> sysobjects <span class="token keyword">where</span> OBJECT_NAME<span class="token punctuation">(</span>oarent_obj<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'表名'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>增加约束：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> dept_new <span class="token keyword">ADD</span> <span class="token keyword">CONSTRAINT</span> ck_dept_new_ID <span class="token keyword">CHECK</span> <span class="token punctuation">(</span>ID <span class="token operator">LIKE</span> <span class="token string">'NO%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>删除约束：（<strong>修改表结构使用alter语句</strong>）</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> <span class="token string">'表名'</span> <span class="token keyword">drop</span> <span class="token keyword">constraint</span> <span class="token string">'约束名'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="3-2-3-修改与删除基本表"><a href="#3-2-3-修改与删除基本表" class="headerlink" title="3.2.3 修改与删除基本表"></a>3.2.3 修改与删除基本表</h3><ul>
+<li><strong>修改基本表（结构）</strong>：</li>
+</ul>
+<p>ALTER TABLE &lt;表名&gt;</p>
+<p>[ <strong>ADD</strong> &lt;新列名&gt; &lt;数据类型&gt; [ 完整性约束 ] ]</p>
+<p>[ DROP &lt;完整性约束名&gt; ] [ <strong>DROP</strong> <strong>column</strong> &lt;列名&gt; ]</p>
+<p>[ MODIFY &lt;列名&gt; &lt;数据类型&gt; ]；</p>
+<p>​    其中：表名为要修改的基本表，ADD子句为增加新列和新的完整性约束条件，DROP子句为删除指定的完整性约束条件，MODIFY子句</p>
+<p>为用于修改列名和数据类型。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> student <span class="token keyword">add</span> comdate <span class="token keyword">datetime</span> <span class="token comment">--增加一个属性</span>
+<span class="token keyword">alter</span> <span class="token keyword">table</span> student <span class="token keyword">drop</span> <span class="token keyword">column</span> comdate <span class="token comment">--删除一个属性</span>
+<span class="token keyword">alter</span> <span class="token keyword">table</span> student <span class="token keyword">add</span> 姓名 <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span>
+<span class="token keyword">update</span> student <span class="token keyword">set</span> 姓名<span class="token operator">=</span>sname<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>sp_help 可以快速查看表结构、视图信息。</p>
+</blockquote>
+<ul>
+<li><strong>删除基本表</strong>：DROP TABLE &lt;表名&gt;;</li>
+</ul>
+<h3 id="3-2-4-索引"><a href="#3-2-4-索引" class="headerlink" title="3.2.4 索引"></a>3.2.4 索引</h3><ul>
+<li><strong>建立索引</strong>：</li>
+</ul>
+<p><code>create [UNIQUE] index &lt;索引名&gt; on &lt;表名&gt;(&lt;列名&gt;[&lt;次序&gt;][,&lt;列名&gt;[&lt;次序&gt;]]...);  </code></p>
+<p>用&lt;表名&gt;指定要建索引的基本表。索引可以建立在该表的一列或多列上，各列名之间用逗号分隔；</p>
+<p>用&lt;次序&gt;指定索引值的排列次序，<strong>升序ASC，降序DESC</strong>（缺省为升序ASC）；</p>
+<p><strong>UNIQUE</strong>表明此索引的每一个索引值只对应唯一的数据记录。</p>
+<p>**[例]**为学生-课程数据库中<code>Student,Course,SC</code>三个表建立索引。其中<code>Student</code>表按学号升序建唯一索引，<code>Course</code>表按课程号升序建唯一索引，<code>SC</code>表按学号升序和课程号降序建唯一索引。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">UNIQUE</span> <span class="token keyword">INDEX</span> Stusno <span class="token keyword">ON</span> Student<span class="token punctuation">(</span>Sno<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">UNIQUE</span> <span class="token keyword">INDEX</span> Coucno <span class="token keyword">ON</span> Course<span class="token punctuation">(</span>Cno<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">UNIQUE</span> <span class="token keyword">INDEX</span> SCno <span class="token keyword">ON</span> SC<span class="token punctuation">(</span>Sno <span class="token keyword">ASC</span><span class="token punctuation">,</span>Cno <span class="token keyword">DESC</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>索引的优缺点如下：</p>
+<p>优点：可以提高查询速度（系统内部有B+树or二分法查找）；</p>
+<p>缺点：每次执行insert,update,delete都会将index表重新排序，会降低操作效率。</p>
+</blockquote>
+<ul>
+<li><strong>删除索引</strong>：drop index  &lt;索引名&gt;;</li>
+</ul>
+<h2 id="3-3-基本表的查询操作"><a href="#3-3-基本表的查询操作" class="headerlink" title="3.3 基本表的查询操作"></a>3.3 基本表的查询操作</h2><h3 id="3-3-1-查询概述"><a href="#3-3-1-查询概述" class="headerlink" title="3.3.1 查询概述"></a>3.3.1 查询概述</h3><p>SELECT [ALL|DISTINCT] &lt;目标列表达式&gt; [，&lt;目标列表达式&gt;] …	–目标列表达式可以是列名（属性）、函数、算术表达式、字符串</p>
+<p>FROM &lt;表名或视图名&gt;[， &lt;表名或视图名&gt; ] …</p>
+<p>[ WHERE &lt;条件表达式&gt; ]</p>
+<p>[ GROUP BY &lt;列名1&gt; [ HAVING &lt;条件表达式&gt; ] ]	–分组</p>
+<p><strong>[ ORDER BY &lt;列名2&gt; [ ASC|DESC ] ]</strong>; 	  –含第一排序位、第二排序位……</p>
+<p>其中：SELECT子句指定要显示的属性列；FROM子句指定查询对象(基本表或视图)；WHERE子句指定查询条件；GROUP BY子句对查询结果按指定列的值分组，该属性列值相等的元组为一个组，通常会在每组中作用集函数；HAVING短语筛选出只有满足指定条件的组；ORDER BY子句对查询结果表按指定列值的升序或降序排序；DISTINCT表示<strong>只显示完全不相同的行</strong>（相同的只出现一次）。如：<code>select distinct sno from sc</code>代表显示所有（不同的）学号。</p>
+<h3 id="3-3-2-函数与使用集合函数"><a href="#3-3-2-函数与使用集合函数" class="headerlink" title="3.3.2 函数与使用集合函数"></a>3.3.2 函数与使用集合函数</h3><p>（一）<strong>调用函数</strong>的语句：select xx()</p>
+<p>例：<code>select getdate(),day(getdate())</code></p>
+<p>（二）<strong>集合函数</strong>：</p>
+<p>集合函数对一组值执行计算并返回单一的值，&#x3D;&#x3D;<strong>集合函数作用于每一组</strong>&#x3D;&#x3D;。</p>
+<blockquote>
+<p>注意：where后面不能跟集合函数，比如显示score表中的最高分的学生学号和课程号，需使用语句：</p>
+<p><code>select sno,cno from sc where grade = (select max(grade) from sc)</code>。</p>
+</blockquote>
+<p>集合函数有以下五种：<strong>avg()平均值，sum()求和，count()数量，max()最大值，min()最小值</strong></p>
+<ul>
+<li><p><strong>计数</strong>：COUNT([DISTINCT|ALL] *) &#x2F;  COUNT([DISTINCT|ALL] &lt;列名&gt;)（<strong>NULL不算入</strong>）</p>
+<p>如查询学生总人数，即为<code>select count(*) from SStudent; </code></p>
+</li>
+<li><p><strong>计算总和</strong>：SUM([DISTINCT|ALL] &lt;列名&gt;)	</p>
+</li>
+<li><p><strong>计算平均值</strong>：AVG([DISTINCT|ALL] &lt;列名&gt;)</p>
+</li>
+<li><p><strong>求最大值</strong>：MAX([DISTINCT|ALL] &lt;列名&gt;)</p>
+</li>
+<li><p><strong>求最小值</strong>：MIN([DISTINCT|ALL] &lt;列名&gt;)</p>
+</li>
+</ul>
+<p>	</p>
+<h3 id="3-3-3-对查询结果分组与排序"><a href="#3-3-3-对查询结果分组与排序" class="headerlink" title="3.3.3 对查询结果分组与排序"></a>3.3.3 对查询结果分组与排序</h3><p><strong>对查询结果分组</strong>：</p>
+<ul>
+<li>使用<strong>group by</strong></li>
+<li>&#x3D;&#x3D;<strong>值相等的为一组</strong>&#x3D;&#x3D;，若有两个（多个），则为<strong>排列组合值相等</strong>的为一组：<code>select cno,class from sc group by cno, class</code></li>
+<li>&#x3D;&#x3D;<strong>select后面只能出现分组的属性或集合函数</strong>&#x3D;&#x3D;</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> cno<span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> sc <span class="token keyword">group</span> <span class="token keyword">by</span> cno <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">3</span>  <span class="token comment">--显示有三个人以上选的课,count(*)表示分组后该组有多少元组</span>
+<span class="token keyword">select</span> sno<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token keyword">from</span> sc <span class="token keyword">group</span> <span class="token keyword">by</span> sno <span class="token keyword">having</span> <span class="token function">min</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">70</span> <span class="token operator">and</span> <span class="token function">avg</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">85</span>	<span class="token comment">--查找每个人所有课的平均分，在这些人中选出每门课大于70且平均分大于85的人</span>
+<span class="token keyword">select</span> cno<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token keyword">from</span> sc <span class="token keyword">group</span> <span class="token keyword">by</span> cno	<span class="token comment">--每门课的平均分</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>having和where的区别</strong>：</p>
+<p>having对<strong>每组</strong>（分组后）限定，where对<strong>每个元组</strong>限定（筛选），where筛选完了才会分组。</p>
+</blockquote>
+<p><strong>对查询结果排序</strong>：</p>
+<p>使用<strong>order by</strong>字句，可以按一个或多个（<strong>第一排序位</strong>优先）属性列排序， 升序<code>ASC</code>，降序<code>DESC</code>，<strong>缺省值为升序</strong>。当排序列含空值时，<code>ASC</code>排序列为空值的元组最后显示，<code>DESC</code>排序列为空值的元组最先显示。例如<code>order by sage ASC,sname DESC</code>。</p>
+<h3 id="3-3-4-使用别名"><a href="#3-3-4-使用别名" class="headerlink" title="3.3.4 使用别名"></a>3.3.4 使用别名</h3><p><code>SQL</code>语句可以为 <strong>表名称</strong> 或 <strong>列名称</strong> 指定别名。</p>
+<ul>
+<li>别名的三种形式：<ul>
+<li>字段名 <strong>as</strong> 别名</li>
+<li>字段名 （<strong>空格</strong>） 别名</li>
+<li>别名 <strong>&#x3D;</strong> 字段名</li>
+</ul>
+</li>
+<li>若使用别名，则语句中每处（如select后）应改为别名后的名称</li>
+</ul>
+<p>[例]显示score中选修多门课程的同学中分数为非最高分成绩的记录。</p>
+<p><code>select a.sno,a.degree,a.cno from sc a,sc b where a.sno=b.sno and a.degree&lt;b.degree</code>（“&lt;”号保证了该同学选修了多门课程）</p>
+<h3 id="3-3-5-字符串匹配"><a href="#3-3-5-字符串匹配" class="headerlink" title="3.3.5 字符串匹配"></a>3.3.5 字符串匹配</h3><ul>
+<li><p>通配符**%**：代表任意长度(可以为0)的字符串。  如a%b表示以a开头、以b结尾的任意长度的字符串</p>
+</li>
+<li><p>通配符**_** ：代表任意单个字符。如a_b表示以a开头、以b结尾的长度为3的任意字符串</p>
+</li>
+<li><p>通配符**[]<strong>：代表满足其中</strong>任何一个<strong>的被筛选，[]中加</strong>^**表示不为[]中任何一个的被筛选</p>
+</li>
+<li><p><strong>利用escape关键字</strong>，使用<strong>换码字符</strong>将通配符转义为普通字符</p>
+</li>
+</ul>
+<blockquote>
+<p>注：转义默认的符号是<code>&#39;\&#39;</code>，可以使用escape关键字定义别的字符为转义符。</p>
+</blockquote>
+<p>[例1] 查询DB_Design课程的课程号和学分。</p>
+<p>​    <code>SELECT Cno,Ccredit FROM SCourse WHERE Cname LIKE &#39;DB\_Design&#39;  ESCAPE &#39;\&#39;;</code></p>
+<p>[例2] 询以DB_开头、且倒数第3个字符为i的课程的详细情况。</p>
+<p>​    <code>SELECT * FROM SCourse WHERE Cname LIKE &#39;DB\_%i__&#39; ESCAPE &#39;\&#39;;</code></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> student <span class="token keyword">where</span> sage<span class="token operator">></span><span class="token number">20</span> <span class="token operator">and</span> sname <span class="token operator">like</span> <span class="token string">'刘%'</span> <span class="token comment">--'%'代表一个或多个字符，查找姓刘的人,'刘_'代表刘+一个字符,不姓刘即NOT LIKE</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> student <span class="token keyword">where</span> sname <span class="token operator">like</span> <span class="token string">'[李王张刘]%'</span> 	  <span class="token comment">--查找姓氏为这四个姓的人</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> student <span class="token keyword">where</span> sname <span class="token operator">like</span> <span class="token string">'[^李王张刘]%'</span> 	  <span class="token comment">--查找姓氏不为这四个姓的人</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-3-6-连接查询"><a href="#3-3-6-连接查询" class="headerlink" title="3.3.6 连接查询"></a>3.3.6 连接查询</h3><p>同时涉及多个表的查询。根据<strong>连接条件</strong>进行<strong>拼接</strong>。</p>
+<h4 id="3-3-6-1-内连接"><a href="#3-3-6-1-内连接" class="headerlink" title="3.3.6.1 内连接"></a>3.3.6.1 内连接</h4><p>[例1]查询每个学生及其选修课程的情况。</p>
+<p><code>SELECT SStudent.*,SC.* FROM SStudent,SC WHERE SStudent.Sno = SC.Sno;</code></p>
+<p>[例2]查询每一门课的间接先修课(即先修课的先修课)。</p>
+<p><code>select first.cno,second.cpno from course first,scource second where first.cpno = second.cno</code></p>
+<p>内连接还可以使用<strong>join…on…</strong>方法，如：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> sname<span class="token punctuation">,</span>cname<span class="token punctuation">,</span>grade <span class="token keyword">from</span> student<span class="token punctuation">,</span>sc<span class="token punctuation">,</span>course <span class="token keyword">where</span> student<span class="token punctuation">.</span>sno<span class="token operator">=</span>sc<span class="token punctuation">.</span>sno <span class="token operator">and</span> sc<span class="token punctuation">.</span>cno <span class="token operator">=</span> course<span class="token punctuation">.</span>cno
+<span class="token comment">--可写为</span>
+<span class="token keyword">select</span> sname<span class="token punctuation">,</span>cname<span class="token punctuation">,</span>grade <span class="token keyword">from</span> student <span class="token keyword">join</span> sc <span class="token keyword">on</span> student<span class="token punctuation">.</span>sno<span class="token operator">=</span>sc<span class="token punctuation">.</span>sno <span class="token keyword">join</span> course <span class="token keyword">on</span> sc<span class="token punctuation">.</span>cno <span class="token operator">=</span> course<span class="token punctuation">.</span>cno<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-3-6-2-外连接"><a href="#3-3-6-2-外连接" class="headerlink" title="3.3.6.2 外连接"></a>3.3.6.2 外连接</h4><p>​		外连接分为<strong>左外连接</strong>(<code>LEFT OUTER JOIN</code>或<code>LEFT JOIN</code>)、<strong>右外连接</strong>(<code>RIGHT OUTER JOIN</code>或<code>RIGHT JOIN</code>) 和<strong>全外连接</strong>(<code>FULL OUTER JOIN</code>或<code>FULL JOIN</code>)三种。与内连接不同的是，外连接不只列出与连接条件相匹配的行，而是列出左表(左外连接时)、右表(右外连接时)或两个表(全外连接时)中所有符合搜索条件的数据行。</p>
+<p>（Oracle）**(+)<strong>，即给其加了一个</strong>万能的空行**，拼不上则使用，拼不上的情况下Student表中的记录只拼一次（在这里即为未选课）</p>
+<p><code>SELECT  Student.Sno,Sname,Ssex,Sage,Sdept,Cno,Grade FROM Student,SC WHERE Student.Sno = SC.Sno(+);</code></p>
+<img src="https://qianzeshu.oss-cn-hangzhou.aliyuncs.com/img/image-20220324213029402.png" alt="image-20220324213029402" style="zoom:67%;" />
+
+<p>(Sql Server)<code>SELECT SStudent.Sno,Sname,Ssex,Sage,Sdept,Cno,Grade FROM SStudent LEFT OUTER JOIN SC on SStudent.Sno = SC.Sno; </code></p>
+<blockquote>
+<p><strong>涉及空值的查询</strong>：在where子句的&lt;比较条件&gt;中使用谓词<strong>IS NULL</strong> 或 <strong>IS NOT NULL</strong></p>
+<p><strong>多重条件查询</strong>：使用逻辑运算符and和or联结多个查询条件。</p>
+</blockquote>
+<h3 id="3-3-7-嵌套查询"><a href="#3-3-7-嵌套查询" class="headerlink" title="3.3.7 嵌套查询"></a>3.3.7 嵌套查询</h3><p><strong>外层查询&#x2F;父查询+内层查询&#x2F;子查询</strong></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> student <span class="token keyword">where</span> sno <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> sno <span class="token keyword">from</span> sc <span class="token keyword">where</span> cno <span class="token operator">in</span> 
+<span class="token punctuation">(</span><span class="token keyword">select</span> cno <span class="token keyword">from</span> course <span class="token keyword">where</span> cname<span class="token operator">=</span><span class="token string">'数据库原理'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="3-3-7-1-带有in谓词的子查询"><a href="#3-3-7-1-带有in谓词的子查询" class="headerlink" title="3.3.7.1 带有in谓词的子查询"></a>3.3.7.1 带有in谓词的子查询</h4><p>[例] 查询与刘晨在同一个系学习的学生。</p>
+<p>（1）确定刘晨所在系名；</p>
+<p>（2）查找所有在IS系学习的学生。 </p>
+<p><code>SELECT Sno,Sname,Sdept FROM SStudent WHERE Sdept IN (SELECT Sdept  FROM SStudent WHERE Sname=&#39;刘晨&#39;);</code></p>
+<h4 id="3-3-7-2-带有any或all谓词的子查询"><a href="#3-3-7-2-带有any或all谓词的子查询" class="headerlink" title="3.3.7.2 带有any或all谓词的子查询"></a>3.3.7.2 带有any或all谓词的子查询</h4><p><strong>any表示任意，all表示所有</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">&#x3D;</th>
+<th align="center">&lt;&gt;或!&#x3D;</th>
+<th align="center">&lt;</th>
+<th align="center">&lt;&#x3D;</th>
+<th align="center">&gt;</th>
+<th align="center">&gt;&#x3D;</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">any</td>
+<td align="center">in</td>
+<td align="center">–</td>
+<td align="center">&lt;max</td>
+<td align="center">&lt;&#x3D;max</td>
+<td align="center">&gt;min</td>
+<td align="center">&gt;&#x3D;min</td>
+</tr>
+<tr>
+<td align="center">all</td>
+<td align="center">–</td>
+<td align="center">not in</td>
+<td align="center">&lt;min</td>
+<td align="center">&lt;&#x3D;min</td>
+<td align="center">&gt;max</td>
+<td align="center">&gt;&#x3D;max</td>
+</tr>
+</tbody></table>
+<p>[例]查询其他系中比信息系任意一个(其中某一个)学生年龄小的学生姓名和年龄。</p>
+<p>法1：用All谓词</p>
+<p><code>select Sname,Sage from SStudent where sage &lt; any(select Sage from SStudent where Sdept = &#39;IS&#39;) and Sdept &lt;&gt; &#39;IS&#39;</code></p>
+<p>法2：用集合函数</p>
+<p><code>select Sname,Sage from student where Sage &lt;  (select min(Sage) from student where Sdept =&#39;IS&#39;) and Sdept&lt;&gt;&#39;IS&#39;</code></p>
+<h4 id="3-3-7-3-带有exists谓词的子查询"><a href="#3-3-7-3-带有exists谓词的子查询" class="headerlink" title="3.3.7.3 带有exists谓词的子查询"></a>3.3.7.3 带有exists谓词的子查询</h4><p><strong>每一条、每一条地去拼接。</strong></p>
+<p>相当于存在量词$\exists$。带有EXISTS谓词的子查询不返回任何数据，只产生逻辑true或false，若内层查询结果非空则返回真值，否则返回假值。由EXISTS引出的子查询的目标列表达式通常都用* ，因为带EXISTS的子查询只返回真值或假值，给出列名无实际意义。</p>
+<p>[例1]查询所有选修了1号课程的学生姓名。</p>
+<p>首先在<code>Student</code>中依次取每个元组的<code>Sno</code>值，用此值去检查<code>SC</code>关系，若<code>SC</code>中存在这样的元组，其<code>Sno</code>值等于此<code>Student.Sno</code>值，并且其<code>Cno= &#39;1&#39;</code>，则取此<code>Student.Sname</code>送入结果关系。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">--用嵌套查询 </span>
+<span class="token keyword">SELECT</span> Sname <span class="token keyword">FROM</span> Student <span class="token keyword">WHERE</span> <span class="token keyword">EXISTS</span> 	<span class="token comment">/*相关子查询*/</span>
+   <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> SC <span class="token keyword">WHERE</span> Sno<span class="token operator">=</span>Student<span class="token punctuation">.</span>Sno <span class="token operator">AND</span> Cno<span class="token operator">=</span> ‘<span class="token number">1</span>’<span class="token punctuation">)</span>；
+<span class="token comment">--用连接查询</span>
+<span class="token keyword">SELECT</span> Sname <span class="token keyword">FROM</span> Student<span class="token punctuation">,</span> SC <span class="token keyword">WHERE</span> Student<span class="token punctuation">.</span>Sno<span class="token operator">=</span>SC<span class="token punctuation">.</span>Sno <span class="token operator">AND</span> SC<span class="token punctuation">.</span>Cno<span class="token operator">=</span> ‘<span class="token number">1</span>’；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>[例2]查询选修了全部课程的学生姓名。</p>
+<p><strong>法1</strong>：首先找出Student中的一条信息，到中间层语句，找出一个课程信息，若是该学生有某一门课程没有选，则内层向中间层返回false，not exists为true，直接向外层返回true，最终not exists为false，不符合条件；若符合条件，则查找下一个课程，若其中所有课程查完，中间层语句都为false，则向外层返回true，not exists结果为true，符合条件，输出。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> sname <span class="token keyword">from</span> student <span class="token keyword">where</span> <span class="token operator">not</span> <span class="token keyword">exists</span>
+	<span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> course <span class="token keyword">where</span> <span class="token operator">not</span> <span class="token keyword">exists</span>
+		<span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> sc <span class="token keyword">where</span> sno <span class="token operator">=</span> student<span class="token punctuation">.</span>sno <span class="token operator">and</span> cno <span class="token operator">=</span> course<span class="token punctuation">.</span>cno<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>法2</strong>：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> sname <span class="token keyword">from</span> student <span class="token keyword">where</span> sno <span class="token operator">in</span> <span class="token punctuation">(</span>
+	<span class="token keyword">select</span> sno <span class="token keyword">from</span> sc <span class="token keyword">group</span> <span class="token keyword">by</span> sno <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> course<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="3-3-8-集合查询（并查询）"><a href="#3-3-8-集合查询（并查询）" class="headerlink" title="3.3.8 集合查询（并查询）"></a>3.3.8 集合查询（并查询）</h3><p>标准<code>SQL</code>对于集合查询直接支持并操作。参加<strong>并（union）操作</strong>的各结果表的列数必须相同，对应项的数据类型也必须相同。</p>
+<p>一般格式为：<br>    &lt;查询块&gt;<br>      union<br>    &lt;查询块&gt;</p>
+<p>[例]列出所有老师和同学的 姓名、性别和生日。</p>
+<p><code>select tname,sex,birthday from teacher union select sname,sex,birthday from student;</code></p>
+<h3 id="3-3-9-查询细节知识点"><a href="#3-3-9-查询细节知识点" class="headerlink" title="3.3.9 查询细节知识点"></a>3.3.9 查询细节知识点</h3><h4 id="3-3-9-1-使用top限制结果集"><a href="#3-3-9-1-使用top限制结果集" class="headerlink" title="3.3.9.1 使用top限制结果集"></a>3.3.9.1 使用top限制结果集</h4><ul>
+<li>格式：TOP n [percent] with ties ，n 为非负的整数</li>
+<li>TOP n:表示取查询结果的前n行</li>
+<li>TOP n percent:表示取查询结果的前n%行</li>
+<li><strong>with ties</strong>：查询并列前n行</li>
+<li>若有distinct，要写在其后面</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">--查询数据库课程考试成绩前三名的学生的姓名和成绩</span>
+<span class="token keyword">select</span> <span class="token keyword">top</span> <span class="token number">3</span> <span class="token keyword">with</span> ties sname<span class="token punctuation">,</span>grade <span class="token keyword">from</span>
+  student <span class="token keyword">join</span> sc <span class="token keyword">on</span> student<span class="token punctuation">.</span>sno<span class="token operator">=</span>sc<span class="token punctuation">.</span>sno
+    <span class="token keyword">join</span> course <span class="token keyword">on</span> sc<span class="token punctuation">.</span>cno<span class="token operator">=</span>course<span class="token punctuation">.</span>cno <span class="token keyword">where</span> cname<span class="token operator">=</span><span class="token string">'数据库原理'</span>
+	 <span class="token keyword">order</span> <span class="token keyword">by</span> grade <span class="token keyword">desc</span><span class="token punctuation">;</span>
+<span class="token comment">--或</span>
+<span class="token keyword">select</span> <span class="token keyword">top</span> <span class="token number">3</span> <span class="token keyword">with</span> ties sname<span class="token punctuation">,</span>grade <span class="token keyword">from</span>
+ student<span class="token punctuation">,</span>sc<span class="token punctuation">,</span>course <span class="token keyword">where</span> student<span class="token punctuation">.</span>sno<span class="token operator">=</span>sc<span class="token punctuation">.</span>sno <span class="token operator">and</span>
+   sc<span class="token punctuation">.</span>cno<span class="token operator">=</span>course<span class="token punctuation">.</span>cno <span class="token operator">and</span> cname<span class="token operator">=</span><span class="token string">'数据库原理'</span> <span class="token keyword">order</span> <span class="token keyword">by</span> grade <span class="token keyword">desc</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-3-9-2-将查询结果保存到新表"><a href="#3-3-9-2-将查询结果保存到新表" class="headerlink" title="3.3.9.2 将查询结果保存到新表"></a>3.3.9.2 将查询结果保存到新表</h4><ul>
+<li>select 查询表序列 into 新表名 from 数据源(表名) where [&lt;条件&gt;]…..</li>
+<li>新表有二类：<ul>
+<li><strong>永久的表</strong>，起一个表名就可以了。</li>
+<li><strong>临时表</strong>：<ul>
+<li>局部临时表，表名前加#，当前连接可用，生存期为当前连接的生存期。</li>
+<li>全局临时表：表名前加##，所有连接都可用．生存期为当前连接的生存期。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-9-3-case子句"><a href="#3-3-9-3-case子句" class="headerlink" title="3.3.9.3 case子句"></a>3.3.9.3 case子句</h4><p><strong>使用case子句对查询结果进行分析</strong>，见下例。</p>
+<p>[例]查询001号课程的学号和成绩，并进行如下处理成绩&gt;90 显示’优’,80-89:’良’,etc。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">Select</span> sno<span class="token punctuation">,</span>grade<span class="token punctuation">,</span>
+  <span class="token keyword">CASE</span>
+    <span class="token keyword">WHEN</span> GRADE<span class="token operator">>=</span><span class="token number">90</span> <span class="token keyword">THEN</span> <span class="token string">'优'</span>
+    <span class="token keyword">WHEN</span> GRADE <span class="token operator">BETWEEN</span> <span class="token number">80</span> <span class="token operator">AND</span> <span class="token number">89</span> <span class="token keyword">THEN</span> <span class="token string">'良'</span>
+    <span class="token keyword">WHEN</span> GRADE <span class="token operator">BETWEEN</span> <span class="token number">70</span> <span class="token operator">AND</span> <span class="token number">79</span> <span class="token keyword">THEN</span> <span class="token string">'中'</span>
+    <span class="token keyword">WHEN</span> GRADE <span class="token operator">BETWEEN</span> <span class="token number">60</span> <span class="token operator">AND</span> <span class="token number">69</span> <span class="token keyword">THEN</span> <span class="token string">'及格'</span>
+    <span class="token keyword">WHEN</span> GRADE<span class="token operator">&lt;</span><span class="token number">60</span> <span class="token keyword">THEN</span> <span class="token string">'不及格'</span>
+  <span class="token keyword">End</span> <span class="token keyword">as</span> degree 
+<span class="token keyword">From</span> sc<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="3-4-数据更新"><a href="#3-4-数据更新" class="headerlink" title="3.4 数据更新"></a>3.4 数据更新</h2><h3 id="3-4-1-插入数据"><a href="#3-4-1-插入数据" class="headerlink" title="3.4.1 插入数据"></a>3.4.1 插入数据</h3><ul>
+<li>INSERT  INTO &lt;表名&gt; [(&lt;属性列1&gt;[,&lt;属性列2 &gt;…)] VALUES (&lt;常量1&gt; [,&lt;常量2&gt;] … )</li>
+<li>功能：<strong>将新元组插入指定表中</strong></li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> student<span class="token punctuation">(</span>sno<span class="token punctuation">,</span>sname<span class="token punctuation">,</span>ssex<span class="token punctuation">,</span>sage<span class="token punctuation">,</span>sdept<span class="token punctuation">,</span>birthday<span class="token punctuation">)</span>
+	<span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'120'</span><span class="token punctuation">,</span><span class="token string">'李白'</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token string">'计算机系'</span><span class="token punctuation">,</span><span class="token string">'97/09/01'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">--oracle写法: to_date('09/01/1977','mm/dd/yyyy');</span>
+<span class="token comment">--追加查询结果到指定表中</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> xx11<span class="token punctuation">(</span>sno<span class="token punctuation">,</span>avggrade1<span class="token punctuation">)</span>
+ <span class="token keyword">select</span> sno<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token keyword">from</span> sc <span class="token keyword">group</span> <span class="token keyword">by</span> sno<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-4-2-修改和删除数据"><a href="#3-4-2-修改和删除数据" class="headerlink" title="3.4.2 修改和删除数据"></a>3.4.2 修改和删除数据</h3><p><strong>修改数据</strong>：</p>
+<ul>
+<li><p>UPDATE  &lt;表名&gt;  SET  &lt;列名&gt;&#x3D;&lt;表达式&gt;[,&lt;列名&gt;&#x3D;&lt;表达式&gt;] …  [WHERE &lt;条件&gt;];</p>
+</li>
+<li><p>功能：修改指定表中满足WHERE子句条件的元组</p>
+<p>[例]将信息系所有学生的年龄增加1岁。 <code>UPDATE Student SET Sage = Sage+1 WHERE Sdept=&#39;IS&#39;;</code></p>
+</li>
+</ul>
+<p><strong>删除数据</strong>：</p>
+<ul>
+<li>DELETE  FROM  &lt;表名&gt; [WHERE &lt;条件&gt;];</li>
+<li>功能：删除指定表中满足WHERE子句条件的元组</li>
+<li>需要满足实体完整性和参照完整性</li>
+<li>delete后表仍存在，drop后表会被删除</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> student <span class="token keyword">where</span> sname<span class="token operator">=</span><span class="token string">'李白'</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> sc<span class="token punctuation">;</span>
+<span class="token keyword">delete</span> <span class="token keyword">from</span> sc <span class="token keyword">where</span> sno<span class="token operator">=</span><span class="token string">'120'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-5-视图"><a href="#3-5-视图" class="headerlink" title="3.5 视图"></a>3.5 视图</h2><p>视图机制可以为不同的用户定义不同的视图，把数据对象限制在一定的范围内。也即，通过视图机制把要加密的数据对无权存取的用户隐藏起来，从而自动对数据提供一定程度的安全保护。<strong>视图机制间接地实现支持存取谓词的用户权限定义</strong>。</p>
+<ul>
+<li>视图是一个“<strong>假的表</strong>”，数据库中只存储查询语句，查询视图即是查询视图中的查询语句。</li>
+<li>视图消解是对视图的操作转换成对基本表的操作。</li>
+<li>CREATE  VIEW  &lt;视图名&gt;  [(&lt;列名&gt; [,&lt;列名&gt;]…)]  AS  &lt;子查询&gt;  [WITH CHECK OPTION];</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">view</span> avg_ss<span class="token punctuation">(</span>sname<span class="token punctuation">,</span>avggrade<span class="token punctuation">)</span> <span class="token keyword">as</span>
+  <span class="token keyword">select</span> sname<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token keyword">from</span> student<span class="token punctuation">,</span>sc
+    <span class="token keyword">where</span> student<span class="token punctuation">.</span>sno <span class="token operator">=</span> sc<span class="token punctuation">.</span>sno <span class="token keyword">group</span> <span class="token keyword">by</span> sname<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-6-数据控制"><a href="#3-6-数据控制" class="headerlink" title="3.6 数据控制"></a>3.6 数据控制</h2><h3 id="3-6-1-授权"><a href="#3-6-1-授权" class="headerlink" title="3.6.1 授权"></a>3.6.1 授权</h3><p>SQL语言用GRANT语句向用户授予操作权限。</p>
+<p>GRANT &lt;权限&gt;[,&lt;权限&gt;] … [<strong>ON</strong> &lt;对象类型&gt; &lt;对象名&gt;]  TO &lt;用户&gt;[,&lt;用户&gt;] …[WITH GRANT OPTION];</p>
+<p>若加入<strong>WITH GRANT OPTION</strong>，获得的权限仍可以授予给别人。</p>
+<p>[例1]把查询Student表权限授给用户U1。</p>
+<p><code>GRANT SELECT ON TABLE Student TO U1;</code></p>
+<p>[例2]把对Student表和Course表的全部权限授予用户U2和U3。</p>
+<p><code>GRANT ALL PRIVILIGES ON TABLE Student, Course TO U2,U3;</code></p>
+<p>[例3]把对表SC的查询权限授予所有用户。</p>
+<p><code>GRANT SELECT ON TABLE SC TO PUBLIC;</code></p>
+<p>[例4]把查询Student表和修改学生学号的权限授给用户U4。</p>
+<p><code>GRANT UPDATE(Sno), SELECT ON TABLE Student TO U4;</code></p>
+<p>[例5]把对表SC的INSERT权限授予U5用户，并允许他再将此权限授予其他用户。</p>
+<p><code>GRANT INSERT ON TABLE SC TO U5 WITH GRANT OPTION;</code></p>
+<h3 id="3-6-2-收回权限"><a href="#3-6-2-收回权限" class="headerlink" title="3.6.2 收回权限"></a>3.6.2 收回权限</h3><p>由DBA或其他授权者用<strong>REVOKE</strong>语句收回。</p>
+<p>一般格式：</p>
+<p>  REVOKE &lt;权限&gt;[,&lt;权限&gt;]…[ON &lt;对象类型&gt; &lt;对象名&gt;] FROM &lt;用户&gt;[,&lt;用户&gt;] …；</p>
+<p>[例1]把用户U4修改学生学号的权限收回。</p>
+<p>REVOKE UPDATE(Sno) ON TABLE Student FROM U4;</p>
+<p>[例2]收回所有用户对表SC的查询权限。</p>
+<p>REVOKE SELECT ON TABLE SC FROM PUBLIC;</p>
+<p>[例3]把用户U5对SC表的INSERT权限收回。</p>
+<p>REVOKE INSERT ON TABLE SC FROM U5;</p>
+
+                                    
+                            </div>
+                            <hr />
+
+                            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ShiQuLiZhi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.qqzzss.top/2022/08/14/theory/li-lun-03-shu-ju-ku-yuan-li-yi/">https://www.qqzzss.top/2022/08/14/theory/li-lun-03-shu-ju-ku-yuan-li-yi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特别声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">ShiQuLiZhi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+                                <div class="tag_share" style="display: block;">
+                                    <div class="post-meta__tag-list" style="display: inline-block;">
+                                        
+                                            <div class="article-tag">
+                                                
+                                                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                                                        <span class="chip bg-color">
+                                                            理论知识
+                                                        </span>
+                                                    </a>
+                                                    
+                                                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                                        <span class="chip bg-color">
+                                                            数据库
+                                                        </span>
+                                                    </a>
+                                                    
+                                            </div>
+                                            
+                                    </div>
+                                    <div class="post_share"
+                                        style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                                        <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                                    </div>
+                                </div>
+                                
+                        </div>
+    </div>
+
+    
+
+                
+
+                            
+
+                                        
+
+                                                    
+                                                        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling"
+        style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '8SzvSoQjCOrTadqpJ1LjqujD-9Nh9j0Va',
+        appKey: 'iv4mV6VBG7twuE7yQgwpsYaq',
+        notify: '' === 'true',
+        verify: '' === 'true',
+        visitor: '' === 'true',
+        avatar: '/medias/moren.png',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '快来评论区发表你的观点吧~ 听说昵称填写qq号可以显示qq头像和qq昵称哦!',
+        enableQQ: true,
+        boolean: true,
+        emojiCDN: '//i0.hdslb.com/bfs/emote/',
+        // 表情title和图片映射
+        emojiMaps: {
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+            "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+            "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+            "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+            "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+            "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+            "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+            "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+            "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+            "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+            "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+            "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+            "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+            "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+            "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+            "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+            "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+            "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+            "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+            "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+            "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+            "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+            "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+            "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+            "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+            "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+            "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+            "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+            "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+            "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+            "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+            "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+            "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+            "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+            "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+            "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+            "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+            "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+            "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+            "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+            "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+            "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+            "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+            "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+            "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+            "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+            "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+            "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+            "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+            "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+        },
+        requiredFields: ['nick'], //设置必填项
+    });
+</script>
+                                                            
+
+                                                                
+
+                                                                            
+
+                                                                                        
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/14/python/python02-zheng-ze-biao-da-shi-xue-xi-ji-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="正则表达式学习记录">
+                        
+                        <span class="card-title">正则表达式学习记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" class="post-category">
+                                    Python与数据处理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">程序设计</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/14/theory/li-lun-04-shu-ju-ku-yuan-li-er/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="数据库原理(二) 过程语言与关系数据理论">
+                        
+                        <span class="card-title">数据库原理(二) 过程语言与关系数据理论</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E7%A7%91%E7%90%86%E8%AE%BA/" class="post-category">
+                                    计算机学科理论
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">理论知识</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+    <script>
+        $('#articleContent').on('copy', function (e) {
+            // IE8 or earlier browser is 'undefined'
+            if (typeof window.getSelection === 'undefined') return;
+
+            var selection = window.getSelection();
+            // if the selection is short let's not annoy our users.
+            if (('' + selection).length < Number.parseInt('150')) {
+                return;
+            }
+
+            // create a div outside of the visible area and fill it with the selected text.
+            var bodyElement = document.getElementsByTagName('body')[0];
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            bodyElement.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            // we need a <pre> tag workaround.
+            // otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            var url = document.location.href;
+            newdiv.innerHTML += '<br />'
+                + '来源: ShiQuLiZhi BLOG<br />'
+                + '文章作者: ShiQuLiZhi<br />'
+                + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+                + '本文著作权归作者所有，任何形式的转载均请注明出处。';
+
+            selection.selectAllChildren(newdiv);
+            window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+        });
+    </script>
+    
+
+        <!-- 代码块功能依赖 -->
+        <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+        <!-- 代码语言 -->
+        
+            <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+            
+
+                <!-- 代码块复制 -->
+                
+                    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+                    
+
+                        <!-- 代码块收缩 -->
+                        
+                            <script type="text/javascript"
+                                src="/libs/codeBlock/codeShrink.js"></script>
+                            
+
+                                <!-- 代码块折行 -->
+                                
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src=""></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+                            <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2023</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">ShiQuLiZhi</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">459k</span>&nbsp;字
+            
+            
+            
+            
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2022";
+                    var startMonth = "8";
+                    var startDate = "13";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/sxhthreo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+        data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+    
+
+        
+            <a href="mailto:951161604@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我"
+                data-position="top" data-delay="50">
+                <i class="fas fa-envelope-open"></i>
+            </a>
+            
+
+                
+
+                        
+
+                                
+                                    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=951161604"
+                                        class="tooltipped" target="_blank"
+                                        data-tooltip="QQ联系我: 951161604" data-position="top"
+                                        data-delay="50">
+                                        <i class="fab fa-qq"></i>
+                                    </a>
+                                    
+
+                                        
+
+                                                
+                                                    <a href="https://www.zhihu.com/people/shui-he-qing-chi-zi-14" class="tooltipped"
+                                                        target="_blank"
+                                                        data-tooltip="关注我的知乎: https://www.zhihu.com/people/shui-he-qing-chi-zi-14"
+                                                        data-position="top" data-delay="50">
+                                                        <i class="fab fa-zhihu1">知</i>
+                                                    </a>
+                                                    
+
+                                                        
+
+                                                                
+                                                                    <a href="https://blog.csdn.net/sxH3O?type=blog"
+                                                                        class="tooltipped" target="_blank"
+                                                                        data-tooltip="关注我的CSDN: https://blog.csdn.net/sxH3O?type=blog"
+                                                                        data-position="top" data-delay="50">
+                                                                        <i class="fab fa-csdn">C</i>
+                                                                    </a>
+                                                                    </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+                                <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+                                    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+                                        <script
+                                            src="/libs/materialize/materialize.min.js"></script>
+                                        <script
+                                            src="/libs/masonry/masonry.pkgd.min.js"></script>
+                                        <script
+                                            src="/libs/aos/aos.js"></script>
+                                        <script
+                                            src="/libs/scrollprogress/scrollProgress.min.js"></script>
+                                        <script
+                                            src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+                                        <script
+                                            src="/js/matery.js"></script>
+
+                                        <!-- Baidu Analytics -->
+
+                                            <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+                                                
+                                                    <script
+                                                        src="/libs/others/clicklove.js"
+                                                        async="async"></script>
+                                                    
+                                                        
+
+                                                                
+
+                                                                        
+
+                                                                                
+                                                                                        
+                                                                                            <script
+                                                                                                type="text/javascript"
+                                                                                                color="0,0,255"
+                                                                                                pointColor="0,0,255"
+                                                                                                opacity='0.7'
+                                                                                                zIndex="-1"
+                                                                                                count="99"
+                                                                                                src="/libs/background/canvas-nest.js"></script>
+                                                                                            
+
+                                                                                                
+
+                                                                                                            
+                                                                                                                <script
+                                                                                                                    type="text/javascript"
+                                                                                                                    src="/libs/background/ribbon-dynamic.js"
+                                                                                                                    async="async"></script>
+                                                                                                                
+
+                                                                                                                    
+                                                                                                                        <script
+                                                                                                                            src="/libs/instantpage/instantpage.js"
+                                                                                                                            type="module"></script>
+                                                                                                                        
+
+
+
+
+                <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
