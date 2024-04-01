@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="算法课外思考题1111(证明), ShiQuLiZhi BLOG">
+    <meta name="keywords" content="关于领取升华学生公寓洗浴水控补助的通知, ShiQuLiZhi BLOG">
     <meta name="description" content="世界很暗，但是你来了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法课外思考题1111(证明) | ShiQuLiZhi BLOG</title>
+    <title>关于领取升华学生公寓洗浴水控补助的通知 | ShiQuLiZhi BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法课外思考题1111(证明)</h1>
+                    <h1 class="description center-align post-title">关于领取升华学生公寓洗浴水控补助的通知</h1>
                 </div>
             </div>
         </div>
@@ -368,34 +368,15 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                        <div class="article-tag">
+                            <div class="article-tag">
+                                <span class="chip bg-color">
+                                    无标签
+                                </span>
+                            </div>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">
-                                        算法
-                                    </span>
-                                </a>
-                                
-                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                    <span class="chip bg-color">
-                                        程序设计
-                                    </span>
-                                </a>
-                                
-                        </div>
-                        
                 </div>
                 <div class="col s5 right-align">
                     
-                        <div class="post-cate">
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                                <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
-                                </a>
-                                
-                        </div>
-                        
                 </div>
             </div>
 
@@ -404,7 +385,7 @@
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>
                         发布日期:&nbsp;&nbsp;
-                            2022-11-11
+                            2024-04-01
                     </div>
                     
 
@@ -412,7 +393,7 @@
                             <div class="post-date info-break-policy">
                                 <i class="far fa-calendar-check fa-fw"></i>
                                 更新日期:&nbsp;&nbsp;
-                                    2023-02-07
+                                    2024-04-01
                             </div>
                             
 
@@ -420,7 +401,7 @@
                                     <div class="info-break-policy">
                                         <i class="far fa-file-word fa-fw"></i>
                                         文章字数:&nbsp;&nbsp;
-                                            427
+                                            531
                                     </div>
                                     
 
@@ -455,19 +436,18 @@
 
                         <div class="card-content article-card-content">
                             <div id="articleContent">
-                                <blockquote>
-<p>💡Author：信安2002钱泽枢(<em><a target="_blank" rel="noopener" href="https://sxhthreo.github.io/">ShiQuLiZhi</a></em>)</p>
-<p>🚀欢迎访问我的作业合集：<a target="_blank" rel="noopener" href="https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/">https://sxhthreo.github.io/categories/%E4%BD%9C%E4%B8%9A/</a></p>
-</blockquote>
-<h1 id="一、题干"><a href="#一、题干" class="headerlink" title="一、题干"></a>一、题干</h1><p>假设可换的硬币的单位是 $c$ 的幂，也就是 $c_0, c_1,…,c_k$ ,其中整数 $c&gt;1,k≥1$ 。证明使用贪心算法总可以产生一个最优解。</p>
-<h1 id="二、证明"><a href="#二、证明" class="headerlink" title="二、证明"></a>二、证明</h1><p>在最优解中，若使用了面值为 $c^i$ 的硬币去找零，则面值为 $c^i$ 的硬币最多只能使用 $c-1$ 个。</p>
-<p>设 $k$ 是可换的硬币的种类数，$n$ 是需要找换的总价值，$a_i$ 是使用面值为 $c^i$ 的硬币的数量。</p>
-<p>我们将硬币按面值从小到大进行排序。</p>
-<p>对于贪心选择，设 $j&#x3D;max{0\leq i \leq k,c^i \leq n}$，每次我们将会选择面值为 $c^j$ 的硬币，我们的目标是证明贪心解就是最优解，即对于所有的非贪心选择均不是最优解。</p>
-<p>对于非贪心选择，我们不会选择面值为 $c^j$ 的硬币，则我们有 $\sum_{i&#x3D;0}^{j-1} a_{i} c^{i}&#x3D;n$，其中 $a_i$ 表示使用面值为 $c^i$ 的硬币的个数。若面值为 $c^j$ 的硬币可用，则有 $n\geq c^j$，故 $\sum_{i&#x3D;0}^{j-1} a_{i} c^{i}\geq c^j$；</p>
-<p>又有 $a_i\leq c-1$，则</p>
-<p>$\begin{aligned}<br>\sum_{i&#x3D;0}^{j-1} a_{i} c^{i} &amp; \leq \sum_{i&#x3D;0}^{j-1}(c-1) c^{i} \<br>&amp;&#x3D;(c-1) \sum_{i&#x3D;0}^{j-1} c^{i} \<br>&amp;&#x3D;(c-1) \frac{c^{j}-1}{c-1} \<br>&amp;&#x3D;c^{j}-1 \<br>&amp;&lt;c^{j}<br>\end{aligned}$</p>
-<p>与 $\sum_{i&#x3D;0}^{j-1} a_{i} c^{i}\geq c^j$ 矛盾，则非贪心选择不是最优解。故贪心选择是最优解。</p>
+                                <p>各位同学：</p>
+<p>​	为进一步改善学生生活条件，响应广大学生对于洗浴水控补助需求的反馈，学校决定对现行的水控补助政策进行调整，以更好地服务于全体学生。具体事宜通知如下：</p>
+<p>​	洗浴水控补助政策调整。原水控补助政策为每位学生每月30元，仅限用于热水消费。自本通知发布之日起，学生可将此补助转化为洗浴资金，用于学生公寓的洗浴消费。学生可通过学校设置的多个补助机（位于各学生公寓楼下）操作转化。首次操作需要验证学生身份（学生证或学校APP电子认证），之后按照屏幕提示完成转化。一旦转化为洗浴资金，将无法再变更回热水资金。完成一次补助资金的转化后，该补助将自动变为洗浴补助，每月自动发放至学生账户，无需每月重复操作。注意事项如下：</p>
+<ol>
+<li>转化操作一经确认，不可撤销，请同学们谨慎选择。</li>
+<li>洗浴补助仅限于校园内学生公寓的洗浴消费，不可用于校外消费。</li>
+<li>请同学们于每月的前五个工作日内完成当月补助的转化操作，逾期未操作视为自动放弃当月补助。</li>
+<li>如有疑问或需要帮助，请联系学生事务部或直接到学生公寓管理中心咨询。</li>
+</ol>
+<p>本通知自发布之日起立即实施。第一次转化操作可从本通知发布后的第二日起，在指定补助机上进行。学校希望通过此次政策调整，为同学们提供更加便利、舒适的校园生活环境。由于资金转换较大，首次补助领取应提供30元保证金给指定学校账户，将由“失去理智”提供代收。感谢大家的理解与支持，愚人节快乐！</p>
+<p>口|南大学后备保障处</p>
+<p>2024年4月1日</p>
 
                                     
                             </div>
@@ -494,7 +474,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.qqzzss.top/2022/11/11/homework/algorithm/si-kao-ti-1111-zheng-ming/">https://www.qqzzss.top/2022/11/11/homework/algorithm/si-kao-ti-1111-zheng-ming/</a>
+                    <a href="https://www.qqzzss.top/2024/04/01/guan-yu-ling-qu-sheng-hua-xue-sheng-gong-yu-xi-yu-shui-kong-bu-zhu-de-tong-zhi/">https://www.qqzzss.top/2024/04/01/guan-yu-ling-qu-sheng-hua-xue-sheng-gong-yu-xi-yu-shui-kong-bu-zhu-de-tong-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,22 +510,12 @@
                                 <div class="tag_share" style="display: block;">
                                     <div class="post-meta__tag-list" style="display: inline-block;">
                                         
-                                            <div class="article-tag">
+                                                <div class="article-tag">
+                                                    <span class="chip bg-color">
+                                                        无标签
+                                                    </span>
+                                                </div>
                                                 
-                                                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                                        <span class="chip bg-color">
-                                                            算法
-                                                        </span>
-                                                    </a>
-                                                    
-                                                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                                        <span class="chip bg-color">
-                                                            程序设计
-                                                        </span>
-                                                    </a>
-                                                    
-                                            </div>
-                                            
                                     </div>
                                     <div class="post_share"
                                         style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
@@ -916,70 +886,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/11/20/homework/algorithm/si-kao-ti-1116-ren-wu-diao-du/">
+                <a href="/2024/04/01/guan-yu-ling-qu-sheng-hua-xue-sheng-gong-yu-xi-yu-shui-kong-bu-zhu-de-tong-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="算法课外思考题1116(任务调度)">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="关于领取升华学生公寓洗浴水控补助的通知">
                         
-                        <span class="card-title">算法课外思考题1116(任务调度)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/11/05/homework/algorithm/si-kao-ti-1104-zheng-ming/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="算法课外思考题1104(证明)">
-                        
-                        <span class="card-title">算法课外思考题1104(证明)</span>
+                        <span class="card-title">关于领取升华学生公寓洗浴水控补助的通知</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -990,14 +908,52 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ShiQuLiZhi
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/18/paperreading/paper04-symqemu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="SymQEMU_Compilation-based symbolic execution for binaries">
+                        
+                        <span class="card-title">SymQEMU_Compilation-based symbolic execution for binaries</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="post-category">
-                                    作业
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
                                 </a>
                             
                             
@@ -1007,12 +963,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">
+                        <span class="chip bg-color">信息安全</span>
                     </a>
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">程序设计</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">论文阅读</span>
                     </a>
                     
                 </div>
