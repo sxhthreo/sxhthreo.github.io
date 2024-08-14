@@ -500,7 +500,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05"]
+            data: ["2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08"]
         },
         yAxis: {
             type: 'value',
@@ -510,7 +510,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,3,4,0,0,0,0,0,1],
+                data: [0,0,3,4,0,0,0,0,0,0,0,0,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -552,7 +552,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"算法学习","value":10},{"name":"数据结构与算法课程","value":6},{"name":"Java与开发基础","value":8},{"name":"作业","value":16},{"name":"Python与数据处理","value":5},{"name":"信息安全专业课程","value":9},{"name":"计算机学科理论","value":4},{"name":"论文阅读","value":4}],
+                data: [{"name":"算法学习","value":10},{"name":"数据结构与算法课程","value":6},{"name":"Java与开发基础","value":8},{"name":"作业","value":16},{"name":"Python与数据处理","value":5},{"name":"信息安全专业课程","value":10},{"name":"计算机学科理论","value":4},{"name":"论文阅读","value":4}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -576,7 +576,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["算法","程序设计","信息安全","数据结构","理论知识","网络安全","Python","Web技术","论文阅读","数据库"]
+                data: ["算法","程序设计","信息安全","数据结构","理论知识","网络安全","Python","论文阅读","Web技术","数据库"]
             }
         ],
         yAxis: [
@@ -589,7 +589,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [32,30,13,9,8,6,5,5,4,3],
+                data: [32,30,14,9,8,6,5,5,5,3],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -889,7 +889,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">459.2k</span>&nbsp;字
+                class="white-color">471.9k</span>&nbsp;字
             
             
             
@@ -1176,27 +1176,12 @@ $(function () {
                                                                                                                     
                                                                                                                         <script
                                                                                                                             src="/libs/instantpage/instantpage.js"
-                                                                                                                            type="module"></script>
+                                                                                                                            type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
                                                                                                                         
 
 
 
 
-                <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+                </body>
 
 </html>
